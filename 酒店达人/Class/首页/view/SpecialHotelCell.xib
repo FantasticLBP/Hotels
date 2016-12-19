@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SpecialHotelCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0I-cE-kn0" userLabel="left">
+                        <rect key="frame" x="60" y="25" width="50" height="1"/>
+                        <color key="backgroundColor" red="0.26666666666666666" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="HHk-Sw-8AU"/>
+                            <constraint firstAttribute="height" constant="1" id="fBc-Ap-Ezl"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="特色酒店" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwJ-qf-RfA">
+                        <rect key="frame" x="120" y="0.0" width="80" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="B1l-wr-ePt"/>
+                            <constraint firstAttribute="height" constant="50" id="y10-fl-m9I"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="花一样的钱，住点有特色的酒店" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBn-m3-Xic">
+                        <rect key="frame" x="0.0" y="50" width="320" height="32"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4h-3V-Tr9" userLabel="right">
+                        <rect key="frame" x="210" y="25" width="50" height="1"/>
+                        <color key="backgroundColor" red="0.26666666666666666" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="K2d-mc-oLT"/>
+                            <constraint firstAttribute="width" constant="50" id="iAY-FJ-Euv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="H4h-3V-Tr9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="9WW-vg-B4M"/>
+                    <constraint firstItem="v0I-cE-kn0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="DtQ-MX-UKi"/>
+                    <constraint firstItem="LwJ-qf-RfA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EEN-Mb-rqw"/>
+                    <constraint firstItem="TBn-m3-Xic" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Hqj-Qt-Xcj"/>
+                    <constraint firstItem="TBn-m3-Xic" firstAttribute="top" secondItem="LwJ-qf-RfA" secondAttribute="bottom" id="HzA-CW-Zvi"/>
+                    <constraint firstAttribute="bottom" secondItem="TBn-m3-Xic" secondAttribute="bottom" id="bYM-8U-JgM"/>
+                    <constraint firstItem="LwJ-qf-RfA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gBF-px-UqH"/>
+                    <constraint firstItem="H4h-3V-Tr9" firstAttribute="leading" secondItem="LwJ-qf-RfA" secondAttribute="trailing" constant="10" id="jvW-Ow-ePf"/>
+                    <constraint firstItem="LwJ-qf-RfA" firstAttribute="leading" secondItem="v0I-cE-kn0" secondAttribute="trailing" constant="10" id="tkQ-rC-qOd"/>
+                    <constraint firstAttribute="trailing" secondItem="TBn-m3-Xic" secondAttribute="trailing" id="wKy-PX-hnY"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+</document>

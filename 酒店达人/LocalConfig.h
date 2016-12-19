@@ -1,0 +1,38 @@
+
+//
+//  LocalConfig.h
+//  KSGuidViewDemo
+//
+//  Created by geek on 2016/10/13.
+//  Copyright © 2016年 孔. All rights reserved.
+//
+
+#ifndef LocalConfig_h
+#define LocalConfig_h
+
+/************************************获取屏幕 宽度、高度******************************************/
+#define BoundWidth [UIScreen mainScreen].bounds.size.width
+#define BoundHeight [UIScreen mainScreen].bounds.size.height
+
+/************************************颜色******************************************/
+
+#define GlobalMainColor [UIColor colorWithRed:34/255.0 green:187/255.0 blue:98/255.0 alpha:1]
+#define TintTextColor [UIColor colorWithRed:212/255.0 green:212/255.0 blue:212/255.0 alpha:1]
+#define TextColor [UIColor colorWithRed:154/255.0 green:154/255.0 blue:154/255.0 alpha:1]
+#define TableViewBackgroundColor [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1]
+#define CollectionViewBackgroundColor [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1]
+#define DefaultButtonColor [UIColor colorWithRed:68/255.0 green:153/255.0 blue:255/255.0 alpha:1]
+
+/************************************颜色******************************************/
+#define TelePhoneNumber @"18968103090"
+#define LoginUserInfo @"LoginUserInfo"
+#define KNOTIFICATION_LOGINCHANGE @"loginStateChange"
+
+
+/************************************url******************************************/
+#define Base_Url @"http://www.baidu.com"
+#define Avator_URL @"/app/avatar/"
+
+
+#endif /* LocalConfig_h */
+
