@@ -88,7 +88,7 @@ typedef enum {
 @property (nonatomic, strong) NSArray *localizationImageNamesGroup;
 
 
-
+@property (nonatomic, assign) CGFloat originY;
 
 
 //////////////////////  滚动控制接口 //////////////////////

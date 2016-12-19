@@ -487,8 +487,12 @@ NSString * const ID = @"cycleCell";
     if (self.pageControlAliment == SDCycleScrollViewPageContolAlimentRight) {
         x = self.mainView.sd_width - size.width - 10;
     }
-    CGFloat y = self.mainView.sd_height - size.height - 10;
-    
+    CGFloat y ;
+    if (!self.originY) {
+        y = self.mainView.sd_height - size.height - 10;
+    }else{
+        y = self.originY;
+    }
     if ([self.pageControl isKindOfClass:[TAPageControl class]]) {
         TAPageControl *pageControl = (TAPageControl *)_pageControl;
         [pageControl sizeToFit];

@@ -21,7 +21,7 @@
 #import "UIImageView+EMWebCache.h"
 #import "FlatUIKit.h"
 #import "Masonry.h"
-
+#import "NSDate+Formatter.h"
 
 
 #endif /* PrefixHeader_pch */

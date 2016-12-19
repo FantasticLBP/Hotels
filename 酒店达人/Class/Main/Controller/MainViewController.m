@@ -27,7 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setupTarBar];
     LBPNavigationController *homeNav=[[LBPNavigationController alloc]initWithRootViewController:self.homeVC];
     [self createVC:self.homeVC Title:@"首页" imageName:@"shouye"];
     

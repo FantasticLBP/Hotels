@@ -132,6 +132,9 @@
 		936B09081E06E0F1009AD3D3 /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 936B08AC1E06E0F0009AD3D3 /* package.json */; };
 		936B09091E06E0F1009AD3D3 /* template.js in Resources */ = {isa = PBXBuildFile; fileRef = 936B08AD1E06E0F0009AD3D3 /* template.js */; };
 		936B090C1E06E2B7009AD3D3 /* TrainBookingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936B090B1E06E2B7009AD3D3 /* TrainBookingVC.m */; };
+		93967B201E0825050003122A /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93967B1F1E0825050003122A /* NSDate+Formatter.m */; };
+		93967B231E0830D30003122A /* UILabel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 93967B221E0830D30003122A /* UILabel+Helper.m */; };
+		93967B291E083BA60003122A /* HotelDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93967B281E083BA60003122A /* HotelDetailVC.m */; };
 		93AD7DD61DFE9F690067C539 /* SpecialHotelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7DD41DFE9F690067C539 /* SpecialHotelCell.m */; };
 		93AD7DD71DFE9F690067C539 /* SpecialHotelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AD7DD51DFE9F690067C539 /* SpecialHotelCell.xib */; };
 		93AD7DDB1DFEA2E40067C539 /* HotelDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7DD91DFEA2E40067C539 /* HotelDescriptionCell.m */; };
@@ -484,6 +487,12 @@
 		936B08AD1E06E0F0009AD3D3 /* template.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = template.js; sourceTree = "<group>"; };
 		936B090A1E06E2B7009AD3D3 /* TrainBookingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainBookingVC.h; sourceTree = "<group>"; };
 		936B090B1E06E2B7009AD3D3 /* TrainBookingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainBookingVC.m; sourceTree = "<group>"; };
+		93967B1E1E0825050003122A /* NSDate+Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatter.h"; sourceTree = "<group>"; };
+		93967B1F1E0825050003122A /* NSDate+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
+		93967B211E0830D30003122A /* UILabel+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Helper.h"; sourceTree = "<group>"; };
+		93967B221E0830D30003122A /* UILabel+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Helper.m"; sourceTree = "<group>"; };
+		93967B271E083BA60003122A /* HotelDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelDetailVC.h; sourceTree = "<group>"; };
+		93967B281E083BA60003122A /* HotelDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelDetailVC.m; sourceTree = "<group>"; };
 		93AD7DD31DFE9F690067C539 /* SpecialHotelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialHotelCell.h; sourceTree = "<group>"; };
 		93AD7DD41DFE9F690067C539 /* SpecialHotelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialHotelCell.m; sourceTree = "<group>"; };
 		93AD7DD51DFE9F690067C539 /* SpecialHotelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialHotelCell.xib; sourceTree = "<group>"; };
@@ -1060,6 +1069,17 @@
 			path = img;
 			sourceTree = "<group>";
 		};
+		93967B1A1E081B190003122A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				93967B1E1E0825050003122A /* NSDate+Formatter.h */,
+				93967B1F1E0825050003122A /* NSDate+Formatter.m */,
+				93967B211E0830D30003122A /* UILabel+Helper.h */,
+				93967B221E0830D30003122A /* UILabel+Helper.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		93E02C431DDB58C7007EAE1E = {
 			isa = PBXGroup;
 			children = (
@@ -1563,6 +1583,7 @@
 		93E02D841DDB598D007EAE1E /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				93967B1A1E081B190003122A /* Category */,
 				936B084E1E06E0B8009AD3D3 /* Resources */,
 				93E02D851DDB598D007EAE1E /* Main */,
 				93E02D8B1DDB598D007EAE1E /* utils */,
@@ -1590,6 +1611,8 @@
 				93E02D881DDB598D007EAE1E /* LBPNavigationController.m */,
 				93E02D891DDB598D007EAE1E /* MainViewController.h */,
 				93E02D8A1DDB598D007EAE1E /* MainViewController.m */,
+				93967B271E083BA60003122A /* HotelDetailVC.h */,
+				93967B281E083BA60003122A /* HotelDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2277,6 +2300,7 @@
 				93F6B3F41DE1FDD20048F279 /* IQNSArray+Sort.m in Sources */,
 				93E02DE11DDB598D007EAE1E /* PSTGridLayoutInfo.m in Sources */,
 				93E02DDA1DDB598D007EAE1E /* PSTCollectionViewCell.m in Sources */,
+				93967B231E0830D30003122A /* UILabel+Helper.m in Sources */,
 				93E02DE31DDB598D007EAE1E /* PSTGridLayoutRow.m in Sources */,
 				93F572BA1DE27C0E00966974 /* MASConstraint.m in Sources */,
 				93E02E231DDB598D007EAE1E /* UIScrollView+MJExtension.m in Sources */,
@@ -2313,6 +2337,7 @@
 				93F6B3FF1DE1FDD20048F279 /* IQTitleBarButtonItem.m in Sources */,
 				93E02E371DDB598D007EAE1E /* SearchHotelVC.m in Sources */,
 				93302CB31DFAA2A20091F145 /* SDWebImageDownloader.m in Sources */,
+				93967B201E0825050003122A /* NSDate+Formatter.m in Sources */,
 				93E02E251DDB598D007EAE1E /* UIView+MJExtension.m in Sources */,
 				93E02E291DDB598D007EAE1E /* NSObject+YYModel.m in Sources */,
 				93F572B91DE27C0E00966974 /* MASCompositeConstraint.m in Sources */,
@@ -2324,6 +2349,7 @@
 				93E02E131DDB598D007EAE1E /* MJRefreshAutoFooter.m in Sources */,
 				93E02E121DDB598D007EAE1E /* MBProgressHUD.m in Sources */,
 				93302C8B1DFAA0DA0091F145 /* UIView+SDExtension.m in Sources */,
+				93967B291E083BA60003122A /* HotelDetailVC.m in Sources */,
 				93E02DCD1DDB598D007EAE1E /* EMSDWebImageManager.m in Sources */,
 				93F6B3C81DE1ED900048F279 /* MyNotificationVC.m in Sources */,
 				93E02E2A1DDB598D007EAE1E /* YYClassInfo.m in Sources */,

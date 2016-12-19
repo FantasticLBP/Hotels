@@ -16,6 +16,8 @@
 #import "HotelDescriptionCell.h"
 #import "TrainBookingVC.h"
 #import "ConditionPickerView.h"
+#import "HotelDetailVC.h"
+
 
 #import "YYFPSLabel.h"
 
@@ -59,17 +61,13 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [SVProgressHUD dismiss];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {   //设置样式
-    return UIStatusBarStyleLightContent;
-}
-
 - (BOOL)prefersStatusBarHidden { //设置隐藏显示
     return YES;
 }
 
 - (void)preData{
     [SVProgressHUD showWithStatus:@"正在加载"];
-    for (int i = 1; i <= 11; i++){
+    for (int i = 1; i <= 8; i++){
         [self.dataArray addObject:[NSString stringWithFormat:@"jpg-%d",i]];
     }
     self.advertiseView.localizationImageNamesGroup = self.dataArray;
@@ -146,6 +144,13 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row>=3) {
+        HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 #pragma mark -- private method
 -(void)remind{
     NSLog(@"remind");
@@ -182,8 +187,9 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(SDCycleScrollView *)advertiseView{
     if (!_advertiseView) {
         SDCycleScrollView *adview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, BoundWidth, 394) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
-        adview.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+        adview.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
         adview.currentPageDotColor = [UIColor whiteColor];
+        adview.originY = 112;
         _advertiseView = adview;
     }
     return _advertiseView;
