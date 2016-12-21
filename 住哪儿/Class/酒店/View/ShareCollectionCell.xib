@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShareCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Share_qq_icon" translatesAutoresizingMaskIntoConstraints="NO" id="M2P-cG-4uu">
+                        <rect key="frame" x="16" y="5" width="52" height="55"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="52" id="slM-Il-fBU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYI-mw-rI1">
+                        <rect key="frame" x="0.0" y="64" width="85" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="WbN-ss-gjR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="M2P-cG-4uu" secondAttribute="bottom" constant="25" id="13v-kJ-GqW"/>
+                <constraint firstItem="M2P-cG-4uu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Csu-n4-7r5"/>
+                <constraint firstItem="XYI-mw-rI1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SdX-rq-alb"/>
+                <constraint firstAttribute="trailing" secondItem="XYI-mw-rI1" secondAttribute="trailing" id="ZXP-qd-1iy"/>
+                <constraint firstAttribute="bottom" secondItem="XYI-mw-rI1" secondAttribute="bottom" id="jBi-8A-Nk0"/>
+                <constraint firstItem="M2P-cG-4uu" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="shR-6n-gXt"/>
+            </constraints>
+            <connections>
+                <outlet property="sharePlatformImageView" destination="M2P-cG-4uu" id="vwe-WR-95x"/>
+                <outlet property="sharePlatformLabel" destination="XYI-mw-rI1" id="yO6-y6-yGX"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Share_qq_icon" width="155" height="164"/>
+    </resources>
+</document>
