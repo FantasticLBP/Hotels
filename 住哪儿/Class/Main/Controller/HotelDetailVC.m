@@ -12,12 +12,14 @@
 #import "HotelTimeCell.h"
 #import "HotelKindCell.h"
 #import "HotelNoticeCell.h"
-
+#import "HotelBaseConditionCell.h"
+#import "HotelEvaluateCell.h"
 #import "ShareView.h"
 #import <MessageUI/MessageUI.h>
 
 #import "HotelLocationMapVC.h"
 #import "HotelAlbumsVC.h"
+#import "HotelEvaluateVC.h"
 
 #define ShareViewHeight BoundWidth/2+51
 #define ShowShareViewDuration 5.0
@@ -25,6 +27,9 @@ static NSString *HotelImageCellID = @"HotelImageCell";
 static NSString *HotelTimeCellID = @"HotelTimeCell";
 static NSString *HotelKindCellID = @"HotelKindCell";
 static NSString *HotelNoticeCellID = @"HotelNoticeCell";
+static NSString *HotelBaseConditionCellID = @"HotelBaseConditionCell";
+static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
+
 
 
 @interface HotelDetailVC ()<UITableViewDelegate,UITableViewDataSource,
@@ -125,7 +130,7 @@ static NSString *HotelNoticeCellID = @"HotelNoticeCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.hotelTypes.count + 7;
+    return self.hotelTypes.count + 9;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -133,7 +138,11 @@ static NSString *HotelNoticeCellID = @"HotelNoticeCell";
         return 311;
     }else if(indexPath.row == 1){
         return 73;
-    }else if (indexPath.row == 6){
+    }else if (indexPath.row == 2){
+        return 140;
+    }else if (indexPath.row == 7){
+        return 62;
+    }else if (indexPath.row == 8){
         return 73;
     }else{
         return 90;
@@ -149,7 +158,13 @@ static NSString *HotelNoticeCellID = @"HotelNoticeCell";
     }else if(indexPath.row == 1){
         HotelTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelTimeCellID forIndexPath:indexPath];
         return  cell;
-    }else if(indexPath.row == 6){
+    }else if (indexPath.row == 2){
+        HotelBaseConditionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelBaseConditionCellID forIndexPath:indexPath];
+        return  cell;
+    }else if (indexPath.row == 7){
+        HotelEvaluateCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelEvaluateCellID forIndexPath:indexPath];
+        return cell;
+    }else if(indexPath.row == 8){
         HotelNoticeCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelNoticeCellID forIndexPath:indexPath];
         return cell;
     }else{
@@ -161,6 +176,10 @@ static NSString *HotelNoticeCellID = @"HotelNoticeCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 7) {
+        HotelEvaluateVC *vc = [[HotelEvaluateVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - HotelImageCellDelegate
@@ -211,6 +230,8 @@ static NSString *HotelNoticeCellID = @"HotelNoticeCell";
         [_tableView registerNib:[UINib nibWithNibName:@"HotelTimeCell" bundle:nil] forCellReuseIdentifier:HotelTimeCellID];
         [_tableView registerClass:[HotelKindCell class] forCellReuseIdentifier:HotelKindCellID];
         [_tableView registerClass:[HotelNoticeCell class] forCellReuseIdentifier:HotelNoticeCellID];
+        [_tableView registerClass:[HotelBaseConditionCell class] forCellReuseIdentifier:HotelBaseConditionCellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"HotelEvaluateCell" bundle:nil] forCellReuseIdentifier:HotelEvaluateCellID];
         _tableView.backgroundColor = CollectionViewBackgroundColor;
         _tableView.delegate = self;
         _tableView.dataSource = self;

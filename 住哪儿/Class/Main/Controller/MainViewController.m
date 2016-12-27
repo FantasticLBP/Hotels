@@ -9,14 +9,14 @@
 #import "MainViewController.h"
 #import "HomeViewController.h"
 #import "LBPNavigationController.h"
-#import "MessageViewController.h"
+#import "FindViewController.h"
 #import "SettingViewController.h"
 #import "OrderViewController.h"
 
 
 @interface MainViewController ()
 @property (nonatomic, strong) HomeViewController *homeVC;
-@property (nonatomic, strong) MessageViewController *messageVC;
+@property (nonatomic, strong) FindViewController *messageVC;
 @property (nonatomic, strong) SettingViewController *settingVC;
 @property (nonatomic, strong) OrderViewController *orderVC;
 
@@ -65,9 +65,9 @@
 }
 
 
--(MessageViewController *)messageVC{
+-(FindViewController *)messageVC{
     if (!_messageVC) {
-        _messageVC = [[MessageViewController alloc] init];
+        _messageVC = [[FindViewController alloc] init];
         _messageVC.view.backgroundColor = TableViewBackgroundColor;
         _messageVC.title = @"消息";
     }

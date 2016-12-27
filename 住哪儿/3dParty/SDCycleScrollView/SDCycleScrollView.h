@@ -91,7 +91,7 @@ typedef enum {
 
 @property (nonatomic, assign) CGFloat originY;
 
-
+@property (nonatomic) UIViewContentMode mode;
 //////////////////////  滚动控制接口 //////////////////////
 
 /** 自动滚动间隔时间,默认2s */

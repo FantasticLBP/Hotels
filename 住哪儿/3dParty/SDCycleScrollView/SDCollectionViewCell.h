@@ -43,5 +43,5 @@
 @property (nonatomic, assign) CGFloat titleLabelHeight;
 
 @property (nonatomic, assign) BOOL hasConfigured;
-
+@property (nonatomic) UIViewContentMode mode;
 @end

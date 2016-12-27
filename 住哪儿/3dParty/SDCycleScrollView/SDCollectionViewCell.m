@@ -103,4 +103,9 @@
     _titleLabel.hidden = !_titleLabel.text;
 }
 
+-(void)setMode:(UIViewContentMode)mode{
+    _mode = mode;
+    self.imageView.contentMode = mode;
+}
+
 @end

@@ -32,11 +32,12 @@ static NSString *OrderCellId = @"OrderCell";
     [self.view addSubview:self.tableView];
     self.page  = 1;
 
-    
-    
-    
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 
 #pragma mark - private method
 -(void)clickContactPhone{

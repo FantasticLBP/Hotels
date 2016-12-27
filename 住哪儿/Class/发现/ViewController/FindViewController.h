@@ -1,5 +1,5 @@
 //
-//  MessageViewController.h
+//  FindViewController.h
 //  住哪儿
 //
 //  Created by geek on 2016/10/10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MessageViewController : UIViewController
+@interface FindViewController : UIViewController
 
 @end
