@@ -43,6 +43,7 @@
         NSLog(@"选择了%@",type);
         NSLog(@"等待刷新列表");
     };
+    
     LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:navi animated:YES completion:nil];
 
