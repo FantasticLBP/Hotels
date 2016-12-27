@@ -12,9 +12,6 @@
 
 #define CloseButtonHeight 50
 #define BoundaryViewHeight 1
-#define CollectionViewPaddingLeft 20
-#define CollectionViewPaddingRight 20
-
 
 static NSString *ShareCollectionCellID = @"ShareCollectionCell";
 
@@ -57,24 +54,22 @@ static NSString *ShareCollectionCellID = @"ShareCollectionCell";
         make.bottom.equalTo(self);
         make.height.mas_equalTo(CloseButtonHeight);
     }];
-    /*
+    
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(CollectionViewPaddingLeft);
+        make.left.equalTo(self);
         make.top.equalTo(self);
-        make.right.mas_equalTo(-CollectionViewPaddingRight);
-        make.bottom.mas_equalTo(-BoundaryViewHeight - CloseButtonHeight);
+        make.right.equalTo(self);
+        make.height.mas_equalTo(self.frame.size.height - BoundaryViewHeight -CloseButtonHeight);
     }];
-     */
-    self.collectionView.frame = CGRectMake(0, 0, BoundWidth, self.frame.size.height-51);
     [self.collectionView reloadData];
 }
 
 #pragma mark - button method
 -(void)closeShareView{
-    [UIView animateWithDuration:0.5 animations:^{
-
+    [UIView animateWithDuration:0.3 animations:^{
+        [self setFrame:CGRectMake(0, BoundHeight, BoundWidth, self.frame.size.height)];
     } completion:^(BOOL finished) {
-        self.center = CGPointMake(self.center.x, BoundHeight+self.frame.size.height/2);
+        
     }];
 }
 

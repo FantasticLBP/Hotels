@@ -15,7 +15,7 @@
 #define BoundHeight [UIScreen mainScreen].bounds.size.height
 
 /************************************颜色******************************************/
-#define GlobalMainColor [UIColor colorWithRed:34/255.0 green:187/255.0 blue:98/255.0 alpha:1]
+#define GlobalMainColor [UIColor colorWithRed:93/255.0 green:70/255.0 blue:148/255.0 alpha:1]
 #define TintTextColor [UIColor colorWithRed:212/255.0 green:212/255.0 blue:212/255.0 alpha:1]
 #define TextColor [UIColor colorWithRed:154/255.0 green:154/255.0 blue:154/255.0 alpha:1]
 #define TableViewBackgroundColor [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1]

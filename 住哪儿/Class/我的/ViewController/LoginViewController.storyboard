@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,7 +104,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gai-fi-C5b">
-                                <rect key="frame" x="10" y="211" width="355" height="40"/>
+                                <rect key="frame" x="30" y="211" width="315" height="40"/>
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.73333333333333328" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PcV-qN-SSq"/>
@@ -154,7 +154,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPf-BI-od2">
-                                <rect key="frame" x="10" y="291" width="355" height="40"/>
+                                <rect key="frame" x="30" y="291" width="315" height="40"/>
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.73333333333333328" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Hsd-eK-Iz6"/>
@@ -185,17 +185,18 @@
                             <constraint firstItem="v7S-r2-xBV" firstAttribute="centerX" secondItem="OCv-Qc-8yM" secondAttribute="centerX" id="cIq-8V-dg0"/>
                             <constraint firstItem="pm5-c3-ALt" firstAttribute="top" secondItem="1gH-RT-wHz" secondAttribute="bottom" constant="130" id="dkq-7j-MyT"/>
                             <constraint firstItem="VPf-BI-od2" firstAttribute="leading" secondItem="Gai-fi-C5b" secondAttribute="leading" id="hvW-1R-tR7"/>
-                            <constraint firstItem="Gai-fi-C5b" firstAttribute="leading" secondItem="OCv-Qc-8yM" secondAttribute="leading" constant="10" id="iCX-5f-msS"/>
+                            <constraint firstItem="Gai-fi-C5b" firstAttribute="leading" secondItem="OCv-Qc-8yM" secondAttribute="leading" constant="30" id="iCX-5f-msS"/>
                             <constraint firstItem="oIl-LV-6xt" firstAttribute="top" secondItem="v7S-r2-xBV" secondAttribute="bottom" constant="30" id="mJx-1L-4IR"/>
-                            <constraint firstAttribute="trailing" secondItem="Gai-fi-C5b" secondAttribute="trailing" constant="10" id="nCd-5b-f4d"/>
+                            <constraint firstAttribute="trailing" secondItem="Gai-fi-C5b" secondAttribute="trailing" constant="30" id="nCd-5b-f4d"/>
                             <constraint firstItem="weG-Pi-K8m" firstAttribute="top" secondItem="BNm-ma-du7" secondAttribute="bottom" constant="30" id="nVz-2w-UIq"/>
                             <constraint firstItem="VPf-BI-od2" firstAttribute="top" secondItem="Gai-fi-C5b" secondAttribute="bottom" constant="40" id="tzB-VA-3vi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="inputView" destination="weG-Pi-K8m" id="XbG-FX-wJS"/>
-                        <outlet property="loginButton" destination="Gai-fi-C5b" id="lXy-AG-LeD"/>
+                        <outlet property="loginButton" destination="Gai-fi-C5b" id="Jvc-AH-hJn"/>
                         <outlet property="passwordTextField" destination="JOB-FM-dj2" id="Jhj-5I-lZR"/>
+                        <outlet property="registerButton" destination="VPf-BI-od2" id="YC5-c2-CWP"/>
                         <outlet property="usernameTextField" destination="7HR-5T-sPu" id="OQj-ZT-0Bk"/>
                         <outlet property="wechatButton" destination="oIl-LV-6xt" id="h6Q-Kw-UC2"/>
                     </connections>

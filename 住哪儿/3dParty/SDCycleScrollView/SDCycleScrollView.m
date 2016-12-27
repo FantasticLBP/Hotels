@@ -33,8 +33,10 @@
 #import "SDCollectionViewCell.h"
 #import "UIView+SDExtension.h"
 #import "TAPageControl.h"
-#import "UIImageView+WebCache.h"
-#import "SDImageCache.h"
+
+#import "UIImageView+EMWebCache.h"
+#import "EMSDImageCache.h"
+
 
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
 
@@ -451,7 +453,7 @@ NSString * const ID = @"cycleCell";
 
 + (void)clearImagesCache
 {
-    [[[SDWebImageManager sharedManager] imageCache] clearDisk];
+    [[[EMSDWebImageManager sharedManager] imageCache] clearDisk];
 }
 
 #pragma mark - life circles
@@ -487,6 +489,11 @@ NSString * const ID = @"cycleCell";
     if (self.pageControlAliment == SDCycleScrollViewPageContolAlimentRight) {
         x = self.mainView.sd_width - size.width - 10;
     }
+    
+    if (self.pageControlAliment == SDCycleScrollViewPageContolAlimentLeft) {
+        x = 16;
+    }
+    
     CGFloat y ;
     if (!self.originY) {
         y = self.mainView.sd_height - size.height - 10;
@@ -575,7 +582,7 @@ NSString * const ID = @"cycleCell";
         cell.hasConfigured = YES;
         cell.imageView.contentMode = self.bannerImageViewContentMode;
         cell.clipsToBounds = YES;
-        cell.onlyDisplayText = self.onlyDisplayText;
+//        cell.onlyDisplayText = self.onlyDisplayText;
     }
     
     return cell;

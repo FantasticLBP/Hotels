@@ -27,7 +27,6 @@ static NSString *HotPopularHotelCollectionCellID = @"HotPopularHotelCollectionCe
     return self;
 }
 
-
 #pragma mark - private method
 -(void)setupUI{
     [self addSubview:self.collectionview];

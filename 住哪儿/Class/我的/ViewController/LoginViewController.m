@@ -16,9 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *wechatButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
 
 @end
 
@@ -27,8 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-
-    
 }
 
 
@@ -36,9 +33,10 @@
 -(void)setupUI{
     self.title = @"登录";
     self.inputView.layer.cornerRadius = 3.0f;
-    
-    self.loginButton.layer.cornerRadius = 3.0f;
-    
+    self.loginButton.layer.cornerRadius = 5.0f;
+    self.registerButton.layer.cornerRadius = 5.0f;
+    self.loginButton.backgroundColor = GlobalMainColor;
+    self.registerButton.backgroundColor = GlobalMainColor;
 }
 
 - (IBAction)clickLoginButton:(id)sender {

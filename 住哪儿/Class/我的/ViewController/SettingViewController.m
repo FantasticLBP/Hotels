@@ -38,20 +38,14 @@
 }
 
 #pragma mark -- UITableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section==0 || section == 1)
-    {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section==0 || section == 1){
         return 1;
     }
-    if(section==2)
-    {
+    if(section==2){
         return 6;
     }
-    
     return 5;
-    
-
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -96,6 +90,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
     }
     
+    for (UIView *subView in cell.contentView.subviews) {
+        [subView removeFromSuperview];
+        cell.textLabel.text = @"";
+    }
+    
     if (indexPath.section == 0 ) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 8, 55, 55)];
         imageView.tag = 105;
@@ -110,19 +109,12 @@
         [imageView sd_setImageWithURL:[NSURL URLWithString:urlName] placeholderImage:[UIImage imageNamed:@"profile"]];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [cell.contentView addSubview:imageView];
-        
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(95, 15, 100, 20)];
-        label.tag = 2;
-        [cell.contentView addSubview:label];
-        
-        UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(95, 38, 150, 20)];
-        label1.tag = 3;
-        cell.selectionStyle = UITableViewCellEditingStyleNone;
-        [cell.contentView addSubview:label1];
     }
+    
     if (indexPath.section ==1 && indexPath.row == 0) {
         cell.textLabel.text = @"我的优惠券";
     }
+    
     if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             cell.textLabel.text = @"芝麻信用";
@@ -134,7 +126,7 @@
             cell.textLabel.text = @"我的通知";
         }else if (indexPath.row == 4){
             cell.textLabel.text = @"在线咨询与投诉";
-        }else if (indexPath.row == 5){
+        }else{
             cell.textLabel.text = @"拨打客服电话";
         }
     }
@@ -148,12 +140,10 @@
             cell.textLabel.text = @"推荐蚂蚁给朋友";
         }else if (indexPath.row == 3){
             cell.textLabel.text = @"意见反馈";
-        }else if (indexPath.row == 4){
+        }else{
             cell.textLabel.text = @"关于住哪儿";
         }
-
     }
-    
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return  cell;

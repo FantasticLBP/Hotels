@@ -93,7 +93,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     }
 }
 
-#pragma mark - UITableViewDataSource methods
+#pragma mark - UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -135,6 +135,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row>=3) {
         HotelDetailVC *vc = [[HotelDetailVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
@@ -186,7 +187,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
             [WeakSelf preData];
         }];
         _tableView.mj_header.automaticallyChangeAlpha = YES;       // 设置自动切换透明度(在导航栏下面自动隐藏)
-        _tableView.allowsSelection=NO;
     }
     return _tableView;
 }
@@ -219,6 +219,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     }
     return _headerView;
 }
+
 -(NSMutableArray *)dataArray{
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];

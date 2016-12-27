@@ -36,6 +36,7 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
+    SDCycleScrollViewPageContolAlimentLeft,
     SDCycleScrollViewPageContolAlimentRight,
     SDCycleScrollViewPageContolAlimentCenter
 } SDCycleScrollViewPageContolAliment;

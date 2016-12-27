@@ -8,14 +8,18 @@
 //
 
 #import "PrivilegeHotelVC.h"
-#import "ShareView.h"
-#import <MessageUI/MessageUI.h>
+#import "SpecialHotelConditionPickCell.h"
+#import "CheaperHotelCell.h"
+#import "HotelDetailVC.h"
 
-#define ShareViewHeight BoundWidth/2+51
-#define ShowShareViewDuration 5.0
+static NSString *SpecialHotelConditionPickCellID = @"SpecialHotelConditionPickCell";
+static NSString *CheaperHotelCellID = @"CheaperHotelCell";
 
-@interface PrivilegeHotelVC ()<ShareViewDelegate,MFMessageComposeViewControllerDelegate>
-@property (nonatomic, strong) ShareView *shareView;
+@interface PrivilegeHotelVC ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *specialHotels;
+@property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, strong) NSMutableArray *images;
 @end
 
 @implementation PrivilegeHotelVC
@@ -24,75 +28,103 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    for (int i = 1; i <= 8; i++){
+        [self.images addObject:[NSString stringWithFormat:@"jpg-%d",i]];
+    }
 }
 
 #pragma mark - private method
 -(void)setupUI{
     self.view.backgroundColor = CollectionViewBackgroundColor;
     self.title = @"特惠酒店";
-    self.navigationItem.rightBarButtonItem = ({
-        UIBarButtonItem *right = [[UIBarButtonItem alloc] init];
-        right.image = [UIImage imageNamed:@"Share_icon"];
-        right.target = self;
-        right.action = @selector(showToShare);
-        right;
-    });
-    [self.view addSubview:self.shareView];
-}
-
--(void)showToShare{
-    [UIView animateWithDuration:ShowShareViewDuration animations:^{
-        
-    } completion:^(BOOL finished) {
-        self.shareView.center = CGPointMake(self.view.center.x, BoundHeight-ShareViewHeight/2);
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
     }];
 }
 
-#pragma mark - ShareViewDelegate
--(void)shareView:(ShareView *)shareView didSelectItemAtIndexPath:(NSInteger)indexPath{
-    switch (indexPath) {
-        case 0:
-            [SVProgressHUD showInfoWithStatus:@"微信好友分享"];
-            break;
-        case 1:
-            [SVProgressHUD showInfoWithStatus:@"微信朋友圈分享"];
-            break;
-        case 2:
-            [SVProgressHUD showInfoWithStatus:@"新浪微博分享"];
-            break;
-        case 3:
-            [SVProgressHUD showInfoWithStatus:@"QQ分享"];
-            break;
-        case 4:
-            [SVProgressHUD showInfoWithStatus:@"QQ空间分享"];
-            break;
-        case 5:
-            if (![MFMessageComposeViewController canSendText]) {    /**<判断能不能发送短信*/
-                return ;
-            }
-            MFMessageComposeViewController *messageVC = [[MFMessageComposeViewController alloc] init];
-            messageVC.body = @"跟你分享一下这个酒店，真的很赞哦";
-            messageVC.recipients = @[@"10086"];
-            messageVC.messageComposeDelegate = self;
-            [self presentViewController:messageVC animated:YES completion:^{
-                
-            }];
-            break;
+-(void)loadSpecialHotel{
+    
+}
+
+#pragma mark - UITableViewDelegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return 1 + self.specialHotels.count;
+    return  5;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        return 232;
+    }else{
+        return 120;
     }
 }
 
-#pragma mark - MEss
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
-    [self dismissViewControllerAnimated:YES completion:nil];
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        SpecialHotelConditionPickCell *cell = [tableView dequeueReusableCellWithIdentifier:SpecialHotelConditionPickCellID];
+        return cell;
+    }else{
+        CheaperHotelCell *cell = [tableView dequeueReusableCellWithIdentifier:CheaperHotelCellID forIndexPath:indexPath];
+        return cell;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+    vc.images = self.images;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    cell.separatorInset = UIEdgeInsetsMake(cell.frame.size.height-1, 12, 0, 12);
+    cell.layoutMargins = UIEdgeInsetsZero;
+    cell.preservesSuperviewLayoutMargins=NO;
 }
 
 #pragma mark - lazy load
--(ShareView *)shareView{
-    if (!_shareView) {
-        _shareView = [[ShareView alloc] initWithFrame:CGRectMake(0, BoundHeight, BoundWidth, ShareViewHeight)];
-        _shareView.delegate = self;
+-(UITableView *)tableView{
+    if (!_tableView) {
+        _tableView=[[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        _tableView.scrollsToTop = YES;
+        _tableView.backgroundColor = TableViewBackgroundColor;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        //[_tableView registerClass:[SelectConditionCell class] forCellReuseIdentifier:SelectConditionCellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"SpecialHotelConditionPickCell" bundle:nil] forCellReuseIdentifier:SpecialHotelConditionPickCellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"CheaperHotelCell" bundle:nil] forCellReuseIdentifier:CheaperHotelCellID];
+        __weak typeof(self) WeakSelf = self;
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [WeakSelf loadSpecialHotel];
+        }];
+        
+        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [WeakSelf loadSpecialHotel];
+        }];
+        _tableView.mj_header.automaticallyChangeAlpha = YES;       // 设置自动切换透明度(在导航栏下面自动隐藏)
     }
-    return _shareView;
+    return _tableView;
+}
+
+-(NSMutableArray *)specialHotels{
+    if (!_specialHotels) {
+        _specialHotels = [NSMutableArray array];
+    }
+    return _specialHotels;
+}
+
+-(NSMutableArray *)images{
+    if (!_images) {
+        _images = [NSMutableArray array];
+    }
+    return _images;
 }
 
 @end

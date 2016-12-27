@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HotelDetailVC : UIViewController
-
+@property (nonatomic, strong) NSMutableArray *images;
 @end

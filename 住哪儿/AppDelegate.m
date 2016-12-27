@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+//百度地图key
+//#define BMAPKEY @"LYHkYVQGWmQxKZw7O62P24Cj1aCovpuN";
+
 
 @interface AppDelegate ()
 
@@ -17,8 +20,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
+
     return YES;
 }
 

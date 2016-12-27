@@ -220,7 +220,6 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.allowsSelection = NO;
     }
     return _tableView;
 }
