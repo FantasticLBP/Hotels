@@ -65,6 +65,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     vc.topic = ^(NSString *type){
         NSLog(@"选择了%@",type);
         NSLog(@"等待刷新列表");
+        [self preData];
     };
     
     LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:vc];
