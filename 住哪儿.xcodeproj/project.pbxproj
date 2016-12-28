@@ -22,6 +22,27 @@
 		930FE6181E0D092E00CBA28B /* CheaperHotelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 930FE6161E0D092E00CBA28B /* CheaperHotelCell.m */; };
 		930FE6191E0D092E00CBA28B /* CheaperHotelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 930FE6171E0D092E00CBA28B /* CheaperHotelCell.xib */; };
 		930FE61C1E0D699900CBA28B /* HotelImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 930FE61B1E0D699900CBA28B /* HotelImageCell.m */; };
+		9319735D1E135BAF009D896D /* JFAreaDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973491E135BAF009D896D /* JFAreaDataManager.m */; };
+		9319735E1E135BAF009D896D /* shop_area.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9319734B1E135BAF009D896D /* shop_area.sqlite */; };
+		9319735F1E135BAF009D896D /* JFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319734D1E135BAF009D896D /* JFButton.m */; };
+		931973601E135BAF009D896D /* JFCityCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319734F1E135BAF009D896D /* JFCityCollectionFlowLayout.m */; };
+		931973611E135BAF009D896D /* JFCityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973511E135BAF009D896D /* JFCityCollectionViewCell.m */; };
+		931973621E135BAF009D896D /* JFCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973531E135BAF009D896D /* JFCityHeaderView.m */; };
+		931973631E135BAF009D896D /* JFCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973551E135BAF009D896D /* JFCityTableViewCell.m */; };
+		931973641E135BAF009D896D /* JFCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973571E135BAF009D896D /* JFCityViewController.m */; };
+		931973651E135BAF009D896D /* JFSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973591E135BAF009D896D /* JFSearchView.m */; };
+		931973661E135BAF009D896D /* JFLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319735C1E135BAF009D896D /* JFLocation.m */; };
+		931973891E1360A8009D896D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319737E1E1360A8009D896D /* FMDatabase.m */; };
+		9319738A1E1360A8009D896D /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973801E1360A8009D896D /* FMDatabaseAdditions.m */; };
+		9319738B1E1360A8009D896D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973821E1360A8009D896D /* FMDatabasePool.m */; };
+		9319738C1E1360A8009D896D /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973841E1360A8009D896D /* FMDatabaseQueue.m */; };
+		9319738D1E1360A8009D896D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973871E1360A8009D896D /* FMResultSet.m */; };
+		9319738E1E1360A8009D896D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 931973881E1360A8009D896D /* Info.plist */; };
+		931973911E136197009D896D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 931973901E136197009D896D /* libsqlite3.0.tbd */; };
+		931973941E1373E8009D896D /* LBPScrollSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973931E1373E8009D896D /* LBPScrollSegmentView.m */; };
+		931973971E137487009D896D /* OrderItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973961E137487009D896D /* OrderItemVC.m */; };
+		9319739D1E1384CF009D896D /* HotelRoomPriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319739C1E1384CF009D896D /* HotelRoomPriceVC.m */; };
+		931973A01E1385BC009D896D /* RoomInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319739F1E1385BC009D896D /* RoomInfoHeaderView.m */; };
 		93302CC01DFAA5040091F145 /* SelectConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93302CBF1DFAA5040091F145 /* SelectConditionCell.m */; };
 		93302CC71DFAA67C0091F145 /* ConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93302CC51DFAA67C0091F145 /* ConditionCell.m */; };
 		93302CC81DFAA67C0091F145 /* ConditionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93302CC61DFAA67C0091F145 /* ConditionCell.xib */; };
@@ -366,6 +387,46 @@
 		930FE6171E0D092E00CBA28B /* CheaperHotelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheaperHotelCell.xib; sourceTree = "<group>"; };
 		930FE61A1E0D699900CBA28B /* HotelImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelImageCell.h; sourceTree = "<group>"; };
 		930FE61B1E0D699900CBA28B /* HotelImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelImageCell.m; sourceTree = "<group>"; };
+		931973481E135BAF009D896D /* JFAreaDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFAreaDataManager.h; sourceTree = "<group>"; };
+		931973491E135BAF009D896D /* JFAreaDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFAreaDataManager.m; sourceTree = "<group>"; };
+		9319734B1E135BAF009D896D /* shop_area.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = shop_area.sqlite; sourceTree = "<group>"; };
+		9319734C1E135BAF009D896D /* JFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFButton.h; sourceTree = "<group>"; };
+		9319734D1E135BAF009D896D /* JFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFButton.m; sourceTree = "<group>"; };
+		9319734E1E135BAF009D896D /* JFCityCollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCityCollectionFlowLayout.h; sourceTree = "<group>"; };
+		9319734F1E135BAF009D896D /* JFCityCollectionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCityCollectionFlowLayout.m; sourceTree = "<group>"; };
+		931973501E135BAF009D896D /* JFCityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCityCollectionViewCell.h; sourceTree = "<group>"; };
+		931973511E135BAF009D896D /* JFCityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCityCollectionViewCell.m; sourceTree = "<group>"; };
+		931973521E135BAF009D896D /* JFCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCityHeaderView.h; sourceTree = "<group>"; };
+		931973531E135BAF009D896D /* JFCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCityHeaderView.m; sourceTree = "<group>"; };
+		931973541E135BAF009D896D /* JFCityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCityTableViewCell.h; sourceTree = "<group>"; };
+		931973551E135BAF009D896D /* JFCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCityTableViewCell.m; sourceTree = "<group>"; };
+		931973561E135BAF009D896D /* JFCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFCityViewController.h; sourceTree = "<group>"; };
+		931973571E135BAF009D896D /* JFCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFCityViewController.m; sourceTree = "<group>"; };
+		931973581E135BAF009D896D /* JFSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFSearchView.h; sourceTree = "<group>"; };
+		931973591E135BAF009D896D /* JFSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFSearchView.m; sourceTree = "<group>"; };
+		9319735B1E135BAF009D896D /* JFLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFLocation.h; sourceTree = "<group>"; };
+		9319735C1E135BAF009D896D /* JFLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFLocation.m; sourceTree = "<group>"; };
+		9319737D1E1360A8009D896D /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		9319737E1E1360A8009D896D /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		9319737F1E1360A8009D896D /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		931973801E1360A8009D896D /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		931973811E1360A8009D896D /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		931973821E1360A8009D896D /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		931973831E1360A8009D896D /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		931973841E1360A8009D896D /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		931973851E1360A8009D896D /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		931973861E1360A8009D896D /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		931973871E1360A8009D896D /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		931973881E1360A8009D896D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		931973901E136197009D896D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		931973921E1373E8009D896D /* LBPScrollSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBPScrollSegmentView.h; sourceTree = "<group>"; };
+		931973931E1373E8009D896D /* LBPScrollSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBPScrollSegmentView.m; sourceTree = "<group>"; };
+		931973951E137487009D896D /* OrderItemVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItemVC.h; sourceTree = "<group>"; };
+		931973961E137487009D896D /* OrderItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItemVC.m; sourceTree = "<group>"; };
+		9319739B1E1384CF009D896D /* HotelRoomPriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelRoomPriceVC.h; sourceTree = "<group>"; };
+		9319739C1E1384CF009D896D /* HotelRoomPriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelRoomPriceVC.m; sourceTree = "<group>"; };
+		9319739E1E1385BC009D896D /* RoomInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfoHeaderView.h; sourceTree = "<group>"; };
+		9319739F1E1385BC009D896D /* RoomInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfoHeaderView.m; sourceTree = "<group>"; };
 		93302CBE1DFAA5040091F145 /* SelectConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectConditionCell.h; sourceTree = "<group>"; };
 		93302CBF1DFAA5040091F145 /* SelectConditionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectConditionCell.m; sourceTree = "<group>"; };
 		93302CC41DFAA67C0091F145 /* ConditionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionCell.h; sourceTree = "<group>"; };
@@ -873,6 +934,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931973911E136197009D896D /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +955,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		931973461E135BAF009D896D /* JFCityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				931973471E135BAF009D896D /* AreaDataManager */,
+				9319734A1E135BAF009D896D /* AreaDB */,
+				9319734C1E135BAF009D896D /* JFButton.h */,
+				9319734D1E135BAF009D896D /* JFButton.m */,
+				9319734E1E135BAF009D896D /* JFCityCollectionFlowLayout.h */,
+				9319734F1E135BAF009D896D /* JFCityCollectionFlowLayout.m */,
+				931973501E135BAF009D896D /* JFCityCollectionViewCell.h */,
+				931973511E135BAF009D896D /* JFCityCollectionViewCell.m */,
+				931973521E135BAF009D896D /* JFCityHeaderView.h */,
+				931973531E135BAF009D896D /* JFCityHeaderView.m */,
+				931973541E135BAF009D896D /* JFCityTableViewCell.h */,
+				931973551E135BAF009D896D /* JFCityTableViewCell.m */,
+				931973561E135BAF009D896D /* JFCityViewController.h */,
+				931973571E135BAF009D896D /* JFCityViewController.m */,
+				931973581E135BAF009D896D /* JFSearchView.h */,
+				931973591E135BAF009D896D /* JFSearchView.m */,
+				9319735A1E135BAF009D896D /* Location */,
+			);
+			path = JFCityViewController;
+			sourceTree = "<group>";
+		};
+		931973471E135BAF009D896D /* AreaDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				931973481E135BAF009D896D /* JFAreaDataManager.h */,
+				931973491E135BAF009D896D /* JFAreaDataManager.m */,
+			);
+			path = AreaDataManager;
+			sourceTree = "<group>";
+		};
+		9319734A1E135BAF009D896D /* AreaDB */ = {
+			isa = PBXGroup;
+			children = (
+				9319734B1E135BAF009D896D /* shop_area.sqlite */,
+			);
+			path = AreaDB;
+			sourceTree = "<group>";
+		};
+		9319735A1E135BAF009D896D /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				9319735B1E135BAF009D896D /* JFLocation.h */,
+				9319735C1E135BAF009D896D /* JFLocation.m */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		9319737C1E1360A8009D896D /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				9319737D1E1360A8009D896D /* FMDatabase.h */,
+				9319737E1E1360A8009D896D /* FMDatabase.m */,
+				9319737F1E1360A8009D896D /* FMDatabaseAdditions.h */,
+				931973801E1360A8009D896D /* FMDatabaseAdditions.m */,
+				931973811E1360A8009D896D /* FMDatabasePool.h */,
+				931973821E1360A8009D896D /* FMDatabasePool.m */,
+				931973831E1360A8009D896D /* FMDatabaseQueue.h */,
+				931973841E1360A8009D896D /* FMDatabaseQueue.m */,
+				931973851E1360A8009D896D /* FMDB.h */,
+				931973861E1360A8009D896D /* FMResultSet.h */,
+				931973871E1360A8009D896D /* FMResultSet.m */,
+				931973881E1360A8009D896D /* Info.plist */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		9319738F1E136197009D896D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				931973901E136197009D896D /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		936B08471E06DDC3009AD3D3 /* YYFPSLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,6 +1169,7 @@
 		936C7AD31E0927370065389F /* 酒店 */ = {
 			isa = PBXGroup;
 			children = (
+				931973461E135BAF009D896D /* JFCityViewController */,
 				936C7AD61E09276E0065389F /* Controller */,
 				936C7AD51E0927670065389F /* View */,
 				936C7AD41E09275E0065389F /* Model */,
@@ -1075,6 +1215,8 @@
 				93089D491E1236E700C9C273 /* HotelEvaluateCell.h */,
 				93089D4A1E1236E700C9C273 /* HotelEvaluateCell.m */,
 				93089D4B1E1236E700C9C273 /* HotelEvaluateCell.xib */,
+				9319739E1E1385BC009D896D /* RoomInfoHeaderView.h */,
+				9319739F1E1385BC009D896D /* RoomInfoHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1092,6 +1234,8 @@
 				93E6F8771E10133F004B0594 /* HotelAlbumsVC.m */,
 				93089D501E12444E00C9C273 /* HotelEvaluateVC.h */,
 				93089D511E12444E00C9C273 /* HotelEvaluateVC.m */,
+				9319739B1E1384CF009D896D /* HotelRoomPriceVC.h */,
+				9319739C1E1384CF009D896D /* HotelRoomPriceVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1114,6 +1258,7 @@
 				93E02C681DDB58C8007EAE1E /* 住哪儿Tests */,
 				93E02C731DDB58C8007EAE1E /* 住哪儿 */,
 				93E02C4D1DDB58C7007EAE1E /* Products */,
+				9319738F1E136197009D896D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1178,6 +1323,7 @@
 		93E02C851DDB598D007EAE1E /* 3dParty */ = {
 			isa = PBXGroup;
 			children = (
+				9319737C1E1360A8009D896D /* fmdb */,
 				93FA9F881E10AD5B001DCAA0 /* MWPhotoBrowser */,
 				93FA9F2F1E10AB66001DCAA0 /* SDCycleScrollView */,
 				936B08471E06DDC3009AD3D3 /* YYFPSLabel */,
@@ -1504,6 +1650,8 @@
 			children = (
 				93E02D871DDB598D007EAE1E /* LBPNavigationController.h */,
 				93E02D881DDB598D007EAE1E /* LBPNavigationController.m */,
+				931973921E1373E8009D896D /* LBPScrollSegmentView.h */,
+				931973931E1373E8009D896D /* LBPScrollSegmentView.m */,
 				93E02D891DDB598D007EAE1E /* MainViewController.h */,
 				93E02D8A1DDB598D007EAE1E /* MainViewController.m */,
 			);
@@ -1663,6 +1811,8 @@
 			children = (
 				93E02DA41DDB598D007EAE1E /* OrderViewController.h */,
 				93E02DA51DDB598D007EAE1E /* OrderViewController.m */,
+				931973951E137487009D896D /* OrderItemVC.h */,
+				931973961E137487009D896D /* OrderItemVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2145,6 +2295,7 @@
 				936B08B81E06E0F0009AD3D3 /* ban-train-log.png in Resources */,
 				936B08F91E06E0F1009AD3D3 /* my-order.png in Resources */,
 				93E02E0E1DDB598D007EAE1E /* NavBarIconSearchBar_blue@2x.png in Resources */,
+				9319738E1E1360A8009D896D /* Info.plist in Resources */,
 				936B08C71E06E0F0009AD3D3 /* elong@2x.png in Resources */,
 				936B08DE1E06E0F0009AD3D3 /* icon-list-price-huawei.png in Resources */,
 				936B08ED1E06E0F0009AD3D3 /* icon-question-weixin.png in Resources */,
@@ -2172,6 +2323,7 @@
 				936B08BC1E06E0F0009AD3D3 /* bind12306-banner.jpg in Resources */,
 				936B08CC1E06E0F0009AD3D3 /* icon-calendar-elong.png in Resources */,
 				936B08F11E06E0F0009AD3D3 /* icon-success.png in Resources */,
+				9319735E1E135BAF009D896D /* shop_area.sqlite in Resources */,
 				936B08E31E06E0F0009AD3D3 /* icon-list-time-weixin.png in Resources */,
 				93E02E051DDB598D007EAE1E /* Lato-Regular.ttf in Resources */,
 				936B08FB1E06E0F1009AD3D3 /* registerStep12306_1.png in Resources */,
@@ -2270,25 +2422,31 @@
 				93FA9FFC1E10AD5B001DCAA0 /* UIView+EMWebCacheOperation.m in Sources */,
 				93E02E321DDB598D007EAE1E /* FindViewController.m in Sources */,
 				93FA9F411E10AB66001DCAA0 /* TADotView.m in Sources */,
+				9319738D1E1360A8009D896D /* FMResultSet.m in Sources */,
 				93DACA791E08CA81003157BD /* SalePromotionImageView.m in Sources */,
 				93FA9F421E10AB66001DCAA0 /* TAPageControl.m in Sources */,
 				93E02E281DDB598D007EAE1E /* SVProgressHUD.m in Sources */,
 				93FA9FF71E10AD5B001DCAA0 /* UIImage+EMGIF.m in Sources */,
 				93FA9FFB1E10AD5B001DCAA0 /* UIImageView+EMWebCache.m in Sources */,
+				9319735D1E135BAF009D896D /* JFAreaDataManager.m in Sources */,
 				93E02DB41DDB598D007EAE1E /* AFHTTPRequestOperation.m in Sources */,
 				936691DD1DF955D7009E121B /* ConditionPickerView.m in Sources */,
 				93FA9FE91E10AD5B001DCAA0 /* MWTapDetectingImageView.m in Sources */,
 				93F572C11DE27C0E00966974 /* View+MASAdditions.m in Sources */,
 				93FAA0011E10AD5B001DCAA0 /* PSTCollectionViewData.m in Sources */,
+				931973611E135BAF009D896D /* JFCityCollectionViewCell.m in Sources */,
 				93FAA0111E10BC47001DCAA0 /* HotelTimeCell.m in Sources */,
 				93E02E301DDB598D007EAE1E /* SettingViewController.m in Sources */,
 				93E02DE71DDB598D007EAE1E /* BLKFlexibleHeightBar.m in Sources */,
+				931973661E135BAF009D896D /* JFLocation.m in Sources */,
 				93F6B3F61DE1FDD20048F279 /* IQUITextFieldView+Additions.m in Sources */,
 				936C7AE91E095F0B0065389F /* ShareView.m in Sources */,
+				9319739D1E1384CF009D896D /* HotelRoomPriceVC.m in Sources */,
 				93E02DF91DDB598D007EAE1E /* UINavigationBar+FlatUI.m in Sources */,
 				93E02DF01DDB598D007EAE1E /* FUIPopoverBackgroundView.m in Sources */,
 				93E02E151DDB598D007EAE1E /* MJRefreshComponent.m in Sources */,
 				93E02DEC1DDB598D007EAE1E /* UIView+BLKFlexibleHeightBarSubview.m in Sources */,
+				931973651E135BAF009D896D /* JFSearchView.m in Sources */,
 				93E02DFC1DDB598D007EAE1E /* UISlider+FlatUI.m in Sources */,
 				93E02C571DDB58C7007EAE1E /* ViewController.m in Sources */,
 				93E02E241DDB598D007EAE1E /* UIScrollView+MJRefresh.m in Sources */,
@@ -2346,7 +2504,9 @@
 				93FA9FEC1E10AD5B001DCAA0 /* DACircularProgressView.m in Sources */,
 				93E02E141DDB598D007EAE1E /* MJRefreshBackFooter.m in Sources */,
 				93E02E261DDB598D007EAE1E /* SVIndefiniteAnimatedView.m in Sources */,
+				931973641E135BAF009D896D /* JFCityViewController.m in Sources */,
 				93089D4C1E1236E700C9C273 /* HotelEvaluateCell.m in Sources */,
+				931973891E1360A8009D896D /* FMDatabase.m in Sources */,
 				93302CC01DFAA5040091F145 /* SelectConditionCell.m in Sources */,
 				93E02DEA1DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.m in Sources */,
 				93E02DF31DDB598D007EAE1E /* FUITextField.m in Sources */,
@@ -2357,8 +2517,11 @@
 				93F6B3FE1DE1FDD20048F279 /* IQPreviousNextView.m in Sources */,
 				93FA9F451E10AB66001DCAA0 /* UIView+SDExtension.m in Sources */,
 				93FA9FF31E10AD5B001DCAA0 /* EMSDWebImagePrefetcher.m in Sources */,
+				931973621E135BAF009D896D /* JFCityHeaderView.m in Sources */,
 				93F572C81DE27CB600966974 /* AboutVC.m in Sources */,
 				936C7AED1E0980AD0065389F /* ShareCollectionCell.m in Sources */,
+				931973941E1373E8009D896D /* LBPScrollSegmentView.m in Sources */,
+				9319738C1E1360A8009D896D /* FMDatabaseQueue.m in Sources */,
 				93E02E1F1DDB598D007EAE1E /* MJRefreshNormalHeader.m in Sources */,
 				93E02E1E1DDB598D007EAE1E /* MJRefreshGifHeader.m in Sources */,
 				93FA9FEE1E10AD5B001DCAA0 /* EMSDWebImageCompat.m in Sources */,
@@ -2366,6 +2529,7 @@
 				93089D521E12444E00C9C273 /* HotelEvaluateVC.m in Sources */,
 				93E02DB61DDB598D007EAE1E /* AFHTTPSessionManager.m in Sources */,
 				930FE60E1E0CACB900CBA28B /* SpecialHotelConditionPickCell.m in Sources */,
+				9319738B1E1360A8009D896D /* FMDatabasePool.m in Sources */,
 				93E02DE91DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.m in Sources */,
 				93E02E1C1DDB598D007EAE1E /* MJRefreshBackNormalFooter.m in Sources */,
 				93F6B3FB1DE1FDD20048F279 /* IQKeyboardReturnKeyHandler.m in Sources */,
@@ -2374,6 +2538,7 @@
 				93E02E1A1DDB598D007EAE1E /* MJRefreshAutoStateFooter.m in Sources */,
 				93FA9FEF1E10AD5B001DCAA0 /* EMSDWebImageDecoder.m in Sources */,
 				93E6F8781E10133F004B0594 /* HotelAlbumsVC.m in Sources */,
+				931973A01E1385BC009D896D /* RoomInfoHeaderView.m in Sources */,
 				93FA9FE51E10AD5B001DCAA0 /* MWGridCell.m in Sources */,
 				93F6B3FA1DE1FDD20048F279 /* IQKeyboardManager.m in Sources */,
 				93F6B4061DE1FE4F0048F279 /* FeedBackVC.m in Sources */,
@@ -2390,6 +2555,7 @@
 				93E02C541DDB58C7007EAE1E /* AppDelegate.m in Sources */,
 				93FAA0041E10AD5B001DCAA0 /* PSTCollectionViewLayout.m in Sources */,
 				93E02E311DDB598D007EAE1E /* UIViewController+KSGuid.m in Sources */,
+				9319735F1E135BAF009D896D /* JFButton.m in Sources */,
 				93FAA0181E10DC75001DCAA0 /* HotelNoticeCell.m in Sources */,
 				93F6B3BF1DE1E9280048F279 /* MyCollectionVC.m in Sources */,
 				93E02DF21DDB598D007EAE1E /* FUISwitch.m in Sources */,
@@ -2407,8 +2573,11 @@
 				93E02DFB1DDB598D007EAE1E /* UIProgressView+FlatUI.m in Sources */,
 				93E02C511DDB58C7007EAE1E /* main.m in Sources */,
 				936B084C1E06DDC3009AD3D3 /* YYFPSLabel.m in Sources */,
+				931973601E135BAF009D896D /* JFCityCollectionFlowLayout.m in Sources */,
+				931973971E137487009D896D /* OrderItemVC.m in Sources */,
 				93302CCF1DFAB3680091F145 /* HotPopularHotelCollectionCell.m in Sources */,
 				93FA9FF11E10AD5B001DCAA0 /* EMSDWebImageDownloaderOperation.m in Sources */,
+				9319738A1E1360A8009D896D /* FMDatabaseAdditions.m in Sources */,
 				93F6B3FC1DE1FDD20048F279 /* IQTextView.m in Sources */,
 				93FA9EAA1E10A499001DCAA0 /* HotelDetailImageCell.m in Sources */,
 				93E02DF51DDB598D007EAE1E /* UIBarButtonItem+FlatUI.m in Sources */,
@@ -2421,6 +2590,7 @@
 				93E02E251DDB598D007EAE1E /* UIView+MJExtension.m in Sources */,
 				93FAA0091E10AD5B001DCAA0 /* PSTGridLayoutSection.m in Sources */,
 				93FA9FF81E10AD5B001DCAA0 /* UIImage+EMMultiFormat.m in Sources */,
+				931973631E135BAF009D896D /* JFCityTableViewCell.m in Sources */,
 				93E02E291DDB598D007EAE1E /* NSObject+YYModel.m in Sources */,
 				93F572B91DE27C0E00966974 /* MASCompositeConstraint.m in Sources */,
 				93FA9FFF1E10AD5B001DCAA0 /* PSTCollectionViewCell.m in Sources */,

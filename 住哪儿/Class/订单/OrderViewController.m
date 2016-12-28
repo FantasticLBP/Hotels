@@ -7,20 +7,19 @@
 //
 
 #import "OrderViewController.h"
+#import "LBPScrollSegmentView.h"
+#import "OrderItemVC.h"
 
-static NSString *OrderCellId = @"OrderCell";
-@interface OrderViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *orders;           /**<订单数据源*/
-@property (nonatomic, assign) NSInteger page;                          /**<页码*/
-
+@interface OrderViewController ()<UITableViewDelegate,UITableViewDataSource,
+                                    LBPcrollSegmentViewDelegate>
+@property (nonatomic, strong) LBPScrollSegmentView *scrollSegmentView;              /**<选择view*/
+@property (nonatomic ,strong) OrderItemVC *orderItemVC;
 @end
 
 @implementation OrderViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.rightBarButtonItem = ({
         UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
         item.image = [UIImage imageNamed:@"small_icon_phone"];
@@ -29,8 +28,7 @@ static NSString *OrderCellId = @"OrderCell";
          item;
     });
     
-    [self.view addSubview:self.tableView];
-    self.page  = 1;
+    [self.view addSubview:self.scrollSegmentView];
 
 }
 
@@ -57,124 +55,20 @@ static NSString *OrderCellId = @"OrderCell";
     
 }
 
--(void)reloadData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"api/orderList"];
-    
-    NSMutableDictionary *par = [NSMutableDictionary dictionary];
-    par[@"page"] = @(self.page);
-    
-    [SVProgressHUD showWithStatus:@"正在加载"];
-    [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
-        [SVProgressHUD dismiss];
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        if ([dic[@"status"] integerValue] == 200) {
-            [self.orders removeAllObjects];
-        }
-        [self loadSuccessBlockWith:responseObject];
-        [self.tableView reloadData];
-    } fail:^{
-        [SVProgressHUD dismiss];
-    }];
-    [self.tableView.mj_footer resetNoMoreData];
-}
-
--(void)loadMoreData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"api/orderList"];
-    
-    NSMutableDictionary *par = [NSMutableDictionary dictionary];
-    par[@"page"] = @(self.page);
-    [SVProgressHUD showWithStatus:@"正在加载"];
-    [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
-        [SVProgressHUD dismiss];
-        [self loadSuccessBlockWith:responseObject];
-    } fail:^{
-        [SVProgressHUD dismiss];
-    }];
-    [self.tableView.mj_footer resetNoMoreData];
-
-}
-
--(void)loadSuccessBlockWith:(id)responseObject{
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-    if ([dic[@"status"] integerValue] == 200) {
-        NSArray *datas = dic[@"data"];
-        
-        
-    
-        [self.tableView.mj_header endRefreshing];
-        NSMutableArray *data = dic[@"data"];
-        if (true) {
-            self.page += 1;
-        }else{
-            self.page = 1;
-        }
-        
-        
-        if (datas.count == 0) {
-            [self.tableView.mj_footer endRefreshingWithNoMoreData];
-            self.tableView.mj_footer.hidden = YES;
-            return;
-        }
-        
-        
-      self.tableView.mj_footer.hidden = NO;
-        
-        [self.tableView.mj_footer endRefreshing];
-        [self.tableView reloadData];
-    }else{
-        [SVProgressHUD showErrorWithStatus:dic[@"msg"]];
-    }
-}
-#pragma mark - UITableViewDeegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击了");
-}
-
-#pragma mark -- UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return  self.orders.count;
-}
-
--(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderCellId];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:OrderCellId];
-    }
-    return cell;
-}
 
 
 #pragma mark - lazy load
--(UITableView *)tableView{
-    if (!_tableView) {
-        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight) style:UITableViewStylePlain];
-        tb.delegate = self;
-        tb.dataSource = self;
-        tb.backgroundColor = TableViewBackgroundColor;
-        tb.tableFooterView = [[UIView alloc] init];
-        tb.separatorStyle  = UITableViewCellSeparatorStyleNone;
-        __weak typeof(self) Weakself = self;
-        tb.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            Weakself.page = 1;
-            [Weakself reloadData];
-        }];
-        
-        tb.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [Weakself loadMoreData];
-
-        }];
-        tb.mj_header.automaticallyChangeAlpha = YES;
-        
-        _tableView = tb;
+-(OrderItemVC *)orderItemVC{
+    if (!_orderItemVC) {
+        _orderItemVC = [[OrderItemVC alloc] init];
     }
-    return _tableView;
+    return _orderItemVC;
+}
+
+- (LBPScrollSegmentView *)scrollSegmentView {
+    if (!_scrollSegmentView) {
+        _scrollSegmentView = [[LBPScrollSegmentView alloc] initWithFrame:CGRectMake(0,0, BoundWidth, BoundHeight ) delegate:self titlesGroup:@[@"待付款",@"未出行",@"待评价",@"历史记录"] controllersGroup:@[self.orderItemVC,self.orderItemVC,self.orderItemVC,self.orderItemVC]];
+    }
+    return _scrollSegmentView;
 }
 @end

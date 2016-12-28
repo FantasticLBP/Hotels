@@ -15,6 +15,19 @@
  */
 +(BOOL)isBlank:(NSString*)source;
 
+/**
+ * @brief 判断字符串不为空
+ *
+ */
 +(BOOL)isNotBlank:(NSString*)source;
+
+/**
+ * @brief 根据传入字符串内容返回宽度
+ *
+ * params: titleStr 字符串内容
+ *
+ * params: fontSize 文字大小
+ */
++(CGFloat)measureLabelWidth:(NSString *)titleStr withFontSize:(CGFloat)fontSize;
 
 @end

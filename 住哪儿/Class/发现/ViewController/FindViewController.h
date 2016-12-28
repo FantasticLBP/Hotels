@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FindViewController : UIViewController
-
+@property (nonatomic, strong) NSString *cityName;           /**<主题城市名字*/
 @end

@@ -1,6 +1,4 @@
 
-
-
 //
 //  TopicHotelListVCViewController.m
 //  住哪儿
@@ -13,6 +11,7 @@
 #import "LBPNavigationController.h"
 #import "FilterHotelVC.h"
 #import "HotelDescriptionCell.h"
+#import "HotelDetailVC.h"
 
 static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
@@ -93,7 +92,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-   
+    HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

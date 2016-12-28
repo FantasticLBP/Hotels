@@ -69,7 +69,7 @@
     if (!_messageVC) {
         _messageVC = [[FindViewController alloc] init];
         _messageVC.view.backgroundColor = TableViewBackgroundColor;
-        _messageVC.title = @"消息";
+        _messageVC.title = @"发现•有特色的酒店";
     }
     return _messageVC;
 }

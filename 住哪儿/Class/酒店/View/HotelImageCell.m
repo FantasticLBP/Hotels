@@ -139,7 +139,6 @@
         SDCycleScrollView *adview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
         adview.pageControlAliment = SDCycleScrollViewPageContolAlimentLeft;
         adview.currentPageDotColor = GlobalMainColor;
-        
         UITapGestureRecognizer *signalTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(watchAlbums)];
         signalTap.cancelsTouchesInView = YES;
         [adview addGestureRecognizer:signalTap];

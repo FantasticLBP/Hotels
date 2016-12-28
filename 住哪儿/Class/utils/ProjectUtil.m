@@ -26,4 +26,13 @@
 }
 
 
++(CGFloat)measureLabelWidth:(NSString *)titleStr withFontSize:(CGFloat)fontSize{
+    if ([ProjectUtil isBlank:titleStr]) {
+        return 0.0;
+    }
+    NSDictionary *attrs = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:fontSize]};
+    CGSize size=[titleStr sizeWithAttributes:attrs];
+    return size.width;
+}
+
 @end

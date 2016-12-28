@@ -14,8 +14,11 @@
 #import "TopicHotelListVCViewController.h"
 #import "FilterHotelVC.h"
 #import "LBPNavigationController.h"
+#import "JFCityViewController.h"
+
 
 #define HeaderImageHeight 200
+#define FindDownImageWIdth 16
 
 static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 static NSString *TopicHotelCellID = @"TopicHotelCell";
@@ -25,9 +28,9 @@ static NSString *TopicHotelCellID = @"TopicHotelCell";
                                 TopicHotelCellDelegate>
 @property (nonatomic, strong) SDCycleScrollView *advertiseView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
-
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIButton *leftButton;
 @end
 
 @implementation FindViewController
@@ -47,14 +50,38 @@ static NSString *TopicHotelCellID = @"TopicHotelCell";
         right.action = @selector(filterHotel);
         right;
     });
-    
+    [self updateLeftBarButtonItem];
     [self.view addSubview:self.tableView];
     [self.tableView addSubview:self.advertiseView];
     for (int i = 1; i <= 5; i++){
         [self.dataArray addObject:[NSString stringWithFormat:@"jpg-%d",i]];
     }
     self.advertiseView.localizationImageNamesGroup = self.dataArray;
-    
+}
+
+-(void)updateLeftBarButtonItem{
+    if ([ProjectUtil isBlank:self.cityName]) {
+        self.cityName = @"北京";
+    }
+    self.navigationItem.leftBarButtonItem = ({
+        self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *buttonImage = [UIImage imageNamed:@"Find_down"];
+        [self.leftButton setImage:buttonImage forState:UIControlStateNormal];
+        [self.leftButton setTitle:self.cityName forState:UIControlStateNormal];
+        self.leftButton.titleLabel.font = [UIFont systemFontOfSize:17];
+        [self.leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.leftButton setImageEdgeInsets:UIEdgeInsetsMake(0, [ProjectUtil measureLabelWidth:self.cityName withFontSize:17], 0,0)];
+        [self.leftButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -FindDownImageWIdth, 0, FindDownImageWIdth)];
+        [self.leftButton addTarget:self action:@selector(pickCity) forControlEvents:UIControlEventTouchUpInside];
+        CGSize buttonTitleLabelSize = [self.cityName sizeWithAttributes:@{NSFontAttributeName:self.leftButton.titleLabel.font}]; //文本尺寸
+        CGSize buttonImageSize = buttonImage.size;   //图片尺寸
+        self.leftButton.frame = CGRectMake(0,0,
+                                           buttonImageSize.width + buttonTitleLabelSize.width,
+                                           buttonImageSize.height);
+        
+        UIBarButtonItem *leftBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftButton];
+        leftBarButtomItem;
+    });
 }
 
 -(void)filterHotel{
@@ -66,6 +93,18 @@ static NSString *TopicHotelCellID = @"TopicHotelCell";
     };
     LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:navi animated:YES completion:nil];
+}
+
+-(void)pickCity{
+    JFCityViewController *cityViewController = [[JFCityViewController alloc] init];
+    cityViewController.title = @"城市";
+    __weak typeof(self) weakSelf = self;
+    [cityViewController choseCityBlock:^(NSString *cityName) {
+        weakSelf.cityName = cityName;
+        [weakSelf updateLeftBarButtonItem];
+    }];
+    LBPNavigationController *navigationController = [[LBPNavigationController alloc] initWithRootViewController:cityViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - TopicHotelCellDelegate

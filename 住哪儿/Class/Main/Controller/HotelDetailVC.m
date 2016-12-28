@@ -20,6 +20,7 @@
 #import "HotelLocationMapVC.h"
 #import "HotelAlbumsVC.h"
 #import "HotelEvaluateVC.h"
+#import "HotelRoomPriceVC.h"
 
 #define ShareViewHeight BoundWidth/2+51
 #define ShowShareViewDuration 5.0
@@ -119,7 +120,7 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
     }
 }
 
-#pragma mark - MEss
+#pragma mark - MFMessageComposeViewControllerDelegate
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -178,6 +179,9 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 7) {
         HotelEvaluateVC *vc = [[HotelEvaluateVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row >= 3 && indexPath.row <= 6){
+        HotelRoomPriceVC *vc = [[HotelRoomPriceVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
