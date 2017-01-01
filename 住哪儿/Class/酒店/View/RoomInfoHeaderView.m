@@ -9,6 +9,8 @@
 //
 
 #import "RoomInfoHeaderView.h"
+#import "RoomBaseInfoView.h"
+
 #define FindDownImageWIdth 16
 
 

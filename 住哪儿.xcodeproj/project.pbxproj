@@ -22,6 +22,9 @@
 		930FE6181E0D092E00CBA28B /* CheaperHotelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 930FE6161E0D092E00CBA28B /* CheaperHotelCell.m */; };
 		930FE6191E0D092E00CBA28B /* CheaperHotelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 930FE6171E0D092E00CBA28B /* CheaperHotelCell.xib */; };
 		930FE61C1E0D699900CBA28B /* HotelImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 930FE61B1E0D699900CBA28B /* HotelImageCell.m */; };
+		93107D7A1E195448000C4C1B /* RoomBaseInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93107D791E195448000C4C1B /* RoomBaseInfoView.m */; };
+		93107D7E1E195D2E000C4C1B /* RoomItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93107D7C1E195D2E000C4C1B /* RoomItemCell.m */; };
+		93107D7F1E195D2E000C4C1B /* RoomItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93107D7D1E195D2E000C4C1B /* RoomItemCell.xib */; };
 		9319735D1E135BAF009D896D /* JFAreaDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973491E135BAF009D896D /* JFAreaDataManager.m */; };
 		9319735E1E135BAF009D896D /* shop_area.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9319734B1E135BAF009D896D /* shop_area.sqlite */; };
 		9319735F1E135BAF009D896D /* JFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319734D1E135BAF009D896D /* JFButton.m */; };
@@ -387,6 +390,11 @@
 		930FE6171E0D092E00CBA28B /* CheaperHotelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheaperHotelCell.xib; sourceTree = "<group>"; };
 		930FE61A1E0D699900CBA28B /* HotelImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelImageCell.h; sourceTree = "<group>"; };
 		930FE61B1E0D699900CBA28B /* HotelImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelImageCell.m; sourceTree = "<group>"; };
+		93107D781E195448000C4C1B /* RoomBaseInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomBaseInfoView.h; sourceTree = "<group>"; };
+		93107D791E195448000C4C1B /* RoomBaseInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomBaseInfoView.m; sourceTree = "<group>"; };
+		93107D7B1E195D2E000C4C1B /* RoomItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomItemCell.h; sourceTree = "<group>"; };
+		93107D7C1E195D2E000C4C1B /* RoomItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomItemCell.m; sourceTree = "<group>"; };
+		93107D7D1E195D2E000C4C1B /* RoomItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoomItemCell.xib; sourceTree = "<group>"; };
 		931973481E135BAF009D896D /* JFAreaDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFAreaDataManager.h; sourceTree = "<group>"; };
 		931973491E135BAF009D896D /* JFAreaDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFAreaDataManager.m; sourceTree = "<group>"; };
 		9319734B1E135BAF009D896D /* shop_area.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = shop_area.sqlite; sourceTree = "<group>"; };
@@ -1217,6 +1225,11 @@
 				93089D4B1E1236E700C9C273 /* HotelEvaluateCell.xib */,
 				9319739E1E1385BC009D896D /* RoomInfoHeaderView.h */,
 				9319739F1E1385BC009D896D /* RoomInfoHeaderView.m */,
+				93107D781E195448000C4C1B /* RoomBaseInfoView.h */,
+				93107D791E195448000C4C1B /* RoomBaseInfoView.m */,
+				93107D7B1E195D2E000C4C1B /* RoomItemCell.h */,
+				93107D7C1E195D2E000C4C1B /* RoomItemCell.m */,
+				93107D7D1E195D2E000C4C1B /* RoomItemCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2290,6 +2303,7 @@
 				936B08BD1E06E0F0009AD3D3 /* bottom.png in Resources */,
 				936B09031E06E0F1009AD3D3 /* switch.png in Resources */,
 				936B08C51E06E0F0009AD3D3 /* detail-ticket.png in Resources */,
+				93107D7F1E195D2E000C4C1B /* RoomItemCell.xib in Resources */,
 				936B08B01E06E0F0009AD3D3 /* bridge.js in Resources */,
 				936B08D91E06E0F0009AD3D3 /* icon-list-filter-elong.png in Resources */,
 				936B08B81E06E0F0009AD3D3 /* ban-train-log.png in Resources */,
@@ -2512,6 +2526,7 @@
 				93E02DF31DDB598D007EAE1E /* FUITextField.m in Sources */,
 				93E02DFA1DDB598D007EAE1E /* UIPopoverController+FlatUI.m in Sources */,
 				93089D5F1E12A0BA00C9C273 /* TopicHotelCell.m in Sources */,
+				93107D7E1E195D2E000C4C1B /* RoomItemCell.m in Sources */,
 				93FAA0001E10AD5B001DCAA0 /* PSTCollectionViewController.m in Sources */,
 				93F572BE1DE27C0E00966974 /* MASViewConstraint.m in Sources */,
 				93F6B3FE1DE1FDD20048F279 /* IQPreviousNextView.m in Sources */,
@@ -2539,6 +2554,7 @@
 				93FA9FEF1E10AD5B001DCAA0 /* EMSDWebImageDecoder.m in Sources */,
 				93E6F8781E10133F004B0594 /* HotelAlbumsVC.m in Sources */,
 				931973A01E1385BC009D896D /* RoomInfoHeaderView.m in Sources */,
+				93107D7A1E195448000C4C1B /* RoomBaseInfoView.m in Sources */,
 				93FA9FE51E10AD5B001DCAA0 /* MWGridCell.m in Sources */,
 				93F6B3FA1DE1FDD20048F279 /* IQKeyboardManager.m in Sources */,
 				93F6B4061DE1FE4F0048F279 /* FeedBackVC.m in Sources */,
