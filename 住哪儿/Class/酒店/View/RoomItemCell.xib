@@ -27,8 +27,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="含旅游门票" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7H-hJ-pRb">
-                        <rect key="frame" x="10" y="36" width="193" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="含早餐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7H-hJ-pRb">
+                        <rect key="frame" x="10" y="36" width="58" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="GqD-qO-hB0"/>
                         </constraints>
@@ -36,20 +36,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SH-Wk-kur">
-                        <rect key="frame" x="268" y="34" width="42" height="42"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="42" id="9lk-tu-8eG"/>
-                            <constraint firstAttribute="width" constant="42" id="eka-03-wZJ"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <state key="normal" title="订">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥1288" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxj-dj-2tn">
-                        <rect key="frame" x="203" y="0.0" width="60" height="110"/>
+                        <rect key="frame" x="68" y="0.0" width="60" height="110"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="r7N-a9-e9W"/>
                         </constraints>
@@ -58,7 +46,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不可取消" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXH-es-2L1">
-                        <rect key="frame" x="10" y="67" width="193" height="21"/>
+                        <rect key="frame" x="10" y="67" width="58" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="vPx-RR-bL3"/>
                         </constraints>
@@ -66,25 +54,44 @@
                         <color key="textColor" red="0.76078431372549016" green="0.76078431372549016" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlY-TR-wnc">
+                        <rect key="frame" x="268" y="35" width="42" height="42"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="8lR-Ks-hqb"/>
+                            <constraint firstAttribute="width" constant="42" id="ope-j4-K5N"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="AXH-es-2L1" firstAttribute="leading" secondItem="u7H-hJ-pRb" secondAttribute="leading" id="302-PF-a1U"/>
                     <constraint firstItem="dxj-dj-2tn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="A9I-4M-fHq"/>
                     <constraint firstItem="u7H-hJ-pRb" firstAttribute="leading" secondItem="FFX-T3-sl7" secondAttribute="leading" id="AyI-m8-VAD"/>
                     <constraint firstAttribute="trailing" secondItem="FFX-T3-sl7" secondAttribute="trailing" constant="10" id="BQB-sV-wTM"/>
-                    <constraint firstItem="9SH-Wk-kur" firstAttribute="leading" secondItem="dxj-dj-2tn" secondAttribute="trailing" constant="5" id="GMQ-1S-5YX"/>
                     <constraint firstItem="FFX-T3-sl7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RUH-S3-Bai"/>
-                    <constraint firstAttribute="trailing" secondItem="9SH-Wk-kur" secondAttribute="trailing" constant="10" id="XIL-Yi-mgk"/>
+                    <constraint firstAttribute="trailing" secondItem="XlY-TR-wnc" secondAttribute="trailing" constant="10" id="bpZ-q6-gA6"/>
                     <constraint firstItem="AXH-es-2L1" firstAttribute="top" secondItem="u7H-hJ-pRb" secondAttribute="bottom" constant="10" id="dIs-A6-apK"/>
                     <constraint firstItem="dxj-dj-2tn" firstAttribute="leading" secondItem="u7H-hJ-pRb" secondAttribute="trailing" id="gxu-wt-Dm6"/>
                     <constraint firstAttribute="bottom" secondItem="dxj-dj-2tn" secondAttribute="bottom" id="h2Y-cX-2Dj"/>
                     <constraint firstItem="u7H-hJ-pRb" firstAttribute="top" secondItem="FFX-T3-sl7" secondAttribute="bottom" constant="5" id="hzJ-No-glh"/>
-                    <constraint firstItem="9SH-Wk-kur" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sl1-51-heD"/>
                     <constraint firstItem="AXH-es-2L1" firstAttribute="trailing" secondItem="u7H-hJ-pRb" secondAttribute="trailing" id="wtI-KY-4xn"/>
                     <constraint firstItem="FFX-T3-sl7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xe9-28-jdw"/>
+                    <constraint firstItem="XlY-TR-wnc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="y5G-ia-pRg"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="bookLabel" destination="XlY-TR-wnc" id="5aL-jb-y82"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

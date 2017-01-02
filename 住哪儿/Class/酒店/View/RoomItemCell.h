@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoomItemCell : UITableViewCell
+@class RoomItemCell;
+@protocol RoomItemCellDelegate <NSObject>
 
+-(void)roomItemCell:(RoomItemCell *)cell didBookRoom:(BOOL)flag;
+
+@end
+@interface RoomItemCell : UITableViewCell
+@property (nonatomic, weak) id<RoomItemCellDelegate> delegate;
 @end

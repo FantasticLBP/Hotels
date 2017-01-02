@@ -24,5 +24,5 @@ typedef NS_ENUM(NSInteger,RoomOperationType){
 
 @property (nonatomic, strong) NSString *roomName;
 @property (nonatomic, strong) NSString *roomImageName;
-
+@property (nonatomic, strong) NSString *otherInfo;            /**<其他信息*/
 @end

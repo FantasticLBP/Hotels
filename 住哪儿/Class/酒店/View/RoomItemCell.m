@@ -8,18 +8,25 @@
 //
 
 #import "RoomItemCell.h"
+@interface RoomItemCell()
 
+@property (weak, nonatomic) IBOutlet UILabel *bookLabel;
+
+@end
 @implementation RoomItemCell
 
-- (void)awakeFromNib {
+-(void)awakeFromNib{
     [super awakeFromNib];
-    // Initialization code
+    UITapGestureRecognizer *book = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bookRoom)];
+    book.cancelsTouchesInView = YES;
+    self.bookLabel.userInteractionEnabled = YES;
+    [self.bookLabel addGestureRecognizer:book];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)bookRoom{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(roomItemCell:didBookRoom:)]) {
+        [self.delegate roomItemCell:self didBookRoom:YES];
+    }
 }
 
 @end

@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UIImageView *roomImage;
 @property (nonatomic, strong) UILabel *roomLabel;
 @property (nonatomic, strong) UIButton *watchButton;
+@property (nonatomic, strong) UILabel *otherLabel;
+@property (nonatomic, strong) UILabel *otherInfoLabel;
 @end
 
 @implementation RoomInfoHeaderView
@@ -35,11 +37,47 @@
     [self addSubview:self.roomImage];
     [self addSubview:self.roomLabel];
     [self addSubview:self.watchButton];
+    
+    RoomBaseInfoView *view1 = [[RoomBaseInfoView alloc] initWithFrame:CGRectMake(0, 70, BoundWidth/3, 25)];
+    [view1 initViewWithImageName:@"Hotel_hasWindow" andLabelText:@"有窗"];
+   
+    
+     RoomBaseInfoView *view2 = [[RoomBaseInfoView alloc] initWithFrame:CGRectMake(BoundWidth/3, 70, BoundWidth/3, 25)];
+    [view2 initViewWithImageName:@"Hotel_hasWifi" andLabelText:@"无线有线"];
+
+    
+     RoomBaseInfoView *view3 = [[RoomBaseInfoView alloc] initWithFrame:CGRectMake(BoundWidth*2/3, 70, BoundWidth/3, 25)];
+    [view3 initViewWithImageName:@"Hotel_hasStairs" andLabelText:@"1-2层"];
+
+     RoomBaseInfoView *view4 = [[RoomBaseInfoView alloc] initWithFrame:CGRectMake(0, 100, BoundWidth/3, 25)];
+    [view4 initViewWithImageName:@"Hotel_hasSquare" andLabelText:@"40平米"];
+
+
+     RoomBaseInfoView *view5 = [[RoomBaseInfoView alloc] initWithFrame:CGRectMake(BoundWidth/3, 100, BoundWidth/3, 25)];
+    [view5 initViewWithImageName:@"Hotel_hasDoubleBed" andLabelText:@"大／双床"];
+
+     RoomBaseInfoView *view6 = [[RoomBaseInfoView alloc] initWithFrame:CGRectMake(BoundWidth*2/3, 100, BoundWidth/3, 25)];
+    [view6 initViewWithImageName:@"Hotel_hasDoublePerson" andLabelText:@"可入住2人"];
+
+     [self addSubview:view1];
+     [self addSubview:view2];
+     [self addSubview:view3];
+     [self addSubview:view4];
+     [self addSubview:view5];
+     [self addSubview:view6];
+    [self addSubview:self.otherLabel];
+    [self addSubview:self.otherInfoLabel];
 }
 
 -(void)watchMoreRoomInfo{
     if (self.delegate && [self.delegate respondsToSelector:@selector(roomInfoHeaderView:didOperateWithTag:)]) {
         [self.delegate roomInfoHeaderView:self didOperateWithTag:RoomOperationType_MoreInfo];
+    }
+}
+
+-(void)watchMoreImage{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(roomInfoHeaderView:didOperateWithTag:)]) {
+        [self.delegate roomInfoHeaderView:self didOperateWithTag:RoomOperationType_MorePhoto];
     }
 }
 
@@ -52,12 +90,42 @@
     self.roomImage.image = [UIImage imageNamed:@"jpg-9"];
 }
 
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect freme = self.watchButton.frame;
+        freme.origin.y = self.frame.size.height - 40;
+        self.watchButton.frame = freme;
+    } completion:^(BOOL finished) {
+    
+    }];
+    
+    self.otherLabel.frame = CGRectMake(10, 145, 50, 21);
+    self.otherInfoLabel.frame = CGRectMake(72,  145,BoundWidth -80, 21);
+    if (self.frame.size.height == 198) {
+        [self.watchButton setImage:[UIImage imageNamed:@"Hotel_moreInfo_up"] forState:UIControlStateNormal];
+    }else{
+         [self.watchButton setImage:[UIImage imageNamed:@"Hotel_moreInfo_down"] forState:UIControlStateNormal];
+    }
+}
+
+-(void)setOtherInfo:(NSString *)otherInfo{
+    _otherInfo = otherInfo;
+    if ([ProjectUtil isNotBlank:otherInfo]) {
+        self.otherInfoLabel.text = otherInfo;
+    }
+}
+
 #pragma mark - lazy load
 -(UIImageView *)roomImage{
     if (!_roomImage) {
         _roomImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 60, 60)];
         _roomImage.layer.cornerRadius = 5.0f;
         _roomImage.layer.masksToBounds = YES;
+        UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(watchMoreImage)];
+        tap.cancelsTouchesInView = YES;
+        _roomImage.userInteractionEnabled = YES;
+        [_roomImage addGestureRecognizer:tap];
     }
     return _roomImage;
 }
@@ -75,7 +143,7 @@
 -(UIButton *)watchButton{
     if (!_watchButton) {
         _watchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *buttonImage = [UIImage imageNamed:@"Hotel_moreInfo"];
+        UIImage *buttonImage = [UIImage imageNamed:@"Hotel_moreInfo_down"];
         [_watchButton setImage:buttonImage forState:UIControlStateNormal];
         [_watchButton setTitle:@"更多房型信息" forState:UIControlStateNormal];
         _watchButton.titleLabel.font = [UIFont systemFontOfSize:11];
@@ -87,11 +155,31 @@
         CGSize buttonImageSize = buttonImage.size;   //图片尺寸
         _watchButton.frame = CGRectMake(BoundWidth/2-(buttonImageSize.width + buttonTitleLabelSize.width)/3,40,
                                            buttonImageSize.width + buttonTitleLabelSize.width,
-                                           buttonImageSize.height);
+                                           40);
     }
     return _watchButton;
 }
 
+-(UILabel *)otherLabel{
+    if (!_otherLabel) {
+        _otherLabel = [UILabel new];
+        _otherLabel.text = @"其    他:";
+        _otherLabel.font = [UIFont systemFontOfSize:13];
+        _otherLabel.textColor = [UIColor colorFromHexCode:@"aeaeae"];
+        _otherLabel.textAlignment = NSTextAlignmentLeft;
+    }
+    return _otherLabel;
+}
 
+
+-(UILabel *)otherInfoLabel{
+    if (!_otherInfoLabel) {
+        _otherInfoLabel = [UILabel new];
+        _otherInfoLabel.font = [UIFont systemFontOfSize:13];
+        _otherInfoLabel.textColor = [UIColor blackColor];
+        _otherInfoLabel.textAlignment = NSTextAlignmentLeft;
+    }
+    return _otherInfoLabel;
+}
 
 @end
