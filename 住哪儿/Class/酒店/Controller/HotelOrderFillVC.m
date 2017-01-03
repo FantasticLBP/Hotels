@@ -13,7 +13,7 @@
 #import "OrderHeaderView.h"
 #import "CheaperHotelCell.h"
 
-static NSString *CheaperHotelCellID = @"CheaperHotelCell";
+static NSString *OrderCellID = @"OrderCell";
 
 
 @interface HotelOrderFillVC ()<OrderFillFooterViewDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -92,12 +92,15 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+    return 44;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CheaperHotelCell *cell = [tableView dequeueReusableCellWithIdentifier:CheaperHotelCellID forIndexPath:indexPath];
-        return cell;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderCellID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:OrderCellID];
+    }
+    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -135,7 +138,7 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
         _tableView.scrollsToTop = YES;
         _tableView.backgroundColor = TableViewBackgroundColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        [_tableView registerNib:[UINib nibWithNibName:@"CheaperHotelCell" bundle:nil] forCellReuseIdentifier:CheaperHotelCellID];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OrderCellID];
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
     }
     return _tableView;
