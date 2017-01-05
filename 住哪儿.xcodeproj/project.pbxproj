@@ -267,6 +267,9 @@
 		93E6F8781E10133F004B0594 /* HotelAlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E6F8771E10133F004B0594 /* HotelAlbumsVC.m */; };
 		93E788811DDCACD9004FF398 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E788801DDCACD9004FF398 /* LoginViewController.storyboard */; };
 		93EA50341DF084AC00BB287B /* ImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EA50331DF084AC00BB287B /* ImageVC.m */; };
+		93F1384B1E1E606E00CF2F02 /* PayOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F1384A1E1E606E00CF2F02 /* PayOrderViewController.m */; };
+		93F1384F1E1E903900CF2F02 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F1384D1E1E903900CF2F02 /* OrderCell.m */; };
+		93F138501E1E903900CF2F02 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F1384E1E1E903900CF2F02 /* OrderCell.xib */; };
 		93F572B91DE27C0E00966974 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F572A31DE27C0E00966974 /* MASCompositeConstraint.m */; };
 		93F572BA1DE27C0E00966974 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F572A61DE27C0E00966974 /* MASConstraint.m */; };
 		93F572BB1DE27C0E00966974 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F572A81DE27C0E00966974 /* MASConstraintMaker.m */; };
@@ -774,6 +777,11 @@
 		93E788801DDCACD9004FF398 /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		93EA50321DF084AC00BB287B /* ImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageVC.h; sourceTree = "<group>"; };
 		93EA50331DF084AC00BB287B /* ImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageVC.m; sourceTree = "<group>"; };
+		93F138491E1E606E00CF2F02 /* PayOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrderViewController.h; sourceTree = "<group>"; };
+		93F1384A1E1E606E00CF2F02 /* PayOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrderViewController.m; sourceTree = "<group>"; };
+		93F1384C1E1E903900CF2F02 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCell.h; path = "住哪儿/Class/酒店/Controller/OrderCell.h"; sourceTree = SOURCE_ROOT; };
+		93F1384D1E1E903900CF2F02 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderCell.m; path = "住哪儿/Class/酒店/Controller/OrderCell.m"; sourceTree = SOURCE_ROOT; };
+		93F1384E1E1E903900CF2F02 /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderCell.xib; path = "住哪儿/Class/酒店/Controller/OrderCell.xib"; sourceTree = SOURCE_ROOT; };
 		93F572A21DE27C0E00966974 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		93F572A31DE27C0E00966974 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		93F572A41DE27C0E00966974 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -1275,6 +1283,8 @@
 				9319739C1E1384CF009D896D /* HotelRoomPriceVC.m */,
 				93D493FF1E1A3BFA0028232C /* HotelOrderFillVC.h */,
 				93D494001E1A3BFA0028232C /* HotelOrderFillVC.m */,
+				93F138491E1E606E00CF2F02 /* PayOrderViewController.h */,
+				93F1384A1E1E606E00CF2F02 /* PayOrderViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1843,6 +1853,9 @@
 		93E02DA61DDB598D007EAE1E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				93F1384C1E1E903900CF2F02 /* OrderCell.h */,
+				93F1384D1E1E903900CF2F02 /* OrderCell.m */,
+				93F1384E1E1E903900CF2F02 /* OrderCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2368,6 +2381,7 @@
 				936B08F11E06E0F0009AD3D3 /* icon-success.png in Resources */,
 				9319735E1E135BAF009D896D /* shop_area.sqlite in Resources */,
 				936B08E31E06E0F0009AD3D3 /* icon-list-time-weixin.png in Resources */,
+				93F138501E1E903900CF2F02 /* OrderCell.xib in Resources */,
 				93E02E051DDB598D007EAE1E /* Lato-Regular.ttf in Resources */,
 				936B08FB1E06E0F1009AD3D3 /* registerStep12306_1.png in Resources */,
 				93E02C5A1DDB58C7007EAE1E /* Main.storyboard in Resources */,
@@ -2469,6 +2483,7 @@
 				9319738D1E1360A8009D896D /* FMResultSet.m in Sources */,
 				93DACA791E08CA81003157BD /* SalePromotionImageView.m in Sources */,
 				93FA9F421E10AB66001DCAA0 /* TAPageControl.m in Sources */,
+				93F1384B1E1E606E00CF2F02 /* PayOrderViewController.m in Sources */,
 				93E02E281DDB598D007EAE1E /* SVProgressHUD.m in Sources */,
 				93FA9FF71E10AD5B001DCAA0 /* UIImage+EMGIF.m in Sources */,
 				93FA9FFB1E10AD5B001DCAA0 /* UIImageView+EMWebCache.m in Sources */,
@@ -2495,6 +2510,7 @@
 				93E02C571DDB58C7007EAE1E /* ViewController.m in Sources */,
 				93E02E241DDB598D007EAE1E /* UIScrollView+MJRefresh.m in Sources */,
 				93E02DF11DDB598D007EAE1E /* FUISegmentedControl.m in Sources */,
+				93F1384F1E1E903900CF2F02 /* OrderCell.m in Sources */,
 				93FA9FFD1E10AD5B001DCAA0 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				93E02E181DDB598D007EAE1E /* MJRefreshAutoGifFooter.m in Sources */,
 				93E02E111DDB598D007EAE1E /* MBProgressHUD+Add.m in Sources */,

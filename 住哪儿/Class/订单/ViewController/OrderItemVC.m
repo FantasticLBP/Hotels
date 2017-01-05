@@ -8,6 +8,8 @@
 //
 
 #import "OrderItemVC.h"
+#import "OrderCell.h"
+
 static NSString *OrderCellId = @"OrderCell";
 
 
@@ -24,6 +26,11 @@ static NSString *OrderCellId = @"OrderCell";
     [super viewDidLoad];
     [self setupUI];
     self.page  = 1;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 #pragma mark - private method
@@ -104,7 +111,7 @@ static NSString *OrderCellId = @"OrderCell";
 
 #pragma mark - UITableViewDeegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 208;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -113,7 +120,8 @@ static NSString *OrderCellId = @"OrderCell";
 
 #pragma mark -- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return  self.orders.count;
+//    return  self.orders.count;
+    return 6;
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
@@ -121,10 +129,7 @@ static NSString *OrderCellId = @"OrderCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderCellId];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:OrderCellId];
-    }
+    OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderCellId];
     return cell;
 }
 
@@ -138,6 +143,7 @@ static NSString *OrderCellId = @"OrderCell";
         tb.backgroundColor = TableViewBackgroundColor;
         tb.tableFooterView = [[UIView alloc] init];
         tb.separatorStyle  = UITableViewCellSeparatorStyleNone;
+        [tb registerNib:[UINib nibWithNibName:@"OrderCell" bundle:nil] forCellReuseIdentifier:OrderCellId];
         __weak typeof(self) Weakself = self;
         tb.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [Weakself reloadData];

@@ -12,6 +12,7 @@
 #import "OrderFillFooterView.h"
 #import "OrderHeaderView.h"
 #import "CheaperHotelCell.h"
+#import "PayOrderViewController.h"
 
 static NSString *OrderCellID = @"OrderCell";
 
@@ -33,14 +34,27 @@ static NSString *OrderCellID = @"OrderCell";
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - private method
 -(void)setupUI{
     self.view.backgroundColor = CollectionViewBackgroundColor;
     self.title = @"订单填写";
+    self.headerView.hotelName = @"杭州溪悠居快捷酒店";
+    self.headerView.chechinTime = @"1月2日（今天）";
+    self.headerView.checkoutTime = @"1月3日（明天）";
+    self.headerView.totalNight = @"1晚";
+    self.headerView.roomDetail = @"豪华标间 无早";
     self.tableView.tableHeaderView = self.headerView;
+    self.tableView.tableFooterView = ({
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, BoundWidth-26, 30)];
+        label.text = @"因故无法入住，在理赔范围内可获最高90%赔偿";
+        label.textColor = [UIColor colorFromHexCode:@"aeaeae"];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.font = [UIFont systemFontOfSize:15];
+        label;
+    });
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
@@ -77,18 +91,25 @@ static NSString *OrderCellID = @"OrderCell";
 #pragma mark - OrderFillFooterViewDelegate
 -(void)orderFillFooterView:(OrderFillFooterView *)view didClickPayButton:(BOOL)flag{
     if (flag) {
-        NSLog(@"去支付");
+        [SVProgressHUD showWithStatus:@"正在生成订单" maskType:SVProgressHUDMaskTypeClear];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            PayOrderViewController *payVC = [[PayOrderViewController alloc] init];
+            [self.navigationController pushViewController:payVC animated:YES];
+        });
     }
 }
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //    return 1 + self.specialHotels.count;
-    return  5;
+    if (section == 0) {
+        return 4;
+    }else{
+        return 1;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -98,9 +119,45 @@ static NSString *OrderCellID = @"OrderCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderCellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:OrderCellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:OrderCellID];
+    }
+    
+    if (indexPath.section == 0) {
+        switch ( indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"房间数";
+                cell.detailTextLabel.text = @"1间";
+                break;
+            case 1:
+                cell.textLabel.text = @"最晚到店";
+                cell.detailTextLabel.text = @"14:00";
+                break;
+            case 2:
+                cell.textLabel.text = @"入住人";
+                cell.detailTextLabel.text = @"哈哈";
+                break;
+            case 3:
+                cell.textLabel.text = @"联系人";
+                cell.detailTextLabel.text = @"18968103090";
+                break;
+        }
+    }else if(indexPath.section == 1  && indexPath.row == 0){
+       cell.textLabel.text = @"发票";
+        cell.detailTextLabel.text = @"如需发票，请到酒店前台索取";
+    }else{
+        cell.textLabel.text = @"取消险";
+        cell.detailTextLabel.textColor = [UIColor redColor];
+        cell.detailTextLabel.text = @"25元";
     }
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section != 2) {
+        return 10;
+    }else{
+        return 0;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -126,6 +183,7 @@ static NSString *OrderCellID = @"OrderCell";
 -(OrderHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[OrderHeaderView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, 194)];
+        _headerView.type = OrderHeaderType_Order;
     }
     return _headerView;
 }
@@ -138,7 +196,6 @@ static NSString *OrderCellID = @"OrderCell";
         _tableView.scrollsToTop = YES;
         _tableView.backgroundColor = TableViewBackgroundColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OrderCellID];
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
     }
     return _tableView;
