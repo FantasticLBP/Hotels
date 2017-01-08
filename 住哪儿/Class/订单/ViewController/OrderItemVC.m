@@ -8,12 +8,12 @@
 //
 
 #import "OrderItemVC.h"
-#import "OrderCell.h"
 
 static NSString *OrderCellId = @"OrderCell";
 
 
-@interface OrderItemVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface OrderItemVC ()<UITableViewDelegate,UITableViewDataSource,
+                        OrderCellDelegte>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;                          /**<页码*/
 @property (nonatomic, strong) NSMutableArray *orders;           /**<订单数据源*/
@@ -130,9 +130,43 @@ static NSString *OrderCellId = @"OrderCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderCellId];
+    cell.delegate = self;
+    cell.type = self.type
+    ;
     return cell;
 }
 
+
+#pragma mark - OrderCellDelegte
+-(void)orderCell:(OrderCell *)cell didClickButtonWithCellType:(OrderButtonOperationType)type{
+    switch (type) {
+        case OrderButtonOperationType_Pay:{
+            NSLog(@"支付订单");
+            break;
+        }
+        case OrderButtonOperationType_Cancel:{
+            NSLog(@"删除订单");
+            break;
+        }
+        case OrderButtonOperationType_Revoke:{
+            NSLog(@"取消订单");
+            break;
+        }
+        case OrderButtonOperationType_Evaluate:{
+            NSLog(@"评价订单");
+            break;
+        }
+        case OrderButtonOperationType_Remind:{
+            NSLog(@"添加提醒");
+            break;
+        }
+        case OrderButtonOperationType_ReBook:{
+            NSLog(@"再次预定");
+            break;
+        }
+        
+    }
+}
 
 #pragma mark - lazy load
 -(UITableView *)tableView{

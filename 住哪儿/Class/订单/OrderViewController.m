@@ -13,7 +13,10 @@
 @interface OrderViewController ()<UITableViewDelegate,UITableViewDataSource,
                                     LBPcrollSegmentViewDelegate>
 @property (nonatomic, strong) LBPScrollSegmentView *scrollSegmentView;              /**<选择view*/
-@property (nonatomic ,strong) OrderItemVC *orderItemVC;
+@property (nonatomic ,strong) OrderItemVC *willPayVC;                   /**<待付款*/
+@property (nonatomic ,strong) OrderItemVC *unWalkVC;                    /**<未出行*/
+@property (nonatomic ,strong) OrderItemVC *willEvaluateVC;              /**<待评价*/
+@property (nonatomic ,strong) OrderItemVC *historyVC;                   /**<历史*/
 @end
 
 @implementation OrderViewController
@@ -58,16 +61,41 @@
 
 
 #pragma mark - lazy load
--(OrderItemVC *)orderItemVC{
-    if (!_orderItemVC) {
-        _orderItemVC = [[OrderItemVC alloc] init];
+-(OrderItemVC *)willPayVC{
+    if (!_willPayVC) {
+        _willPayVC = [[OrderItemVC alloc] init];
+        _willPayVC.type = OrderType_WillPay;
     }
-    return _orderItemVC;
+    return _willPayVC;
+}
+
+-(OrderItemVC *)unWalkVC{
+    if (!_unWalkVC) {
+        _unWalkVC = [[OrderItemVC alloc] init];
+        _unWalkVC.type = OrderType_UnWalk;
+    }
+    return _unWalkVC;
+}
+
+-(OrderItemVC *)willEvaluateVC{
+    if (!_willEvaluateVC) {
+        _willEvaluateVC = [[OrderItemVC alloc] init];
+        _willEvaluateVC.type = OrderType_UnEvaluate;
+    }
+    return _willEvaluateVC;
+}
+
+-(OrderItemVC *)historyVC{
+    if (!_historyVC) {
+        _historyVC = [[OrderItemVC alloc] init];
+        _historyVC.type = OrderType_History;
+    }
+    return _historyVC;
 }
 
 - (LBPScrollSegmentView *)scrollSegmentView {
     if (!_scrollSegmentView) {
-        _scrollSegmentView = [[LBPScrollSegmentView alloc] initWithFrame:CGRectMake(0,0, BoundWidth, BoundHeight ) delegate:self titlesGroup:@[@"待付款",@"未出行",@"待评价",@"历史记录"] controllersGroup:@[self.orderItemVC,self.orderItemVC,self.orderItemVC,self.orderItemVC]];
+        _scrollSegmentView = [[LBPScrollSegmentView alloc] initWithFrame:CGRectMake(0,0, BoundWidth, BoundHeight ) delegate:self titlesGroup:@[@"待付款",@"未出行",@"待评价",@"历史记录"] controllersGroup:@[self.willPayVC,self.unWalkVC,self.willEvaluateVC,self.historyVC]];
     }
     return _scrollSegmentView;
 }

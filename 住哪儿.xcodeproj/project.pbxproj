@@ -159,6 +159,9 @@
 		93AD7DD71DFE9F690067C539 /* SpecialHotelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AD7DD51DFE9F690067C539 /* SpecialHotelCell.xib */; };
 		93AD7DDB1DFEA2E40067C539 /* HotelDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7DD91DFEA2E40067C539 /* HotelDescriptionCell.m */; };
 		93AD7DDC1DFEA2E40067C539 /* HotelDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AD7DDA1DFEA2E40067C539 /* HotelDescriptionCell.xib */; };
+		93D050E41E1FEF9E0006D6C6 /* OrderResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D050E31E1FEF9E0006D6C6 /* OrderResultViewController.m */; };
+		93D050E71E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D050E61E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m */; };
+		93D050F01E2151AF0006D6C6 /* OrderInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D050EF1E2151AF0006D6C6 /* OrderInfoCell.m */; };
 		93D493F61E1A129B0028232C /* RoomDetailInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D493F51E1A129B0028232C /* RoomDetailInfoView.m */; };
 		93D493F81E1A331C0028232C /* RoomDetailInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D493F71E1A331C0028232C /* RoomDetailInfoView.xib */; };
 		93D494011E1A3BFA0028232C /* HotelOrderFillVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D494001E1A3BFA0028232C /* HotelOrderFillVC.m */; };
@@ -573,6 +576,12 @@
 		93AD7DD81DFEA2E40067C539 /* HotelDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelDescriptionCell.h; sourceTree = "<group>"; };
 		93AD7DD91DFEA2E40067C539 /* HotelDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelDescriptionCell.m; sourceTree = "<group>"; };
 		93AD7DDA1DFEA2E40067C539 /* HotelDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDescriptionCell.xib; sourceTree = "<group>"; };
+		93D050E21E1FEF9E0006D6C6 /* OrderResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderResultViewController.h; sourceTree = "<group>"; };
+		93D050E31E1FEF9E0006D6C6 /* OrderResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderResultViewController.m; sourceTree = "<group>"; };
+		93D050E51E1FFF5F0006D6C6 /* OrderCompletedFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCompletedFirstCell.h; path = "住哪儿/Class/订单/ViewController/OrderCompletedFirstCell.h"; sourceTree = SOURCE_ROOT; };
+		93D050E61E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderCompletedFirstCell.m; path = "住哪儿/Class/订单/ViewController/OrderCompletedFirstCell.m"; sourceTree = SOURCE_ROOT; };
+		93D050EE1E2151AF0006D6C6 /* OrderInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderInfoCell.h; path = "住哪儿/Class/订单/ViewController/OrderInfoCell.h"; sourceTree = SOURCE_ROOT; };
+		93D050EF1E2151AF0006D6C6 /* OrderInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderInfoCell.m; path = "住哪儿/Class/订单/ViewController/OrderInfoCell.m"; sourceTree = SOURCE_ROOT; };
 		93D493F41E1A129B0028232C /* RoomDetailInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomDetailInfoView.h; path = ../Controller/RoomDetailInfoView.h; sourceTree = "<group>"; };
 		93D493F51E1A129B0028232C /* RoomDetailInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomDetailInfoView.m; path = ../Controller/RoomDetailInfoView.m; sourceTree = "<group>"; };
 		93D493F71E1A331C0028232C /* RoomDetailInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RoomDetailInfoView.xib; path = ../Controller/RoomDetailInfoView.xib; sourceTree = "<group>"; };
@@ -1856,6 +1865,10 @@
 				93F1384C1E1E903900CF2F02 /* OrderCell.h */,
 				93F1384D1E1E903900CF2F02 /* OrderCell.m */,
 				93F1384E1E1E903900CF2F02 /* OrderCell.xib */,
+				93D050E51E1FFF5F0006D6C6 /* OrderCompletedFirstCell.h */,
+				93D050E61E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m */,
+				93D050EE1E2151AF0006D6C6 /* OrderInfoCell.h */,
+				93D050EF1E2151AF0006D6C6 /* OrderInfoCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1867,6 +1880,8 @@
 				93E02DA51DDB598D007EAE1E /* OrderViewController.m */,
 				931973951E137487009D896D /* OrderItemVC.h */,
 				931973961E137487009D896D /* OrderItemVC.m */,
+				93D050E21E1FEF9E0006D6C6 /* OrderResultViewController.h */,
+				93D050E31E1FEF9E0006D6C6 /* OrderResultViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2471,6 +2486,7 @@
 				93E02E201DDB598D007EAE1E /* MJRefreshStateHeader.m in Sources */,
 				93F6B3FD1DE1FDD20048F279 /* IQBarButtonItem.m in Sources */,
 				930FE6181E0D092E00CBA28B /* CheaperHotelCell.m in Sources */,
+				93D050E71E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m in Sources */,
 				93E02DF61DDB598D007EAE1E /* UIColor+FlatUI.m in Sources */,
 				93F6B4001DE1FDD20048F279 /* IQToolbar.m in Sources */,
 				93E02DF41DDB598D007EAE1E /* NSString+Icons.m in Sources */,
@@ -2496,6 +2512,7 @@
 				931973611E135BAF009D896D /* JFCityCollectionViewCell.m in Sources */,
 				93FAA0111E10BC47001DCAA0 /* HotelTimeCell.m in Sources */,
 				93E02E301DDB598D007EAE1E /* SettingViewController.m in Sources */,
+				93D050E41E1FEF9E0006D6C6 /* OrderResultViewController.m in Sources */,
 				93E02DE71DDB598D007EAE1E /* BLKFlexibleHeightBar.m in Sources */,
 				931973661E135BAF009D896D /* JFLocation.m in Sources */,
 				93F6B3F61DE1FDD20048F279 /* IQUITextFieldView+Additions.m in Sources */,
@@ -2667,6 +2684,7 @@
 				93E02E131DDB598D007EAE1E /* MJRefreshAutoFooter.m in Sources */,
 				93E02E121DDB598D007EAE1E /* MBProgressHUD.m in Sources */,
 				93D494041E1A441A0028232C /* UIViewController+BackButtonHandler.m in Sources */,
+				93D050F01E2151AF0006D6C6 /* OrderInfoCell.m in Sources */,
 				93FA9F401E10AB66001DCAA0 /* TAAnimatedDotView.m in Sources */,
 				930FE61C1E0D699900CBA28B /* HotelImageCell.m in Sources */,
 				93967B291E083BA60003122A /* HotelDetailVC.m in Sources */,

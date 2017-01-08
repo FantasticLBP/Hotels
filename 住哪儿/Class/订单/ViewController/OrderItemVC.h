@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrderCell.h"
 
 @interface OrderItemVC : UIViewController
-
+@property (nonatomic, assign) OrderType type;
 @end

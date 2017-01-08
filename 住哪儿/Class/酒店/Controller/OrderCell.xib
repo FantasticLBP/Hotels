@@ -120,17 +120,44 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bg-hs-pcJ">
+                        <rect key="frame" x="231" y="159.5" width="70" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="Opz-Nw-1Dm"/>
+                            <constraint firstAttribute="width" constant="70" id="gba-si-ygB"/>
+                        </constraints>
+                        <state key="normal" title="继续支付">
+                            <color key="titleColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="clickRIghtButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="veq-AI-vVX"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z86-48-Zbr">
+                        <rect key="frame" x="146" y="159.5" width="70" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="pRl-M8-o5O"/>
+                        </constraints>
+                        <state key="normal" title="取消订单">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="clickLeftButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jwM-hh-nu1"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0Db-yN-2lT" firstAttribute="top" secondItem="qiA-gX-ZAn" secondAttribute="bottom" constant="27" id="0tu-2H-Ytu"/>
                     <constraint firstItem="HeE-By-5UV" firstAttribute="leading" secondItem="L96-51-ct5" secondAttribute="trailing" constant="10" id="2cZ-hD-7M3"/>
                     <constraint firstItem="aTC-lz-7Ou" firstAttribute="top" secondItem="Jn5-Jk-2pK" secondAttribute="top" id="43P-a7-v0Z"/>
                     <constraint firstItem="U2Q-VJ-5ZL" firstAttribute="top" secondItem="L96-51-ct5" secondAttribute="top" id="5fO-QI-Cep"/>
+                    <constraint firstItem="Z86-48-Zbr" firstAttribute="bottom" secondItem="0bg-hs-pcJ" secondAttribute="bottom" id="6Oe-VR-7GG"/>
                     <constraint firstItem="Hbo-Gg-3RK" firstAttribute="leading" secondItem="cFl-WU-z6U" secondAttribute="leading" id="6qI-dg-Nlz"/>
                     <constraint firstItem="Lac-bk-ou9" firstAttribute="top" secondItem="cFl-WU-z6U" secondAttribute="top" id="Ajf-5S-t1h"/>
                     <constraint firstItem="qiA-gX-ZAn" firstAttribute="leading" secondItem="Lac-bk-ou9" secondAttribute="trailing" id="AkH-e4-abI"/>
                     <constraint firstItem="qiA-gX-ZAn" firstAttribute="bottom" secondItem="Lac-bk-ou9" secondAttribute="bottom" id="Apv-ye-mCI"/>
                     <constraint firstItem="HeE-By-5UV" firstAttribute="bottom" secondItem="L96-51-ct5" secondAttribute="bottom" id="B1M-u3-Pz9"/>
+                    <constraint firstItem="0bg-hs-pcJ" firstAttribute="leading" secondItem="Z86-48-Zbr" secondAttribute="trailing" constant="15" id="C4N-9I-KVz"/>
                     <constraint firstItem="4Oc-eZ-XIm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cpw-TU-1d3"/>
                     <constraint firstItem="Lac-bk-ou9" firstAttribute="bottom" secondItem="cFl-WU-z6U" secondAttribute="bottom" id="Fbv-Zs-Eif"/>
                     <constraint firstItem="aTC-lz-7Ou" firstAttribute="bottom" secondItem="Jn5-Jk-2pK" secondAttribute="bottom" id="GkV-kX-ziO"/>
@@ -143,12 +170,15 @@
                     <constraint firstAttribute="trailing" secondItem="4Oc-eZ-XIm" secondAttribute="trailing" id="P0Y-h5-3z3"/>
                     <constraint firstAttribute="trailing" secondItem="qiA-gX-ZAn" secondAttribute="trailing" constant="20" id="Rl3-05-6wO"/>
                     <constraint firstItem="Jn5-Jk-2pK" firstAttribute="bottom" secondItem="U2Q-VJ-5ZL" secondAttribute="bottom" id="SWD-VO-OU2"/>
+                    <constraint firstAttribute="trailing" secondItem="0bg-hs-pcJ" secondAttribute="trailing" constant="19" id="UAa-hF-iz3"/>
                     <constraint firstItem="cFl-WU-z6U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="VHw-JS-Ff9"/>
                     <constraint firstItem="L96-51-ct5" firstAttribute="leading" secondItem="Dh2-V7-Gzw" secondAttribute="leading" id="WHk-78-9fD"/>
                     <constraint firstItem="yOx-cp-Q8X" firstAttribute="top" secondItem="0Db-yN-2lT" secondAttribute="top" id="XR2-nT-I19"/>
                     <constraint firstItem="Jn5-Jk-2pK" firstAttribute="leading" secondItem="U2Q-VJ-5ZL" secondAttribute="trailing" constant="10" id="aNZ-ij-8fq"/>
                     <constraint firstItem="4Oc-eZ-XIm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bgc-aa-IX5"/>
                     <constraint firstItem="L96-51-ct5" firstAttribute="top" secondItem="Dh2-V7-Gzw" secondAttribute="bottom" constant="8" id="cxt-oD-qke"/>
+                    <constraint firstAttribute="bottom" secondItem="0bg-hs-pcJ" secondAttribute="bottom" constant="20" id="fS4-sd-i8e"/>
+                    <constraint firstItem="Z86-48-Zbr" firstAttribute="top" secondItem="0bg-hs-pcJ" secondAttribute="top" id="fT8-Jg-EAF"/>
                     <constraint firstItem="yOx-cp-Q8X" firstAttribute="bottom" secondItem="0Db-yN-2lT" secondAttribute="bottom" id="k2j-Y6-Dyv"/>
                     <constraint firstItem="Hbo-Gg-3RK" firstAttribute="bottom" secondItem="yOx-cp-Q8X" secondAttribute="bottom" id="lW5-WV-aPu"/>
                     <constraint firstItem="0Db-yN-2lT" firstAttribute="leading" secondItem="yOx-cp-Q8X" secondAttribute="trailing" constant="3" id="mxi-v5-c4Z"/>
@@ -164,7 +194,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="leftButton" destination="Z86-48-Zbr" id="bpQ-mk-QjI"/>
                 <outlet property="priceLabel" destination="0Db-yN-2lT" id="FfN-cs-d7F"/>
+                <outlet property="rightButton" destination="0bg-hs-pcJ" id="5K0-zF-p9X"/>
             </connections>
         </tableViewCell>
     </objects>

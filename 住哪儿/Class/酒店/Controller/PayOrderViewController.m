@@ -9,7 +9,7 @@
 #import "PayOrderViewController.h"
 #import "OrderHeaderView.h"
 #import "OrderFillFooterView.h"
-
+#import "OrderResultViewController.h"
 
 @interface PayOrderViewController ()<OrderFillFooterViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -20,9 +20,15 @@
 
 @implementation PayOrderViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - private method
@@ -60,11 +66,9 @@
 #pragma mark - OrderFillFooterViewDelegate
 -(void)orderFillFooterView:(OrderFillFooterView *)view didClickPayButton:(BOOL)flag{
     if (flag) {
-        [SVProgressHUD showWithStatus:@"正在生成订单" maskType:SVProgressHUDMaskTypeClear];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            PayOrderViewController *payVC = [[PayOrderViewController alloc] init];
-            [self.navigationController pushViewController:payVC animated:YES];
-        });
+        [SVProgressHUD showInfoWithStatus:@"正在支付"];
+        OrderResultViewController *vc = [[OrderResultViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
