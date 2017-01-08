@@ -11,6 +11,7 @@
 #import "OrderResultViewController.h"
 #import "OrderCompletedFirstCell.h"
 #import "OrderInfoCell.h"
+#import "OrderViewController.h"
 
 static NSString *OrderCompletedFirstCellID= @"OrderCompletedFirstCell";
 static NSString *OrderInfoCellID = @"OrderInfoCell";
@@ -35,12 +36,17 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
     [self.view addSubview:self.tableView];
 }
 
+-(void)watchOrders{
+    OrderViewController *vc = [[OrderViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - UITableViewDeegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         return 100;
     }else{
-        return 125;
+        return 150;
     }
 }
 
@@ -50,25 +56,62 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
 
 #pragma mark -- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    if (section == 0) {
+        return 1;
+    }else{
+        return 1;
+    }
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         OrderCompletedFirstCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderCompletedFirstCellID];
         return cell;
     }else{
         OrderInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderInfoCellID forIndexPath:indexPath];
+        cell.orderNumber = @"112233445";
+        cell.hotelName = @"杭州大酒店";
+        cell.roomType = @"普通标间";
+        cell.livingPeriods = @"01月05日-01月06日 共1晚";
         return cell;
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 0;
+    }else{
+        return 12;
+    }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, 180)];
+    view.backgroundColor = [UIColor clearColor];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.layer.borderWidth = 1;
+    button.layer.borderColor = GlobalMainColor.CGColor;
+    button.layer.cornerRadius = 5;
+    button.layer.masksToBounds = YES;
+    button.frame = CGRectMake(40, 70, BoundWidth-80, 35);
+    [button setTitle:@"查看订单" forState:UIControlStateNormal];
+    [button setTitleColor:GlobalMainColor forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor clearColor];
+    [button addTarget:self action:@selector(watchOrders) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+    return view;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return  100;
+    if (section == 1) {
+        return 180;
+    }else{
+        return 0;
+    }
 }
 
 #pragma mark - lazy load
@@ -78,7 +121,6 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
         tb.delegate = self;
         tb.dataSource = self;
         tb.backgroundColor = TableViewBackgroundColor;
-        tb.tableFooterView = [[UIView alloc] init];
         tb.separatorStyle  = UITableViewCellSeparatorStyleNone;
         [tb registerClass:[OrderCompletedFirstCell class] forCellReuseIdentifier:OrderCompletedFirstCellID];
         [tb registerClass:[OrderInfoCell class] forCellReuseIdentifier:OrderInfoCellID];
