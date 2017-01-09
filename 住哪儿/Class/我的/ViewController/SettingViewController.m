@@ -137,7 +137,7 @@
         }else if (indexPath.row == 1){
             cell.textLabel.text = @"常见问题解答";
         }else if (indexPath.row == 2){
-            cell.textLabel.text = @"推荐蚂蚁给朋友";
+            cell.textLabel.text = @"推荐住哪儿给朋友";
         }else if (indexPath.row == 3){
             cell.textLabel.text = @"意见反馈";
         }else{
