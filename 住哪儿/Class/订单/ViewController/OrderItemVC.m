@@ -171,7 +171,7 @@ static NSString *OrderCellId = @"OrderCell";
 #pragma mark - lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight) style:UITableViewStylePlain];
+        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-50) style:UITableViewStylePlain];
         tb.delegate = self;
         tb.dataSource = self;
         tb.backgroundColor = TableViewBackgroundColor;
