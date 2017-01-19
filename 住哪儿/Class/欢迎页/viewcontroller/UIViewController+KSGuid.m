@@ -63,11 +63,11 @@
     removeBtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
     
     removeBtn.layer.cornerRadius = 4;
-    removeBtn.layer.borderColor = [UIColor colorWithRed:34/255.0 green:187/255.0 blue:98/255.0 alpha:1].CGColor;
+    removeBtn.layer.borderColor = [UIColor colorFromHexCode:@"803ec5"].CGColor;
     removeBtn.layer.borderWidth = 1.;
     
     [removeBtn setTitle:@"立即进入" forState:UIControlStateNormal];
-    [removeBtn setTitleColor:[UIColor colorWithRed:34/255.0 green:187/255.0 blue:98/255.0 alpha:1] forState:UIControlStateNormal];
+    [removeBtn setTitleColor:[UIColor colorFromHexCode:@"803ec5"]  forState:UIControlStateNormal];
     removeBtn.titleLabel.font = [UIFont systemFontOfSize:18.];
      //********************自定义结束**********************************//
    

@@ -9,6 +9,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UserInfo.h"
 
 @interface LoginViewController ()
 
@@ -23,11 +24,16 @@
 
 @implementation LoginViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 
 #pragma mark - Private method
 -(void)setupUI{
@@ -54,6 +60,12 @@
     par[@"password"] = self.passwordTextField.text;
     
     [SVProgressHUD showWithStatus:@"正在登录..."];
+    UserInfo *userinfo = [[UserInfo alloc] init];
+    userinfo.userName = self.usernameTextField.text;
+    userinfo.password = self.passwordTextField.text;
+    [UserManager saveUserObject:userinfo];
+    [self.navigationController popViewControllerAnimated:YES];
+    /*
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@""];
     [AFNetPackage postJSONWithUrl:url parameters:par success:^(id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
@@ -66,6 +78,7 @@
     } fail:^{
          [SVProgressHUD showErrorWithStatus:@"网络状况不佳，请稍后尝试"];
     }];
+     */
     
 }
 

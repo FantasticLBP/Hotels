@@ -120,8 +120,7 @@ static NSString *OrderCellId = @"OrderCell";
 
 #pragma mark -- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return  self.orders.count;
-    return 6;
+    return  self.orders.count + 6;
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{

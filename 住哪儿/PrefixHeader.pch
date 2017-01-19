@@ -23,5 +23,5 @@
 #import "Masonry.h"
 #import "NSDate+Formatter.h"
 #import "ProjectUtil.h"
-
+#import "UserManager.h"
 #endif /* PrefixHeader_pch */

@@ -34,6 +34,10 @@
 #define Base_Url @"http://www.baidu.com"
 #define Avator_URL @"/app/avatar/"
 
+/************************************用户信息******************************************/
+#define User_Info @"User_Info"
+#define User_Avator @"User_Avator"
+
 
 #endif /* LocalConfig_h */
 

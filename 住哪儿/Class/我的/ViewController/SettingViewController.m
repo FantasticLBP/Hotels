@@ -16,25 +16,44 @@
 #import "FeedBackVC.h"
 #import "AboutVC.h"
 #import "ImageVC.h"
+#import "PersonInfoViewController.h"
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIAlertController *shareView;
+@property (nonatomic, strong) UserInfo *userInfo;
 @end
 
 @implementation SettingViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
-    
-    
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.userInfo = [UserManager getUserObject];
+    [self.tableView reloadData];
 }
 
 #pragma mark -private method
 -(void)logoutUser{
-    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确认要退出吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [UserManager logoOut];
+        self.userInfo = [UserManager getUserObject];
+        [self.tableView reloadData];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancel];
+    [alertController addAction:ok];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+-(void)manifyImage{
+    NSLog(@"更换头像");
 }
 
 #pragma mark -- UITableViewDelegate
@@ -63,7 +82,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section==3) {
-        return 100;
+        if ([UserManager isLogin]) {
+            return 100;
+        }
+        return 0;
     }else{
         return 1;
     }
@@ -71,7 +93,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] init];
-    if (section==3) {
+    if (section==3 && [UserManager isLogin]) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((BoundWidth-280)/2, 20, 280, 42)];
         [button setTitle:@"退出" forState:UIControlStateNormal];
         [button setBackgroundColor:GlobalMainColor];
@@ -100,15 +122,29 @@
         imageView.tag = 105;
         imageView.userInteractionEnabled = YES;
         
+        UILabel *usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, 160, 75)];
+        usernameLabel.textAlignment = NSTextAlignmentLeft;
+        usernameLabel.font = [UIFont systemFontOfSize:15];
+        usernameLabel.textColor = [UIColor blackColor];
+        usernameLabel.text = [ProjectUtil isBlank:self.userInfo.userName]?@"请登录":self.userInfo.userName;
+        
         UITapGestureRecognizer *taping = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(manifyImage)];
         [imageView addGestureRecognizer:taping];
         imageView.layer.cornerRadius = 27.5;
         imageView.layer.masksToBounds = YES;
         
         NSString *urlName = [NSString stringWithFormat:@"%@%@%@.jpg",Base_Url,Avator_URL,@""];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:urlName] placeholderImage:[UIImage imageNamed:@"profile"]];
+        UserInfo *userInfo = [UserManager getUserObject];
+        NSData *avatorData = UIImagePNGRepresentation(userInfo.avator);
+        if (avatorData.length>0) {
+            imageView.image = userInfo.avator;
+        }else{
+            [imageView sd_setImageWithURL:[NSURL URLWithString:urlName] placeholderImage:[UIImage imageNamed:@"profile"]];
+        }
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [cell.contentView addSubview:imageView];
+        [cell.contentView addSubview:usernameLabel];
     }
     
     if (indexPath.section ==1 && indexPath.row == 0) {
@@ -153,10 +189,14 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0 && indexPath.row == 0) {
-        
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil];
-        LoginViewController *loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        [self.navigationController pushViewController:loginVC animated:YES];
+        if (![UserManager isLogin]) {
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LoginViewController" bundle:nil];
+            LoginViewController *loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }else{
+            PersonInfoViewController *vc = [[PersonInfoViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }else if (indexPath.section == 1){
         if (indexPath.row == 0 ) {
             NSLog(@"点击了我的优惠券");

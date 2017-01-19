@@ -152,6 +152,11 @@
 		936C7AE91E095F0B0065389F /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7AE81E095F0B0065389F /* ShareView.m */; };
 		936C7AED1E0980AD0065389F /* ShareCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7AEB1E0980AD0065389F /* ShareCollectionCell.m */; };
 		936C7AEE1E0980AD0065389F /* ShareCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936C7AEC1E0980AD0065389F /* ShareCollectionCell.xib */; };
+		9393172C1E3051B200281A05 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393172B1E3051B200281A05 /* PersonInfoViewController.m */; };
+		9393172F1E30777500281A05 /* ChangeUserNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393172E1E30777500281A05 /* ChangeUserNameVC.m */; };
+		939317371E30792400281A05 /* HcdDateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 939317321E30792400281A05 /* HcdDateTimePickerView.m */; };
+		939317381E30792400281A05 /* MXSCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 939317341E30792400281A05 /* MXSCycleScrollView.m */; };
+		939317391E30792400281A05 /* UIColor+HcdCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 939317361E30792400281A05 /* UIColor+HcdCustom.m */; };
 		93967B201E0825050003122A /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93967B1F1E0825050003122A /* NSDate+Formatter.m */; };
 		93967B231E0830D30003122A /* UILabel+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 93967B221E0830D30003122A /* UILabel+Helper.m */; };
 		93967B291E083BA60003122A /* HotelDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93967B281E083BA60003122A /* HotelDetailVC.m */; };
@@ -168,6 +173,7 @@
 		93D494041E1A441A0028232C /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D494031E1A441A0028232C /* UIViewController+BackButtonHandler.m */; };
 		93D494071E1A81330028232C /* OrderFillFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D494061E1A81330028232C /* OrderFillFooterView.m */; };
 		93D4940A1E1A89E10028232C /* OrderHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D494091E1A89E10028232C /* OrderHeaderView.m */; };
+		93DA19281E2D1AA4002F2C5A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DA19271E2D1AA4002F2C5A /* UserManager.m */; };
 		93DACA791E08CA81003157BD /* SalePromotionImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DACA781E08CA81003157BD /* SalePromotionImageView.m */; };
 		93DACA7C1E0900A8003157BD /* ProjectUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DACA7B1E0900A8003157BD /* ProjectUtil.m */; };
 		93E02C511DDB58C7007EAE1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02C501DDB58C7007EAE1E /* main.m */; };
@@ -564,6 +570,16 @@
 		936C7AEA1E0980AD0065389F /* ShareCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCollectionCell.h; sourceTree = "<group>"; };
 		936C7AEB1E0980AD0065389F /* ShareCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCollectionCell.m; sourceTree = "<group>"; };
 		936C7AEC1E0980AD0065389F /* ShareCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareCollectionCell.xib; sourceTree = "<group>"; };
+		9393172A1E3051B200281A05 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
+		9393172B1E3051B200281A05 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
+		9393172D1E30777500281A05 /* ChangeUserNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeUserNameVC.h; sourceTree = "<group>"; };
+		9393172E1E30777500281A05 /* ChangeUserNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeUserNameVC.m; sourceTree = "<group>"; };
+		939317311E30792400281A05 /* HcdDateTimePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HcdDateTimePickerView.h; sourceTree = "<group>"; };
+		939317321E30792400281A05 /* HcdDateTimePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HcdDateTimePickerView.m; sourceTree = "<group>"; };
+		939317331E30792400281A05 /* MXSCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXSCycleScrollView.h; sourceTree = "<group>"; };
+		939317341E30792400281A05 /* MXSCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXSCycleScrollView.m; sourceTree = "<group>"; };
+		939317351E30792400281A05 /* UIColor+HcdCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HcdCustom.h"; sourceTree = "<group>"; };
+		939317361E30792400281A05 /* UIColor+HcdCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HcdCustom.m"; sourceTree = "<group>"; };
 		93967B1E1E0825050003122A /* NSDate+Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatter.h"; sourceTree = "<group>"; };
 		93967B1F1E0825050003122A /* NSDate+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
 		93967B211E0830D30003122A /* UILabel+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Helper.h"; sourceTree = "<group>"; };
@@ -593,6 +609,8 @@
 		93D494061E1A81330028232C /* OrderFillFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderFillFooterView.m; sourceTree = "<group>"; };
 		93D494081E1A89E10028232C /* OrderHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderHeaderView.h; sourceTree = "<group>"; };
 		93D494091E1A89E10028232C /* OrderHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderHeaderView.m; sourceTree = "<group>"; };
+		93DA19261E2D1AA4002F2C5A /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		93DA19271E2D1AA4002F2C5A /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		93DACA771E08CA80003157BD /* SalePromotionImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalePromotionImageView.h; sourceTree = "<group>"; };
 		93DACA781E08CA81003157BD /* SalePromotionImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalePromotionImageView.m; sourceTree = "<group>"; };
 		93DACA7A1E0900A8003157BD /* ProjectUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectUtil.h; sourceTree = "<group>"; };
@@ -1298,6 +1316,19 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		939317301E30792400281A05 /* HcdDateTimePicker */ = {
+			isa = PBXGroup;
+			children = (
+				939317311E30792400281A05 /* HcdDateTimePickerView.h */,
+				939317321E30792400281A05 /* HcdDateTimePickerView.m */,
+				939317331E30792400281A05 /* MXSCycleScrollView.h */,
+				939317341E30792400281A05 /* MXSCycleScrollView.m */,
+				939317351E30792400281A05 /* UIColor+HcdCustom.h */,
+				939317361E30792400281A05 /* UIColor+HcdCustom.m */,
+			);
+			path = HcdDateTimePicker;
+			sourceTree = "<group>";
+		};
 		93967B1A1E081B190003122A /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -1383,6 +1414,7 @@
 		93E02C851DDB598D007EAE1E /* 3dParty */ = {
 			isa = PBXGroup;
 			children = (
+				939317301E30792400281A05 /* HcdDateTimePicker */,
 				9319737C1E1360A8009D896D /* fmdb */,
 				93FA9F881E10AD5B001DCAA0 /* MWPhotoBrowser */,
 				93FA9F2F1E10AB66001DCAA0 /* SDCycleScrollView */,
@@ -1727,6 +1759,8 @@
 				93E02D8F1DDB598D007EAE1E /* UserInfo.m */,
 				93DACA7A1E0900A8003157BD /* ProjectUtil.h */,
 				93DACA7B1E0900A8003157BD /* ProjectUtil.m */,
+				93DA19261E2D1AA4002F2C5A /* UserManager.h */,
+				93DA19271E2D1AA4002F2C5A /* UserManager.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1778,6 +1812,10 @@
 				93F572C61DE27CB600966974 /* AboutVC.m */,
 				93EA50321DF084AC00BB287B /* ImageVC.h */,
 				93EA50331DF084AC00BB287B /* ImageVC.m */,
+				9393172A1E3051B200281A05 /* PersonInfoViewController.h */,
+				9393172B1E3051B200281A05 /* PersonInfoViewController.m */,
+				9393172D1E30777500281A05 /* ChangeUserNameVC.h */,
+				9393172E1E30777500281A05 /* ChangeUserNameVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2493,6 +2531,7 @@
 				93E02E2F1DDB598D007EAE1E /* LoginViewController.m in Sources */,
 				93F572BD1DE27C0E00966974 /* MASViewAttribute.m in Sources */,
 				93FA9FFC1E10AD5B001DCAA0 /* UIView+EMWebCacheOperation.m in Sources */,
+				93DA19281E2D1AA4002F2C5A /* UserManager.m in Sources */,
 				93E02E321DDB598D007EAE1E /* FindViewController.m in Sources */,
 				93D4940A1E1A89E10028232C /* OrderHeaderView.m in Sources */,
 				93FA9F411E10AB66001DCAA0 /* TADotView.m in Sources */,
@@ -2504,12 +2543,14 @@
 				93FA9FF71E10AD5B001DCAA0 /* UIImage+EMGIF.m in Sources */,
 				93FA9FFB1E10AD5B001DCAA0 /* UIImageView+EMWebCache.m in Sources */,
 				9319735D1E135BAF009D896D /* JFAreaDataManager.m in Sources */,
+				9393172C1E3051B200281A05 /* PersonInfoViewController.m in Sources */,
 				93E02DB41DDB598D007EAE1E /* AFHTTPRequestOperation.m in Sources */,
 				936691DD1DF955D7009E121B /* ConditionPickerView.m in Sources */,
 				93FA9FE91E10AD5B001DCAA0 /* MWTapDetectingImageView.m in Sources */,
 				93F572C11DE27C0E00966974 /* View+MASAdditions.m in Sources */,
 				93FAA0011E10AD5B001DCAA0 /* PSTCollectionViewData.m in Sources */,
 				931973611E135BAF009D896D /* JFCityCollectionViewCell.m in Sources */,
+				939317381E30792400281A05 /* MXSCycleScrollView.m in Sources */,
 				93FAA0111E10BC47001DCAA0 /* HotelTimeCell.m in Sources */,
 				93E02E301DDB598D007EAE1E /* SettingViewController.m in Sources */,
 				93D050E41E1FEF9E0006D6C6 /* OrderResultViewController.m in Sources */,
@@ -2575,6 +2616,7 @@
 				936B084D1E06DDC3009AD3D3 /* YYWeakProxy.m in Sources */,
 				93E02E2D1DDB598D007EAE1E /* AFNetPackage.m in Sources */,
 				93E02E191DDB598D007EAE1E /* MJRefreshAutoNormalFooter.m in Sources */,
+				939317371E30792400281A05 /* HcdDateTimePickerView.m in Sources */,
 				93FAA0051E10AD5B001DCAA0 /* PSTCollectionViewUpdateItem.m in Sources */,
 				93E02DB81DDB598D007EAE1E /* AFSecurityPolicy.m in Sources */,
 				93E02DEE1DDB598D007EAE1E /* FUIButton.m in Sources */,
@@ -2592,6 +2634,7 @@
 				93089D5F1E12A0BA00C9C273 /* TopicHotelCell.m in Sources */,
 				93107D7E1E195D2E000C4C1B /* RoomItemCell.m in Sources */,
 				93FAA0001E10AD5B001DCAA0 /* PSTCollectionViewController.m in Sources */,
+				939317391E30792400281A05 /* UIColor+HcdCustom.m in Sources */,
 				93F572BE1DE27C0E00966974 /* MASViewConstraint.m in Sources */,
 				93F6B3FE1DE1FDD20048F279 /* IQPreviousNextView.m in Sources */,
 				93FA9F451E10AB66001DCAA0 /* UIView+SDExtension.m in Sources */,
@@ -2619,6 +2662,7 @@
 				93E02E1A1DDB598D007EAE1E /* MJRefreshAutoStateFooter.m in Sources */,
 				93FA9FEF1E10AD5B001DCAA0 /* EMSDWebImageDecoder.m in Sources */,
 				93E6F8781E10133F004B0594 /* HotelAlbumsVC.m in Sources */,
+				9393172F1E30777500281A05 /* ChangeUserNameVC.m in Sources */,
 				931973A01E1385BC009D896D /* RoomInfoHeaderView.m in Sources */,
 				93107D7A1E195448000C4C1B /* RoomBaseInfoView.m in Sources */,
 				93FA9FE51E10AD5B001DCAA0 /* MWGridCell.m in Sources */,

@@ -21,7 +21,7 @@
 /** pageIndicatorTintColor*/
 #define pageTintColor [UIColor grayColor];
 /** currentPageIndicatorTintColor*/
-#define currentTintColor [UIColor greenColor];
+#define currentTintColor [UIColor colorFromHexCode:@"803ec5"];
 
 
 /*

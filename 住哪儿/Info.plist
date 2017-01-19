@@ -7,9 +7,13 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>住哪儿需要访问你的位置信息</string>
+	<string>“住哪儿”需要访问您的位置信息</string>
 	<key>Privacy - Location When In Use Usage Description </key>
-	<string>住哪儿需要在后台访问你的位置信息</string>
+	<string>“住哪儿”需要在后台访问您的位置信息</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>“住哪儿”需要访问您的相册信息</string>
+	<key>NSCameraUsageDescription</key>
+	<string>“住哪儿”需要访问您的相机权限</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleDevelopmentRegion</key>
