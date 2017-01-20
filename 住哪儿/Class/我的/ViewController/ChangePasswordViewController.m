@@ -10,10 +10,12 @@
 #import "ChangePasswordViewController.h"
 #import "UserInfo.h"
 
-@interface ChangePasswordViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ChangePasswordViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UserInfo *userInfo;
 @property (nonatomic, strong) UILabel *headerLabel;
+@property (nonatomic, strong) UIBarButtonItem *rightBarButtonItem;
+@property (nonatomic, strong) NSString *password;
 @end
 
 @implementation ChangePasswordViewController
@@ -29,11 +31,11 @@
     self.userInfo = [UserManager getUserObject];
 }
 
-
 #pragma mark - private method
 - (void)setupUI{
     self.view.backgroundColor = TableViewBackgroundColor;
     self.title = @"设置密码";
+    self.navigationItem.rightBarButtonItem = self.rightBarButtonItem;
     [self.view addSubview:self.headerLabel];
     [self.view addSubview:self.tableView];
     [self.headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -50,8 +52,26 @@
     }];
 }
 
+-(void)passwordChanged{
+    [SVProgressHUD showWithStatus:@"正在更改密码"];
+    [UserManager saveUserObject:self.userInfo];
+    [SVProgressHUD dismiss];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
-
+#pragma mark - UITextfieldDelegat
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if (textField.tag == 1002) {
+        self.password = textField.text;
+    }
+    if (textField.tag == 1001) {
+        if (self.password != textField.text) {
+            [SVProgressHUD showInfoWithStatus:@"2次密码不一致"];
+        }else{
+            self.userInfo.password = textField.text;
+        }
+    }
+}
 #pragma mark -- UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
@@ -81,6 +101,8 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"账号";
         UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(BoundWidth-260, 0, 100, 60)];
+        field.tag = 1002;
+        field.delegate = self;
         field.textAlignment = NSTextAlignmentLeft;
         field.font = [UIFont systemFontOfSize:15];
         field.textColor = [UIColor blackColor];
@@ -100,6 +122,8 @@
     }else{
         cell.textLabel.text = @"重复密码";
         UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(BoundWidth - 260, 0, 100, 76)];
+        field.tag = 1001;
+        field.delegate = self;
         field.textAlignment = NSTextAlignmentLeft;
         field.font = [UIFont systemFontOfSize:15];
         field.textColor = [UIColor blackColor];
@@ -140,5 +164,12 @@
         _headerLabel.text = @"设置去哪儿密码可以用账号加密码登录。";
     }
     return _headerLabel;
+}
+
+-(UIBarButtonItem *)rightBarButtonItem{
+    if (!_rightBarButtonItem) {
+        _rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(passwordChanged)];
+    }
+    return _rightBarButtonItem;
 }
 @end
