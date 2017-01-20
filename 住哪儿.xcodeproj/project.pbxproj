@@ -52,6 +52,7 @@
 		93302CCB1DFAB23B0091F145 /* HotPopularHotelAdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93302CCA1DFAB23B0091F145 /* HotPopularHotelAdCell.m */; };
 		93302CCF1DFAB3680091F145 /* HotPopularHotelCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93302CCD1DFAB3680091F145 /* HotPopularHotelCollectionCell.m */; };
 		93302CD01DFAB3680091F145 /* HotPopularHotelCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93302CCE1DFAB3680091F145 /* HotPopularHotelCollectionCell.xib */; };
+		933ED4931E31EAA1001E8A6B /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933ED4921E31EAA1001E8A6B /* ChangePasswordViewController.m */; };
 		936691DD1DF955D7009E121B /* ConditionPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936691DC1DF955D7009E121B /* ConditionPickerView.m */; };
 		936B084C1E06DDC3009AD3D3 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 936B08491E06DDC3009AD3D3 /* YYFPSLabel.m */; };
 		936B084D1E06DDC3009AD3D3 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 936B084B1E06DDC3009AD3D3 /* YYWeakProxy.m */; };
@@ -463,6 +464,8 @@
 		93302CCC1DFAB3680091F145 /* HotPopularHotelCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotPopularHotelCollectionCell.h; sourceTree = "<group>"; };
 		93302CCD1DFAB3680091F145 /* HotPopularHotelCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotPopularHotelCollectionCell.m; sourceTree = "<group>"; };
 		93302CCE1DFAB3680091F145 /* HotPopularHotelCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotPopularHotelCollectionCell.xib; sourceTree = "<group>"; };
+		933ED4911E31EAA1001E8A6B /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		933ED4921E31EAA1001E8A6B /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		936691DB1DF955D7009E121B /* ConditionPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionPickerView.h; sourceTree = "<group>"; };
 		936691DC1DF955D7009E121B /* ConditionPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionPickerView.m; sourceTree = "<group>"; };
 		936B08481E06DDC3009AD3D3 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
@@ -1816,6 +1819,8 @@
 				9393172B1E3051B200281A05 /* PersonInfoViewController.m */,
 				9393172D1E30777500281A05 /* ChangeUserNameVC.h */,
 				9393172E1E30777500281A05 /* ChangeUserNameVC.m */,
+				933ED4911E31EAA1001E8A6B /* ChangePasswordViewController.h */,
+				933ED4921E31EAA1001E8A6B /* ChangePasswordViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2630,6 +2635,7 @@
 				93302CC01DFAA5040091F145 /* SelectConditionCell.m in Sources */,
 				93E02DEA1DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.m in Sources */,
 				93E02DF31DDB598D007EAE1E /* FUITextField.m in Sources */,
+				933ED4931E31EAA1001E8A6B /* ChangePasswordViewController.m in Sources */,
 				93E02DFA1DDB598D007EAE1E /* UIPopoverController+FlatUI.m in Sources */,
 				93089D5F1E12A0BA00C9C273 /* TopicHotelCell.m in Sources */,
 				93107D7E1E195D2E000C4C1B /* RoomItemCell.m in Sources */,

@@ -10,7 +10,7 @@
 #import "PersonInfoViewController.h"
 #import "ChangeUserNameVC.h"
 #import "HcdDateTimePickerView.h"
-
+#import "ChangePasswordViewController.h"
 
 
 @interface PersonInfoViewController ()<UITableViewDelegate,UITableViewDataSource,
@@ -88,7 +88,7 @@
         [cell.contentView addSubview:usernameLabel];
     }else if (indexPath.row == 1) {
         cell.textLabel.text = @"昵称";
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth - 100, 0, 100, 76)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth - 120, 0, 100, 76)];
         label.textAlignment = NSTextAlignmentLeft;
         label.font = [UIFont systemFontOfSize:15];
         label.textColor = [UIColor blackColor];
@@ -96,7 +96,7 @@
         [cell.contentView addSubview:label];
     }else if (indexPath.row == 2) {
         cell.textLabel.text = @"性别";
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth - 100, 0, 100, 76)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth - 120, 0, 100, 76)];
         label.textAlignment = NSTextAlignmentLeft;
         label.font = [UIFont systemFontOfSize:15];
         label.textColor = [UIColor blackColor];
@@ -104,7 +104,7 @@
         [cell.contentView addSubview:label];
     }else if (indexPath.row == 3) {
         cell.textLabel.text = @"生日";
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth - 100, 0, 100, 76)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth - 120, 0, 100, 76)];
         label.textAlignment = NSTextAlignmentLeft;
         label.font = [UIFont systemFontOfSize:15];
         label.textColor = [UIColor blackColor];
@@ -112,14 +112,7 @@
         [cell.contentView addSubview:label];
     }else {
         cell.textLabel.text = @"修改密码";
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth - 100, 0, 100, 76)];
-        label.textAlignment = NSTextAlignmentLeft;
-        label.font = [UIFont systemFontOfSize:15];
-        label.textColor = [UIColor blackColor];
-        label.text = self.userInfo.password;
-        [cell.contentView addSubview:label];
     }
-
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return  cell;
 }
@@ -161,7 +154,7 @@
             break;
         }
         case 2:{
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *man = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 UserInfo *userInfo = [UserManager getUserObject];
                 userInfo.gender = @"男";
@@ -176,7 +169,7 @@
                 self.userInfo = [UserManager getUserObject];
                 [self.tableView reloadData];
             }];
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             [alert addAction:man];
@@ -205,7 +198,28 @@
             break;
         }
         case 4:{
-            NSLog(@"更换密码");
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"验证原密码" message:@"为保障您的数据安全，修改密码前请填写原密码" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                textField.secureTextEntry = YES;
+                NSLog(@"结果：%@",textField.text);
+            }];
+
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UserInfo *userInfo = [UserManager getUserObject];
+               UITextField *passwordTextField = alert.textFields.firstObject;
+                if (![passwordTextField.text isEqualToString:userInfo.password]) {
+                    [SVProgressHUD showErrorWithStatus:@"密码错误，请重新输入。"];
+                }else{
+                    ChangePasswordViewController *vc = [[ChangePasswordViewController alloc] init];
+                    [self.navigationController pushViewController:vc animated:YES];
+                    
+                    
+                }
+            }];
+            [alert addAction:cancel];
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
             break;
         }
         default:
