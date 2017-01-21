@@ -17,6 +17,8 @@
         self.gender = @"";
         self.birthday = @"";
         self.avator = [[UIImage alloc] init];
+        self.telephone = @"";
+        self.name = @"";
     }
     return self;
 }
@@ -28,12 +30,14 @@
         self.gender = dic[@"gender"];
         self.birthday = dic[@"birthday"];
         self.avator = dic[@"avator"];
+        self.telephone = dic[@"telephone"];
+        self.name = dic[@"name"];
     }
     return self;
 }
 
 -(NSString *)description{
-    return [NSString stringWithFormat:@"username:%@,gender:%@,birthday:%@,avator:%@,password:%@",self.userName,self.gender,self.birthday,self.avator,self.password];
+    return [NSString stringWithFormat:@"username:%@,gender:%@,birthday:%@,avator:%@,password:%@,name=%@,telephone:%@",self.userName,self.gender,self.birthday,self.avator,self.password,self.name,self.telephone];
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder{

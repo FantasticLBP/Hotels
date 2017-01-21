@@ -81,6 +81,23 @@
      */
     
 }
+- (IBAction)clickRegisterButton:(id)sender {
+    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/Register.php",Base_Url];
+    [SVProgressHUD showInfoWithStatus:@"正在注册"];
+    [AFNetPackage getJSONWithUrl:url parameters:nil success:^(id responseObject) {
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([json[@"code"] integerValue] == 200) {
+            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+            UserInfo *userInfo = [UserManager getUserObject];
+            userInfo.telephone = self.usernameTextField.text;
+            userInfo.password = self.passwordTextField.text;
+            [UserManager saveUserObject:userInfo];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
+}
 
 - (IBAction)clickWechatButton:(id)sender {
     [SVProgressHUD showInfoWithStatus:@"暂不支持微信登录"];
