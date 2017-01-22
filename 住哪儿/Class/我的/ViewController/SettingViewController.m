@@ -126,7 +126,13 @@
         usernameLabel.textAlignment = NSTextAlignmentLeft;
         usernameLabel.font = [UIFont systemFontOfSize:15];
         usernameLabel.textColor = [UIColor blackColor];
-        usernameLabel.text = [ProjectUtil isBlank:self.userInfo.userName]?@"请登录":self.userInfo.userName;
+        if ([ProjectUtil isNotBlank:self.userInfo.telephone]) {
+            if ([ProjectUtil isBlank:self.userInfo.userName]) {
+                usernameLabel.text = @"请修改完善个人信息";
+            }else{
+                usernameLabel.text = self.userInfo.userName;
+            }
+        }
         
         UITapGestureRecognizer *taping = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(manifyImage)];
         [imageView addGestureRecognizer:taping];

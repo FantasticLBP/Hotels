@@ -88,7 +88,7 @@
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
         if ([json[@"code"] integerValue] == 200) {
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
-            UserInfo *userInfo = [UserManager getUserObject];
+            UserInfo *userInfo = [[UserInfo alloc] init];
             userInfo.telephone = self.usernameTextField.text;
             userInfo.password = self.passwordTextField.text;
             [UserManager saveUserObject:userInfo];
