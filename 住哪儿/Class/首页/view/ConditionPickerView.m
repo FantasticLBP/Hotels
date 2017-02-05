@@ -97,26 +97,33 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELLID];
     }
     
+    for (UIView *subView in cell.contentView.subviews) {
+        [subView removeFromSuperview];
+    }
+    
     if (indexPath.row == 0 ) {
         UILabel *localtionabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, CellHeight)];
-        localtionabel.text = @"北京";
+        localtionabel.text = [ProjectUtil isBlank:self.cityName] ? @"北京":self.cityName;
         localtionabel.textColor = [UIColor blackColor];
         localtionabel.font = [UIFont systemFontOfSize:15];
         localtionabel.textAlignment = NSTextAlignmentCenter;
+        
+        UITapGestureRecognizer *locater = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(locate)];
+        locater.cancelsTouchesInView = YES;
+        localtionabel.userInteractionEnabled = YES;
+        [localtionabel addGestureRecognizer:locater];
+
+        
+        
         
         UIButton *locateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         locateBtn.frame = CGRectMake(LocateButtonMarginLeft, 0, LocateButtonOriginY, CellHeight);
         [locateBtn setImage:[UIImage imageNamed:@"locate"] forState:UIControlStateNormal];
         [locateBtn setTitle:@"我的位置" forState:UIControlStateNormal];
         [locateBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//        locateBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 23, 0);
-//        locateBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-//        locateBtn.titleLabel.center = CGPointMake(40, 10);
-//        locateBtn.imageView.center = CGPointMake(40,  30);
-//        [locateBtn setNeedsLayout];
         locateBtn.backgroundColor = [UIColor whiteColor];
         locateBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-        [locateBtn addTarget:self action:@selector(locate) forControlEvents:UIControlEventTouchUpInside];
+        [locateBtn addTarget:self action:@selector(autoLocate) forControlEvents:UIControlEventTouchUpInside];
         
         [cell.contentView addSubview:localtionabel];
         [cell.contentView addSubview:locateBtn];
@@ -132,6 +139,12 @@
         inDatelabel.textColor = [UIColor blackColor];
         inDatelabel.font = [UIFont systemFontOfSize:18];
         inDatelabel.text = [[NSDate sharedInstance] today];
+        
+        UITapGestureRecognizer *pickInTimer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickInTime)];
+        pickInTimer.cancelsTouchesInView = YES;
+        inDatelabel.userInteractionEnabled = YES;
+        [inDatelabel addGestureRecognizer:pickInTimer];
+        
         
         UILabel *totalLabel = [[UILabel alloc] initWithFrame:CGRectMake((BoundWidth-20)/2-19, 23-7, 38, 14)];
         totalLabel.textColor = [UIColor blackColor];
@@ -155,18 +168,26 @@
         outDatelabel.font = [UIFont systemFontOfSize:18];
         outDatelabel.text = [[NSDate date] today];
         
+        
+        UITapGestureRecognizer *pickOutTimer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickOutTime)];
+        pickOutTimer.cancelsTouchesInView = YES;
+        outDatelabel.userInteractionEnabled = YES;
+        [outDatelabel addGestureRecognizer:pickOutTimer];
+        
+        
         [cell.contentView addSubview:inLabel];
         [cell.contentView addSubview:inDatelabel];
         [cell.contentView addSubview:totalLabel];
         [cell.contentView addSubview:outLabel];
         [cell.contentView addSubview:outDatelabel];
     }else if (indexPath.row == 2){
-        UILabel *destinationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, BoundWidth-20, CellHeight)];
-        destinationLabel.textAlignment = NSTextAlignmentCenter;
-        destinationLabel.textColor = [UIColor blackColor];
-        destinationLabel.font = [UIFont systemFontOfSize:18];
-        destinationLabel.text = @"首都机场T1航站楼";
-        [cell.contentView addSubview:destinationLabel];
+        UITextField *destinationTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, BoundWidth-20, CellHeight)];
+        destinationTextField.textAlignment = NSTextAlignmentCenter;
+        destinationTextField.textColor = [UIColor blackColor];
+        destinationTextField.font = [UIFont systemFontOfSize:18];
+        destinationTextField.placeholder = @"请输入酒店";
+        destinationTextField.borderStyle = UITextBorderStyleNone;
+        [cell.contentView addSubview:destinationTextField];
     }else{
         UILabel *starLevelLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, BoundWidth-20, CellHeight)];
         starLevelLabel.textAlignment = NSTextAlignmentCenter;
@@ -174,23 +195,62 @@
         starLevelLabel.font = [UIFont systemFontOfSize:18];
         starLevelLabel.text = @"星级";
         [cell.contentView addSubview:starLevelLabel];
+        
+        
+        UITapGestureRecognizer *starFilter = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(starFilter)];
+        starFilter.cancelsTouchesInView = YES;
+        starLevelLabel.userInteractionEnabled = YES;
+        [starLevelLabel addGestureRecognizer:starFilter];
     }
-    
-    
-    
-    
-    
+
     return cell;
 }
 
 
 #pragma mark - button method
 -(void)searchHotel{
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_SearchHotel];
+    }
 }
 
 -(void)locate{
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_Locate];
+    }
+}
+
+-(void)pickInTime{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_InTime];
+    }
+}
+
+-(void)pickOutTime{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_EndTime];
+    }
+}
+
+-(void)autoLocate{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_AutoLocate];
+    }
+}
+
+
+-(void)starFilter{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_StarFilter];
+    }
+}
+
+#pragma mark - setter
+-(void)setCityName:(NSString *)cityName{
+    if ([ProjectUtil isNotBlank:cityName]) {
+        _cityName = cityName;
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - lazy load

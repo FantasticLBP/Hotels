@@ -20,7 +20,6 @@
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UIAlertController *shareView;
 @property (nonatomic, strong) UserInfo *userInfo;
 @end
 
@@ -292,6 +291,5 @@
     }
     return _tableView;
 }
-
 
 @end

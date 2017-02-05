@@ -63,11 +63,15 @@ static NSString *HotPopularHotelCollectionCellID = @"HotPopularHotelCollectionCe
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(161, 106);
+    return CGSizeMake(BoundWidth/3, 106);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+-(CGFloat)collection:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return  0;
 }
 
 #pragma mark - lazy load
@@ -75,11 +79,11 @@ static NSString *HotPopularHotelCollectionCellID = @"HotPopularHotelCollectionCe
     if (!_collectionview) {
         UICollectionViewFlowLayout* layout =
         [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = CGSizeMake(161, self.frame.size.height);
+        layout.itemSize = CGSizeMake(BoundWidth/3, self.frame.size.height);
         layout.minimumLineSpacing = 0;
         layout.minimumInteritemSpacing = 0;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        UICollectionView *collect = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 1, BoundWidth*2, 106) collectionViewLayout:layout ];
+        UICollectionView *collect = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 1, BoundWidth *2, 106) collectionViewLayout:layout ];
         collect.scrollEnabled = YES;
         collect.showsHorizontalScrollIndicator = NO;
         collect.backgroundColor = CollectionViewBackgroundColor;

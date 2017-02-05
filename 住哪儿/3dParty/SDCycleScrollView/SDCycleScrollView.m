@@ -73,8 +73,7 @@ NSString * const ID = @"cycleCell";
     [self setupMainView];
 }
 
-- (void)initialization
-{
+- (void)initialization{
     _pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     _autoScrollTimeInterval = 2.0;
     _titleLabelTextColor = [UIColor whiteColor];

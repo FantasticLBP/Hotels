@@ -19,6 +19,10 @@
 #import "HotelDetailVC.h"
 #import "SalePromotionImageView.h"
 #import "PrivilegeHotelVC.h"
+#import "TimerPickerVC.h"
+#import "LBPNavigationController.h"
+#import "JFCityViewController.h"
+#import "PriceAndStarLevelPickerView.h"
 
 
 #import "YYFPSLabel.h"
@@ -31,7 +35,9 @@ static NSString *SpecialHotelCellID = @"SpecialHotelCell";
 static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate,
-                                UITableViewDelegate,UITableViewDataSource,SelectConditionCellDelegate,SalePromotionImageViewDelegate>
+                                UITableViewDelegate,UITableViewDataSource,SelectConditionCellDelegate,SalePromotionImageViewDelegate,
+                                    ConditionPickerViewDelegate,
+                                    PriceAndStarLevelPickerViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -41,7 +47,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 @property (nonatomic, strong) ConditionPickerView *conditionView;
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) SalePromotionImageView *saleImageView;
-
+@property (nonatomic, strong) PriceAndStarLevelPickerView *starView;
 @end
 
 @implementation HomeViewController
@@ -71,6 +77,66 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     return YES;
 }
 
+#pragma mark - PriceAndStarLevelPickerViewDelegate
+-(void)priceAndStarLevelPickerView:(PriceAndStarLevelPickerView *)view didClickWithhButtonType:(PriceAndStarLevel_Operation)type{
+    switch (type) {
+        case PriceAndStarLevel_Operation_clearCondition:{
+            
+            
+            break;
+        }
+        case PriceAndStarLevel_Operation_OK:{
+            
+            
+            [self.starView removeFromSuperview];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+#pragma mark - ConditionPickerViewDelegate
+-(void)conditionPickerView:(ConditionPickerView *)view didClickWithActionType:(Operation_Type)type{
+    switch (type) {
+        case Operation_Type_InTime:{
+            LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:[[TimerPickerVC alloc] init]];
+            [self.navigationController presentViewController:navi animated:true completion:nil];
+        }
+        case Operation_Type_EndTime:{
+            LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:[[TimerPickerVC alloc] init]];
+            [self.navigationController presentViewController:navi animated:true completion:nil];
+        }
+        case Operation_Type_Locate:{
+            NSLog(@"城市选择");
+            JFCityViewController *cityViewController = [[JFCityViewController alloc] init];
+            cityViewController.title = @"城市";
+            [cityViewController choseCityBlock:^(NSString *cityName) {
+                self.conditionView.cityName = cityName;
+            }];
+            LBPNavigationController *navigationController = [[LBPNavigationController alloc] initWithRootViewController:cityViewController];
+            [self presentViewController:navigationController animated:YES completion:nil];
+            break;
+        }
+        case Operation_Type_AutoLocate:{
+            NSLog(@"自动定位");
+            break;
+        }
+        case Operation_Type_SearchHotel:{
+            NSLog(@"查找酒店");
+            break;
+        }
+        case Operation_Type_StarFilter:{
+            self.starView = [[PriceAndStarLevelPickerView alloc] initWithFrame:CGRectMake(0,BoundHeight, BoundWidth, 600)];
+            [[[UIApplication sharedApplication] keyWindow] addSubview:self.starView];
+            self.starView.delegate = self;
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
 #pragma mark - SalePromotionImageViewDelegate
 -(void)salePromotionImageView:(SalePromotionImageView *)salePromotionImageView didClickAtPromotionView:(NSString *)flag{
     PrivilegeHotelVC *vc = [[PrivilegeHotelVC alloc] init];
@@ -205,6 +271,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(ConditionPickerView *)conditionView{
     if (!_conditionView) {
         _conditionView = [[ConditionPickerView alloc] initWithFrame:CGRectMake(10, 130, BoundWidth-20, 255)];
+        _conditionView.delegate = self;
     }
     return _conditionView;
 }
