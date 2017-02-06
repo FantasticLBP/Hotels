@@ -7,6 +7,7 @@
 //
 
 #import "ConditionPickerView.h"
+#import "PriceAndStarLevelPickerView.h"
 
 #define CellHeight 46
 #define LocateButtonMarginLeft 310
@@ -19,7 +20,8 @@
 @property (nonatomic, strong) UILabel *hotelLabel;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *searchButton;
-
+@property (nonatomic, strong) NSMutableString *selectedResult;             /**<条件选择结果*/
+@property (nonatomic, assign) NSInteger totalDay;                          /**<住宿几天*/
 @end
 @implementation ConditionPickerView
 
@@ -154,8 +156,7 @@
         totalLabel.layer.borderWidth = 1;
         totalLabel.layer.cornerRadius = 7;
         totalLabel.layer.masksToBounds = YES;
-        totalLabel.text = @"共一晚";
-        
+        totalLabel.text = [NSString stringWithFormat:@"共%ld晚",self.totalDay];
         UILabel *outLabel = [[UILabel alloc] initWithFrame:CGRectMake((BoundWidth-20)/2-19+38, 0, (BoundWidth-20)/2-19, InLabelHeight)];
         outLabel.textAlignment = NSTextAlignmentCenter;
         outLabel.textColor = PlaceHolderColor;
@@ -166,8 +167,7 @@
         outDatelabel.textAlignment = NSTextAlignmentCenter;
         outDatelabel.textColor = [UIColor blackColor];
         outDatelabel.font = [UIFont systemFontOfSize:18];
-        outDatelabel.text = [[NSDate date] today];
-        
+        outDatelabel.text = [ProjectUtil isBlank:self.pickedEndTime]? [[NSDate date] today] : self.pickedEndTime;
         
         UITapGestureRecognizer *pickOutTimer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickOutTime)];
         pickOutTimer.cancelsTouchesInView = YES;
@@ -191,11 +191,10 @@
     }else{
         UILabel *starLevelLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, BoundWidth-20, CellHeight)];
         starLevelLabel.textAlignment = NSTextAlignmentCenter;
-        starLevelLabel.textColor = PlaceHolderColor;
         starLevelLabel.font = [UIFont systemFontOfSize:18];
-        starLevelLabel.text = @"星级";
+        starLevelLabel.text = [ProjectUtil isNotBlank:self.selectedResult] ? self.selectedResult : @"星级";
+        starLevelLabel.textColor = [ProjectUtil isNotBlank:self.selectedResult] ? [UIColor blackColor] :PlaceHolderColor;
         [cell.contentView addSubview:starLevelLabel];
-        
         
         UITapGestureRecognizer *starFilter = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(starFilter)];
         starFilter.cancelsTouchesInView = YES;
@@ -253,6 +252,59 @@
     }
 }
 
+-(void)setPickedEndTime:(NSString *)pickedEndTime{
+    [self.tableView reloadData];
+}
+
+-(NSInteger)totalDay{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YY-MM-dd HH:mm:ss"];
+    NSDate *date = [formatter dateFromString:self.pickedEndTime];
+    
+    NSInteger days = [[NSDate date] calcDaysFromBegin:[[NSDate date] today] end:date];
+    return days;
+}
+
+-(void)setDatas:(NSMutableDictionary *)datas{
+    _datas  = datas;
+    _selectedResult = [[NSMutableString alloc] init];
+    if ([datas[@"starLevel"] integerValue] == Hotel_Star_Level_No) {
+        [_selectedResult appendString:@"不限，"];
+    }else if ([datas[@"starLevel"] integerValue] == Hotel_Star_Level_Cheap){
+        [_selectedResult appendString:@"经济，"];
+    }else if ([datas[@"starLevel"] integerValue] == Hotel_Star_Level_ThreeStar){
+        [_selectedResult appendString:@"三星，"];
+    }else if ([datas[@"starLevel"] integerValue] == Hotel_Star_Level_FourStar){
+        [_selectedResult appendString:@"四星，"];
+    }else if ([datas[@"starLevel"] integerValue] == Hotel_Star_Level_FiveStar){
+        [_selectedResult appendString:@"五星，"];
+    }
+    
+    if ([datas[@"price"] integerValue] == Hotel_Price_Level_Zero) {
+        [_selectedResult appendString:@"0元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_Fifty){
+        [_selectedResult appendString:@"50元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_Hundred){
+        [_selectedResult appendString:@"100元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_HundredFifty){
+        [_selectedResult appendString:@"150元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_TwoHundred){
+        [_selectedResult appendString:@"200元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_TwoHundredFifty){
+        [_selectedResult appendString:@"250元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_ThreeHundred){
+        [_selectedResult appendString:@"300元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_ThreeHundredFifty){
+        [_selectedResult appendString:@"350元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_FourHundred){
+        [_selectedResult appendString:@"400元"];
+    }else if([datas[@"price"] integerValue] == Hotel_Star_Level_NoLimit){
+        [_selectedResult appendString:@"不限"];
+    }
+    
+    [self.tableView reloadData];
+}
+
 #pragma mark - lazy load
 -(UIView *)topView{
     if (!_topView) {
@@ -280,6 +332,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.scrollEnabled = NO;
     }
     return _tableView;
 }

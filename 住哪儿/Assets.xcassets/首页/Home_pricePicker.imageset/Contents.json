@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Home_pricePicker.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "日历@2x.png",
       "scale" : "2x"
     },
     {

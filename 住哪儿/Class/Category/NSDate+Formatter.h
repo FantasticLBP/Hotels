@@ -20,4 +20,11 @@
  * eg:12月8号今天
  */
 -(NSString *)today;
+
+
+/**
+ * 2个日期的相差天数
+ *
+ */
+-(NSInteger)calcDaysFromBegin:(NSDate *)beiginDate end:(NSDate *)endDate;
 @end

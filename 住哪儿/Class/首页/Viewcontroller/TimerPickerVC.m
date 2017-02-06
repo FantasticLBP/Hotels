@@ -44,9 +44,14 @@
     view.manager.selectionType = ZYCalendarSelectionTypeRange;
     // 设置当前日期
     view.date = [NSDate date];
-    
+
     view.dayViewBlock = ^(NSDate *dayDate) {
-        NSLog(@"%@", dayDate);
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd"];
+        NSString *period = [dateFormatter stringFromDate:dayDate];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(timerPickerVC:didPickedTime:)]) {
+            [self.delegate timerPickerVC:self didPickedTime:period];
+        }
        [self dismissViewControllerAnimated:YES completion:nil];
     };
     

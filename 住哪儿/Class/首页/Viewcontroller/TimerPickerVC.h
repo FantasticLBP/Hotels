@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TimerPickerVC;
 
+
+@protocol TimerPickerVCDelegate <NSObject>
+
+-(void)timerPickerVC:(TimerPickerVC *)vc didPickedTime:(NSString *)period;
+
+@end
 @interface TimerPickerVC : UIViewController
-
+@property (nonatomic, weak) id<TimerPickerVCDelegate> delegate;
 @end

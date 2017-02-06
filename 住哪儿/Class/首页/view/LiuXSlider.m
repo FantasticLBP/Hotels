@@ -94,7 +94,6 @@
         _startImage.center=CGPointMake(0, CenterImage_Y);
         _startImage.userInteractionEnabled=NO;
         _startImage.alpha=.5;
-        _startImage.backgroundColor = [UIColor greenColor];
         [self addSubview:_startImage];
         
 

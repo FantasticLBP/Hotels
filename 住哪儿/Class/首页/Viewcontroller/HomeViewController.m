@@ -14,7 +14,6 @@
 #import "HotPopularHotelAdCell.h"
 #import "SpecialHotelCell.h"
 #import "HotelDescriptionCell.h"
-#import "TrainBookingVC.h"
 #import "ConditionPickerView.h"
 #import "HotelDetailVC.h"
 #import "SalePromotionImageView.h"
@@ -37,7 +36,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 @interface HomeViewController ()<SDCycleScrollViewDelegate,
                                 UITableViewDelegate,UITableViewDataSource,SelectConditionCellDelegate,SalePromotionImageViewDelegate,
                                     ConditionPickerViewDelegate,
-                                    PriceAndStarLevelPickerViewDelegate>
+                                    PriceAndStarLevelPickerViewDelegate,
+                                    TimerPickerVCDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -78,16 +78,14 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 #pragma mark - PriceAndStarLevelPickerViewDelegate
--(void)priceAndStarLevelPickerView:(PriceAndStarLevelPickerView *)view didClickWithhButtonType:(PriceAndStarLevel_Operation)type{
+-(void)priceAndStarLevelPickerView:(PriceAndStarLevelPickerView *)view didClickWithhButtonType:(PriceAndStarLevel_Operation)type withData:(NSMutableDictionary *)data{
     switch (type) {
         case PriceAndStarLevel_Operation_clearCondition:{
-            
-            
+            [view refreshUI];
             break;
         }
         case PriceAndStarLevel_Operation_OK:{
-            
-            
+            self.conditionView.datas = data;
             [self.starView removeFromSuperview];
             break;
         }
@@ -96,19 +94,27 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     }
 }
 
+#pragma mark - TimerPickerVCDelegate
+-(void)timerPickerVC:(TimerPickerVC *)vc didPickedTime:(NSString *)period{
+    self.conditionView.pickedEndTime = period;
+}
+
 #pragma mark - ConditionPickerViewDelegate
 -(void)conditionPickerView:(ConditionPickerView *)view didClickWithActionType:(Operation_Type)type{
     switch (type) {
         case Operation_Type_InTime:{
-            LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:[[TimerPickerVC alloc] init]];
+            TimerPickerVC *timePicker = [[TimerPickerVC alloc] init];
+            timePicker.delegate = self;
+            LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:timePicker];
             [self.navigationController presentViewController:navi animated:true completion:nil];
         }
         case Operation_Type_EndTime:{
-            LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:[[TimerPickerVC alloc] init]];
+            TimerPickerVC *timePicker = [[TimerPickerVC alloc] init];
+            timePicker.delegate = self;
+            LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:timePicker];
             [self.navigationController presentViewController:navi animated:true completion:nil];
         }
         case Operation_Type_Locate:{
-            NSLog(@"城市选择");
             JFCityViewController *cityViewController = [[JFCityViewController alloc] init];
             cityViewController.title = @"城市";
             [cityViewController choseCityBlock:^(NSString *cityName) {
@@ -150,12 +156,33 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 #pragma mark - SelectConditionCellDelegate
 -(void)selectConditionCell:(SelectConditionCell *)selectConditionCell didClickCollectionCellAtIndexPath:(NSInteger)indexPath{
-    if (indexPath == 0) {
-        NSString *docDir=[[NSBundle mainBundle]bundlePath];
-        NSString *pathurl=[docDir stringByAppendingPathComponent:@"blank.html"];
-        TrainBookingVC *vc = [[TrainBookingVC alloc] init];
-        vc.path = pathurl;
-        [self.navigationController pushViewController:vc animated:YES];
+    switch (indexPath) {
+        case 0:
+            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+            break;
+        case 1:
+            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+            break;
+        case 2:
+            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+            break;
+        case 3:
+            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+            break;
+        case 4:
+            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+            break;
+        case 5:
+            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+            break;
+        case 6:
+            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+            break;
+        case 7:
+            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+            break;
+        default:
+            break;
     }
 }
 
@@ -299,8 +326,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         NSMutableArray *datas = [NSMutableArray array];
         NSArray *images =  @[@"Home_appoinement",@"Home_health",@"Home_interactivePlatform",@"Home_advisory Complaints",
                              @"Home_dietDocument",@"Home_stepCounter",@"Home_BMIDocument",@"Home_myNotice"];
-        NSArray *titles = @[@"预约挂号",@"健康资讯",@"互动平台",@"咨询投诉",
-                            @"饮食档案",@"计步档案",@"BMI档案",@"我的提醒"];
+        NSArray *titles = @[@"钟点房",@"门票",@"特惠酒店",@"当地",
+                            @"机票",@"火车票",@"汽车票",@"特色酒店"];
         
         for (int i=0; i<images.count; i++) {
             NSDictionary *dic = @{@"image":images[i],@"title":titles[i]};

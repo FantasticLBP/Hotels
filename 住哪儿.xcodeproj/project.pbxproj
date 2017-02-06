@@ -148,7 +148,6 @@
 		936B09071E06E0F1009AD3D3 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 936B08AB1E06E0F0009AD3D3 /* main.js */; };
 		936B09081E06E0F1009AD3D3 /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 936B08AC1E06E0F0009AD3D3 /* package.json */; };
 		936B09091E06E0F1009AD3D3 /* template.js in Resources */ = {isa = PBXBuildFile; fileRef = 936B08AD1E06E0F0009AD3D3 /* template.js */; };
-		936B090C1E06E2B7009AD3D3 /* TrainBookingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936B090B1E06E2B7009AD3D3 /* TrainBookingVC.m */; };
 		936C7ADC1E0928160065389F /* PrivilegeHotelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7ADB1E0928160065389F /* PrivilegeHotelVC.m */; };
 		936C7AE91E095F0B0065389F /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7AE81E095F0B0065389F /* ShareView.m */; };
 		936C7AED1E0980AD0065389F /* ShareCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7AEB1E0980AD0065389F /* ShareCollectionCell.m */; };
@@ -573,8 +572,6 @@
 		936B08AB1E06E0F0009AD3D3 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		936B08AC1E06E0F0009AD3D3 /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
 		936B08AD1E06E0F0009AD3D3 /* template.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = template.js; sourceTree = "<group>"; };
-		936B090A1E06E2B7009AD3D3 /* TrainBookingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainBookingVC.h; sourceTree = "<group>"; };
-		936B090B1E06E2B7009AD3D3 /* TrainBookingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainBookingVC.m; sourceTree = "<group>"; };
 		936C7ADA1E0928160065389F /* PrivilegeHotelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivilegeHotelVC.h; sourceTree = "<group>"; };
 		936C7ADB1E0928160065389F /* PrivilegeHotelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivilegeHotelVC.m; sourceTree = "<group>"; wrapsLines = 0; };
 		936C7AE71E095F0B0065389F /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
@@ -2031,8 +2028,6 @@
 				93E02DB11DDB598D007EAE1E /* HomeViewController.m */,
 				93E02DB21DDB598D007EAE1E /* SearchHotelVC.h */,
 				93E02DB31DDB598D007EAE1E /* SearchHotelVC.m */,
-				936B090A1E06E2B7009AD3D3 /* TrainBookingVC.h */,
-				936B090B1E06E2B7009AD3D3 /* TrainBookingVC.m */,
 				93DBCE2C1E46D16800F528E1 /* TimerPickerVC.h */,
 				93DBCE2D1E46D16800F528E1 /* TimerPickerVC.m */,
 			);
@@ -2809,7 +2804,6 @@
 				93FAA0021E10AD5B001DCAA0 /* PSTCollectionViewFlowLayout.m in Sources */,
 				93E6F8751E101327004B0594 /* HotelLocationMapVC.m in Sources */,
 				93E02DEF1DDB598D007EAE1E /* FUICellBackgroundView.m in Sources */,
-				936B090C1E06E2B7009AD3D3 /* TrainBookingVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

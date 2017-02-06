@@ -27,4 +27,6 @@ typedef enum{
 @interface ConditionPickerView : UIView
 @property (nonatomic, weak) id<ConditionPickerViewDelegate> delegate;
 @property (nonatomic, strong) NSString *cityName;            /**<选择的城市*/
+@property (nonatomic, strong) NSMutableDictionary *datas;            /**<酒店星级和酒店价格*/
+@property (nonatomic, strong) NSString *pickedEndTime;            /**<选择的结束时间*/
 @end
