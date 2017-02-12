@@ -17,7 +17,6 @@ alpha:1.0]
 
 #define SelectedBgColor GlobalMainColor
 #define SelectedTextColor [UIColor whiteColor]
-
 #define defaultTextColor [UIColor blackColor]
 
 typedef NS_ENUM(NSInteger, ZYCalendarSelectionType) {

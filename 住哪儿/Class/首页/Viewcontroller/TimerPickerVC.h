@@ -12,7 +12,7 @@
 
 @protocol TimerPickerVCDelegate <NSObject>
 
--(void)timerPickerVC:(TimerPickerVC *)vc didPickedTime:(NSString *)period;
+-(void)timerPickerVC:(TimerPickerVC *)vc didPickedTime:(NSDate *)period;
 
 @end
 @interface TimerPickerVC : UIViewController

@@ -11,15 +11,21 @@
 #import "SpecialHotelConditionPickCell.h"
 #import "CheaperHotelCell.h"
 #import "HotelDetailVC.h"
+#import "TimerPickerVC.h"
+#import "LBPNavigationController.h"
+#import "JFCityViewController.h"
 
 static NSString *SpecialHotelConditionPickCellID = @"SpecialHotelConditionPickCell";
 static NSString *CheaperHotelCellID = @"CheaperHotelCell";
 
-@interface PrivilegeHotelVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface PrivilegeHotelVC ()<UITableViewDelegate,UITableViewDataSource,
+                                SpecialHotelConditionPickCellDelegate,
+                                TimerPickerVCDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *specialHotels;
 @property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic, strong) SpecialHotelConditionPickCell *conditionView;
 @end
 
 @implementation PrivilegeHotelVC
@@ -47,6 +53,54 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
     
 }
 
+#pragma mark - TimerPickerVCDelegate
+-(void)timerPickerVC:(TimerPickerVC *)vc didPickedTime:(NSDate *)period{
+    NSLog(@"选择日期:%@",period);
+}
+
+
+#pragma mark - SpecialHotelConditionPickCellDelegate
+-(void)specialHotelConditionPickCell:(SpecialHotelConditionPickCell *)cell didClickWithAxctionType:(Operation_Type)type{
+    switch (type) {
+        case Operation_Type_InTime:{
+            TimerPickerVC *timePicker = [[TimerPickerVC alloc] init];
+            timePicker.delegate = self;
+            LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:timePicker];
+            [self.navigationController presentViewController:navi animated:true completion:nil];
+        }
+        case Operation_Type_EndTime:{
+            TimerPickerVC *timePicker = [[TimerPickerVC alloc] init];
+            timePicker.delegate = self;
+            LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:timePicker];
+            [self.navigationController presentViewController:navi animated:true completion:nil];
+        }
+        case Operation_Type_Locate:{
+            JFCityViewController *cityViewController = [[JFCityViewController alloc] init];
+            cityViewController.title = @"城市";
+            [cityViewController choseCityBlock:^(NSString *cityName) {
+                NSLog(@"选择城市%@",cityName);
+            }];
+            LBPNavigationController *navigationController = [[LBPNavigationController alloc] initWithRootViewController:cityViewController];
+            [self presentViewController:navigationController animated:YES completion:nil];
+            break;
+        }
+        case Operation_Type_AutoLocate:{
+            NSLog(@"自动定位");
+            break;
+        }
+        case Operation_Type_SearchHotel:{
+            NSLog(@"查找酒店");
+            break;
+        }
+        case Operation_Type_StarFilter:{
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
 #pragma mark - UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -68,6 +122,7 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         SpecialHotelConditionPickCell *cell = [tableView dequeueReusableCellWithIdentifier:SpecialHotelConditionPickCellID];
+        cell.delegate = self;
         return cell;
     }else{
         CheaperHotelCell *cell = [tableView dequeueReusableCellWithIdentifier:CheaperHotelCellID forIndexPath:indexPath];
@@ -127,4 +182,11 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
     return _images;
 }
 
+-(SpecialHotelConditionPickCell *)conditionView{
+    if (!_conditionView) {
+        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:0 inSection:0];
+        _conditionView = [_tableView cellForRowAtIndexPath:indexpath];
+    }
+    return _conditionView;
+}
 @end

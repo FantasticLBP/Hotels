@@ -46,11 +46,8 @@
     view.date = [NSDate date];
 
     view.dayViewBlock = ^(NSDate *dayDate) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM-dd"];
-        NSString *period = [dateFormatter stringFromDate:dayDate];
         if (self.delegate && [self.delegate respondsToSelector:@selector(timerPickerVC:didPickedTime:)]) {
-            [self.delegate timerPickerVC:self didPickedTime:period];
+            [self.delegate timerPickerVC:self didPickedTime:dayDate];
         }
        [self dismissViewControllerAnimated:YES completion:nil];
     };

@@ -15,13 +15,16 @@
 #define InLabelHeight 21
 
 
-@interface ConditionPickerView()<UITableViewDelegate,UITableViewDataSource>
+@interface ConditionPickerView()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UIView *topView;
 @property (nonatomic, strong) UILabel *hotelLabel;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic, strong) NSMutableString *selectedResult;             /**<条件选择结果*/
+@property (nonatomic, strong) NSString *selectedEnddate;                    /**<选择的离店时间格式化字符串*/
 @property (nonatomic, assign) NSInteger totalDay;                          /**<住宿几天*/
+@property (nonatomic, strong) NSString *hotelName;
+@property (nonatomic, strong) NSMutableDictionary *pickedData;
 @end
 @implementation ConditionPickerView
 
@@ -77,7 +80,13 @@
     
 }
 
-
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if (textField.tag == 10000) {
+        self.hotelName = textField.text;
+        [self.pickedData setObject:self.hotelName forKey:@"pickedHotelName"];
+    }
+}
 
 #pragma mark - UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -156,7 +165,7 @@
         totalLabel.layer.borderWidth = 1;
         totalLabel.layer.cornerRadius = 7;
         totalLabel.layer.masksToBounds = YES;
-        totalLabel.text = [NSString stringWithFormat:@"共%ld晚",self.totalDay];
+        totalLabel.text = [NSString stringWithFormat:@"共%zi晚",self.totalDay];
         UILabel *outLabel = [[UILabel alloc] initWithFrame:CGRectMake((BoundWidth-20)/2-19+38, 0, (BoundWidth-20)/2-19, InLabelHeight)];
         outLabel.textAlignment = NSTextAlignmentCenter;
         outLabel.textColor = PlaceHolderColor;
@@ -167,7 +176,7 @@
         outDatelabel.textAlignment = NSTextAlignmentCenter;
         outDatelabel.textColor = [UIColor blackColor];
         outDatelabel.font = [UIFont systemFontOfSize:18];
-        outDatelabel.text = [ProjectUtil isBlank:self.pickedEndTime]? [[NSDate date] today] : self.pickedEndTime;
+        outDatelabel.text = [ProjectUtil isBlank:self.selectedEnddate]? [[NSDate date] today] : self.selectedEnddate;
         
         UITapGestureRecognizer *pickOutTimer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickOutTime)];
         pickOutTimer.cancelsTouchesInView = YES;
@@ -186,6 +195,9 @@
         destinationTextField.textColor = [UIColor blackColor];
         destinationTextField.font = [UIFont systemFontOfSize:18];
         destinationTextField.placeholder = @"请输入酒店";
+        destinationTextField.text = [ProjectUtil isNotBlank:self.hotelName] ? self.hotelName : @"";
+        destinationTextField.delegate = self;
+        destinationTextField.tag = 10000;
         destinationTextField.borderStyle = UITextBorderStyleNone;
         [cell.contentView addSubview:destinationTextField];
     }else{
@@ -208,39 +220,39 @@
 
 #pragma mark - button method
 -(void)searchHotel{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
-        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_SearchHotel];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:andPickedData:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_SearchHotel andPickedData:self.pickedData];
     }
 }
 
 -(void)locate{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
-        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_Locate];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:andPickedData:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_Locate andPickedData:self.pickedData];
     }
 }
 
 -(void)pickInTime{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
-        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_InTime];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType: andPickedData:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_InTime andPickedData:self.pickedData];
     }
 }
 
 -(void)pickOutTime{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
-        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_EndTime];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType: andPickedData:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_EndTime andPickedData:self.pickedData];
     }
 }
 
 -(void)autoLocate{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
-        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_AutoLocate];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType: andPickedData:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_AutoLocate andPickedData:self.pickedData];
     }
 }
 
 
 -(void)starFilter{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType:)]) {
-        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_StarFilter];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(conditionPickerView:didClickWithActionType: andPickedData:)]) {
+        [self.delegate conditionPickerView:self didClickWithActionType:Operation_Type_StarFilter andPickedData:self.pickedData];
     }
 }
 
@@ -248,20 +260,23 @@
 -(void)setCityName:(NSString *)cityName{
     if ([ProjectUtil isNotBlank:cityName]) {
         _cityName = cityName;
+        [_pickedData setObject:cityName forKey:@"cityName"];
         [self.tableView reloadData];
     }
 }
 
--(void)setPickedEndTime:(NSString *)pickedEndTime{
+-(void)setPickedEndTime:(NSDate *)pickedEndTime{
+    _pickedEndTime = pickedEndTime;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd"];
+    self.selectedEnddate = [dateFormatter stringFromDate:pickedEndTime];
+    [_pickedData setObject:[[NSDate date] today] forKey:@"pickedStartTime"];
+    [_pickedData setObject:pickedEndTime forKey:@"pickedEndTime"];
     [self.tableView reloadData];
 }
 
 -(NSInteger)totalDay{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YY-MM-dd HH:mm:ss"];
-    NSDate *date = [formatter dateFromString:self.pickedEndTime];
-    
-    NSInteger days = [[NSDate date] calcDaysFromBegin:[[NSDate date] today] end:date];
+    NSInteger days = [[NSDate date] calcDaysFromBegin:[NSDate date] end:self.pickedEndTime];
     return days;
 }
 
@@ -301,7 +316,7 @@
     }else if([datas[@"price"] integerValue] == Hotel_Star_Level_NoLimit){
         [_selectedResult appendString:@"不限"];
     }
-    
+    [self.pickedData setObject:_selectedResult forKey:@"pickedLevel"];
     [self.tableView reloadData];
 }
 
@@ -346,4 +361,12 @@
     }
     return _searchButton;
 }
+
+-(NSMutableDictionary *)pickedData{
+    if (!_pickedData) {
+        _pickedData = [NSMutableDictionary dictionary];
+    }
+    return _pickedData;
+}
+
 @end

@@ -212,7 +212,7 @@
             if (self.manager.dayViewBlock) {
                 self.manager.dayViewBlock(_date);
             }
-        } else if (!_manager.selectedStartDay && !_manager.selectedEndDay) {
+        }else if (!_manager.selectedStartDay && !_manager.selectedEndDay) {
             self.manager.selectedStartDay.selected = false;
             self.manager.selectedStartDay = self;
             self.manager.selectedStartDay.selected = true;
@@ -223,7 +223,7 @@
     if (self.manager.dayViewBlock) {
         self.manager.dayViewBlock(_date);
     }
-    */
+     */
 }
 
 

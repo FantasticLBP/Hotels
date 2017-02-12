@@ -48,6 +48,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) SalePromotionImageView *saleImageView;
 @property (nonatomic, strong) PriceAndStarLevelPickerView *starView;
+@property (nonatomic, strong) NSMutableDictionary *conditionDic;
 @end
 
 @implementation HomeViewController
@@ -95,12 +96,13 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 #pragma mark - TimerPickerVCDelegate
--(void)timerPickerVC:(TimerPickerVC *)vc didPickedTime:(NSString *)period{
+-(void)timerPickerVC:(TimerPickerVC *)vc didPickedTime:(NSDate *)period{
     self.conditionView.pickedEndTime = period;
 }
 
 #pragma mark - ConditionPickerViewDelegate
--(void)conditionPickerView:(ConditionPickerView *)view didClickWithActionType:(Operation_Type)type{
+-(void)conditionPickerView:(ConditionPickerView *)view didClickWithActionType:(Operation_Type)type andPickedData:(NSMutableDictionary *)dic{
+    self.conditionDic = dic;
     switch (type) {
         case Operation_Type_InTime:{
             TimerPickerVC *timePicker = [[TimerPickerVC alloc] init];
@@ -129,7 +131,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
             break;
         }
         case Operation_Type_SearchHotel:{
-            NSLog(@"查找酒店");
+            [self searchHotelWithCondition];
             break;
         }
         case Operation_Type_StarFilter:{
@@ -257,6 +259,15 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [self.view addSubview:self.fpsLabel];
 }
 
+-(void)searchHotelWithCondition{
+    [SVProgressHUD showWithStatus:@"正在查询"];
+    [AFNetPackage postJSONWithUrl:@"" parameters:self.conditionDic success:^(id responseObject) {
+        [SVProgressHUD dismiss];
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }]; 
+}
+
 #pragma mark --lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
@@ -347,4 +358,10 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     return _saleImageView;
 }
 
+-(NSMutableDictionary *)conditionDic{
+    if (!_conditionDic) {
+        _conditionDic = [NSMutableDictionary dictionary];
+    }
+    return _conditionDic;
+}
 @end

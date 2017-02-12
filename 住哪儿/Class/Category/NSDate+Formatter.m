@@ -32,12 +32,10 @@
     //创建日期格式化对象
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
     //取2个日期的时间间隔
     NSTimeInterval time = [endDate timeIntervalSinceDate:beiginDate];
-    
     NSInteger days = ((NSInteger)(time))/(3600*24);
-    return days;
+    return days+1;
 }
 
 @end
