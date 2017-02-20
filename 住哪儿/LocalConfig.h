@@ -32,12 +32,19 @@
 
 /************************************url******************************************/
 #define Base_Url @"http://192.168.1.101:8888"
-#define Avator_URL @"/app/avatar/"
+//#define Base_Url @"http://192.168.50.175:8888"
 
 /************************************用户信息******************************************/
 #define User_Info @"User_Info"
 #define User_Avator @"User_Avator"
 
+
+/************************************接口操作类型type******************************************/
+#define  UpdaterUser_NickName @"1"
+#define  UpdaterUser_Gender @"2"
+#define  UpdaterUser_Birthday @"3"
+#define  UpdaterUser_Password @"4"
+#define  UpdaterUser_Avator @"5"
 
 #endif /* LocalConfig_h */
 

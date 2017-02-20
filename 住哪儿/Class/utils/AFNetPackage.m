@@ -84,31 +84,6 @@
 }
 
 
-/**
- *
- *  get提交json数据
- *
- */
-+ (void)getJSONWithUrl:(NSString *)urlStr parameters:(id)parameters success:(void (^)(id responseObject))success fail:(void (^)())fail
-{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.requestSerializer.timeoutInterval = 10.0;
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    NSString *url=[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation * operation, id responseObject) {
-        if (success) {
-            success(responseObject);
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
-        if (fail) {
-            fail();
-        }
-    }];
-    
-}
 
 
 + (void)deleteJSONWithUrl:(NSString *)urlStr parameters:(id)parameters success:(void (^)(id responseObject))success fail:(void (^)())fail
@@ -137,6 +112,37 @@
 
 /**
  *
+ *  get提交json数据
+ *
+ */
++ (void)getJSONWithUrl:(NSString *)urlStr parameters:(id)parameters success:(void (^)(id responseObject))success fail:(void (^)())fail
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    // 设置请求格式
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 20.0;
+    //    // 设置返回格式
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSString *url=[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation * operation, id responseObject) {
+        //        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        if (success) {
+            success(responseObject);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        if (fail) {
+            fail();
+        }
+    }];
+}
+
+
+
+/**
+ *
  *  post提交json数据
  *
  */
@@ -145,25 +151,23 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //    // 设置请求格式
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.requestSerializer.timeoutInterval = 10.0;
+    manager.requestSerializer.timeoutInterval = 20.0;
     //    // 设置返回格式
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     NSString *urlStr=[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [manager POST:urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        //        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         if (success) {
             success(responseObject);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@%@", error,operation);
+        NSLog(@"%@", error);
         if (fail) {
             fail();
         }
     }];
     
 }
-
 
 /**
  *

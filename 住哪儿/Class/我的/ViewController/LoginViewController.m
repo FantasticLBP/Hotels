@@ -46,6 +46,7 @@
 }
 
 - (IBAction)clickLoginButton:(id)sender {
+    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/login.php",Base_Url];
     if ([self.usernameTextField.text isEqualToString:@""]) {
         [SVProgressHUD showInfoWithStatus:@"请输入账号"];
         return ;
@@ -54,37 +55,47 @@
         [SVProgressHUD showInfoWithStatus:@"请输入密码"];
         return ;
     }
-    
-    NSMutableDictionary *par = [NSMutableDictionary dictionary];
-    par[@"username"] = self.usernameTextField.text;
-    par[@"password"] = self.passwordTextField.text;
-    
-    [SVProgressHUD showWithStatus:@"正在登录..."];
-    UserInfo *userinfo = [[UserInfo alloc] init];
-    userinfo.userName = self.usernameTextField.text;
-    userinfo.password = self.passwordTextField.text;
-    [UserManager saveUserObject:userinfo];
-    [self.navigationController popViewControllerAnimated:YES];
-    /*
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@""];
-    [AFNetPackage postJSONWithUrl:url parameters:par success:^(id responseObject) {
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"telephone"] = self.usernameTextField.text;
+    para[@"password"] = self.passwordTextField.text;
+    [SVProgressHUD showInfoWithStatus:@"正在登录"];
+    [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        if ([json[@"status"] integerValue] == 200) {
-            [SVProgressHUD dismiss];
+        if ([json[@"code"] integerValue] == 200) {
+            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+            UserInfo *userInfo = [[UserInfo alloc] init];
+            userInfo.telephone = json[@"data"][@"telephone"];
+            userInfo.password =  json[@"data"][@"password"];
+            userInfo.avator =  json[@"data"][@"avator"];
+            userInfo.birthday =  json[@"data"][@"birthday"];
+            userInfo.gender =  json[@"data"][@"gender"];
+            userInfo.account =  json[@"data"][@"account"];
+            userInfo.nickname =  json[@"data"][@"nickname"];
+            [UserManager saveUserObject:userInfo];
             [self.navigationController popViewControllerAnimated:YES];
         }else{
-            [SVProgressHUD showErrorWithStatus:json[@"msg"]];
+            [SVProgressHUD showErrorWithStatus:@"账号或密码错误"];
         }
     } fail:^{
-         [SVProgressHUD showErrorWithStatus:@"网络状况不佳，请稍后尝试"];
+        [SVProgressHUD dismiss];
     }];
-     */
-    
 }
+
 - (IBAction)clickRegisterButton:(id)sender {
     NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/Register.php",Base_Url];
+    if ([self.usernameTextField.text isEqualToString:@""]) {
+        [SVProgressHUD showInfoWithStatus:@"请输入账号"];
+        return ;
+    }
+    if ([self.passwordTextField.text isEqualToString:@""]) {
+        [SVProgressHUD showInfoWithStatus:@"请输入密码"];
+        return ;
+    }
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"telephone"] = self.usernameTextField.text;
+    para[@"password"] = self.passwordTextField.text;
     [SVProgressHUD showInfoWithStatus:@"正在注册"];
-    [AFNetPackage getJSONWithUrl:url parameters:nil success:^(id responseObject) {
+    [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
         if ([json[@"code"] integerValue] == 200) {
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];

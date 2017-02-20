@@ -12,32 +12,34 @@
 @implementation UserInfo
 -(id)init{
     if (self = [super init]) {
-        self.userName = @"";
+        self.nickname = @"";
         self.password = @"";
         self.gender = @"";
         self.birthday = @"";
         self.avator = [[UIImage alloc] init];
         self.telephone = @"";
         self.name = @"";
+        self.account = @"";
     }
     return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dic{
     if (self = [super init]) {
-        self.userName = dic[@"username"];
+        self.nickname = dic[@"nickname"];
         self.password = dic[@"password"];
         self.gender = dic[@"gender"];
         self.birthday = dic[@"birthday"];
         self.avator = dic[@"avator"];
         self.telephone = dic[@"telephone"];
         self.name = dic[@"name"];
+        self.account = dic[@"account"];
     }
     return self;
 }
 
 -(NSString *)description{
-    return [NSString stringWithFormat:@"username:%@,gender:%@,birthday:%@,avator:%@,password:%@,name=%@,telephone:%@",self.userName,self.gender,self.birthday,self.avator,self.password,self.name,self.telephone];
+    return [NSString stringWithFormat:@"nickname:%@,gender:%@,birthday:%@,avator:%@,password:%@,name=%@,telephone:%@,account:%@",self.nickname,self.gender,self.birthday,self.avator,self.password,self.name,self.telephone,self.account];
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder{

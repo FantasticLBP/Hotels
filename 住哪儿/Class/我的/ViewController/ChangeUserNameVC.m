@@ -22,7 +22,7 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1.0]];
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightButton)]];
     UserInfo *buddy = [UserManager getUserObject];
-    self.textField.text = buddy.userName;
+    self.textField.text = buddy.nickname;
     [self.view addSubview:self.textField];
     
 }
@@ -34,7 +34,7 @@
 
 -(void)clickRightButton{
     UserInfo *buddy = [UserManager getUserObject];
-    if ([buddy.userName isEqualToString:self.textField.text]) {
+    if ([buddy.nickname isEqualToString:self.textField.text]) {
         [self.navigationController popViewControllerAnimated:YES];
     }else
         [self updateUser];
@@ -42,23 +42,23 @@
 }
 
 -(void)updateUser{
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-    UserInfo *userInfo = [UserManager getUserObject];
-    userInfo.userName = self.textField.text;
-    [UserManager saveUserObject:userInfo];
     
-    /*
-    NSString *urlString=[NSString stringWithFormat:@"UpdatePersonalInfoUrl",@"LoginHuanxinId"];
-    NSDictionary *para=@{@"name":self.textField.text};
+    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+    UserInfo *buddy = [UserManager getUserObject];
+    
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"telephone"] = buddy.telephone;
+    para[@"nickname"] = self.textField.text;
+    para[@"type"] = UpdaterUser_NickName;
+    
     [SVProgressHUD show];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-    [AFNetPackage postJSONWithUrl:urlString parameters:para success:^(id responseObject) {
+    [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
         NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
         
-        if ([dict[@"status"] integerValue]==200){
+        if ([dict[@"code"] integerValue]==200){
             [SVProgressHUD showSuccessWithStatus:@"修改成功"];
-            UserInfo *buddy = [UserManager getUserObject];
-            buddy.userName = self.textField.text;
+            buddy.nickname = self.textField.text;
             [UserManager saveUserObject:buddy];
             [self.navigationController popViewControllerAnimated:YES];
         } else{
@@ -67,7 +67,6 @@
     } fail:^{
         [SVProgressHUD showErrorWithStatus:@"网络错误"];
     }];
-     */
 }
 
 - (UITextField *)textField {

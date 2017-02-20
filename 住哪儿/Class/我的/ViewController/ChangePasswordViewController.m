@@ -53,18 +53,38 @@
 }
 
 -(void)passwordChanged{
+    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+    UserInfo *buddy = [UserManager getUserObject];
+    
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"telephone"] = buddy.telephone;
+    para[@"password"] = self.password;
+    para[@"type"] = UpdaterUser_Password;
+    
     [SVProgressHUD showWithStatus:@"正在更改密码"];
-    [UserManager saveUserObject:self.userInfo];
-    [SVProgressHUD dismiss];
-    [self.navigationController popViewControllerAnimated:YES];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
+        NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        
+        if ([dict[@"code"] integerValue]==200){
+            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+            [UserManager saveUserObject:self.userInfo];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else{
+            [SVProgressHUD showErrorWithStatus:@"修改失败"];
+        }
+    } fail:^{
+        [SVProgressHUD showErrorWithStatus:@"网络错误"];
+    }];
 }
 
 #pragma mark - UITextfieldDelegat
+
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    if (textField.tag == 1002) {
+    if (textField.tag == 10001) {
         self.password = textField.text;
     }
-    if (textField.tag == 1001) {
+    if (textField.tag == 10002) {
         if (self.password != textField.text) {
             [SVProgressHUD showInfoWithStatus:@"2次密码不一致"];
         }else{
@@ -99,7 +119,7 @@
     }
     
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"账号";
+        cell.textLabel.text = @"手机号";
         UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(BoundWidth-260, 0, 100, 60)];
         field.tag = 1002;
         field.delegate = self;
@@ -107,11 +127,13 @@
         field.font = [UIFont systemFontOfSize:15];
         field.textColor = [UIColor blackColor];
         field.borderStyle = UITextBorderStyleNone;
-        field.text = self.userInfo.userName;
+        field.text = self.userInfo.telephone;
         [cell.contentView addSubview:field];
     }else if (indexPath.row == 1){
         cell.textLabel.text = @"密码";
         UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(BoundWidth - 260, 0, 100, 76)];
+        field.delegate = self;
+        field.tag = 10001;
         field.textAlignment = NSTextAlignmentLeft;
         field.font = [UIFont systemFontOfSize:15];
         field.textColor = [UIColor blackColor];
@@ -122,7 +144,7 @@
     }else{
         cell.textLabel.text = @"重复密码";
         UITextField *field = [[UITextField alloc] initWithFrame:CGRectMake(BoundWidth - 260, 0, 100, 76)];
-        field.tag = 1001;
+        field.tag = 10002;
         field.delegate = self;
         field.textAlignment = NSTextAlignmentLeft;
         field.font = [UIFont systemFontOfSize:15];

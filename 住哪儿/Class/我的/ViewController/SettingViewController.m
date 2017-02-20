@@ -126,10 +126,10 @@
         usernameLabel.font = [UIFont systemFontOfSize:15];
         usernameLabel.textColor = [UIColor blackColor];
         if ([ProjectUtil isNotBlank:self.userInfo.telephone]) {
-            if ([ProjectUtil isBlank:self.userInfo.userName]) {
+            if ([ProjectUtil isBlank:self.userInfo.nickname]) {
                 usernameLabel.text = @"请修改完善个人信息";
             }else{
-                usernameLabel.text = self.userInfo.userName;
+                usernameLabel.text = self.userInfo.nickname;
             }
         }
         
@@ -138,14 +138,9 @@
         imageView.layer.cornerRadius = 27.5;
         imageView.layer.masksToBounds = YES;
         
-        NSString *urlName = [NSString stringWithFormat:@"%@%@%@.jpg",Base_Url,Avator_URL,@""];
         UserInfo *userInfo = [UserManager getUserObject];
-        NSData *avatorData = UIImagePNGRepresentation(userInfo.avator);
-        if (avatorData.length>0) {
-            imageView.image = userInfo.avator;
-        }else{
-            [imageView sd_setImageWithURL:[NSURL URLWithString:urlName] placeholderImage:[UIImage imageNamed:@"profile"]];
-        }
+        NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server%@",Base_Url,userInfo.avator];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"profile"]];
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [cell.contentView addSubview:imageView];

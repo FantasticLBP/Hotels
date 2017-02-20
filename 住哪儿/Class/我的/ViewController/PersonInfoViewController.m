@@ -75,14 +75,10 @@
         usernameLabel.textColor = [UIColor blackColor];
         usernameLabel.text = @"用户头像";
         
-        NSString *urlName = [NSString stringWithFormat:@"%@%@%@.jpg",Base_Url,Avator_URL,@""];
         UserInfo *userInfo = [UserManager getUserObject];
-        NSData *avatorData = UIImagePNGRepresentation(userInfo.avator);
-        if (avatorData.length>0) {
-            imageView.image = userInfo.avator;
-        }else{
-            [imageView sd_setImageWithURL:[NSURL URLWithString:urlName] placeholderImage:[UIImage imageNamed:@"profile"]];
-        }
+        NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server%@",Base_Url,userInfo.avator]; 
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"profile"]];
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [cell.contentView addSubview:imageView];
         [cell.contentView addSubview:usernameLabel];
@@ -92,7 +88,7 @@
         label.textAlignment = NSTextAlignmentLeft;
         label.font = [UIFont systemFontOfSize:15];
         label.textColor = [UIColor blackColor];
-        label.text = self.userInfo.userName;
+        label.text = self.userInfo.nickname;
         [cell.contentView addSubview:label];
     }else if (indexPath.row == 2) {
         cell.textLabel.text = @"性别";
@@ -156,19 +152,60 @@
         case 2:{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *man = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                UserInfo *userInfo = [UserManager getUserObject];
-                userInfo.gender = @"男";
-                [UserManager saveUserObject:userInfo];
-                self.userInfo = [UserManager getUserObject];
-                [self.tableView reloadData];
+                NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+                UserInfo *buddy = [UserManager getUserObject];
+                
+                NSMutableDictionary *para = [NSMutableDictionary dictionary];
+                para[@"telephone"] = buddy.telephone;
+                para[@"gender"] = @"男";
+                para[@"type"] = UpdaterUser_Gender;
+                
+                [SVProgressHUD show];
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+                [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
+                    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+                    
+                    if ([dict[@"code"] integerValue]==200){
+                        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                        buddy.gender = @"男";
+                        [UserManager saveUserObject:buddy];
+                        self.userInfo = [UserManager getUserObject];
+                        [self.tableView reloadData];
+
+                    } else{
+                        [SVProgressHUD showErrorWithStatus:@"修改失败"];
+                    }
+                } fail:^{
+                    [SVProgressHUD showErrorWithStatus:@"网络错误"];
+                }];
             }];
             UIAlertAction *women = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                UserInfo *userInfo = [UserManager getUserObject];
-                userInfo.gender = @"女";
-                [UserManager saveUserObject:userInfo];
-                self.userInfo = [UserManager getUserObject];
-                [self.tableView reloadData];
-            }];
+                NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+                UserInfo *buddy = [UserManager getUserObject];
+                
+                NSMutableDictionary *para = [NSMutableDictionary dictionary];
+                para[@"telephone"] = buddy.telephone;
+                para[@"gender"] = @"女";
+                para[@"type"] = UpdaterUser_Gender;
+                
+                [SVProgressHUD show];
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+                [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
+                    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+                    
+                    if ([dict[@"code"] integerValue]==200){
+                        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                        buddy.gender = @"女";
+                        [UserManager saveUserObject:buddy];
+                        self.userInfo = [UserManager getUserObject];
+                        [self.tableView reloadData];
+                        
+                    } else{
+                        [SVProgressHUD showErrorWithStatus:@"修改失败"];
+                    }
+                } fail:^{
+                    [SVProgressHUD showErrorWithStatus:@"网络错误"];
+                }];            }];
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
@@ -184,11 +221,33 @@
             [self.dateTimePickerView setMinYear:1900];
             [self.dateTimePickerView setMaxYear:2016];
             self.dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
-                UserInfo *userInfo = [UserManager getUserObject];
-                userInfo.birthday = datetimeStr;
-                [UserManager saveUserObject:userInfo];
-                WeakSelf.userInfo = [UserManager getUserObject];
-                [WeakSelf.tableView reloadData];
+                NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+                UserInfo *buddy = [UserManager getUserObject];
+                
+                NSMutableDictionary *para = [NSMutableDictionary dictionary];
+                para[@"telephone"] = buddy.telephone;
+                para[@"birthday"] = datetimeStr;
+                para[@"type"] = UpdaterUser_Birthday;
+
+                [SVProgressHUD show];
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+                [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
+                    NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+                    
+                    if ([dict[@"code"] integerValue]==200){
+                        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                        buddy.birthday = datetimeStr;
+                        [UserManager saveUserObject:buddy];
+                        [UserManager saveUserObject:buddy];
+                        WeakSelf.userInfo = [UserManager getUserObject];
+                        [WeakSelf.tableView reloadData];
+                        
+                    } else{
+                        [SVProgressHUD showErrorWithStatus:@"修改失败"];
+                    }
+                } fail:^{
+                    [SVProgressHUD showErrorWithStatus:@"网络错误"];
+                }];
             };
 
             if (self.dateTimePickerView) {
@@ -229,11 +288,24 @@
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
+    
+    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/upload.php",Base_Url];
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
     UserInfo *userInfo = [UserManager getUserObject];
-    userInfo.avator = image;
-    [UserManager saveUserObject:userInfo];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.tableView reloadData];
+    para[@"telephone"] = userInfo.telephone;
+    [SVProgressHUD showWithStatus:@"正在上传"];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    [AFNetPackage postUploadWithUrl:url para:para name:@"myAvator" fileData:imageData fileName:@"1.jpg" fileType:@"image/jpeg" success:^(id responseObject) {
+        if ([responseObject[@"code"] integerValue] == 200) {
+            [SVProgressHUD showSuccessWithStatus:@"头像上传成功"];
+            userInfo.avator = [responseObject[@"data"] substringFromIndex:5];
+            [UserManager saveUserObject:userInfo];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.tableView reloadData];
+    } fail:^{
+        [SVProgressHUD showErrorWithStatus:@"网络状况不佳，请稍后尝试。"];
+    }];
 }
 
 #pragma mark -- lazy load
