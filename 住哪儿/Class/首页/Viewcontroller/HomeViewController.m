@@ -224,7 +224,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         return cell;
     }else{
         HotelDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelDescriptionCellID forIndexPath:indexPath];
-        cell.hotelImageName = self.dataArray[indexPath.row - 3];
+        cell.model = nil;
         return cell;
     }
 }

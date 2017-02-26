@@ -16,6 +16,7 @@
 #import "LBPNavigationController.h"
 #import "JFCityViewController.h"
 
+#import "HotelsModel.h"
 
 #define HeaderImageHeight 200
 #define FindDownImageWIdth 16
@@ -31,13 +32,20 @@ static NSString *TopicHotelCellID = @"TopicHotelCell";
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIButton *leftButton;
+@property (nonatomic, strong) NSMutableArray *hotels;                   /**<酒店数据*/
 @end
 
 @implementation FindViewController
 
+#pragma mark - private method
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - private method
@@ -50,6 +58,7 @@ static NSString *TopicHotelCellID = @"TopicHotelCell";
         right.action = @selector(filterHotel);
         right;
     });
+    self.cityName = [ProjectUtil getCityName];
     [self updateLeftBarButtonItem];
     [self.view addSubview:self.tableView];
     [self.tableView addSubview:self.advertiseView];
@@ -86,9 +95,11 @@ static NSString *TopicHotelCellID = @"TopicHotelCell";
 
 -(void)filterHotel{
     FilterHotelVC *vc = [[FilterHotelVC alloc] init];
+    vc.cityName = self.cityName;
     vc.topic = ^(NSString *type){
-        NSLog(@"选择了%@",type);
         TopicHotelListVCViewController *vc = [[TopicHotelListVCViewController alloc] init];
+        vc.type = type;
+        vc.cityName = self.cityName;
         [self.navigationController pushViewController:vc animated:YES];
     };
     LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:vc];
@@ -101,11 +112,13 @@ static NSString *TopicHotelCellID = @"TopicHotelCell";
     __weak typeof(self) weakSelf = self;
     [cityViewController choseCityBlock:^(NSString *cityName) {
         weakSelf.cityName = cityName;
+        [ProjectUtil saveCityName:cityName];
         [weakSelf updateLeftBarButtonItem];
     }];
     LBPNavigationController *navigationController = [[LBPNavigationController alloc] initWithRootViewController:cityViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }
+
 
 #pragma mark - TopicHotelCellDelegate
 -(void)topicHotelCell:(TopicHotelCell *)topicHotelCell didSelectAtIndex:(NSInteger)index{
@@ -200,4 +213,10 @@ static NSString *TopicHotelCellID = @"TopicHotelCell";
     return _dataArray;
 }
 
+-(NSMutableArray *)hotels{
+    if (!_hotels) {
+        _hotels = [NSMutableArray array];
+    }
+    return _hotels;
+}
 @end

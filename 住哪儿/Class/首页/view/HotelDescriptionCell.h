@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HotelsModel.h"
+
 
 @interface HotelDescriptionCell : UITableViewCell
-@property (nonatomic, strong) NSString *hotelImageName;            @end
+@property (nonatomic, strong) HotelsModel *model;
+@end

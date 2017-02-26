@@ -9,19 +9,46 @@
 //
 
 #import "FilterHotelVC.h"
+#import "UserManager.h"
+
 static NSString *TopicConditionCellID = @"TopicConditionCell";
 
 @interface FilterHotelVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
-
+@property (nonatomic, strong) NSMutableArray *subjects;                     /**<主题列表*/
 
 @end
 
 @implementation FilterHotelVC
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self getSubjects];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
+#pragma mark - private method
+-(void)getSubjects{
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/subject.php"];
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"telephone"] = [UserManager getUserObject].telephone;
+    [SVProgressHUD showWithStatus:@"正在获取主题列表"];
+    [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"code"] integerValue] == 200) {
+            [SVProgressHUD dismiss];
+            self.subjects = dic[@"data"];
+            [self.tableView reloadData];
+        }
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -30,7 +57,7 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return self.subjects.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -38,21 +65,28 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *dic = self.subjects[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TopicConditionCellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TopicConditionCellID];
+    }else{
+        while ([cell.contentView.subviews lastObject] != nil) {
+            [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
+        }
     }
+    
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    imageView.image = [UIImage imageNamed:@"jpg-11"];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,dic[@"image"]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Hotel_placeholder"]];
     
     UILabel *titleLabel = [UILabel new];
-    titleLabel.text = @"玩乐西溪";
+    titleLabel.text = dic[@"subject"];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.font = [UIFont systemFontOfSize:16];
     titleLabel.textAlignment = NSTextAlignmentLeft;
     
     UILabel *subTitleLabel = [UILabel new];
-    subTitleLabel.text = @"曲水环绕，群山四绕";
+    subTitleLabel.text = dic[@"description"];
     subTitleLabel.textColor = [UIColor colorFromHexCode:@"9c9c9c"];
     subTitleLabel.font = [UIFont systemFontOfSize:12];
     subTitleLabel.textAlignment = NSTextAlignmentLeft;
@@ -85,10 +119,10 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    NSDictionary *dic = self.subjects[indexPath.row];
     [self dismissViewControllerAnimated:YES completion:^{
         if (self.topic) {
-            self.topic(@"休闲");
+            self.topic(dic[@"id"]);
         }
     }];
 }
@@ -129,6 +163,7 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:TopicConditionCellID];
         _tableView.backgroundColor = CollectionViewBackgroundColor;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -137,4 +172,10 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
     return _tableView;
 }
 
+-(NSMutableArray *)subjects{
+    if (!_subjects) {
+        _subjects = [NSMutableArray array];
+    }
+    return _subjects;
+}
 @end

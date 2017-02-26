@@ -30,4 +30,12 @@
  */
 +(CGFloat)measureLabelWidth:(NSString *)titleStr withFontSize:(CGFloat)fontSize;
 
+/**
+ * 存储选取城市
+ */
++(void)saveCityName:(NSString *)city;
+/**
+ * 获取选取城市
+ */
++(NSString *)getCityName;
 @end

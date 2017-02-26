@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^SelectedTheTopic)(NSString *type);
+typedef void(^SelectedTheTopic)(NSString *id);
 
 @interface FilterHotelVC : UIViewController
 @property (nonatomic, strong) NSString *cityName;

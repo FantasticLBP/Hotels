@@ -53,6 +53,7 @@
 		93302CCF1DFAB3680091F145 /* HotPopularHotelCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93302CCD1DFAB3680091F145 /* HotPopularHotelCollectionCell.m */; };
 		93302CD01DFAB3680091F145 /* HotPopularHotelCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93302CCE1DFAB3680091F145 /* HotPopularHotelCollectionCell.xib */; };
 		933ED4931E31EAA1001E8A6B /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933ED4921E31EAA1001E8A6B /* ChangePasswordViewController.m */; };
+		934FC5EA1E6142D100395091 /* HotelsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 934FC5E91E6142D100395091 /* HotelsModel.m */; };
 		936691DD1DF955D7009E121B /* ConditionPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936691DC1DF955D7009E121B /* ConditionPickerView.m */; };
 		936B084C1E06DDC3009AD3D3 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 936B08491E06DDC3009AD3D3 /* YYFPSLabel.m */; };
 		936B084D1E06DDC3009AD3D3 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 936B084B1E06DDC3009AD3D3 /* YYWeakProxy.m */; };
@@ -474,6 +475,8 @@
 		93302CCE1DFAB3680091F145 /* HotPopularHotelCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotPopularHotelCollectionCell.xib; sourceTree = "<group>"; };
 		933ED4911E31EAA1001E8A6B /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		933ED4921E31EAA1001E8A6B /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		934FC5E81E6142D100395091 /* HotelsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelsModel.h; sourceTree = "<group>"; };
+		934FC5E91E6142D100395091 /* HotelsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelsModel.m; sourceTree = "<group>"; };
 		936691DB1DF955D7009E121B /* ConditionPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionPickerView.h; sourceTree = "<group>"; };
 		936691DC1DF955D7009E121B /* ConditionPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionPickerView.m; sourceTree = "<group>"; };
 		936B08481E06DDC3009AD3D3 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
@@ -1899,6 +1902,8 @@
 		93E02D9D1DDB598D007EAE1E /* model */ = {
 			isa = PBXGroup;
 			children = (
+				934FC5E81E6142D100395091 /* HotelsModel.h */,
+				934FC5E91E6142D100395091 /* HotelsModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2713,6 +2718,7 @@
 				93E02DB61DDB598D007EAE1E /* AFHTTPSessionManager.m in Sources */,
 				93DBCE291E46CF7F00F528E1 /* ZYDayView.m in Sources */,
 				930FE60E1E0CACB900CBA28B /* SpecialHotelConditionPickCell.m in Sources */,
+				934FC5EA1E6142D100395091 /* HotelsModel.m in Sources */,
 				9319738B1E1360A8009D896D /* FMDatabasePool.m in Sources */,
 				93DBCE2E1E46D16800F528E1 /* TimerPickerVC.m in Sources */,
 				93E02DE91DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.m in Sources */,

@@ -35,4 +35,11 @@
     return size.width;
 }
 
++(void)saveCityName:(NSString *)city{
+    [[NSUserDefaults standardUserDefaults] setObject:city forKey:@"city"];
+}
+
++(NSString *)getCityName{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
+}
 @end

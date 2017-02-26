@@ -18,14 +18,27 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 @interface TopicHotelListVCViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray * dataArray;
+@property (nonatomic, strong) NSMutableArray *hotels;
+@property (nonatomic, assign) NSInteger page;
 @end
 
 @implementation TopicHotelListVCViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self preData];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - private method
@@ -39,36 +52,82 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         right.action = @selector(filterTheHotel);
         right;
     });
+    self.page = 1;
     [self.view addSubview:self.tableView];
-    [self preData];
 }
-
-#pragma mark -- private method
-- (void)preData{
-    [SVProgressHUD showWithStatus:@"正在加载"];
-    for (int i = 1; i <= 8; i++){
-        [self.dataArray addObject:[NSString stringWithFormat:@"jpg-%d",i]];
-    }
-    [SVProgressHUD dismiss];
-    [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshingWithNoMoreData];
-    self.tableView.mj_footer.hidden = YES;
-    self.tableView.mj_footer.hidden = YES;
-    [self.tableView reloadData];
-}
-
-
 
 -(void)filterTheHotel{
     FilterHotelVC *vc = [[FilterHotelVC alloc] init];
+    vc.cityName = self.cityName;
     vc.topic = ^(NSString *type){
-        NSLog(@"选择了%@",type);
-        NSLog(@"等待刷新列表");
+        self.type = type;
         [self preData];
     };
-    
     LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:navi animated:YES completion:nil];
+}
+
+-(void)preData{
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"subjectId"] = self.type;
+    paras[@"cityName"] = self.cityName;
+    paras[@"page"] = @(1);
+    paras[@"size"] = @(3);
+    [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
+    
+    [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"code"] integerValue] == 200) {
+            [self.hotels removeAllObjects];
+            self.page = 1;
+            [self loadSuccessBlockWith:responseObject];
+        }
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
+    [self.tableView.mj_footer resetNoMoreData];
+}
+
+-(void)loadMoreData{
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"subjectId"] = self.type;
+    paras[@"cityName"] = self.cityName;
+    paras[@"page"] = @(self.page);
+    paras[@"size"] = @(3);
+    [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
+    
+    [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"code"] integerValue] == 200) {
+            [self loadSuccessBlockWith:responseObject];
+        }
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
+    [self.tableView.mj_footer resetNoMoreData];
+}
+
+-(void)loadSuccessBlockWith:(id)responseObject{
+    self.page = self.page + 1;
+    [SVProgressHUD dismiss];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+    NSMutableArray *datas = dic[@"data"];
+    [self.tableView.mj_header endRefreshing];
+    if (datas.count == 0) {
+        [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        self.tableView.mj_footer.hidden = YES;
+        return;
+    }
+    self.tableView.mj_footer.hidden = NO;
+    for (NSDictionary *dic in datas) {
+        [self.hotels addObject:[HotelsModel yy_modelWithJSON:dic]];
+    }
+    [self.tableView.mj_footer endRefreshing];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -77,7 +136,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArray.count;
+    return self.hotels.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -86,7 +145,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     HotelDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelDescriptionCellID forIndexPath:indexPath];
-    cell.hotelImageName = self.dataArray[indexPath.row];
+    cell.model = self.hotels[indexPath.row];
     return cell;
 }
 
@@ -100,31 +159,32 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 #pragma mark - lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight) style:UITableViewStylePlain];
-        _tableView.dataSource=self;
-        _tableView.delegate = self;
-        _tableView.scrollsToTop = YES;
-        _tableView.backgroundColor = TableViewBackgroundColor;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerNib:[UINib nibWithNibName:@"HotelDescriptionCell" bundle:nil] forCellReuseIdentifier:HotelDescriptionCellID];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight - 64) style:UITableViewStylePlain];
+        tableView.dataSource=self;
+        tableView.delegate = self;
+        tableView.scrollsToTop = YES;
+        tableView.backgroundColor = TableViewBackgroundColor;
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [tableView registerNib:[UINib nibWithNibName:@"HotelDescriptionCell" bundle:nil] forCellReuseIdentifier:HotelDescriptionCellID];
         __weak typeof(self) WeakSelf = self;
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [WeakSelf preData];
         }];
         
-        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [WeakSelf preData];
+        tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [WeakSelf loadMoreData];
         }];
-        _tableView.mj_header.automaticallyChangeAlpha = YES;       // 设置自动切换透明度(在导航栏下面自动隐藏)
+        tableView.mj_footer.hidden = YES;
+        _tableView = tableView;
     }
     return _tableView;
 }
 
--(NSMutableArray *)dataArray{
-    if (!_dataArray) {
-        _dataArray = [NSMutableArray array];
+-(NSMutableArray *)hotels{
+    if (!_hotels) {
+        _hotels = [NSMutableArray array];
     }
-    return _dataArray;
+    return  _hotels;
 }
 
 @end

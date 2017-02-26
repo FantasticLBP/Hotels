@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HotelsModel.h"
 @interface TopicHotelListVCViewController : UIViewController
-
+@property (nonatomic, strong) NSString *cityName;            /**<选择城市*/
+@property (nonatomic, strong) NSString *type;            /**<选择酒店主题*/
 @end

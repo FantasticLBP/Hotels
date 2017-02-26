@@ -298,7 +298,7 @@
     [AFNetPackage postUploadWithUrl:url para:para name:@"myAvator" fileData:imageData fileName:@"1.jpg" fileType:@"image/jpeg" success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 200) {
             [SVProgressHUD showSuccessWithStatus:@"头像上传成功"];
-            userInfo.avator = [responseObject[@"data"] substringFromIndex:5];
+            userInfo.avator = responseObject[@"data"];
             [UserManager saveUserObject:userInfo];
         }
         [self dismissViewControllerAnimated:YES completion:nil];
