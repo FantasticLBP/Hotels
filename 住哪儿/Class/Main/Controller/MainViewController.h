@@ -10,4 +10,9 @@
 
 @interface MainViewController : UITabBarController
 
+/**
+ * 通过tabBarItem的索引来设置显示哪一个页面
+ */
+//-(void)setSelectedIndex:(NSUInteger)selectedIndex;
+
 @end

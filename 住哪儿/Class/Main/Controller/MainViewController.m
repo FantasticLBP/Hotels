@@ -54,6 +54,7 @@
     vc.tabBarItem.selectedImage = [[UIImage imageNamed:imageSelect] imageWithRenderingMode:UIImageRenderingModeAutomatic];
 }
 
+
 #pragma mark -- lazy load
 -(HomeViewController *)homeVC{
     if (!_homeVC) {
@@ -69,7 +70,7 @@
     if (!_messageVC) {
         _messageVC = [[FindViewController alloc] init];
         _messageVC.view.backgroundColor = TableViewBackgroundColor;
-        _messageVC.title = @"发现•有特色的酒店";
+        _messageVC.title = @"发现";
     }
     return _messageVC;
 }

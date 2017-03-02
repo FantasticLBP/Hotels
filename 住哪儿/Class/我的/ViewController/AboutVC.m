@@ -83,7 +83,7 @@ static NSString *AboutCellID = @"about";
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, 200)];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(BoundWidth/2-70/2, 50, 70, 70)];
-    imageView.image = [UIImage imageNamed:@"about_logo"];
+    imageView.image = [UIImage imageNamed:@"My_about"];
     
     UILabel *about = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(imageView.frame)+10, BoundWidth, 21)];
     about.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];

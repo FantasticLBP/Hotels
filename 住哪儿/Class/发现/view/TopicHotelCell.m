@@ -33,19 +33,20 @@ static NSString *TopicHotelCollectionCellID = @"TopicHotelCollectionCell";
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 5;
+    return self.subjects.count;
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView
                  cellForItemAtIndexPath:(NSIndexPath*)indexPath
 {
     TopicHotelCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TopicHotelCollectionCellID forIndexPath:indexPath];
+    cell.data = self.subjects[indexPath.row];
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (self.delegate && [self.delegate respondsToSelector:@selector(topicHotelCell:didSelectAtIndex:)]) {
-        [self.delegate topicHotelCell:self didSelectAtIndex:indexPath.row];
+        [self.delegate topicHotelCell:self didSelectAtIndex:indexPath.row+1];
     }
 }
 
@@ -62,5 +63,12 @@ static NSString *TopicHotelCollectionCellID = @"TopicHotelCollectionCell";
     return 10;
 }
 
+#pragma mark - setter
+-(void)setSubjects:(NSMutableArray *)subjects{
+    if (subjects.count != 0) {
+        _subjects = subjects;
+        [self.collectionView reloadData];
+    }
+}
 
 @end

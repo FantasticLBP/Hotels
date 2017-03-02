@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TopicHotelCollectionCell : UICollectionViewCell
-@property (nonatomic, strong) NSString *imageName;
-@property (nonatomic, strong) NSString *topicName;
+@property (nonatomic, strong) NSDictionary *data;            /**<注释*/
 @end

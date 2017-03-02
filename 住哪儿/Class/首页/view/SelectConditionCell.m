@@ -90,4 +90,11 @@ static NSString *ConditionCellID = @"ConditionCell";
     return _collectionview;
 }
 
+
+-(void)setDatas:(NSMutableArray *)datas{
+    _datas = datas;
+    if (datas.count > 0) {
+        [self.collectionview reloadData];
+    }
+}
 @end

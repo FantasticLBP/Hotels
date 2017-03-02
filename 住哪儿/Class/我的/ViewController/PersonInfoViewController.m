@@ -76,7 +76,7 @@
         usernameLabel.text = @"用户头像";
         
         UserInfo *userInfo = [UserManager getUserObject];
-        NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server%@",Base_Url,userInfo.avator]; 
+        NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,userInfo.avator]; 
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"profile"]];
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -260,7 +260,7 @@
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"验证原密码" message:@"为保障您的数据安全，修改密码前请填写原密码" preferredStyle:UIAlertControllerStyleAlert];
             [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
                 textField.secureTextEntry = YES;
-                NSLog(@"结果：%@",textField.text);
+                
             }];
 
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
@@ -298,14 +298,14 @@
     [AFNetPackage postUploadWithUrl:url para:para name:@"myAvator" fileData:imageData fileName:@"1.jpg" fileType:@"image/jpeg" success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 200) {
             [SVProgressHUD showSuccessWithStatus:@"头像上传成功"];
-            userInfo.avator = responseObject[@"data"];
+            userInfo.avator = responseObject[@"data"][@"avator"];
             [UserManager saveUserObject:userInfo];
         }
-        [self dismissViewControllerAnimated:YES completion:nil];
         [self.tableView reloadData];
     } fail:^{
         [SVProgressHUD showErrorWithStatus:@"网络状况不佳，请稍后尝试。"];
     }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -- lazy load

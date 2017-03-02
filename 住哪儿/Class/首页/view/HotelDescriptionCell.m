@@ -31,7 +31,7 @@
     
     self.priceLabel.text = [ProjectUtil isNotBlank:model.minPrice] ? model.minPrice : @"";
     self.descriptionLabel.text = [ProjectUtil isNotBlank:model.address] ? model.address : @"";
-    self.subjectLabel.text =  [ProjectUtil isNotBlank:model.subject] ? model.subject : @"";
+    self.subjectLabel.text =  [ProjectUtil isNotBlank:[NSString stringWithFormat:@"%zd",model.subject]] ? [ProjectUtil getSubject:model.subject ]: @"";
 }
 
 @end

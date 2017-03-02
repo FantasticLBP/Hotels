@@ -22,7 +22,7 @@
 #import "LBPNavigationController.h"
 #import "JFCityViewController.h"
 #import "PriceAndStarLevelPickerView.h"
-
+#import "MainViewController.h"
 
 #import "YYFPSLabel.h"
 
@@ -49,6 +49,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 @property (nonatomic, strong) SalePromotionImageView *saleImageView;
 @property (nonatomic, strong) PriceAndStarLevelPickerView *starView;
 @property (nonatomic, strong) NSMutableDictionary *conditionDic;
+@property (nonatomic, strong) NSMutableArray *subjectImages;
 @end
 
 @implementation HomeViewController
@@ -57,6 +58,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self loadSubjectImage];
+    
 }
 
 - (void)viewDidLoad {
@@ -76,6 +79,37 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 - (BOOL)prefersStatusBarHidden { //设置隐藏显示
     return YES;
+}
+
+#pragma mark - private method
+//获取轮播图
+-(void)loadSubjectImage{
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/WeclomeImage.php"];
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    para[@"telephone"] = [UserManager getUserObject].telephone;
+    para[@"size"] = @"10";
+    [SVProgressHUD showWithStatus:@"正在获取图片"];
+    [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"code"] integerValue] == 200) {
+            [SVProgressHUD dismiss];
+            NSArray *array = dic[@"data"];
+            for (NSDictionary *dic in array) {
+                [self.subjectImages addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image"]]];
+            }
+            self.advertiseView.imageURLStringsGroup = self.subjectImages;
+            [self.tableView reloadData];
+        }
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
+    
+}
+
+// UITabBarController切换显示
+-(void)loadMoreHotel{
+    MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
+    vc.selectedIndex = 1;
 }
 
 #pragma mark - PriceAndStarLevelPickerViewDelegate
@@ -159,18 +193,24 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 #pragma mark - SelectConditionCellDelegate
 -(void)selectConditionCell:(SelectConditionCell *)selectConditionCell didClickCollectionCellAtIndexPath:(NSInteger)indexPath{
     switch (indexPath) {
-        case 0:
-            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+        case 0:{
+            PrivilegeHotelVC *vc = [[PrivilegeHotelVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
             break;
+        }
         case 1:
+        {
             [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
             break;
+            
+        }
         case 2:
             [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
             break;
-        case 3:
-            [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
+        case 3:{
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
             break;
+        }
         case 4:
             [SVProgressHUD showInfoWithStatus:@"程序员哥哥正在努力哦，敬请期待！"];
             break;
@@ -282,15 +322,21 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         [_tableView registerNib:[UINib nibWithNibName:@"SpecialHotelCell" bundle:nil] forCellReuseIdentifier:SpecialHotelCellID];
         [_tableView registerNib:[UINib nibWithNibName:@"HotelDescriptionCell" bundle:nil] forCellReuseIdentifier:HotelDescriptionCellID];
         
-        __weak typeof(self) WeakSelf = self;
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [WeakSelf preData];
-        }];
+        _tableView.tableFooterView = ({
+            UIView *view =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, 80)];
+            
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = CGRectMake(BoundWidth/2-70, 20, 140, 40);
+            button.layer.borderWidth = 1;
+            button.layer.cornerRadius = 3;
+            button.layer.borderColor = GlobalMainColor.CGColor;
+            [button setTitle:@"发现更多" forState:UIControlStateNormal];
+            [button setTitleColor:GlobalMainColor forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(loadMoreHotel) forControlEvents:UIControlEventTouchUpInside];
+            [view addSubview:button];
+            view;
+        });
         
-        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [WeakSelf preData];
-        }];
-        _tableView.mj_header.automaticallyChangeAlpha = YES;       // 设置自动切换透明度(在导航栏下面自动隐藏)
     }
     return _tableView;
 }
@@ -363,5 +409,12 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         _conditionDic = [NSMutableDictionary dictionary];
     }
     return _conditionDic;
+}
+
+-(NSMutableArray *)subjectImages{
+    if (!_subjectImages) {
+        _subjectImages = [NSMutableArray array];
+    }
+    return _subjectImages;
 }
 @end

@@ -74,7 +74,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     paras[@"subjectId"] = self.type;
     paras[@"cityName"] = self.cityName;
     paras[@"page"] = @(1);
-    paras[@"size"] = @(3);
+    paras[@"size"] = @(10);
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
     
     [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
@@ -97,7 +97,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     paras[@"subjectId"] = self.type;
     paras[@"cityName"] = self.cityName;
     paras[@"page"] = @(self.page);
-    paras[@"size"] = @(3);
+    paras[@"size"] = @(10);
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
     
     [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {

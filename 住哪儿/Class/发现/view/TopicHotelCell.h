@@ -17,4 +17,5 @@
 
 @interface TopicHotelCell : UITableViewCell
 @property (nonatomic, weak) id<TopicHotelCellDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *subjects;
 @end

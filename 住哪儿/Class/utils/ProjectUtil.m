@@ -42,4 +42,57 @@
 +(NSString *)getCityName{
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
 }
+
++(NSString *)getSubject:(NSInteger )type{
+    NSString *result ;
+    switch (type) {
+        case 1:
+            result = @"精品名宿";
+            break;
+        case 2:
+            result = @"茶园野趣";
+            break;
+        case 3:
+            result = @"景点周边";
+            break;
+        case 4:
+            result = @"城市周边";
+            break;
+        case 5:
+            result = @"公园之畔";
+            break;
+        case 6:
+            result = @"温泉酒店";
+            break;
+        case 7:
+            result = @"背包客栈";
+            break;
+        case 8:
+            result = @"轻奢";
+            break;
+        case 9:
+            result = @"新开酒店";
+            break;
+        case 10:
+            result = @"高端酒店";
+            break;
+        case 11:
+            result = @"度假酒店";
+            break;
+        case 12:
+            result = @"亲子酒店";
+            break;
+        case 13:
+            result = @"情侣酒店";
+            break;
+        case 14:
+            result = @"山水酒店";
+            break;
+            
+            
+        default:
+            break;
+    }
+    return result;
+}
 @end

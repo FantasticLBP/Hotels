@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *hotelName;            /**<酒店名称*/
 @property (nonatomic, strong) NSString *hotelId;            /**<酒店id*/
 @property (nonatomic, strong) NSString *startTime;            /**<酒店开业时间*/
-@property (nonatomic, strong) NSString *subject;            /**<酒店主题*/
+@property (nonatomic, assign) NSInteger subject;            /**<酒店主题*/
 @property (nonatomic, strong) NSString *image1;
 @property (nonatomic, strong) NSString *image2;
 @property (nonatomic, strong) NSString *image3;

@@ -20,15 +20,15 @@
 
 @implementation TopicHotelCollectionCell
 
--(void)setImageName:(NSString *)imageName{
-    _imageName = imageName;
-    self.topicImageView.image = [UIImage imageNamed:imageName];
+-(void)setData:(NSDictionary *)data{
+    _data = data;
+    self.topicLabel.text = [ProjectUtil isNotBlank:data[@"subject"]] ? data[@"subject"] : @"";
+    [self.topicLabel sizeToFit];
+    
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,data[@"image"]];
+    [self.topicImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Hotel_placeholder"]];
+
 }
 
--(void)setTopicName:(NSString *)topicName{
-    _topicName = topicName;
-    self.topicLabel.text = topicName;
-    [self.topicLabel sizeToFit];
-}
 
 @end

@@ -38,4 +38,9 @@
  * 获取选取城市
  */
 +(NSString *)getCityName;
+
+/**
+ * 根据type获取主题名称
+ */
++(NSString *)getSubject:(NSInteger )type;
 @end
