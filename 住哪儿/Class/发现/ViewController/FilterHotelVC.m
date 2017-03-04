@@ -122,7 +122,7 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
     NSDictionary *dic = self.subjects[indexPath.row];
     [self dismissViewControllerAnimated:YES completion:^{
         if (self.topic) {
-            self.topic(dic[@"id"]);
+            self.topic(dic[@"id"],dic[@"subject"]);
         }
     }];
 }

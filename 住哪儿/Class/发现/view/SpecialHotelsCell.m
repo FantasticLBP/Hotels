@@ -27,13 +27,13 @@
     NSDictionary *attrs = @{NSFontAttributeName : [UIFont boldSystemFontOfSize:23]};
     CGSize size=[self.name sizeWithAttributes:attrs];
     
-    self.leftMargin.constant = BoundWidth/2 - size.width/2;
-    self.rightMargin.constant = BoundWidth/2 - size.width/2;
+    self.leftMargin.constant = BoundWidth/2 - size.width/2 - 30;
+    self.rightMargin.constant = BoundWidth/2 - size.width/2 - 30;
 }
 
 -(void)setName:(NSString *)name{
     _name = name;
-    self.detailTextLabel.text = self.name;
+    self.descriptionLabel.text = self.name;
 }
 
 @end

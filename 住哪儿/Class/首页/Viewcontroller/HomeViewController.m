@@ -40,7 +40,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
                                     TimerPickerVCDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray * dataArray;
 @property (nonatomic, strong) SDCycleScrollView *advertiseView;
 @property (nonatomic, strong) NSMutableArray *condtions;
 @property (nonatomic, strong) YYFPSLabel *fpsLabel;
@@ -50,6 +49,9 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 @property (nonatomic, strong) PriceAndStarLevelPickerView *starView;
 @property (nonatomic, strong) NSMutableDictionary *conditionDic;
 @property (nonatomic, strong) NSMutableArray *subjectImages;
+
+@property (nonatomic, strong) NSMutableArray *hotels;                   /**<酒店数据*/
+
 @end
 
 @implementation HomeViewController
@@ -58,17 +60,16 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    [self loadSubjectImage];
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self preData];
     self.tableView.tableHeaderView = self.headerView;
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.saleImageView];
     [self testFPSLabel];
+    [self loadSubjectImage];
+    [self preData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -82,6 +83,39 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 #pragma mark - private method
+- (void)testFPSLabel {
+    self.fpsLabel = [YYFPSLabel new];
+    self.fpsLabel.frame = CGRectMake(BoundWidth/2-25, 20, 50, 30);
+    [self.fpsLabel sizeToFit];
+    [self.view addSubview:self.fpsLabel];
+}
+
+-(void)searchHotelWithCondition{
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"type"] = @(3);
+    paras[@"page"] = @(1);
+    paras[@"size"] = @(4);
+    [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
+    
+    [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"code"] integerValue] == 200) {
+            [self.hotels removeAllObjects];
+            [SVProgressHUD dismiss];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            NSMutableArray *datas = dic[@"data"];
+            for (NSDictionary *dic in datas) {
+                [self.hotels addObject:[HotelsModel yy_modelWithJSON:dic]];
+            }
+            [self.tableView reloadData];
+        }
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
+}
+
 //获取轮播图
 -(void)loadSubjectImage{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/WeclomeImage.php"];
@@ -105,6 +139,33 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     }];
     
 }
+
+-(void)preData{
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"type"] = @(3);
+    paras[@"page"] = @(1);
+    paras[@"size"] = @(4);
+    [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
+    
+    [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"code"] integerValue] == 200) {
+            [self.hotels removeAllObjects];
+            [SVProgressHUD dismiss];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            NSMutableArray *datas = dic[@"data"];
+            for (NSDictionary *dic in datas) {
+                [self.hotels addObject:[HotelsModel yy_modelWithJSON:dic]];
+            }
+            [self.tableView reloadData];
+        }
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
+}
+
 
 // UITabBarController切换显示
 -(void)loadMoreHotel{
@@ -234,7 +295,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArray.count;
+    return self.hotels.count + 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -264,7 +325,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         return cell;
     }else{
         HotelDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelDescriptionCellID forIndexPath:indexPath];
-        cell.model = nil;
+        cell.model = self.hotels[indexPath.row-3];
         return cell;
     }
 }
@@ -277,36 +338,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     }
 }
 
-#pragma mark -- private method
-- (void)preData{
-    [SVProgressHUD showWithStatus:@"正在加载"];
-    for (int i = 1; i <= 8; i++){
-        [self.dataArray addObject:[NSString stringWithFormat:@"jpg-%d",i]];
-    }
-    self.advertiseView.localizationImageNamesGroup = self.dataArray;
-    [SVProgressHUD dismiss];
-    [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshingWithNoMoreData];
-    self.tableView.mj_footer.hidden = YES;
-    self.tableView.mj_footer.hidden = YES;
-    [self.tableView reloadData];
-}
-
-- (void)testFPSLabel {
-    self.fpsLabel = [YYFPSLabel new];
-    self.fpsLabel.frame = CGRectMake(BoundWidth/2-25, 20, 50, 30);
-    [self.fpsLabel sizeToFit];
-    [self.view addSubview:self.fpsLabel];
-}
-
--(void)searchHotelWithCondition{
-    [SVProgressHUD showWithStatus:@"正在查询"];
-    [AFNetPackage postJSONWithUrl:@"" parameters:self.conditionDic success:^(id responseObject) {
-        [SVProgressHUD dismiss];
-    } fail:^{
-        [SVProgressHUD dismiss];
-    }]; 
-}
 
 #pragma mark --lazy load
 -(UITableView *)tableView{
@@ -371,13 +402,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     return _headerView;
 }
 
--(NSMutableArray *)dataArray{
-    if (!_dataArray) {
-        _dataArray = [NSMutableArray array];
-    }
-    return _dataArray;
-}
-
 -(NSMutableArray *)condtions{
     if (!_condtions) {
         NSMutableArray *datas = [NSMutableArray array];
@@ -417,4 +441,12 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     }
     return _subjectImages;
 }
+
+-(NSMutableArray *)hotels{
+    if (!_hotels) {
+        _hotels = [NSMutableArray array];
+    }
+    return _hotels;
+}
+
 @end

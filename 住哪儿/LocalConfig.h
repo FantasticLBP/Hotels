@@ -4,7 +4,7 @@
 //  KSGuidViewDemo
 //
 //  Created by geek on 2016/10/13.
-//  Copyright © 2016年 孔. All rights reserved.
+//  Copyright © 2016年 . All rights reserved.
 //
 
 #ifndef LocalConfig_h
@@ -31,8 +31,8 @@
 
 
 /************************************url******************************************/
-//#define Base_Url @"http://192.168.1.101:8888"
-#define Base_Url @"http://192.168.20.170:8888"
+#define Base_Url @"http://192.168.1.101:8888"
+//#define Base_Url @"http://192.168.20.170:8888"
 //#define Base_Url @"http://192.168.0.103:8888"
 
 

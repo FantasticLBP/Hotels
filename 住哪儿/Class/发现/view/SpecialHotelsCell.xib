@@ -19,11 +19,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4L-QZ-snA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                         <state key="normal" image="jpg-6"/>
                     </button>
+                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKy-RJ-ldJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="204"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最佳景观 • 休闲度假" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-94-2Dq">
-                        <rect key="frame" x="0.0" y="119" width="320" height="21"/>
+                        <rect key="frame" x="0.0" y="118" width="320" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Kf0-pz-jH0"/>
                         </constraints>
@@ -32,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进入专题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUg-zX-v1l">
-                        <rect key="frame" x="125" y="150" width="70" height="30"/>
+                        <rect key="frame" x="125" y="149" width="70" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="16t-dL-k1t"/>
@@ -43,7 +47,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京赏雪，美哉" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNm-Go-Gs9">
-                        <rect key="frame" x="0.0" y="34" width="320" height="70"/>
+                        <rect key="frame" x="0.0" y="33" width="320" height="70"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="XZu-O3-K6g"/>
                         </constraints>
@@ -51,41 +55,24 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Find_location" translatesAutoresizingMaskIntoConstraints="NO" id="Jf7-gZ-i7I">
-                        <rect key="frame" x="132" y="25" width="16" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="17" id="WvZ-7Q-iGu"/>
-                            <constraint firstAttribute="width" constant="16" id="XtT-mB-yvd"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTU-vB-Gie">
-                        <rect key="frame" x="150" y="23" width="150" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="1zi-fm-TiE"/>
-                            <constraint firstAttribute="width" constant="150" id="8cz-n6-PUh"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Jf7-gZ-i7I" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="-20" id="4HI-3V-vV0"/>
                     <constraint firstItem="u4L-QZ-snA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4Tc-pF-WsF"/>
                     <constraint firstItem="9eA-94-2Dq" firstAttribute="top" secondItem="HNm-Go-Gs9" secondAttribute="bottom" constant="15" id="7Wz-fu-ok6"/>
+                    <constraint firstAttribute="trailing" secondItem="UKy-RJ-ldJ" secondAttribute="trailing" id="8Jr-C0-OyR"/>
+                    <constraint firstAttribute="bottom" secondItem="UKy-RJ-ldJ" secondAttribute="bottom" id="LoR-8h-mfJ"/>
                     <constraint firstItem="UUg-zX-v1l" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Rge-Uz-Pr6"/>
                     <constraint firstAttribute="bottom" secondItem="u4L-QZ-snA" secondAttribute="bottom" constant="5" id="Trt-54-F22"/>
                     <constraint firstItem="u4L-QZ-snA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YUh-qf-dNC"/>
                     <constraint firstItem="HNm-Go-Gs9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yj2-tz-A7u"/>
-                    <constraint firstItem="HNm-Go-Gs9" firstAttribute="top" secondItem="Jf7-gZ-i7I" secondAttribute="bottom" constant="-8" id="a6C-ck-ulS"/>
                     <constraint firstItem="UUg-zX-v1l" firstAttribute="top" secondItem="9eA-94-2Dq" secondAttribute="bottom" constant="10" id="cLp-nJ-HyG"/>
-                    <constraint firstItem="HNm-Go-Gs9" firstAttribute="top" secondItem="wTU-vB-Gie" secondAttribute="bottom" constant="-10" id="ffj-JT-b83"/>
+                    <constraint firstItem="UKy-RJ-ldJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fjP-Hi-sUj"/>
                     <constraint firstAttribute="trailing" secondItem="u4L-QZ-snA" secondAttribute="trailing" id="gS3-PT-ebM"/>
                     <constraint firstAttribute="trailing" secondItem="HNm-Go-Gs9" secondAttribute="trailing" id="gpN-jg-M0W"/>
                     <constraint firstAttribute="trailing" secondItem="9eA-94-2Dq" secondAttribute="trailing" id="hrJ-zn-wwY"/>
                     <constraint firstAttribute="bottom" secondItem="UUg-zX-v1l" secondAttribute="bottom" constant="25" id="j09-D4-xD8"/>
                     <constraint firstItem="9eA-94-2Dq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ltD-am-93E"/>
-                    <constraint firstItem="wTU-vB-Gie" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="65" id="v93-9M-Ta7"/>
+                    <constraint firstItem="UKy-RJ-ldJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mc1-Fn-Lpt"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -96,7 +83,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Find_location" width="24" height="24"/>
         <image name="jpg-6" width="960" height="657"/>
     </resources>
 </document>

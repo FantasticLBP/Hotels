@@ -11,7 +11,7 @@
 @class TopicHotelCell;
 @protocol TopicHotelCellDelegate <NSObject>
 
--(void)topicHotelCell:(TopicHotelCell *)topicHotelCell didSelectAtIndex:(NSInteger)index;
+-(void)topicHotelCell:(TopicHotelCell *)topicHotelCell didSelectAtIndex:(NSInteger)index andSubjectName:(NSString *)subjectName;
 
 @end
 

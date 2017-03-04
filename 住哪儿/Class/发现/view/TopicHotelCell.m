@@ -45,8 +45,8 @@ static NSString *TopicHotelCollectionCellID = @"TopicHotelCollectionCell";
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(topicHotelCell:didSelectAtIndex:)]) {
-        [self.delegate topicHotelCell:self didSelectAtIndex:indexPath.row+1];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(topicHotelCell:didSelectAtIndex: andSubjectName:)]) {
+        [self.delegate topicHotelCell:self didSelectAtIndex:indexPath.row+1 andSubjectName:self.subjects[indexPath.row][@"subject"]];
     }
 }
 

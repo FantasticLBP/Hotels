@@ -28,5 +28,8 @@
 @property (nonatomic, strong) NSString *image4;
 @property (nonatomic, strong) NSString *image5;
 @property (nonatomic, strong) NSString *minPrice;            /**<价格*/
+@property (nonatomic, strong) NSString *kindDescription;     /**<特色描述*/
+@property (nonatomic, assign) NSInteger kindType;            /**<酒店类型*/
+@property (nonatomic, assign) NSInteger stars;            /**<酒店星级*/
 
 @end

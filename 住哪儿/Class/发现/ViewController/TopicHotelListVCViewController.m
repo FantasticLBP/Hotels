@@ -43,7 +43,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 #pragma mark - private method
 -(void)setupUI{
-    self.title = @"精品民宿";
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = ({
         UIBarButtonItem *right = [[UIBarButtonItem alloc] init];
@@ -59,8 +58,9 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(void)filterTheHotel{
     FilterHotelVC *vc = [[FilterHotelVC alloc] init];
     vc.cityName = self.cityName;
-    vc.topic = ^(NSString *type){
-        self.type = type;
+    vc.topic = ^(NSString *subjectType,NSString *subjectName){
+        self.type = subjectType;
+        vc.title = subjectName;
         [self preData];
     };
     LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:vc];

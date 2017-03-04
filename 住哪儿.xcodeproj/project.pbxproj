@@ -151,6 +151,8 @@
 		936C7AE91E095F0B0065389F /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7AE81E095F0B0065389F /* ShareView.m */; };
 		936C7AED1E0980AD0065389F /* ShareCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7AEB1E0980AD0065389F /* ShareCollectionCell.m */; };
 		936C7AEE1E0980AD0065389F /* ShareCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936C7AEC1E0980AD0065389F /* ShareCollectionCell.xib */; };
+		936F9A581E68790D00425819 /* SpecialHotelFlagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */; };
+		936F9A591E68790D00425819 /* SpecialHotelFlagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */; };
 		9393172C1E3051B200281A05 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393172B1E3051B200281A05 /* PersonInfoViewController.m */; };
 		9393172F1E30777500281A05 /* ChangeUserNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393172E1E30777500281A05 /* ChangeUserNameVC.m */; };
 		939317371E30792400281A05 /* HcdDateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 939317321E30792400281A05 /* HcdDateTimePickerView.m */; };
@@ -580,6 +582,9 @@
 		936C7AEA1E0980AD0065389F /* ShareCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCollectionCell.h; sourceTree = "<group>"; };
 		936C7AEB1E0980AD0065389F /* ShareCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCollectionCell.m; sourceTree = "<group>"; };
 		936C7AEC1E0980AD0065389F /* ShareCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareCollectionCell.xib; sourceTree = "<group>"; };
+		936F9A551E68790D00425819 /* SpecialHotelFlagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialHotelFlagCell.h; sourceTree = "<group>"; };
+		936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialHotelFlagCell.m; sourceTree = "<group>"; };
+		936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialHotelFlagCell.xib; sourceTree = "<group>"; };
 		9393172A1E3051B200281A05 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
 		9393172B1E3051B200281A05 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
 		9393172D1E30777500281A05 /* ChangeUserNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeUserNameVC.h; sourceTree = "<group>"; };
@@ -1917,6 +1922,9 @@
 				93089D5C1E12A0BA00C9C273 /* TopicHotelCell.h */,
 				93089D5D1E12A0BA00C9C273 /* TopicHotelCell.m */,
 				93089D5E1E12A0BA00C9C273 /* TopicHotelCell.xib */,
+				936F9A551E68790D00425819 /* SpecialHotelFlagCell.h */,
+				936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */,
+				936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2493,6 +2501,7 @@
 				936B08CC1E06E0F0009AD3D3 /* icon-calendar-elong.png in Resources */,
 				936B08F11E06E0F0009AD3D3 /* icon-success.png in Resources */,
 				9319735E1E135BAF009D896D /* shop_area.sqlite in Resources */,
+				936F9A591E68790D00425819 /* SpecialHotelFlagCell.xib in Resources */,
 				936B08E31E06E0F0009AD3D3 /* icon-list-time-weixin.png in Resources */,
 				93F138501E1E903900CF2F02 /* OrderCell.xib in Resources */,
 				93E02E051DDB598D007EAE1E /* Lato-Regular.ttf in Resources */,
@@ -2679,6 +2688,7 @@
 				93E02E2C1DDB598D007EAE1E /* MainViewController.m in Sources */,
 				93FA9F3F1E10AB66001DCAA0 /* TAAbstractDotView.m in Sources */,
 				93AD7DDB1DFEA2E40067C539 /* HotelDescriptionCell.m in Sources */,
+				936F9A581E68790D00425819 /* SpecialHotelFlagCell.m in Sources */,
 				936B084D1E06DDC3009AD3D3 /* YYWeakProxy.m in Sources */,
 				93E02E2D1DDB598D007EAE1E /* AFNetPackage.m in Sources */,
 				93E02E191DDB598D007EAE1E /* MJRefreshAutoNormalFooter.m in Sources */,

@@ -16,7 +16,7 @@
 #import "LBPNavigationController.h"
 #import "JFCityViewController.h"
 #import "SpecialHotelsCell.h"
-
+#import "SpecialHotelFlagCell.h"
 
 #import "HotelsModel.h"
 
@@ -26,6 +26,7 @@
 static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 static NSString *TopicHotelCellID = @"TopicHotelCell";
 static NSString *SpecialHotelsCellID = @"SpecialHotelsCell";
+static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 
 @interface FindViewController ()<UITableViewDataSource,UITableViewDelegate,
                                 SDCycleScrollViewDelegate,
@@ -102,10 +103,11 @@ static NSString *SpecialHotelsCellID = @"SpecialHotelsCell";
 -(void)filterHotel{
     FilterHotelVC *vc = [[FilterHotelVC alloc] init];
     vc.cityName = self.cityName;
-    vc.topic = ^(NSString *type){
+    vc.topic = ^(NSString *subjectType,NSString *subjectName){
         TopicHotelListVCViewController *vc = [[TopicHotelListVCViewController alloc] init];
-        vc.type = type;
+        vc.type = subjectType;
         vc.cityName = self.cityName;
+        vc.title = subjectName;
         [self.navigationController pushViewController:vc animated:YES];
     };
     LBPNavigationController *navi = [[LBPNavigationController alloc] initWithRootViewController:vc];
@@ -135,6 +137,7 @@ static NSString *SpecialHotelsCellID = @"SpecialHotelsCell";
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"telephone"] = [UserManager getUserObject].telephone;
     paras[@"cityName"] = self.cityName;
+    paras[@"type"] = @(3);
     paras[@"page"] = @(1);
     paras[@"size"] = @(10);
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
@@ -152,11 +155,13 @@ static NSString *SpecialHotelsCellID = @"SpecialHotelsCell";
     [self.tableView.mj_footer resetNoMoreData];
 }
 
+
 -(void)loadMoreData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"telephone"] = [UserManager getUserObject].telephone;
     paras[@"cityName"] = self.cityName;
+    paras[@"type"] = @(3);
     paras[@"page"] = @(self.page);
     paras[@"size"] = @(10);
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
@@ -233,10 +238,11 @@ static NSString *SpecialHotelsCellID = @"SpecialHotelsCell";
 }
 
 #pragma mark - TopicHotelCellDelegate
--(void)topicHotelCell:(TopicHotelCell *)topicHotelCell didSelectAtIndex:(NSInteger)index{
+-(void)topicHotelCell:(TopicHotelCell *)topicHotelCell didSelectAtIndex:(NSInteger)index andSubjectName:(NSString *)subjectName{
     TopicHotelListVCViewController *vc = [[TopicHotelListVCViewController alloc] init];
     vc.type = [NSString stringWithFormat:@"%zd",index];
     vc.cityName = self.cityName;
+    vc.title = subjectName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -246,13 +252,15 @@ static NSString *SpecialHotelsCellID = @"SpecialHotelsCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.hotels.count + 6;
+    return self.hotels.count + 6+2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         return 223;
-    }else if(indexPath.row >=1 && indexPath.row <= self.hotels.count){
+    }else if(indexPath.row == 1){
+        return 60;
+    }else if(indexPath.row >=2 && indexPath.row < self.hotels.count+2){
         return 270;
     }else{
         return 200;
@@ -262,30 +270,39 @@ static NSString *SpecialHotelsCellID = @"SpecialHotelsCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         TopicHotelCell *cell = [tableView dequeueReusableCellWithIdentifier:TopicHotelCellID forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
         cell.subjects = self.subjects;
         return cell;
-    }else if(indexPath.row >=1 && indexPath.row <= self.hotels.count){
+    }else if(indexPath.row == 1){
+        SpecialHotelFlagCell *cell = [tableView dequeueReusableCellWithIdentifier:SpecialHotelFlagCellID forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else if(indexPath.row >=2 && indexPath.row < self.hotels.count+2){
         HotelDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelDescriptionCellID forIndexPath:indexPath];
-        cell.model = self.hotels[indexPath.row-1];
+        cell.model = self.hotels[indexPath.row-2];
         return cell;
     }else{
         SpecialHotelsCell *cell = [tableView dequeueReusableCellWithIdentifier:SpecialHotelsCellID forIndexPath:indexPath];
-        cell.name = @"测试。刘斌鹏";
+        cell.name = @"烟雨千岛湖 私享避世小假日";
         return cell;
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    HotelDetailVC *vc = [[HotelDetailVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (indexPath.row>= 2 + self.hotels.count ) {
+        [SVProgressHUD showInfoWithStatus:@"此处要加入HTML5网页，等待程序员哥哥后续升级哦"];
+    }else if (indexPath.row >1 && indexPath.row < self.hotels.count + 2){
+        HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGPoint point = scrollView.contentOffset;
-    if (scrollView.contentOffset.y > (BoundHeight - 64 -50 -45)) {
+    if (scrollView.contentOffset.y > BoundHeight-HeaderImageHeight-64-50) {
         [self.view addSubview:self.topButton];
     }else{
         [self.topButton removeFromSuperview];
@@ -308,6 +325,7 @@ static NSString *SpecialHotelsCellID = @"SpecialHotelsCell";
         [_tableView registerNib:[UINib nibWithNibName:@"TopicHotelCell" bundle:nil] forCellReuseIdentifier:TopicHotelCellID];
          [_tableView registerNib:[UINib nibWithNibName:@"SpecialHotelsCell" bundle:nil] forCellReuseIdentifier:SpecialHotelsCellID];
         
+        [_tableView registerNib:[UINib nibWithNibName:@"SpecialHotelFlagCell" bundle:nil] forCellReuseIdentifier:SpecialHotelFlagCellID];
         _tableView.contentInset = UIEdgeInsetsMake(HeaderImageHeight, 0, 50, 0);
         _tableView.delegate = self;
         _tableView.dataSource = self;
