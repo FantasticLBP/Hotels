@@ -140,6 +140,8 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
     paras[@"type"] = @(3);
     paras[@"page"] = @(1);
     paras[@"size"] = @(10);
+    paras[@"request"] = @(3);
+    
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
     
     [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
@@ -164,6 +166,8 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
     paras[@"type"] = @(3);
     paras[@"page"] = @(self.page);
     paras[@"size"] = @(10);
+    paras[@"request"] = @(3);
+    
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
     
     [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {

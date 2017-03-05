@@ -23,7 +23,7 @@
 #import "JFCityViewController.h"
 #import "PriceAndStarLevelPickerView.h"
 #import "MainViewController.h"
-
+#import "SearchResultVC.h"
 #import "YYFPSLabel.h"
 
 #define SalePromotionImageWidth 49
@@ -91,29 +91,16 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 -(void)searchHotelWithCondition{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
-    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
-    paras[@"telephone"] = [UserManager getUserObject].telephone;
-    paras[@"type"] = @(3);
-    paras[@"page"] = @(1);
-    paras[@"size"] = @(4);
-    [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
-    
-    [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        if ([dic[@"code"] integerValue] == 200) {
-            [self.hotels removeAllObjects];
-            [SVProgressHUD dismiss];
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *datas = dic[@"data"];
-            for (NSDictionary *dic in datas) {
-                [self.hotels addObject:[HotelsModel yy_modelWithJSON:dic]];
-            }
-            [self.tableView reloadData];
-        }
-    } fail:^{
-        [SVProgressHUD dismiss];
-    }];
+    SearchResultVC *vc = [[SearchResultVC alloc] init];
+    NSMutableDictionary *dic = self.conditionDic;
+    NSString *pickedLevel = self.conditionDic[@"pickedLevel"];
+    NSArray *array = [pickedLevel componentsSeparatedByString:@"，"];
+    if (array.count > 1) {
+        [dic setObject:array[0] forKey:@"pickedStar"];
+        [dic setObject:array[1] forKey:@"pickedPrice"];
+    }
+    vc.searchConditions = dic;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //获取轮播图
@@ -147,6 +134,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     paras[@"type"] = @(3);
     paras[@"page"] = @(1);
     paras[@"size"] = @(4);
+    paras[@"request"] = @(4);
+
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
     
     [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
