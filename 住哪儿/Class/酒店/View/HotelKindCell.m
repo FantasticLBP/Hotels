@@ -83,7 +83,7 @@
     _roomModel = roomModel;
     if (roomModel) {
         NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,roomModel.image1];
-        [self.hotelImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"jpg-9"]];
+        [self.hotelImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Hotel_placeholder"]];
         self.hotelTypeLabel.text = [ProjectUtil isNotBlank:roomModel.type]?roomModel.type:@"";
         self.specialLabel.text = [NSString stringWithFormat:@"%zd平米 %@ %@",roomModel.square,roomModel.bedScale,roomModel.hasWindow==1?@"有窗":@"无窗"];
         self.priceLabel.text = [NSString stringWithFormat:@"%zd",roomModel.znecancelPrice];
