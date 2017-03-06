@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HotelsModel.h"
 @interface HotelBaseConditionCell : UITableViewCell
-
-@property (nonatomic, strong) NSString *buildTime;           
+@property (nonatomic, strong) HotelsModel *model;            /**<酒店数据*/
+         
 @end

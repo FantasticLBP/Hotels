@@ -71,8 +71,10 @@ static NSString *HotelDetailImageCellID = @"HotelDetailImageCell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     self.photos = nil;
     for (NSString *imageName in self.imageDatas) {
-        UIImage *tempImage = [UIImage imageNamed:imageName];
-        [self.photos addObject:[MWPhoto photoWithImage:tempImage]];
+        if ([ProjectUtil isNotBlank:imageName]) {
+            UIImage *tempImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageName]]];
+            [self.photos addObject:[MWPhoto photoWithImage:tempImage]];
+        }
     }
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
     browser.displayActionButton = YES;

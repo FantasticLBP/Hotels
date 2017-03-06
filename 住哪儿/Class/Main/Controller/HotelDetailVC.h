@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HotelsModel.h"
 
 @interface HotelDetailVC : UIViewController
-@property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic, strong) HotelsModel *model;            /**<酒店id*/
 @end

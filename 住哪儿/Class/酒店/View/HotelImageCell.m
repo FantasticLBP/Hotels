@@ -86,7 +86,7 @@
     
     [self.locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.locateImageView.mas_right).with.offset(10);
-        make.right.equalTo(self.watchImageView).with.offset(2);
+        make.right.equalTo(self.watchImageView).with.offset(-10);
         make.top.equalTo(self.bottomView);
         make.bottom.equalTo(self.bottomView);
     }];
@@ -116,9 +116,16 @@
     if (images.count == 0) {
         return;
     }
-    self.advertiseView.localizationImageNamesGroup = images;
-    self.locationLabel.text = @"西湖区学院路29号";
-    self.albumsCountLabel.text = @"8";
+    self.advertiseView.imageURLStringsGroup = images;
+    self.albumsCountLabel.text = [NSString stringWithFormat:@"%zd",images.count];
+}
+
+-(void)setHotelModel:(HotelsModel *)hotelModel{
+    _hotelModel = hotelModel;
+    if (hotelModel) {
+        self.locationLabel.text = hotelModel.address;
+        self.hotelLabel.text = hotelModel.hotelName;
+    }
 }
 
 #pragma mark - button method

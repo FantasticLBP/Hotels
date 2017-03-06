@@ -185,6 +185,7 @@
 		93DBCE2E1E46D16800F528E1 /* TimerPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DBCE2D1E46D16800F528E1 /* TimerPickerVC.m */; };
 		93DBCE311E46F5CE00F528E1 /* PriceAndStarLevelPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DBCE301E46F5CE00F528E1 /* PriceAndStarLevelPickerView.m */; };
 		93DBCE341E46F74700F528E1 /* LiuXSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DBCE331E46F74700F528E1 /* LiuXSlider.m */; };
+		93DFD5C31E6DA32F0007CC18 /* RoomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DFD5C21E6DA32F0007CC18 /* RoomModel.m */; };
 		93E02C511DDB58C7007EAE1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02C501DDB58C7007EAE1E /* main.m */; };
 		93E02C541DDB58C7007EAE1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02C531DDB58C7007EAE1E /* AppDelegate.m */; };
 		93E02C5A1DDB58C7007EAE1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E02C581DDB58C7007EAE1E /* Main.storyboard */; };
@@ -648,6 +649,8 @@
 		93DBCE301E46F5CE00F528E1 /* PriceAndStarLevelPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceAndStarLevelPickerView.m; sourceTree = "<group>"; };
 		93DBCE321E46F74700F528E1 /* LiuXSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuXSlider.h; sourceTree = "<group>"; };
 		93DBCE331E46F74700F528E1 /* LiuXSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuXSlider.m; sourceTree = "<group>"; };
+		93DFD5C11E6DA32F0007CC18 /* RoomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomModel.h; path = "住哪儿/Class/酒店/Controller/RoomModel.h"; sourceTree = SOURCE_ROOT; };
+		93DFD5C21E6DA32F0007CC18 /* RoomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomModel.m; path = "住哪儿/Class/酒店/Controller/RoomModel.m"; sourceTree = SOURCE_ROOT; };
 		93E02C4C1DDB58C7007EAE1E /* 住哪儿.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "住哪儿.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E02C501DDB58C7007EAE1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93E02C521DDB58C7007EAE1E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1280,6 +1283,8 @@
 		936C7AD41E09275E0065389F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				93DFD5C11E6DA32F0007CC18 /* RoomModel.h */,
+				93DFD5C21E6DA32F0007CC18 /* RoomModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2609,6 +2614,7 @@
 				93FA9FFC1E10AD5B001DCAA0 /* UIView+EMWebCacheOperation.m in Sources */,
 				93DA19281E2D1AA4002F2C5A /* UserManager.m in Sources */,
 				93E02E321DDB598D007EAE1E /* FindViewController.m in Sources */,
+				93DFD5C31E6DA32F0007CC18 /* RoomModel.m in Sources */,
 				93D4940A1E1A89E10028232C /* OrderHeaderView.m in Sources */,
 				93FA9F411E10AB66001DCAA0 /* TADotView.m in Sources */,
 				9319738D1E1360A8009D896D /* FMResultSet.m in Sources */,

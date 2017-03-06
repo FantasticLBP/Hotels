@@ -95,8 +95,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     self.page = self.page + 1;
     [SVProgressHUD dismiss];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-    NSMutableArray *datas = [NSMutableArray array];
-    datas =  dic[@"data"];
+    NSMutableArray *datas = dic[@"data"];
     [self.tableView.mj_header endRefreshing];
     if (datas.count == 0) {
         [self.tableView.mj_footer endRefreshingWithNoMoreData];

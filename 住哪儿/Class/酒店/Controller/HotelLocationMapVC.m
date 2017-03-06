@@ -15,9 +15,21 @@
 
 @implementation HotelLocationMapVC
 
+#pragma mark - lice cyele
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [SVProgressHUD showInfoWithStatus:@"地图功能正在开发中，敬请期待..."];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - private method

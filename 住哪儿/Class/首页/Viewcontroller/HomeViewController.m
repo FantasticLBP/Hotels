@@ -323,6 +323,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row>=3) {
         HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+        vc.model = self.hotels[indexPath.row-3];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

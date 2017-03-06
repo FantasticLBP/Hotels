@@ -21,6 +21,7 @@
 #import "HotelAlbumsVC.h"
 #import "HotelEvaluateVC.h"
 #import "HotelRoomPriceVC.h"
+#import "RoomModel.h"
 
 #define ShareViewHeight BoundWidth/2+51
 #define ShowShareViewDuration 5.0
@@ -39,7 +40,9 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
 
 @property (nonatomic, strong) ShareView *shareView;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *hotelTypes;
+@property (nonatomic, strong) NSMutableArray *rooms;
+@property (nonatomic, strong) NSMutableArray *images;
+
 @end
 
 @implementation HotelDetailVC
@@ -48,17 +51,17 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self preData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
+    [SVProgressHUD dismiss];
     [UIView animateWithDuration:0.3 animations:^{
         [self.shareView setFrame:CGRectMake(0, BoundHeight, BoundWidth, ShareViewHeight)];
     } completion:^(BOOL finished) {
         
     }];
-    
 }
 
 #pragma mark - private method
@@ -86,6 +89,53 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
         
     }];
 }
+
+-(void)preData{
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/Room.php"];
+    NSMutableDictionary *paras = [NSMutableDictionary dictionary];
+    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"hotelId"] = self.model.hotelId;
+    
+    [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
+    [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"code"] integerValue] == 200) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            NSMutableArray *datas = dic[@"data"];
+            if (datas.count <1) {
+                return ;
+            }
+            for (NSDictionary *dic in datas) {
+                [self.rooms addObject:[RoomModel yy_modelWithJSON:dic]];
+            }
+            for (NSDictionary *dic in datas) {
+                if ([ProjectUtil isNotBlank:dic[@"image1"]]) {
+                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image1"]]];
+                }
+                if ([ProjectUtil isNotBlank:dic[@"image2"]]) {
+                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image2"]]];
+                }
+                if ([ProjectUtil isNotBlank:dic[@"image3"]]) {
+                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image3"]]];
+                }
+                if ([ProjectUtil isNotBlank:dic[@"image4"]]) {
+                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image4"]]];
+                }
+                if ([ProjectUtil isNotBlank:dic[@"image5"]]) {
+                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image5"]]];
+                }
+                
+                
+                
+            }
+            [self.tableView reloadData];
+        }
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
+}
+
 
 #pragma mark - ShareViewDelegate
 -(void)shareView:(ShareView *)shareView didSelectItemAtIndexPath:(NSInteger)indexPath{
@@ -131,7 +181,7 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.hotelTypes.count + 9;
+    return self.rooms.count + 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -155,22 +205,24 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
         HotelImageCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelImageCellID forIndexPath:indexPath];
         cell.delegate = self;
         cell.images = self.images;
+        cell.hotelModel = self.model;
         return cell;
     }else if(indexPath.row == 1){
         HotelTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelTimeCellID forIndexPath:indexPath];
         return  cell;
     }else if (indexPath.row == 2){
         HotelBaseConditionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelBaseConditionCellID forIndexPath:indexPath];
+        cell.model = self.model;
         return  cell;
-    }else if (indexPath.row == 7){
+    }else if (indexPath.row>2 && indexPath.row < self.rooms.count +3){
+        HotelKindCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelKindCellID forIndexPath:indexPath];
+        cell.roomModel = self.rooms[indexPath.row - 3];
+        return cell;
+    }else if (indexPath.row == self.rooms.count +3){
         HotelEvaluateCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelEvaluateCellID forIndexPath:indexPath];
         return cell;
-    }else if(indexPath.row == 8){
-        HotelNoticeCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelNoticeCellID forIndexPath:indexPath];
-        return cell;
     }else{
-        HotelKindCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelKindCellID forIndexPath:indexPath];
-        cell.imageName = @"jpg-9";
+        HotelNoticeCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelNoticeCellID forIndexPath:indexPath];
         return cell;
     }
 }
@@ -216,15 +268,7 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
     return _shareView;
 }
 
--(NSMutableArray *)images{
-    if (!_images) {
-        _images = [NSMutableArray array];
-        for (int i = 1; i <= 8; i++){
-            [_images addObject:[NSString stringWithFormat:@"jpg-%d",i]];
-        }
-    }
-    return _images;
-}
+
 
 -(UITableView *)tableView{
     if (!_tableView) {
@@ -243,11 +287,18 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
     return _tableView;
 }
 
--(NSMutableArray *)hotelTypes{
-    if (!_hotelTypes) {
-        _hotelTypes = [NSMutableArray array];
+-(NSMutableArray *)rooms{
+    if (!_rooms) {
+        _rooms = [NSMutableArray array];
     }
-    return _hotelTypes;
+    return _rooms;
+}
+
+-(NSMutableArray *)images{
+    if (!_images) {
+        _images = [NSMutableArray array];
+    }
+    return _images;
 }
 
 @end

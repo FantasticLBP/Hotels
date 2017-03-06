@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoomModel.h"
 
 @interface HotelKindCell : UITableViewCell
-@property (nonatomic, strong) NSString *imageName;
+@property (nonatomic, strong) RoomModel *roomModel;            /**<房间model*/
 @end

@@ -133,7 +133,7 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HotelDetailVC *vc = [[HotelDetailVC alloc] init];
-    vc.images = self.images;
+//    vc.images = self.images;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

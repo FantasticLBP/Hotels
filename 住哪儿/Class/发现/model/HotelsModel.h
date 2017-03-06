@@ -14,10 +14,10 @@
 @property (nonatomic, strong) NSString *address;            /**<酒店地址*/
 @property (nonatomic, strong) NSString *decorateTime;            /**<装修时间*/
 @property (nonatomic, strong) NSString *evaluationId;            /**<评价id*/
-@property (nonatomic, strong) NSString *hasMeetingRoom;            /**<是否有会议室*/
-@property (nonatomic, strong) NSString *hasPackage;            /**<是否可以存放行李*/
-@property (nonatomic, strong) NSString *hasParking;            /**<是否可以停车*/
-@property (nonatomic, strong) NSString *hasWifi;            /**<是否有wifi*/
+@property (nonatomic, assign) NSInteger hasMeetingRoom;            /**<是否有会议室*/
+@property (nonatomic, assign) NSInteger hasPackage;            /**<是否可以存放行李*/
+@property (nonatomic, assign) NSInteger hasParking;            /**<是否可以停车*/
+@property (nonatomic, assign) NSInteger hasWifi;            /**<是否有wifi*/
 @property (nonatomic, strong) NSString *hotelName;            /**<酒店名称*/
 @property (nonatomic, strong) NSString *hotelId;            /**<酒店id*/
 @property (nonatomic, strong) NSString *startTime;            /**<酒店开业时间*/

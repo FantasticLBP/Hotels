@@ -132,10 +132,26 @@
     }];
 }
 
--(void)setBuildTime:(NSString *)buildTime{
-    _buildTime = buildTime;
-    
-    
+
+-(void)setModel:(HotelsModel *)model{
+    _model = model;
+    if (model) {
+        self.startLabel.text = [NSString stringWithFormat:@"开业时间：%@",model.startTime];
+        self.decorateLabel.text = [NSString stringWithFormat:@"开业时间：%@",model.decorateTime];
+        if (!model.hasWifi) {
+            _wifiImageView.image = [UIImage imageNamed:@"Hotel_wifiLess"];
+        }
+        if (!model.hasParking) {
+            _parkImageView.image = [UIImage imageNamed:@"Hotel_parkingLess"];
+        }
+        if (!model.hasPackage) {
+            _packageImageView.image = [UIImage imageNamed:@"Hotel_packageLess"];
+        }
+        if (!model.hasMeetingRoom) {
+            _meetingImageView.image = [UIImage imageNamed:@"Hotel_meetingLess"];
+        }
+        
+    }
 }
 
 #pragma mark - lazy load
