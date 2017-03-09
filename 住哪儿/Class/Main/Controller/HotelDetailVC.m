@@ -109,26 +109,23 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
             for (NSDictionary *dic in datas) {
                 [self.rooms addObject:[RoomModel yy_modelWithJSON:dic]];
             }
-            for (NSDictionary *dic in datas) {
-                if ([ProjectUtil isNotBlank:dic[@"image1"]]) {
-                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image1"]]];
-                }
-                if ([ProjectUtil isNotBlank:dic[@"image2"]]) {
-                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image2"]]];
-                }
-                if ([ProjectUtil isNotBlank:dic[@"image3"]]) {
-                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image3"]]];
-                }
-                if ([ProjectUtil isNotBlank:dic[@"image4"]]) {
-                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image4"]]];
-                }
-                if ([ProjectUtil isNotBlank:dic[@"image5"]]) {
-                    [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image5"]]];
-                }
-                
-                
-                
+            
+            if ([ProjectUtil isNotBlank:self.model.image1]) {
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image1]];
             }
+            if ([ProjectUtil isNotBlank:self.model.image2]) {
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image2]];
+            }
+            if ([ProjectUtil isNotBlank:self.model.image3]) {
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image3]];
+            }
+            if ([ProjectUtil isNotBlank:self.model.image4]) {
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image4]];
+            }
+            if ([ProjectUtil isNotBlank:self.model.image5]) {
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image5]];
+            }
+            
             [self.tableView reloadData];
         }
     } fail:^{
@@ -209,6 +206,8 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
         return cell;
     }else if(indexPath.row == 1){
         HotelTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelTimeCellID forIndexPath:indexPath];
+        cell.startPeriod = self.startPeriod;
+        cell.leavePerios = self.leavePerios;
         return  cell;
     }else if (indexPath.row == 2){
         HotelBaseConditionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelBaseConditionCellID forIndexPath:indexPath];
@@ -229,11 +228,15 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 7) {
-        HotelEvaluateVC *vc = [[HotelEvaluateVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row >= 3 && indexPath.row <= 6){
+    if (indexPath.row>2 && indexPath.row < self.rooms.count +3) {
         HotelRoomPriceVC *vc = [[HotelRoomPriceVC alloc] init];
+        vc.startPeriod = self.startPeriod;
+        vc.leavePerios = self.leavePerios;
+        vc.model = self.rooms[indexPath.row - 3];
+        vc.hotelModel = self.model;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == self.rooms.count + 3){
+        HotelEvaluateVC *vc = [[HotelEvaluateVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

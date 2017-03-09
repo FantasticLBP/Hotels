@@ -26,5 +26,11 @@
  * 2个日期的相差天数
  *
  */
--(NSInteger)calcDaysFromBegin:(NSDate *)beiginDate end:(NSDate *)endDate;
+-(NSInteger)calcDaysFromBegin:(NSString *)beiginDate end:(NSString *)endDate;
+
+/**
+ * 获得当前日期的明天
+ */
+-(NSString *)GetTomorrowDay;
+
 @end

@@ -81,15 +81,6 @@
     }
 }
 
--(void)setRoomName:(NSString *)roomName{
-    _roomName = roomName;
-    if ([ProjectUtil isBlank:roomName]) {
-        return ;
-    }
-    self.roomLabel.text = roomName;
-    self.roomImage.image = [UIImage imageNamed:@"jpg-9"];
-}
-
 -(void)layoutSubviews{
     [super layoutSubviews];
     [UIView animateWithDuration:0.5 animations:^{
@@ -109,11 +100,24 @@
     }
 }
 
--(void)setOtherInfo:(NSString *)otherInfo{
-    _otherInfo = otherInfo;
-    if ([ProjectUtil isNotBlank:otherInfo]) {
-        self.otherInfoLabel.text = otherInfo;
+
+#pragma mark - setter
+-(void)setRoomModel:(RoomModel *)roomModel{
+    _roomModel = roomModel;
+    self.roomLabel.text = roomModel.type;
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,roomModel.image1];
+    [self.roomImage sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Hotel_placeholder"]];
+    self.otherInfoLabel.text = roomModel.otherInfo;
+    
+    
+    /**
+     * 根据房屋信息跟新UI
+    for (UIView *subView in self.subviews) {
+        if ([subView isKindOfClass:[RoomBaseInfoView class]]) {
+            
+        }
     }
+     */
 }
 
 #pragma mark - lazy load

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoomModel.h"
 
 typedef NS_ENUM(NSInteger,RoomOperationType){
     RoomOperationType_MoreInfo,             /**<查看更多信息*/
@@ -22,7 +23,5 @@ typedef NS_ENUM(NSInteger,RoomOperationType){
 
 @property (nonatomic, weak) id<RoomInfoHeaderViewDelegate> delegate;    /**<酒店房型操作*/
 
-@property (nonatomic, strong) NSString *roomName;
-@property (nonatomic, strong) NSString *roomImageName;
-@property (nonatomic, strong) NSString *otherInfo;            /**<其他信息*/
+@property (nonatomic, strong) RoomModel *roomModel;         /**<房屋信息*/
 @end

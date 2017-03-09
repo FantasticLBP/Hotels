@@ -4,30 +4,6 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/SearchResultVC.m"
-            timestampString = "510478557.408404"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-loadSuccessBlockWith:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -40,64 +16,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/SearchResultVC.m"
-            timestampString = "510478551.882808"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/Controller/HotelDetailVC.m"
+            timestampString = "510678763.278534"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-preData"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SearchResultVC preData]"
-                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E9%85%92%E5%BA%97/Controller/SearchResultVC.m"
-                  timestampString = "510507918.870767"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "1308">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__25-[SearchResultVC preData]_block_invoke"
-                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E9%85%92%E5%BA%97/Controller/SearchResultVC.m"
-                  timestampString = "510507918.872054"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelAlbumsVC.m"
-            timestampString = "510504183.943007"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/Controller/HotelDetailVC.m"
+            timestampString = "510678764.18452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-numberOfPhotosInPhotoBrowser:"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -107,61 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelAlbumsVC.m"
-            timestampString = "510504356.641958"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelOrderFillVC.m"
+            timestampString = "510766812.794312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HotelAlbumsVC collectionView:didSelectItemAtIndexPath:]"
-                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E9%85%92%E5%BA%97/Controller/HotelAlbumsVC.m"
-                  timestampString = "510507918.876971"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "156">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HotelAlbumsVC collectionView:didSelectItemAtIndexPath:]"
-                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E9%85%92%E5%BA%97/Controller/HotelAlbumsVC.m"
-                  timestampString = "510507918.878181"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "172">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelAlbumsVC.m"
-            timestampString = "510504475.67242"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-photoBrowser:photoAtIndex:"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-orderFillFooterView:didClickPayButton:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -171,13 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelAlbumsVC.m"
-            timestampString = "510504593.007001"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelOrderFillVC.m"
+            timestampString = "510767154.451885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-orderFillFooterView:didClickPayButton:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

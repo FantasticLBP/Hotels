@@ -64,6 +64,7 @@
         if ([json[@"code"] integerValue] == 200) {
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             UserInfo *userInfo = [[UserInfo alloc] init];
+            userInfo.id = json[@"data"][@"id"];
             userInfo.telephone = json[@"data"][@"telephone"];
             userInfo.password =  json[@"data"][@"password"];
             userInfo.avator =  json[@"data"][@"avator"];

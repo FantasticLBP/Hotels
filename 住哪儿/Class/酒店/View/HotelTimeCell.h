@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HotelTimeCell : UITableViewCell
-
+@property (nonatomic, strong) NSString *startPeriod;            /**<入住时间*/
+@property (nonatomic, strong) NSString *leavePerios;            /**<离开时间*/
 @end

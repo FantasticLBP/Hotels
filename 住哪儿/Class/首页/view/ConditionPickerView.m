@@ -114,7 +114,7 @@
     
     if (indexPath.row == 0 ) {
         UILabel *localtionabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, CellHeight)];
-        localtionabel.text = [ProjectUtil isBlank:self.cityName] ? @"北京":self.cityName;
+        localtionabel.text = [ProjectUtil isBlank:[ProjectUtil getFirstCityName]] ?@"北京" :[ProjectUtil getFirstCityName];
         localtionabel.textColor = [UIColor blackColor];
         localtionabel.font = [UIFont systemFontOfSize:15];
         localtionabel.textAlignment = NSTextAlignmentCenter;
@@ -176,7 +176,7 @@
         outDatelabel.textAlignment = NSTextAlignmentCenter;
         outDatelabel.textColor = [UIColor blackColor];
         outDatelabel.font = [UIFont systemFontOfSize:18];
-        outDatelabel.text = [ProjectUtil isBlank:self.selectedEnddate]? [[NSDate date] today] : self.selectedEnddate;
+        outDatelabel.text = [ProjectUtil isBlank:self.selectedEnddate]? [[NSDate date] today] : [NSString stringWithFormat:@"%@月%@日",[self.selectedEnddate substringToIndex:2],[self.selectedEnddate substringFromIndex:3]];
         
         UITapGestureRecognizer *pickOutTimer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickOutTime)];
         pickOutTimer.cancelsTouchesInView = YES;
@@ -260,6 +260,7 @@
 -(void)setCityName:(NSString *)cityName{
     if ([ProjectUtil isNotBlank:cityName]) {
         _cityName = cityName;
+        [ProjectUtil saveFirstCityName:cityName];
         [_pickedData setObject:cityName forKey:@"cityName"];
         [self.tableView reloadData];
     }
@@ -271,12 +272,16 @@
     [dateFormatter setDateFormat:@"MM-dd"];
     self.selectedEnddate = [dateFormatter stringFromDate:pickedEndTime];
     [_pickedData setObject:[[NSDate date] today] forKey:@"pickedStartTime"];
-    [_pickedData setObject:pickedEndTime forKey:@"pickedEndTime"];
+    [_pickedData setObject:[dateFormatter stringFromDate:pickedEndTime] forKey:@"pickedEndTime"];
     [self.tableView reloadData];
 }
 
 -(NSInteger)totalDay{
-    NSInteger days = [[NSDate date] calcDaysFromBegin:[NSDate date] end:self.pickedEndTime];
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];//实例化一个NSDateFormatter对象
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];//设定时间格式,这里可以设置成自己需要的格式
+
+    NSString *currentDateStr = [dateFormat stringFromDate:[NSDate date]];
+    NSInteger days = [[NSDate sharedInstance] calcDaysFromBegin:currentDateStr end:[dateFormat stringFromDate:self.pickedEndTime]];
     return days;
 }
 

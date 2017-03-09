@@ -10,4 +10,8 @@
 
 @interface RoomDetailInfoView : UIView
 
+
+
+@property (nonatomic, strong) NSString *price;
+
 @end

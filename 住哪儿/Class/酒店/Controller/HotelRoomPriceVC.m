@@ -26,18 +26,38 @@ static NSString *RoomItemCellID = @"RoomItemCell";
 @property (nonatomic, strong) RoomInfoHeaderView *headerView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) BOOL isShow;
-@property (nonatomic, strong) RoomDetailInfoView *detailView;
 @property (nonatomic, strong) NSMutableArray *photos;        /**< 图片浏览器展示图片数组*/
 @property (nonatomic, strong) NSMutableArray *imageDatas;
-
+@property (nonatomic, strong) NSMutableArray *prices;
 @end
 
 @implementation HotelRoomPriceVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imageDatas = [NSMutableArray arrayWithArray:@[@"jpg-1",@"jpg-2"]];
+    if ([ProjectUtil isNotBlank:self.model.image1]) {
+         [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image1]];
+    }
+    if ([ProjectUtil isNotBlank:self.model.image2]) {
+        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image2]];
+    }
+    if ([ProjectUtil isNotBlank:self.model.image3]) {
+        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image3]];
+    }
+    if ([ProjectUtil isNotBlank:self.model.image4]) {
+        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image4]];
+    }
+    if ([ProjectUtil isNotBlank:self.model.image5]) {
+        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image5]];
+    }
     [self setupUI];
+    
+    
+    [self.prices  addObject:[NSString stringWithFormat:@"%zd",self.model.znecancelPrice]];
+    [self.prices  addObject:[NSString stringWithFormat:@"%zd",self.model.znePrice]];
+    [self.prices  addObject:[NSString stringWithFormat:@"%zd",self.model.delegatecancelPrice]];
+    [self.prices  addObject:[NSString stringWithFormat:@"%zd",self.model.delegatePrice]];
+    
 }
 
 
@@ -50,9 +70,12 @@ static NSString *RoomItemCellID = @"RoomItemCell";
         }
         case RoomOperationType_MorePhoto:{
             self.photos = nil;
+            
             for (NSString *imageName in self.imageDatas) {
-                UIImage *tempImage = [UIImage imageNamed:imageName];
-                [self.photos addObject:[MWPhoto photoWithImage:tempImage]];
+                if ([ProjectUtil isNotBlank:imageName]) {
+                    UIImage *tempImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageName]]];
+                    [self.photos addObject:[MWPhoto photoWithImage:tempImage]];
+                }
             }
             MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
             browser.displayActionButton = YES;
@@ -70,9 +93,13 @@ static NSString *RoomItemCellID = @"RoomItemCell";
 }
 
 #pragma mark - RoomItemCellDelegate
--(void)roomItemCell:(RoomItemCell *)cell didBookRoom:(BOOL)flag{
+-(void)roomItemCell:(RoomItemCell *)cell didBookRoom:(BOOL)flag price:(NSString *)price{
     if (flag) {
         HotelOrderFillVC *vc = [[HotelOrderFillVC alloc] init];
+        vc.startPeriod = self.startPeriod;
+        vc.leavePerios = self.leavePerios;
+        vc.model = self.hotelModel;
+        vc.price = price;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -93,7 +120,7 @@ static NSString *RoomItemCellID = @"RoomItemCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 8;
+    return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -106,13 +133,35 @@ static NSString *RoomItemCellID = @"RoomItemCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RoomItemCell *cell = [tableView dequeueReusableCellWithIdentifier:RoomItemCellID forIndexPath:indexPath];
+    if (self.prices.count >0) {
+        cell.price = self.prices[indexPath.row];
+    }
+    switch (indexPath.row) {
+        case 0:
+            cell.priceType = @"住哪儿可取消价格";
+            break;
+        case 1:
+            cell.priceType = @"住哪儿不可取消价格";
+            break;
+        case 2:
+            cell.priceType = @"代理可取消价格";
+            break;
+        case 3:
+            cell.priceType = @"代理不可取消价格";
+            break;
+        default:
+        break;
+    }
     cell.delegate = self;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self.detailView];
+    RoomDetailInfoView *detailView = [[[NSBundle mainBundle] loadNibNamed:@"RoomDetailInfoView" owner:nil options:nil] lastObject];
+    detailView.frame = CGRectMake(0, 0, BoundWidth, BoundHeight);
+    detailView.price = self.prices[indexPath.row];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:detailView];
 }
 
 
@@ -120,8 +169,7 @@ static NSString *RoomItemCellID = @"RoomItemCell";
 -(void)setupUI{
     self.view.backgroundColor = CollectionViewBackgroundColor;
     self.title = @"酒店房型报价";
-    self.headerView.roomName = @"豪华大床房B";
-    self.headerView.otherInfo = @"双人床1.8米1张；单人床1.2米2张";
+    self.headerView.roomModel = self.model;
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.tableView];
 }
@@ -168,19 +216,18 @@ static NSString *RoomItemCellID = @"RoomItemCell";
     return _tableView;
 }
 
--(RoomDetailInfoView *)detailView{
-    if (!_detailView) {
-        _detailView = [[[NSBundle mainBundle] loadNibNamed:@"RoomDetailInfoView" owner:nil options:nil] lastObject];
-        _detailView.frame = CGRectMake(0, 0, BoundWidth, BoundHeight);
-    }
-    return _detailView;
-}
-
 -(NSMutableArray *)photos{
     if (!_photos) {
         _photos = [NSMutableArray array];
     }
     return _photos;
+}
+
+-(NSMutableArray *)prices{
+    if (!_prices) {
+        _prices = [NSMutableArray array];
+    }
+    return _prices;
 }
 
 @end

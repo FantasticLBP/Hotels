@@ -39,6 +39,10 @@
  */
 +(NSString *)getCityName;
 
+
++(void)saveFirstCityName:(NSString *)city;
++(NSString *)getFirstCityName;
+
 /**
  * 根据type获取主题名称
  */

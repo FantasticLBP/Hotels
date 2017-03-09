@@ -41,10 +41,10 @@ static NSString *OrderCellID = @"OrderCell";
 -(void)setupUI{
     self.view.backgroundColor = CollectionViewBackgroundColor;
     self.title = @"订单填写";
-    self.headerView.hotelName = @"杭州溪悠居快捷酒店";
-    self.headerView.chechinTime = @"1月2日（今天）";
-    self.headerView.checkoutTime = @"1月3日（明天）";
-    self.headerView.totalNight = @"1晚";
+    self.headerView.hotelName = [ProjectUtil isNotBlank:self.model.hotelName]?self.model.hotelName:@"";
+    self.headerView.chechinTime = [ProjectUtil isNotBlank:self.startPeriod]?self.startPeriod:@"";
+    self.headerView.checkoutTime = [ProjectUtil isNotBlank:self.leavePerios]?[NSString stringWithFormat:@"%@月%@日",[self.leavePerios substringToIndex:2],[self.leavePerios substringFromIndex:3]]:@"";
+    self.headerView.totalNight = [NSString stringWithFormat:@"%zd晚", [[NSDate sharedInstance] calcDaysFromBegin:self.startPeriod end:self.leavePerios]];
     self.headerView.roomDetail = @"豪华标间 无早";
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = ({
@@ -60,7 +60,7 @@ static NSString *OrderCellID = @"OrderCell";
         make.edges.mas_equalTo(self.view);
     }];
     
-    self.footerView.price = @"198";
+    self.footerView.price = [ProjectUtil isNotBlank:self.price]?self.price:@"";
     [self.tableView addSubview:self.footerView];
     [self.footerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
@@ -92,10 +92,26 @@ static NSString *OrderCellID = @"OrderCell";
 -(void)orderFillFooterView:(OrderFillFooterView *)view didClickPayButton:(BOOL)flag{
     if (flag) {
         [SVProgressHUD showWithStatus:@"正在生成订单" maskType:SVProgressHUDMaskTypeClear];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            PayOrderViewController *payVC = [[PayOrderViewController alloc] init];
-            [self.navigationController pushViewController:payVC animated:YES];
-        });
+        NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/order.php"];
+        NSMutableDictionary *para = [NSMutableDictionary dictionary];
+        para[@"telephone"] = [UserManager getUserObject].telephone;
+        para[@"memberId"] = [UserManager getUserObject].id;
+        para[@"linkman"] = [UserManager getUserObject].nickname;
+        para[@"totalPrice"] = self.price;
+        para[@"hotelId"] = self.model.hotelId;
+        
+        [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            if ([dic[@"code"] integerValue] == 200) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    PayOrderViewController *payVC = [[PayOrderViewController alloc] init];
+                    [self.navigationController pushViewController:payVC animated:YES];
+                });
+            }
+        } fail:^{
+            [SVProgressHUD dismiss];
+        }];
+
     }
 }
 
@@ -134,11 +150,11 @@ static NSString *OrderCellID = @"OrderCell";
                 break;
             case 2:
                 cell.textLabel.text = @"入住人";
-                cell.detailTextLabel.text = @"哈哈";
+            cell.detailTextLabel.text = [ProjectUtil isNotBlank:[UserManager getUserObject].nickname]?[UserManager getUserObject].nickname:@"";
                 break;
             case 3:
                 cell.textLabel.text = @"联系人";
-                cell.detailTextLabel.text = @"18968103090";
+                cell.detailTextLabel.text = [ProjectUtil isNotBlank:[UserManager getUserObject].telephone]?[UserManager getUserObject].telephone:@"";
                 break;
         }
     }else if(indexPath.section == 1  && indexPath.row == 0){
@@ -147,7 +163,7 @@ static NSString *OrderCellID = @"OrderCell";
     }else{
         cell.textLabel.text = @"取消险";
         cell.detailTextLabel.textColor = [UIColor redColor];
-        cell.detailTextLabel.text = @"25元";
+        cell.detailTextLabel.text = @"0元";
     }
     return cell;
 }

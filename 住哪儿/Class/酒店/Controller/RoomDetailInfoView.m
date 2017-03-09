@@ -39,4 +39,15 @@
     [self removeFromSuperview];
 }
 
+
+-(void)setPrice:(NSString *)price{
+    _price = price;
+    if([ProjectUtil isNotBlank:price]){
+        self.dailyPriceLabel.text = [NSString stringWithFormat:@"¥%@",price];
+        self.totalPrice.text = [NSString stringWithFormat:@"¥%@",price];
+        self.actuallyPrice.text = [NSString stringWithFormat:@"¥%@",price];
+        
+    }
+}
+
 @end

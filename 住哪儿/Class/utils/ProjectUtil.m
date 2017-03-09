@@ -43,6 +43,16 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
 }
 
++(void)saveFirstCityName:(NSString *)city{
+    [[NSUserDefaults standardUserDefaults] setObject:city forKey:@"firctcity"];
+}
+
++(NSString *)getFirstCityName{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"firctcity"];
+}
+
+
+
 +(NSString *)getSubject:(NSInteger )type{
     NSString *result ;
     switch (type) {

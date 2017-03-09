@@ -83,7 +83,7 @@
         [cell.contentView addSubview:imageView];
         [cell.contentView addSubview:usernameLabel];
     }else if (indexPath.row == 1) {
-        cell.textLabel.text = @"昵称";
+        cell.textLabel.text = @"姓名";
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth - 120, 0, 100, 76)];
         label.textAlignment = NSTextAlignmentLeft;
         label.font = [UIFont systemFontOfSize:15];

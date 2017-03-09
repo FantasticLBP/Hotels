@@ -12,6 +12,7 @@
 @implementation UserInfo
 -(id)init{
     if (self = [super init]) {
+        self.id = @"";
         self.nickname = @"";
         self.password = @"";
         self.gender = @"";
@@ -26,6 +27,7 @@
 
 -(id)initWithDictionary:(NSDictionary *)dic{
     if (self = [super init]) {
+        self.id = dic[@"id"];
         self.nickname = dic[@"nickname"];
         self.password = dic[@"password"];
         self.gender = dic[@"gender"];
@@ -39,7 +41,7 @@
 }
 
 -(NSString *)description{
-    return [NSString stringWithFormat:@"nickname:%@,gender:%@,birthday:%@,avator:%@,password:%@,name=%@,telephone:%@,account:%@",self.nickname,self.gender,self.birthday,self.avator,self.password,self.name,self.telephone,self.account];
+    return [NSString stringWithFormat:@"id:%@,nickname:%@,gender:%@,birthday:%@,avator:%@,password:%@,name=%@,telephone:%@,account:%@",self.id,self.nickname,self.gender,self.birthday,self.avator,self.password,self.name,self.telephone,self.account];
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder{

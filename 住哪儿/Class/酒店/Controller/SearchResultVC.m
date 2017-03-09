@@ -24,6 +24,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"搜索结果";
     [self.view addSubview:self.tableView];
     [self preData];
 }
@@ -97,6 +98,9 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
     NSMutableArray *datas = dic[@"data"];
     [self.tableView.mj_header endRefreshing];
+    if ((NSNull *)datas == [NSNull null]) {
+        return ;
+    }
     if (datas.count == 0) {
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
         self.tableView.mj_footer.hidden = YES;
@@ -133,6 +137,9 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+    vc.startPeriod = self.searchConditions[@"pickedStartTime"];
+    vc.leavePerios = self.searchConditions[@"pickedEndTime"];
+    vc.model = self.hotels[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -142,7 +149,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 #pragma mark --lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight) style:UITableViewStylePlain];
+        _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64) style:UITableViewStylePlain];
         _tableView.dataSource=self;
         _tableView.delegate = self;
         _tableView.scrollsToTop = YES;
