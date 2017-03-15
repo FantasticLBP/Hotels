@@ -105,4 +105,28 @@
     }
     return result;
 }
+
+
++(NSString *)dateFormateWithString:(NSString *)date{
+    if ([ProjectUtil isBlank:date]) {
+        return @"";
+    }
+    NSString *month = [date substringToIndex:2];
+    NSString *day = [date substringWithRange:NSMakeRange(3, 2)];
+    return [NSString stringWithFormat:@"%@-%@",month,day];
+}
+
+
++(void)saveLocalnotificationWithKey:(NSString *)key{
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObject:key];
+    [[NSUserDefaults standardUserDefaults] setObject:array forKey:LocalNitificationArray];
+}
+
++(NSMutableArray *)getLocalNitifications{
+    NSMutableArray *array = [NSMutableArray array];
+    array = [[NSUserDefaults standardUserDefaults] objectForKey:LocalNitificationArray];
+    return array;
+}
+
 @end

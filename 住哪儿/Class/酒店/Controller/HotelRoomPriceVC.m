@@ -100,6 +100,7 @@ static NSString *RoomItemCellID = @"RoomItemCell";
         vc.leavePerios = self.leavePerios;
         vc.model = self.hotelModel;
         vc.price = price;
+        vc.roomModel = self.model;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -228,6 +229,13 @@ static NSString *RoomItemCellID = @"RoomItemCell";
         _prices = [NSMutableArray array];
     }
     return _prices;
+}
+
+-(NSMutableArray *)imageDatas{
+    if (!_imageDatas) {
+        _imageDatas = [NSMutableArray array];
+    }
+    return _imageDatas;
 }
 
 @end

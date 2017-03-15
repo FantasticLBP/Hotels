@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="208"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="207"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="207.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Order_order" translatesAutoresizingMaskIntoConstraints="NO" id="4Oc-eZ-XIm">
@@ -40,8 +40,8 @@
                         <color key="textColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥231" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-yN-2lT">
-                        <rect key="frame" x="265" y="67" width="35" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-yN-2lT">
+                        <rect key="frame" x="281" y="67" width="19" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="2OC-qm-piS"/>
                         </constraints>
@@ -50,7 +50,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预付" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOx-cp-Q8X">
-                        <rect key="frame" x="227" y="67" width="35" height="21"/>
+                        <rect key="frame" x="243" y="67" width="35" height="21"/>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.96078431372549022" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="VCU-0h-rx3"/>
@@ -194,9 +194,15 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="cellTypeLabel" destination="qiA-gX-ZAn" id="zAZ-ih-XmH"/>
+                <outlet property="endLabel" destination="Jn5-Jk-2pK" id="S07-wV-nmd"/>
+                <outlet property="hotelLabel" destination="Hbo-Gg-3RK" id="sc6-U6-3uA"/>
                 <outlet property="leftButton" destination="Z86-48-Zbr" id="bpQ-mk-QjI"/>
+                <outlet property="livingLabel" destination="aTC-lz-7Ou" id="o5F-ev-QOD"/>
                 <outlet property="priceLabel" destination="0Db-yN-2lT" id="FfN-cs-d7F"/>
                 <outlet property="rightButton" destination="0bg-hs-pcJ" id="5K0-zF-p9X"/>
+                <outlet property="roomLabel" destination="Dh2-V7-Gzw" id="c54-IS-fjR"/>
+                <outlet property="startLabel" destination="HeE-By-5UV" id="Jzk-OI-Ff6"/>
             </connections>
         </tableViewCell>
     </objects>

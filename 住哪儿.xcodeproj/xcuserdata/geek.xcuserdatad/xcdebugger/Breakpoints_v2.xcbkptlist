@@ -19,13 +19,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/Controller/HotelDetailVC.m"
-            timestampString = "510678763.278534"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/OrderItemVC.m"
+            timestampString = "511238558.317185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,45 +35,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/Controller/HotelDetailVC.m"
-            timestampString = "510678764.18452"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/OrderItemVC.m"
+            timestampString = "511238558.317185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-loadSuccessBlockWith:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelOrderFillVC.m"
-            timestampString = "510766812.794312"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/OrderItemVC.m"
+            timestampString = "511238558.317185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-orderFillFooterView:didClickPayButton:"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-orderCell:didClickButtonWithCellType:withOrderModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelOrderFillVC.m"
-            timestampString = "510767154.451885"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/OrderItemVC.m"
+            timestampString = "511238905.422155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-orderFillFooterView:didClickPayButton:"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "-orderCell:didClickButtonWithCellType:withOrderModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/TestVC1.m"
+            timestampString = "511238905.422155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "-orderCell:didClickButtonWithCellType:withOrderModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

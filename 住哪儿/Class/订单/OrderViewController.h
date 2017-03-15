@@ -10,4 +10,9 @@
 
 @interface OrderViewController : UIViewController
 
+
+/**
+ * 根据scrollview滚动的偏移量判断显示哪个vc
+ */
+-(void)showButtonWithIndex:(NSInteger)index;
 @end

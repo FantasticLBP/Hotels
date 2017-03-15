@@ -17,7 +17,7 @@
 
 @implementation LBPScrollSegmentView
 
-- (instancetype)initWithFrame:(CGRect)frame delegate:(id<LBPcrollSegmentViewDelegate>)delegate titlesGroup:(NSArray *)titles controllersGroup:(NSArray *)controllers
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<LBPScrollSegmentViewDelegate>)delegate titlesGroup:(NSArray *)titles controllersGroup:(NSArray *)controllers
 {
     if (self = [super initWithFrame:frame]) {
         [self initialization];
@@ -64,11 +64,15 @@
 }
 
 #pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     int itemIndex = (scrollView.contentOffset.x + self.frame.size.width * 0.5) / self.frame.size.width;
     int index = itemIndex % self.titleArray.count;
+    int scrolledIndex = (@(index) == nil)?0:index;
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(lbpScrollSegmentView:didScrolledWIthIndex:)]) {
+        [self.delegate lbpScrollSegmentView:self didScrolledWIthIndex:scrolledIndex];
+    }
+    
     UIButton *selectbtn = [self.items objectAtIndex:index];
     
     for (UIButton *btn in self.items) {
@@ -92,7 +96,6 @@
     self.selectView.center = CGPointMake(sender.center.x, self.selectView.center.y);
     [self.scrollView setContentOffset:CGPointMake([self.items indexOfObject:sender] * self.frame.size.width, 0.0f) animated:NO];
     [UIView commitAnimations];
-    
 }
 
 
@@ -105,7 +108,6 @@
     self.selectView.center = CGPointMake(button.center.x, self.selectView.center.y);
     [self.scrollView setContentOffset:CGPointMake([self.items indexOfObject:button] * self.frame.size.width, 0.0f) animated:NO];
     [UIView commitAnimations];
-    
 }
 
 - (void)showItemNotice:(NSInteger)itmeIndex hidden:(BOOL)hidden {
@@ -174,7 +176,7 @@
         _scrollView.contentSize = CGSizeMake(self.frame.size.width*self.controllers.count, 0.0f);
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
-        
+        _scrollView.backgroundColor = [UIColor redColor];
         for (int i = 0; i < self.controllers.count; i++) {
             UIViewController *vc = [self.controllers objectAtIndex:i];
             vc.view.frame = CGRectMake(self.frame.size.width*i, 0, self.frame.size.width, _scrollView.bounds.size.height);
@@ -182,7 +184,6 @@
             UIViewController *pvc = (UIViewController *)self.delegate;
             [pvc addChildViewController:vc];
         }
-        
     }
     return _scrollView;
 }

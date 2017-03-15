@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol LBPcrollSegmentViewDelegate <NSObject>
+@class LBPScrollSegmentView;
+
+@protocol LBPScrollSegmentViewDelegate <NSObject>
+-(void)lbpScrollSegmentView:(LBPScrollSegmentView *)lbpScrollSegmentView didScrolledWIthIndex:(int)index;
 @end
 
 @interface LBPScrollSegmentView : UIView
@@ -18,9 +21,9 @@
 @property (nonatomic, assign) CGFloat titleLabelHeight;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) NSArray *controllers;
-@property (nonatomic, weak) id<LBPcrollSegmentViewDelegate> delegate;
+@property (nonatomic, weak) id<LBPScrollSegmentViewDelegate> delegate;
 
-- (instancetype)initWithFrame:(CGRect)frame delegate:(id<LBPcrollSegmentViewDelegate>)delegate titlesGroup:(NSArray *)titles controllersGroup:(NSArray *)controllers;
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<LBPScrollSegmentViewDelegate>)delegate titlesGroup:(NSArray *)titles controllersGroup:(NSArray *)controllers;
 
 - (void)showItemNotice:(NSInteger)itmeIndex hidden:(BOOL)hidden;
 

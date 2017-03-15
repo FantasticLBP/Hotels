@@ -35,11 +35,11 @@
 -(void)setupUI{
     self.view.backgroundColor = CollectionViewBackgroundColor;
     self.title = @"支付订单";
-    self.headerView.hotelName = @"杭州溪悠居快捷酒店";
-    self.headerView.chechinTime = @"1月2日（今天）";
-    self.headerView.checkoutTime = @"1月3日（明天）";
-    self.headerView.totalNight = @"1晚";
-    self.headerView.roomDetail = @"豪华标间 无早";
+    self.headerView.hotelName = self.hotelmodel.hotelName;;
+    self.headerView.chechinTime = self.startPeriod;
+    self.headerView.checkoutTime = [ProjectUtil isNotBlank:self.leavePerios]?[NSString stringWithFormat:@"%@月%@日",[self.leavePerios substringToIndex:2],[self.leavePerios substringFromIndex:3]]:@"";
+    self.headerView.totalNight = self.livingPeriod;
+    self.headerView.roomDetail = self.model.type;
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = [UIView new];
 
@@ -67,8 +67,28 @@
 -(void)orderFillFooterView:(OrderFillFooterView *)view didClickPayButton:(BOOL)flag{
     if (flag) {
         [SVProgressHUD showInfoWithStatus:@"正在支付"];
-        OrderResultViewController *vc = [[OrderResultViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/pay.php"];
+        NSMutableDictionary *para = [NSMutableDictionary dictionary];
+        para[@"telephone"] = [UserManager getUserObject].telephone;
+        para[@"orderId"] = self.orderId;
+        
+        [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            if ([dic[@"code"] integerValue] == 200) {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    OrderResultViewController *vc = [[OrderResultViewController alloc] init];
+                    vc.orderId = self.orderId;
+                    vc.startPeriod = self.startPeriod;
+                    vc.leavePerios = self.leavePerios;
+                    vc.model = self.model;
+                    vc.hotelmodel = self.hotelmodel;
+                    vc.livingPeriod = self.livingPeriod;
+                    [self.navigationController pushViewController:vc animated:YES];
+                });
+            }
+        } fail:^{
+            [SVProgressHUD dismiss];
+        }];
     }
 }
 
@@ -114,7 +134,7 @@
                 restLabel.textAlignment = NSTextAlignmentLeft;
 
                 UILabel *moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth-120, 0, 64, 44)];
-                moneyLabel.text = @"¥10.00";
+                moneyLabel.text = @"¥0.00";
                 moneyLabel.textColor = [UIColor colorFromHexCode:@"8e8e8e"];
                 moneyLabel.font = [UIFont systemFontOfSize:15];
                 moneyLabel.textAlignment = NSTextAlignmentLeft;

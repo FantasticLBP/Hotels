@@ -32,4 +32,6 @@
 @property (nonatomic, assign) NSInteger kindType;            /**<酒店类型*/
 @property (nonatomic, assign) NSInteger stars;            /**<酒店星级*/
 
+
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OrderModel.h"
 typedef NS_ENUM(NSInteger, OrderType){
     OrderType_WillPay,              //待付款
     OrderType_UnWalk,               //未出行
@@ -26,12 +26,12 @@ typedef NS_ENUM(NSInteger, OrderButtonOperationType) {
 @class OrderCell;
 @protocol OrderCellDelegte <NSObject>
 
--(void)orderCell:(OrderCell *)cell didClickButtonWithCellType:(OrderButtonOperationType)type;
+-(void)orderCell:(OrderCell *)cell didClickButtonWithCellType:(OrderButtonOperationType)type withOrderModel:(OrderModel *)model;
 
 @end
 @interface OrderCell : UITableViewCell
 
-@property (nonatomic, strong) NSString *price;            /**<订单价格*/
+@property (nonatomic, strong) OrderModel *model;          
 @property (nonatomic, assign) OrderType type;             /**<订单种类*/
 @property (nonatomic, weak) id<OrderCellDelegte> delegate;
 @end

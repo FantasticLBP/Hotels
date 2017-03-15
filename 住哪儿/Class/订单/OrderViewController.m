@@ -10,13 +10,16 @@
 #import "LBPScrollSegmentView.h"
 #import "OrderItemVC.h"
 
-@interface OrderViewController ()<UITableViewDelegate,UITableViewDataSource,
-                                    LBPcrollSegmentViewDelegate>
+#import "TestVC1.h"
+#import "TestVC2.h"
+#include "TestVC3.h"
+
+@interface OrderViewController ()<LBPScrollSegmentViewDelegate>
 @property (nonatomic, strong) LBPScrollSegmentView *scrollSegmentView;              /**<选择view*/
 @property (nonatomic ,strong) OrderItemVC *willPayVC;                   /**<待付款*/
-@property (nonatomic ,strong) OrderItemVC *unWalkVC;                    /**<未出行*/
-@property (nonatomic ,strong) OrderItemVC *willEvaluateVC;              /**<待评价*/
-@property (nonatomic ,strong) OrderItemVC *historyVC;                   /**<历史*/
+@property (nonatomic ,strong) TestVC1 *unWalkVC;                    /**<未出行*/
+@property (nonatomic ,strong) TestVC2 *willEvaluateVC;              /**<待评价*/
+@property (nonatomic ,strong) TestVC3 *historyVC;                   /**<历史*/
 @end
 
 @implementation OrderViewController
@@ -28,16 +31,9 @@
         item.image = [UIImage imageNamed:@"small_icon_phone"];
         item.target = self;
         item.action = @selector(clickContactPhone);
-         item;
+        item;
     });
-    
     [self.view addSubview:self.scrollSegmentView];
-
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
 }
 
 #pragma mark - private method
@@ -55,10 +51,17 @@
     [self presentViewController:alert animated:YES completion:^{
         
     }];
-    
 }
 
 
+-(void)showButtonWithIndex:(NSInteger)index{
+    [self.scrollSegmentView showButtonWithIndex:index];
+}
+
+#pragma mark - LBPcrollSegmentViewDelegate
+-(void)lbpScrollSegmentView:(LBPScrollSegmentView *)lbpScrollSegmentView didScrolledWIthIndex:(int)index{
+    NSLog(@"index---%d",index);
+}
 
 #pragma mark - lazy load
 -(OrderItemVC *)willPayVC{
@@ -69,25 +72,25 @@
     return _willPayVC;
 }
 
--(OrderItemVC *)unWalkVC{
+-(TestVC1 *)unWalkVC{
     if (!_unWalkVC) {
-        _unWalkVC = [[OrderItemVC alloc] init];
+        _unWalkVC = [[TestVC1 alloc] init];
         _unWalkVC.type = OrderType_UnWalk;
     }
     return _unWalkVC;
 }
 
--(OrderItemVC *)willEvaluateVC{
+-(TestVC2 *)willEvaluateVC{
     if (!_willEvaluateVC) {
-        _willEvaluateVC = [[OrderItemVC alloc] init];
+        _willEvaluateVC = [[TestVC2 alloc] init];
         _willEvaluateVC.type = OrderType_UnEvaluate;
     }
     return _willEvaluateVC;
 }
 
--(OrderItemVC *)historyVC{
+-(TestVC3 *)historyVC{
     if (!_historyVC) {
-        _historyVC = [[OrderItemVC alloc] init];
+        _historyVC = [[TestVC3 alloc] init];
         _historyVC.type = OrderType_History;
     }
     return _historyVC;

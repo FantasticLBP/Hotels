@@ -24,4 +24,5 @@
 #import "NSDate+Formatter.h"
 #import "ProjectUtil.h"
 #import "UserManager.h"
+#import "NSObject+NSLocalNotification.h"
 #endif /* PrefixHeader_pch */

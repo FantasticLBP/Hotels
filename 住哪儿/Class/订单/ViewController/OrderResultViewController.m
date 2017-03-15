@@ -12,6 +12,7 @@
 #import "OrderCompletedFirstCell.h"
 #import "OrderInfoCell.h"
 #import "OrderViewController.h"
+#import "HomeViewController.h"
 
 static NSString *OrderCompletedFirstCellID= @"OrderCompletedFirstCell";
 static NSString *OrderInfoCellID = @"OrderInfoCell";
@@ -37,8 +38,10 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
 }
 
 -(void)watchOrders{
-    OrderViewController *vc = [[OrderViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSMutableArray *vcs = [NSMutableArray array];
+    [vcs addObject:[[HomeViewController alloc] init]];
+    [vcs addObject:[[OrderViewController alloc] init]];
+    self.navigationController.viewControllers = vcs;
 }
 
 #pragma mark - UITableViewDeegate
@@ -73,10 +76,10 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
         return cell;
     }else{
         OrderInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderInfoCellID forIndexPath:indexPath];
-        cell.orderNumber = @"112233445";
-        cell.hotelName = @"杭州大酒店";
-        cell.roomType = @"普通标间";
-        cell.livingPeriods = @"01月05日-01月06日 共1晚";
+        cell.orderNumber = self.orderId;
+        cell.hotelName = self.hotelmodel.hotelName;
+        cell.roomType = self.model.type;
+        cell.livingPeriods = [NSString stringWithFormat:@"%@-%@ 共%zd晚",self.startPeriod,[ProjectUtil isNotBlank:self.leavePerios]?[NSString stringWithFormat:@"%@月%@日",[self.leavePerios substringToIndex:2],[self.leavePerios substringFromIndex:3]]:@"", [[NSDate sharedInstance] calcDaysFromBegin:self.startPeriod end:self.leavePerios]];
         return cell;
     }
 }

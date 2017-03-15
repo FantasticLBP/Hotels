@@ -91,7 +91,7 @@ static NSString *OrderCellID = @"OrderCell";
 #pragma mark - OrderFillFooterViewDelegate
 -(void)orderFillFooterView:(OrderFillFooterView *)view didClickPayButton:(BOOL)flag{
     if (flag) {
-        [SVProgressHUD showWithStatus:@"正在生成订单" maskType:SVProgressHUDMaskTypeClear];
+        [SVProgressHUD showWithStatus:@"正在生成订单"];
         NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/order.php"];
         NSMutableDictionary *para = [NSMutableDictionary dictionary];
         para[@"telephone"] = [UserManager getUserObject].telephone;
@@ -99,12 +99,22 @@ static NSString *OrderCellID = @"OrderCell";
         para[@"linkman"] = [UserManager getUserObject].nickname;
         para[@"totalPrice"] = self.price;
         para[@"hotelId"] = self.model.hotelId;
+        para[@"roomId"] = [NSString stringWithFormat:@"%zd",self.roomModel.roomId];
+        para[@"startTime"] = [ProjectUtil dateFormateWithString:self.startPeriod];
+        para[@"endTime"] = [ProjectUtil dateFormateWithString:self.leavePerios];
+        
         
         [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
             if ([dic[@"code"] integerValue] == 200) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     PayOrderViewController *payVC = [[PayOrderViewController alloc] init];
+                    payVC.leavePerios = [NSString stringWithFormat:@"%zd", [[NSDate sharedInstance] calcDaysFromBegin:self.startPeriod end:self.leavePerios]];
+                    payVC.startPeriod = self.startPeriod;
+                    payVC.leavePerios = self.leavePerios;
+                    payVC.model =self.roomModel;
+                    payVC.hotelmodel = self.model;
+                    payVC.orderId = dic[@"data"][@"orderId"];
                     [self.navigationController pushViewController:payVC animated:YES];
                 });
             }

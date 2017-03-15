@@ -154,6 +154,10 @@
 		936C7AEE1E0980AD0065389F /* ShareCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936C7AEC1E0980AD0065389F /* ShareCollectionCell.xib */; };
 		936F9A581E68790D00425819 /* SpecialHotelFlagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */; };
 		936F9A591E68790D00425819 /* SpecialHotelFlagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */; };
+		937168781E782DD500A2605D /* TestVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 937168771E782DD500A2605D /* TestVC1.m */; };
+		9371687B1E782E3200A2605D /* TestVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371687A1E782E3200A2605D /* TestVC2.m */; };
+		9371687E1E782E6000A2605D /* TestVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371687D1E782E6000A2605D /* TestVC3.m */; };
+		937168841E7842F800A2605D /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 937168831E7842F800A2605D /* NSObject+NSLocalNotification.m */; };
 		9393172C1E3051B200281A05 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393172B1E3051B200281A05 /* PersonInfoViewController.m */; };
 		9393172F1E30777500281A05 /* ChangeUserNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393172E1E30777500281A05 /* ChangeUserNameVC.m */; };
 		939317371E30792400281A05 /* HcdDateTimePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 939317321E30792400281A05 /* HcdDateTimePickerView.m */; };
@@ -164,6 +168,7 @@
 		93967B291E083BA60003122A /* HotelDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93967B281E083BA60003122A /* HotelDetailVC.m */; };
 		93AD7DDB1DFEA2E40067C539 /* HotelDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7DD91DFEA2E40067C539 /* HotelDescriptionCell.m */; };
 		93AD7DDC1DFEA2E40067C539 /* HotelDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AD7DDA1DFEA2E40067C539 /* HotelDescriptionCell.xib */; };
+		93C03AC01E758CB6008B4CF8 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C03ABF1E758CB6008B4CF8 /* OrderModel.m */; };
 		93D050E41E1FEF9E0006D6C6 /* OrderResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D050E31E1FEF9E0006D6C6 /* OrderResultViewController.m */; };
 		93D050E71E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D050E61E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m */; };
 		93D050F01E2151AF0006D6C6 /* OrderInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D050EF1E2151AF0006D6C6 /* OrderInfoCell.m */; };
@@ -589,6 +594,14 @@
 		936F9A551E68790D00425819 /* SpecialHotelFlagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialHotelFlagCell.h; sourceTree = "<group>"; };
 		936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialHotelFlagCell.m; sourceTree = "<group>"; };
 		936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialHotelFlagCell.xib; sourceTree = "<group>"; };
+		937168761E782DD500A2605D /* TestVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC1.h; sourceTree = "<group>"; };
+		937168771E782DD500A2605D /* TestVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC1.m; sourceTree = "<group>"; };
+		937168791E782E3200A2605D /* TestVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC2.h; sourceTree = "<group>"; };
+		9371687A1E782E3200A2605D /* TestVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC2.m; sourceTree = "<group>"; };
+		9371687C1E782E6000A2605D /* TestVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC3.h; sourceTree = "<group>"; };
+		9371687D1E782E6000A2605D /* TestVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC3.m; sourceTree = "<group>"; };
+		937168821E7842F800A2605D /* NSObject+NSLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSLocalNotification.h"; sourceTree = "<group>"; };
+		937168831E7842F800A2605D /* NSObject+NSLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSLocalNotification.m"; sourceTree = "<group>"; };
 		9393172A1E3051B200281A05 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
 		9393172B1E3051B200281A05 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
 		9393172D1E30777500281A05 /* ChangeUserNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeUserNameVC.h; sourceTree = "<group>"; };
@@ -608,6 +621,8 @@
 		93AD7DD81DFEA2E40067C539 /* HotelDescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelDescriptionCell.h; sourceTree = "<group>"; };
 		93AD7DD91DFEA2E40067C539 /* HotelDescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelDescriptionCell.m; sourceTree = "<group>"; };
 		93AD7DDA1DFEA2E40067C539 /* HotelDescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDescriptionCell.xib; sourceTree = "<group>"; };
+		93C03ABE1E758CB6008B4CF8 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
+		93C03ABF1E758CB6008B4CF8 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
 		93D050E21E1FEF9E0006D6C6 /* OrderResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderResultViewController.h; sourceTree = "<group>"; };
 		93D050E31E1FEF9E0006D6C6 /* OrderResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderResultViewController.m; sourceTree = "<group>"; };
 		93D050E51E1FFF5F0006D6C6 /* OrderCompletedFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderCompletedFirstCell.h; path = "住哪儿/Class/订单/ViewController/OrderCompletedFirstCell.h"; sourceTree = SOURCE_ROOT; };
@@ -1826,6 +1841,8 @@
 				93DACA7B1E0900A8003157BD /* ProjectUtil.m */,
 				93DA19261E2D1AA4002F2C5A /* UserManager.h */,
 				93DA19271E2D1AA4002F2C5A /* UserManager.m */,
+				937168821E7842F800A2605D /* NSObject+NSLocalNotification.h */,
+				937168831E7842F800A2605D /* NSObject+NSLocalNotification.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -1965,6 +1982,8 @@
 		93E02DA31DDB598D007EAE1E /* model */ = {
 			isa = PBXGroup;
 			children = (
+				93C03ABE1E758CB6008B4CF8 /* OrderModel.h */,
+				93C03ABF1E758CB6008B4CF8 /* OrderModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1992,6 +2011,12 @@
 				931973961E137487009D896D /* OrderItemVC.m */,
 				93D050E21E1FEF9E0006D6C6 /* OrderResultViewController.h */,
 				93D050E31E1FEF9E0006D6C6 /* OrderResultViewController.m */,
+				937168761E782DD500A2605D /* TestVC1.h */,
+				937168771E782DD500A2605D /* TestVC1.m */,
+				937168791E782E3200A2605D /* TestVC2.h */,
+				9371687A1E782E3200A2605D /* TestVC2.m */,
+				9371687C1E782E6000A2605D /* TestVC3.h */,
+				9371687D1E782E6000A2605D /* TestVC3.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2608,6 +2633,7 @@
 				93D050E71E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m in Sources */,
 				93E02DF61DDB598D007EAE1E /* UIColor+FlatUI.m in Sources */,
 				93F6B4001DE1FDD20048F279 /* IQToolbar.m in Sources */,
+				9371687B1E782E3200A2605D /* TestVC2.m in Sources */,
 				93E02DF41DDB598D007EAE1E /* NSString+Icons.m in Sources */,
 				93E02E2F1DDB598D007EAE1E /* LoginViewController.m in Sources */,
 				93F572BD1DE27C0E00966974 /* MASViewAttribute.m in Sources */,
@@ -2719,6 +2745,7 @@
 				93302CC01DFAA5040091F145 /* SelectConditionCell.m in Sources */,
 				93E02DEA1DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.m in Sources */,
 				93E02DF31DDB598D007EAE1E /* FUITextField.m in Sources */,
+				9371687E1E782E6000A2605D /* TestVC3.m in Sources */,
 				933ED4931E31EAA1001E8A6B /* ChangePasswordViewController.m in Sources */,
 				93E02DFA1DDB598D007EAE1E /* UIPopoverController+FlatUI.m in Sources */,
 				93089D5F1E12A0BA00C9C273 /* TopicHotelCell.m in Sources */,
@@ -2776,6 +2803,7 @@
 				93E02C541DDB58C7007EAE1E /* AppDelegate.m in Sources */,
 				93FAA0041E10AD5B001DCAA0 /* PSTCollectionViewLayout.m in Sources */,
 				93E02E311DDB598D007EAE1E /* UIViewController+KSGuid.m in Sources */,
+				937168781E782DD500A2605D /* TestVC1.m in Sources */,
 				9319735F1E135BAF009D896D /* JFButton.m in Sources */,
 				93FAA0181E10DC75001DCAA0 /* HotelNoticeCell.m in Sources */,
 				93F6B3BF1DE1E9280048F279 /* MyCollectionVC.m in Sources */,
@@ -2807,8 +2835,10 @@
 				93FA9FEA1E10AD5B001DCAA0 /* MWTapDetectingView.m in Sources */,
 				93DBCE281E46CF7F00F528E1 /* ZYCalendarView.m in Sources */,
 				93089D681E12ABD600C9C273 /* TopicHotelListVCViewController.m in Sources */,
+				937168841E7842F800A2605D /* NSObject+NSLocalNotification.m in Sources */,
 				93967B201E0825050003122A /* NSDate+Formatter.m in Sources */,
 				93E02E251DDB598D007EAE1E /* UIView+MJExtension.m in Sources */,
+				93C03AC01E758CB6008B4CF8 /* OrderModel.m in Sources */,
 				93FAA0091E10AD5B001DCAA0 /* PSTGridLayoutSection.m in Sources */,
 				93FA9FF81E10AD5B001DCAA0 /* UIImage+EMMultiFormat.m in Sources */,
 				931973631E135BAF009D896D /* JFCityTableViewCell.m in Sources */,

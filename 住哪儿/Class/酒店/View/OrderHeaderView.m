@@ -124,7 +124,7 @@
         make.left.equalTo(self.checkoutTimeLabel.mas_right).with.offset(9);
         make.top.equalTo(self.checkoutTimeLabel.mas_top);
         make.bottom.equalTo(self.checkoutTimeLabel.mas_bottom);
-        make.width.mas_equalTo(30);
+        make.right.equalTo(self);
     }];
     
     [self.roomDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -47,4 +47,22 @@
  * 根据type获取主题名称
  */
 +(NSString *)getSubject:(NSInteger )type;
+
+
+/**
+ * 根据输入字符串格式化输出“MM-dd”的日期
+ */
+
++(NSString *)dateFormateWithString:(NSString *)date;
+
+/**
+ * 保存本地通知名
+ */
++(void)saveLocalnotificationWithKey:(NSString *)key;
+
+/**
+ * 获得本地通知名
+ */
++(NSMutableArray *)getLocalNitifications;
 @end
+

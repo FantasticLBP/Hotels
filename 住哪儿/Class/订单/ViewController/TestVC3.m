@@ -7,23 +7,20 @@
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
-#import "OrderItemVC.h"
+#import "TestVC3.h"
 #import "OrderModel.h"
-#import "MainViewController.h"
-#import "PayOrderViewController.h"
-#import "AppDelegate.h"
-#import "OrderViewController.h"
+
 
 static NSString *OrderCellId = @"OrderCell";
-@interface OrderItemVC ()<UITableViewDelegate,UITableViewDataSource,
-                        OrderCellDelegte>
+@interface TestVC3 ()<UITableViewDelegate,UITableViewDataSource,
+OrderCellDelegte>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;                          /**<页码*/
 @property (nonatomic, strong) NSMutableArray *orders;           /**<订单数据源*/
 
 @end
 
-@implementation OrderItemVC
+@implementation TestVC3
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,7 +42,6 @@ static NSString *OrderCellId = @"OrderCell";
 }
 
 
-
 -(void)reloadData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/orderList.php"];
     
@@ -53,7 +49,7 @@ static NSString *OrderCellId = @"OrderCell";
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderType"] = @(1);
+    par[@"orderType"] = @(4);
     
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
@@ -72,7 +68,7 @@ static NSString *OrderCellId = @"OrderCell";
 
 -(void)loadMoreData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/orderList.php"];
-
+    
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
     [SVProgressHUD showWithStatus:@"正在加载"];
@@ -95,7 +91,7 @@ static NSString *OrderCellId = @"OrderCell";
         for (NSDictionary *dic in datas) {
             [self.orders addObject:[OrderModel yy_modelWithJSON:dic]];
         }
-      
+        
         self.tableView.mj_footer.hidden = NO;
         if (datas.count == 0) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -141,7 +137,7 @@ static NSString *OrderCellId = @"OrderCell";
 -(void)orderCell:(OrderCell *)cell didClickButtonWithCellType:(OrderButtonOperationType)type withOrderModel:(OrderModel *)model{
     switch (type) {
         case OrderButtonOperationType_Pay:{
-            NSLog(@"继续支付");
+            NSLog(@"支付订单");
             break;
         }
         case OrderButtonOperationType_Cancel:{
@@ -157,15 +153,14 @@ static NSString *OrderCellId = @"OrderCell";
             break;
         }
         case OrderButtonOperationType_Remind:{
-            [AppDelegate registerLocalNotification:10 content:@"你有酒店需要按时入住哦！" key:@"live"];
+            NSLog(@"添加提醒");
             break;
         }
         case OrderButtonOperationType_ReBook:{
-            MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
-            vc.selectedIndex = 1;
+            NSLog(@"再次预定");
             break;
         }
-        
+            
     }
 }
 
