@@ -110,6 +110,33 @@ static NSString *OrderCellId = @"OrderCell";
     }
 }
 
+
+-(void)revokeOrder:(NSString *)orderId{
+
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/RevokeOrder.php"];
+
+    NSMutableDictionary *par = [NSMutableDictionary dictionary];
+    par[@"telephone"] = [UserManager getUserObject].telephone;
+    par[@"orderId"] = orderId;
+    
+    [SVProgressHUD showWithStatus:@"正在撤销订单"];
+    [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
+        [SVProgressHUD dismiss];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"status"] integerValue] == 200) {
+            for (OrderModel *model in self.orders) {
+                if([model.orderId isEqualToString:orderId]){
+                    [self.orders removeObject:model];
+                }
+            }
+            [self.tableView reloadData];
+        }
+       
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
+}
+
 #pragma mark - UITableViewDeegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 208;
@@ -146,10 +173,12 @@ static NSString *OrderCellId = @"OrderCell";
         }
         case OrderButtonOperationType_Cancel:{
             NSLog(@"删除订单");
+            [self revokeOrder:model.orderId];
             break;
         }
         case OrderButtonOperationType_Revoke:{
             NSLog(@"取消订单");
+            [self revokeOrder:model.orderId];
             break;
         }
         case OrderButtonOperationType_Evaluate:{
@@ -181,6 +210,7 @@ static NSString *OrderCellId = @"OrderCell";
         [tb registerNib:[UINib nibWithNibName:@"OrderCell" bundle:nil] forCellReuseIdentifier:OrderCellId];
         __weak typeof(self) Weakself = self;
         tb.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            Weakself.page = 1;
             [Weakself reloadData];
         }];
         
