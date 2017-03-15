@@ -12,4 +12,4 @@
 <li>全屏右滑返回上一控制器、UICollecionView展现界面、UITableview上拉加载、下面刷新功能、界面采用代码实现，部分界面采用xib实现。整个代码可读性比较好、代码规范、有注释说明，配合服务端是自己用php写的，Api也是php实现的。</li>
 </ul>
 
-如果有不懂的地方可以加入QQ交流群讨论：**515066271**。这个QQ群讨论技术范围包括：iOS、H5混合开发、前端开发、PHP开发，欢迎大家讨论技术。
+如果有不懂的地方可以加入QQ交流群讨论：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=c9dc4ab0b2062e0004b3b2ed556da1ce898631742e15780297feb3465ad08eda"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="iOS&amp;&amp;Web开发" title="iOS&amp;&amp;Web开发">**515066271**</a>。这个QQ群讨论技术范围包括：iOS、H5混合开发、前端开发、PHP开发，欢迎大家讨论技术。
