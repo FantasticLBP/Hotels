@@ -107,7 +107,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(void)loadSubjectImage{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/WeclomeImage.php"];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
-    para[@"telephone"] = [UserManager getUserObject].telephone;
+    para[@"key"] = AppKey;
     para[@"size"] = @"10";
     [SVProgressHUD showWithStatus:@"正在获取图片"];
     [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
@@ -130,7 +130,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(void)preData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
-    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"key"] = AppKey;
     paras[@"type"] = @(3);
     paras[@"page"] = @(1);
     paras[@"size"] = @(4);

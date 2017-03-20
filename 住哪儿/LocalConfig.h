@@ -31,10 +31,12 @@
 
 
 /************************************url******************************************/
-//#define Base_Url @"http://192.168.1.101:8888"
-#define Base_Url @"http://192.168.20.170:8888"
-//#define Base_Url @"http://192.168.0.103:8888"
+//#define Base_Url @"http://192.168.1.102:8888"
+//#define Base_Url @"http://192.168.20.170:8888"
+#define Base_Url @"http://192.168.0.103:8888"
 
+/************************************App key******************************************/
+#define AppKey @"TheHotelReversationApplication"
 
 /************************************通知名称******************************************/
 #define LocalNitificationArray @"LocalNitificationArray"

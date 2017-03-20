@@ -135,7 +135,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 -(void)preData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
-    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"key"] = AppKey;
     paras[@"cityName"] = self.cityName;
     paras[@"type"] = @(3);
     paras[@"page"] = @(1);
@@ -161,7 +161,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 -(void)loadMoreData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
-    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"key"] = AppKey;
     paras[@"cityName"] = self.cityName;
     paras[@"type"] = @(3);
     paras[@"page"] = @(self.page);
@@ -204,7 +204,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 -(void)loadSubject{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/subject.php"];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
-    para[@"telephone"] = [UserManager getUserObject].telephone;
+    para[@"key"] = AppKey;
     [SVProgressHUD showWithStatus:@"正在获取主题列表"];
     [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
@@ -221,7 +221,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 -(void)loadSubjectImage{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/WeclomeImage.php"];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
-    para[@"telephone"] = [UserManager getUserObject].telephone;
+    para[@"key"] = AppKey;
     para[@"size"] = @"5";
     [SVProgressHUD showWithStatus:@"正在获取图片"];
     [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {

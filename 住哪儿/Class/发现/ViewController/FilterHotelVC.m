@@ -37,7 +37,7 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
 -(void)getSubjects{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/subject.php"];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
-    para[@"telephone"] = [UserManager getUserObject].telephone;
+    para[@"key"] = AppKey;
     [SVProgressHUD showWithStatus:@"正在获取主题列表"];
     [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];

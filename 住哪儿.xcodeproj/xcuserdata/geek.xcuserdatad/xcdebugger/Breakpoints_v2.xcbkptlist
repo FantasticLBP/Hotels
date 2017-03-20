@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/TestVC1.m"
-            timestampString = "511238905.422155"
+            timestampString = "511714988.655625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
@@ -91,54 +91,6 @@
             endingLineNumber = "107"
             landmarkName = "-orderFillFooterView:didClickPayButton:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/OrderItemVC.m"
-            timestampString = "511258740.60232"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-reloadData"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[OrderItemVC reloadData]"
-                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E8%AE%A2%E5%8D%95/ViewController/OrderItemVC.m"
-                  timestampString = "511259735.547104"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "686">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__25-[OrderItemVC reloadData]_block_invoke"
-                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E8%AE%A2%E5%8D%95/ViewController/OrderItemVC.m"
-                  timestampString = "511259735.548712"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -196,7 +148,7 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E8%AE%A2%E5%8D%95/ViewController/OrderItemVC.m"
-                  timestampString = "511259775.382461"
+                  timestampString = "511708967.338312"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
@@ -211,7 +163,7 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E8%AE%A2%E5%8D%95/ViewController/OrderItemVC.m"
-                  timestampString = "511259775.384561"
+                  timestampString = "511708967.339542"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
