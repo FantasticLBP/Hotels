@@ -299,6 +299,9 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
         [SVProgressHUD showInfoWithStatus:@"此处要加入HTML5网页，等待程序员哥哥后续升级哦"];
     }else if (indexPath.row >1 && indexPath.row < self.hotels.count + 2){
         HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+        vc.startPeriod = @"2017-04-12";
+        vc.leavePerios = @"2017-05-01";
+        vc.model = self.hotels[indexPath.row-2];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
