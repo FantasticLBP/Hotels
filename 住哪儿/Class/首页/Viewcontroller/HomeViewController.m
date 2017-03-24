@@ -70,6 +70,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [self testFPSLabel];
     [self loadSubjectImage];
     [self preData];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

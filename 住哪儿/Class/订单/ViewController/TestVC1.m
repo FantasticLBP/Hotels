@@ -33,8 +33,9 @@ OrderCellDelegte>
 }
 
 
--(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - private method

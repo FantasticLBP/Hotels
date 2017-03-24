@@ -13,6 +13,7 @@
 #import "OrderInfoCell.h"
 #import "OrderViewController.h"
 #import "HomeViewController.h"
+#import "MainViewController.h"
 
 static NSString *OrderCompletedFirstCellID= @"OrderCompletedFirstCell";
 static NSString *OrderInfoCellID = @"OrderInfoCell";
@@ -41,6 +42,8 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
     NSMutableArray *vcs = [NSMutableArray array];
     [vcs addObject:[[HomeViewController alloc] init]];
     [vcs addObject:[[OrderViewController alloc] init]];
+    MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
+    vc.selectedIndex = 2;
     self.navigationController.viewControllers = vcs;
 }
 

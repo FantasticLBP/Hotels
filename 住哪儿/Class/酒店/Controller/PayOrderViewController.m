@@ -69,7 +69,7 @@
         [SVProgressHUD showInfoWithStatus:@"正在支付"];
         NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/pay.php"];
         NSMutableDictionary *para = [NSMutableDictionary dictionary];
-        para[@"telephone"] = [UserManager getUserObject].telephone;
+        para[@"key"] = AppKey;
         para[@"orderId"] = self.orderId;
         
         [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
