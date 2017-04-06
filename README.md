@@ -30,7 +30,7 @@
 
 <h3>福利</h3>
 
-<p>如果想了解服务端开发以及App与服务端交互（也就是接口开发）可以看看这个App的后台代码。项目地址：[住哪儿App服务端](https://github.com/FantasticLBP/Hotels_Server) <p>
+<p>如果想了解服务端开发以及App与服务端交互（也就是接口开发）可以看看这个App的后台代码。项目地址：(https://github.com/FantasticLBP/Hotels_Server) <p>
 
 <h3>住哪儿App的后台管理功能，包括主题酒店、特色酒店发布、注册用户的统计查看、订单的统计查看、酒店的统计查看。Controller目录下的Api下就是给App开发的api。想写api的童鞋们可以看看。</h3>
 <ul>包括php系统开发的常见功能：
