@@ -36,19 +36,19 @@ static NSString *RoomItemCellID = @"RoomItemCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([ProjectUtil isNotBlank:self.model.image1]) {
-         [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image1]];
+         [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image1]];
     }
     if ([ProjectUtil isNotBlank:self.model.image2]) {
-        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image2]];
+        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image2]];
     }
     if ([ProjectUtil isNotBlank:self.model.image3]) {
-        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image3]];
+        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image3]];
     }
     if ([ProjectUtil isNotBlank:self.model.image4]) {
-        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image4]];
+        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image4]];
     }
     if ([ProjectUtil isNotBlank:self.model.image5]) {
-        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image5]];
+        [self.imageDatas addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image5]];
     }
     [self setupUI];
     

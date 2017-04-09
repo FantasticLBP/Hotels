@@ -43,7 +43,7 @@
 
 -(void)updateUser{
     
-    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+    NSString *url = [NSString stringWithFormat:@"%@/controller/api/updateUser.php",Base_Url];
     UserInfo *buddy = [UserManager getUserObject];
     
     NSMutableDictionary *para = [NSMutableDictionary dictionary];

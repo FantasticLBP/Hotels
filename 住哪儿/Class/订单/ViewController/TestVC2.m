@@ -43,7 +43,7 @@ OrderCellDelegte>
 }
 
 -(void)reloadData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/orderList.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
     
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
@@ -67,7 +67,7 @@ OrderCellDelegte>
 }
 
 -(void)loadMoreData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/orderList.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
     
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);

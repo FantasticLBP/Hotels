@@ -76,7 +76,7 @@
         usernameLabel.text = @"用户头像";
         
         UserInfo *userInfo = [UserManager getUserObject];
-        NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,userInfo.avator]; 
+        NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",Base_Url,userInfo.avator]; 
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"profile"]];
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -152,7 +152,7 @@
         case 2:{
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *man = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+                NSString *url = [NSString stringWithFormat:@"%@/controller/api/updateUser.php",Base_Url];
                 UserInfo *buddy = [UserManager getUserObject];
                 
                 NSMutableDictionary *para = [NSMutableDictionary dictionary];
@@ -180,7 +180,7 @@
                 }];
             }];
             UIAlertAction *women = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+                NSString *url = [NSString stringWithFormat:@"%@/controller/api/updateUser.php",Base_Url];
                 UserInfo *buddy = [UserManager getUserObject];
                 
                 NSMutableDictionary *para = [NSMutableDictionary dictionary];
@@ -221,7 +221,7 @@
             [self.dateTimePickerView setMinYear:1900];
             [self.dateTimePickerView setMaxYear:2016];
             self.dateTimePickerView.clickedOkBtn = ^(NSString * datetimeStr){
-                NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/updateUser.php",Base_Url];
+                NSString *url = [NSString stringWithFormat:@"%@/controller/api/updateUser.php",Base_Url];
                 UserInfo *buddy = [UserManager getUserObject];
                 
                 NSMutableDictionary *para = [NSMutableDictionary dictionary];
@@ -289,7 +289,7 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
     
-    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/upload.php",Base_Url];
+    NSString *url = [NSString stringWithFormat:@"%@/controller/api/upload.php",Base_Url];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     UserInfo *userInfo = [UserManager getUserObject];
     para[@"telephone"] = userInfo.telephone;

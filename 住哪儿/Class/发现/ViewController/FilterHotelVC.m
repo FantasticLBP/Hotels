@@ -35,7 +35,7 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
 
 #pragma mark - private method
 -(void)getSubjects{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/subject.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/subject.php"];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"key"] = AppKey;
     [SVProgressHUD showWithStatus:@"正在获取主题列表"];
@@ -76,7 +76,7 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
     }
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,dic[@"image"]];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",Base_Url,dic[@"image"]];
     [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Hotel_placeholder"]];
     
     UILabel *titleLabel = [UILabel new];

@@ -67,7 +67,7 @@
 -(void)orderFillFooterView:(OrderFillFooterView *)view didClickPayButton:(BOOL)flag{
     if (flag) {
         [SVProgressHUD showInfoWithStatus:@"正在支付"];
-        NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/pay.php"];
+        NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/pay.php"];
         NSMutableDictionary *para = [NSMutableDictionary dictionary];
         para[@"key"] = AppKey;
         para[@"orderId"] = self.orderId;

@@ -40,7 +40,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 -(void)preData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
     paras[@"cityName"] = self.searchConditions[@"cityName"];
@@ -68,7 +68,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 
 -(void)loadMoreData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
     paras[@"cityName"] = self.searchConditions[@"cityName"];

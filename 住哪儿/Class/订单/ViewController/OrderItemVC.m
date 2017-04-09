@@ -48,7 +48,7 @@ static NSString *OrderCellId = @"OrderCell";
 
 
 -(void)reloadData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/orderList.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
     
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
@@ -72,7 +72,7 @@ static NSString *OrderCellId = @"OrderCell";
 }
 
 -(void)loadMoreData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/orderList.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
 
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
@@ -114,7 +114,7 @@ static NSString *OrderCellId = @"OrderCell";
 
 -(void)revokeOrder:(NSString *)orderId{
 
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/RevokeOrder.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/RevokeOrder.php"];
 
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"telephone"] = [UserManager getUserObject].telephone;

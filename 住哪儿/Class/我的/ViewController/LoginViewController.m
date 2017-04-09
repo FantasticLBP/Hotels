@@ -46,7 +46,7 @@
 }
 
 - (IBAction)clickLoginButton:(id)sender {
-    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/login.php",Base_Url];
+    NSString *url = [NSString stringWithFormat:@"%@/controller/api/login.php",Base_Url];
     if ([self.usernameTextField.text isEqualToString:@""]) {
         [SVProgressHUD showInfoWithStatus:@"请输入账号"];
         return ;
@@ -83,7 +83,7 @@
 }
 
 - (IBAction)clickRegisterButton:(id)sender {
-    NSString *url = [NSString stringWithFormat:@"%@/Hotels_Server/controller/api/Register.php",Base_Url];
+    NSString *url = [NSString stringWithFormat:@"%@/controller/api/Register.php",Base_Url];
     if ([self.usernameTextField.text isEqualToString:@""]) {
         [SVProgressHUD showInfoWithStatus:@"请输入账号"];
         return ;

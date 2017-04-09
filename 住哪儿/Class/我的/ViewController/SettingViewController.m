@@ -139,7 +139,7 @@
         imageView.layer.masksToBounds = YES;
         
         UserInfo *userInfo = [UserManager getUserObject];
-        NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,userInfo.avator];
+        NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",Base_Url,userInfo.avator];
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"profile"]];
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

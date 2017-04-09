@@ -68,7 +68,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 -(void)preData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
     paras[@"subjectId"] = self.type;
@@ -93,7 +93,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 -(void)loadMoreData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
     paras[@"subjectId"] = self.type;
@@ -155,6 +155,9 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+    vc.startPeriod = @"2017-04-12";
+    vc.leavePerios = @"2017-05-01";
+    vc.model = self.hotels[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

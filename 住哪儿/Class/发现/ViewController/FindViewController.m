@@ -133,7 +133,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 }
 
 -(void)preData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
     paras[@"cityName"] = self.cityName;
@@ -159,7 +159,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 
 
 -(void)loadMoreData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
     paras[@"cityName"] = self.cityName;
@@ -202,7 +202,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 }
 
 -(void)loadSubject{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/subject.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/subject.php"];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"key"] = AppKey;
     [SVProgressHUD showWithStatus:@"正在获取主题列表"];
@@ -219,7 +219,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 
 //获取轮播图
 -(void)loadSubjectImage{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/WeclomeImage.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/WeclomeImage.php"];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"key"] = AppKey;
     para[@"size"] = @"5";
@@ -230,7 +230,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
             [SVProgressHUD dismiss];
             NSArray *array = dic[@"data"];
             for (NSDictionary *dic in array) {
-                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image"]]];
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",dic[@"image"]]];
             }
             self.advertiseView.imageURLStringsGroup = self.images;
             [self.tableView reloadData];

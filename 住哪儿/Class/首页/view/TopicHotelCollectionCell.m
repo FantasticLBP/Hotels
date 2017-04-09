@@ -25,7 +25,7 @@
     self.topicLabel.text = [ProjectUtil isNotBlank:data[@"subject"]] ? data[@"subject"] : @"";
     [self.topicLabel sizeToFit];
     
-    NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,data[@"image"]];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",Base_Url,data[@"image"]];
     [self.topicImageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Hotel_placeholder"]];
 
 }

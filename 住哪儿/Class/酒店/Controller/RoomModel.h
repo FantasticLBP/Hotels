@@ -26,6 +26,7 @@
 @property (nonatomic, assign) NSInteger roomCount;            /**<数据记录id*/
 @property (nonatomic, strong) NSString *otherInfo;            /**<数据记录id*/
 @property (nonatomic, assign) NSInteger rocountomId;            /**<数据记录id*/
+@property (nonatomic, assign) NSInteger count;            /**<数据记录id*/
 @property (nonatomic, strong) NSString *image1;            /**<数据记录id*/
 @property (nonatomic, strong) NSString *image2;            /**<数据记录id*/
 @property (nonatomic, strong) NSString *image3;            /**<数据记录id*/

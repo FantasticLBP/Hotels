@@ -105,7 +105,7 @@
 -(void)setRoomModel:(RoomModel *)roomModel{
     _roomModel = roomModel;
     self.roomLabel.text = roomModel.type;
-    NSString *imageUrl = [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,roomModel.image1];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",Base_Url,roomModel.image1];
     [self.roomImage sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"Hotel_placeholder"]];
     self.otherInfoLabel.text = roomModel.otherInfo;
     

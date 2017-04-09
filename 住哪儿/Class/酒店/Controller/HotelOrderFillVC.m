@@ -92,7 +92,7 @@ static NSString *OrderCellID = @"OrderCell";
 -(void)orderFillFooterView:(OrderFillFooterView *)view didClickPayButton:(BOOL)flag{
     if (flag) {
         [SVProgressHUD showWithStatus:@"正在生成订单"];
-        NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/order.php"];
+        NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/Order.php"];
         NSMutableDictionary *para = [NSMutableDictionary dictionary];
         para[@"telephone"] = [UserManager getUserObject].telephone;
         para[@"memberId"] = [UserManager getUserObject].id;
@@ -117,6 +117,8 @@ static NSString *OrderCellID = @"OrderCell";
                     payVC.orderId = dic[@"data"][@"orderId"];
                     [self.navigationController pushViewController:payVC animated:YES];
                 });
+            }else{
+                [SVProgressHUD showInfoWithStatus:@"房间不足"];
             }
         } fail:^{
             [SVProgressHUD dismiss];

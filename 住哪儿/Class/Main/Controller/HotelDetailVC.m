@@ -91,7 +91,7 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
 }
 
 -(void)preData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/Room.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/Room.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"telephone"] = [UserManager getUserObject].telephone;
     paras[@"hotelId"] = self.model.hotelId;
@@ -103,27 +103,24 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
             [SVProgressHUD dismiss];
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
             NSMutableArray *datas = dic[@"data"];
-            if (datas.count <1) {
-                return ;
-            }
             for (NSDictionary *dic in datas) {
                 [self.rooms addObject:[RoomModel yy_modelWithJSON:dic]];
             }
             
             if ([ProjectUtil isNotBlank:self.model.image1]) {
-                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image1]];
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image1]];
             }
             if ([ProjectUtil isNotBlank:self.model.image2]) {
-                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image2]];
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image2]];
             }
             if ([ProjectUtil isNotBlank:self.model.image3]) {
-                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image3]];
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image3]];
             }
             if ([ProjectUtil isNotBlank:self.model.image4]) {
-                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image4]];
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image4]];
             }
             if ([ProjectUtil isNotBlank:self.model.image5]) {
-                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",self.model.image5]];
+                [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",self.model.image5]];
             }
             
             [self.tableView reloadData];
@@ -213,7 +210,7 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
         HotelBaseConditionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelBaseConditionCellID forIndexPath:indexPath];
         cell.model = self.model;
         return  cell;
-    }else if (indexPath.row>2 && indexPath.row < self.rooms.count +3){
+    }else if (indexPath.row>=3 && indexPath.row < self.rooms.count +3){
         HotelKindCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelKindCellID forIndexPath:indexPath];
         cell.roomModel = self.rooms[indexPath.row - 3];
         return cell;

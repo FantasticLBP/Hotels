@@ -106,7 +106,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 //获取轮播图
 -(void)loadSubjectImage{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/WeclomeImage.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/WeclomeImage.php"];
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"key"] = AppKey;
     para[@"size"] = @"10";
@@ -117,7 +117,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
             [SVProgressHUD dismiss];
             NSArray *array = dic[@"data"];
             for (NSDictionary *dic in array) {
-                [self.subjectImages addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/Hotels_Server/",dic[@"image"]]];
+                [self.subjectImages addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",dic[@"image"]]];
             }
             self.advertiseView.imageURLStringsGroup = self.subjectImages;
             [self.tableView reloadData];
@@ -129,7 +129,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 -(void)preData{
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/Hotels_Server/controller/api/hotelLIst.php"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
     paras[@"type"] = @(3);

@@ -24,7 +24,7 @@
 -(void)setModel:(HotelsModel *)model{
     _model = model;
     if ([ProjectUtil isNotBlank:model.image1]) {
-            [self.hotelImageView sd_setImageWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@/Hotels_Server/%@",Base_Url,model.image1]] placeholderImage:[UIImage imageNamed:@"jpg-1"]];
+            [self.hotelImageView sd_setImageWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@/%@",Base_Url,model.image1]] placeholderImage:[UIImage imageNamed:@"jpg-1"]];
     }
     self.hotelNameLabel.text = [ProjectUtil isNotBlank:model.hotelName] ? model.hotelName : @"";
     
