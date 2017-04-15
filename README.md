@@ -37,9 +37,15 @@
 <li>复杂表单的提交，包括多图片上传</li>
 <li>基于Bootstrap框架的界面布局</li>
 <li>封装PDO数据库操作类，实现增删改查等等常见功能，调用简单</li>
+<li>jquery表格插件Datatables的使用大大丰富了数据的展现方式，更具交互性。具有自动分页、模糊搜索等功能</li>
 <li>封装了Response类，可以传递4个参数 show($code, $message = '', $data = array(), $type = self::JSON)来展示json或者array或者xml。</li>
 <li>工程结构一幕了然，便于拓展</li>
 </ul>
+
+<h3>效果截图</h3>
+
+![系统截图](https://github.com/FantasticLBP/Hotels_Server/blob/master/Systemt_Screen1.png?raw=true "这是系统截图")
+
 
 
 如果有不懂的地方可以加入QQ交流群讨论：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=c9dc4ab0b2062e0004b3b2ed556da1ce898631742e15780297feb3465ad08eda">**515066271**</a>。这个QQ群讨论技术范围包括：iOS、H5混合开发、前端开发、PHP开发，欢迎大家讨论技术。
