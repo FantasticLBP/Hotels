@@ -83,7 +83,7 @@
 }
 
 - (IBAction)clickRegisterButton:(id)sender {
-    NSString *url = [NSString stringWithFormat:@"%@/controller/api/Register.php",Base_Url];
+    NSString *url = [NSString stringWithFormat:@"%@/controller/api/register.php",Base_Url];
     if ([self.usernameTextField.text isEqualToString:@""]) {
         [SVProgressHUD showInfoWithStatus:@"请输入账号"];
         return ;

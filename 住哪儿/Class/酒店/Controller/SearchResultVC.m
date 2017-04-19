@@ -155,6 +155,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         _tableView.scrollsToTop = YES;
         _tableView.backgroundColor = TableViewBackgroundColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        
         [_tableView registerNib:[UINib nibWithNibName:@"HotelDescriptionCell" bundle:nil] forCellReuseIdentifier:HotelDescriptionCellID];
         
         _tableView.tableFooterView = ({
@@ -189,7 +191,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 -(NSMutableArray *)hotels{
     if (!_hotels) {
-        _hotels = [NSMutableArray array];
+        _hotels = [[NSMutableArray alloc] init];
     }
     return _hotels;
 }

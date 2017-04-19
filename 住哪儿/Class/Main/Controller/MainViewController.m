@@ -61,6 +61,7 @@
         _homeVC = [[HomeViewController alloc] init];
         _homeVC.view.backgroundColor = TableViewBackgroundColor;
         _homeVC.title = @"首页";
+        
     }
     return _homeVC;
 }

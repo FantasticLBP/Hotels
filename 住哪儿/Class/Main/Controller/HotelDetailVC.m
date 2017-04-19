@@ -93,7 +93,7 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
 -(void)preData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/Room.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
-    paras[@"telephone"] = [UserManager getUserObject].telephone;
+    paras[@"key"] = AppKey;
     paras[@"hotelId"] = self.model.hotelId;
     
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];

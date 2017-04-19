@@ -41,12 +41,19 @@ static NSString *ShareCollectionCellID = @"ShareCollectionCell";
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    
+    
+    
     [self.boundaryView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);
         make.right.equalTo(self);
         make.height.mas_equalTo(BoundaryViewHeight);
         make.bottom.mas_equalTo(-CloseButtonHeight);
     }];
+    
+    
+    
+    
     
     [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);

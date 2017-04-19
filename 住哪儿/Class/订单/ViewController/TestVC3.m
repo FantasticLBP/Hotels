@@ -43,6 +43,10 @@ OrderCellDelegte>
 
 
 -(void)reloadData{
+    if ([ProjectUtil isBlank:[UserManager getUserObject].telephone]) {
+        [SVProgressHUD showInfoWithStatus:@"请先登录"];
+        return ;
+    }
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
     
     NSMutableDictionary *par = [NSMutableDictionary dictionary];

@@ -48,6 +48,12 @@ static NSString *OrderCellId = @"OrderCell";
 
 
 -(void)reloadData{
+    if ([ProjectUtil isBlank:[UserManager getUserObject].telephone]) {
+        [SVProgressHUD showInfoWithStatus:@"请先登录"];
+        return ;
+    }
+    
+    
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
     
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
@@ -60,7 +66,7 @@ static NSString *OrderCellId = @"OrderCell";
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
         [SVProgressHUD dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        if ([dic[@"status"] integerValue] == 200) {
+        if ([dic[@"code"] integerValue] == 200) {
             [self.orders removeAllObjects];
         }
         [self loadSuccessBlockWith:responseObject];

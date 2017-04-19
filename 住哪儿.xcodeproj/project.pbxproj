@@ -286,6 +286,7 @@
 		93E02E331DDB598D007EAE1E /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02DA51DDB598D007EAE1E /* OrderViewController.m */; };
 		93E02E361DDB598D007EAE1E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02DB11DDB598D007EAE1E /* HomeViewController.m */; };
 		93E02E371DDB598D007EAE1E /* SearchHotelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02DB31DDB598D007EAE1E /* SearchHotelVC.m */; };
+		93E3BC861EA796B300668D22 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E3BC851EA796B300668D22 /* TableViewCell.m */; };
 		93E6F8751E101327004B0594 /* HotelLocationMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E6F8741E101327004B0594 /* HotelLocationMapVC.m */; };
 		93E6F8781E10133F004B0594 /* HotelAlbumsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E6F8771E10133F004B0594 /* HotelAlbumsVC.m */; };
 		93E788811DDCACD9004FF398 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E788801DDCACD9004FF398 /* LoginViewController.storyboard */; };
@@ -846,6 +847,8 @@
 		93E02DB11DDB598D007EAE1E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		93E02DB21DDB598D007EAE1E /* SearchHotelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHotelVC.h; sourceTree = "<group>"; };
 		93E02DB31DDB598D007EAE1E /* SearchHotelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHotelVC.m; sourceTree = "<group>"; };
+		93E3BC841EA796B300668D22 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		93E3BC851EA796B300668D22 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		93E6F8731E101327004B0594 /* HotelLocationMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelLocationMapVC.h; sourceTree = "<group>"; };
 		93E6F8741E101327004B0594 /* HotelLocationMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelLocationMapVC.m; sourceTree = "<group>"; };
 		93E6F8761E10133F004B0594 /* HotelAlbumsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelAlbumsVC.h; sourceTree = "<group>"; };
@@ -1876,6 +1879,8 @@
 			children = (
 				93E02D941DDB598D007EAE1E /* LoginViewController.h */,
 				93E02D951DDB598D007EAE1E /* LoginViewController.m */,
+				93E3BC841EA796B300668D22 /* TableViewCell.h */,
+				93E3BC851EA796B300668D22 /* TableViewCell.m */,
 				93E788801DDCACD9004FF398 /* LoginViewController.storyboard */,
 				93E02D961DDB598D007EAE1E /* SettingViewController.h */,
 				93E02D971DDB598D007EAE1E /* SettingViewController.m */,
@@ -2640,6 +2645,7 @@
 				93FA9FFC1E10AD5B001DCAA0 /* UIView+EMWebCacheOperation.m in Sources */,
 				93DA19281E2D1AA4002F2C5A /* UserManager.m in Sources */,
 				93E02E321DDB598D007EAE1E /* FindViewController.m in Sources */,
+				93E3BC861EA796B300668D22 /* TableViewCell.m in Sources */,
 				93DFD5C31E6DA32F0007CC18 /* RoomModel.m in Sources */,
 				93D4940A1E1A89E10028232C /* OrderHeaderView.m in Sources */,
 				93FA9F411E10AB66001DCAA0 /* TADotView.m in Sources */,

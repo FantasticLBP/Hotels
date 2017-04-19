@@ -91,6 +91,16 @@ static NSString *OrderCellID = @"OrderCell";
 #pragma mark - OrderFillFooterViewDelegate
 -(void)orderFillFooterView:(OrderFillFooterView *)view didClickPayButton:(BOOL)flag{
     if (flag) {
+        if ([ProjectUtil isBlank:[UserManager getUserObject].telephone]) {
+            [SVProgressHUD showInfoWithStatus:@"请先登录"];
+            return ;
+        }
+        
+        if ([ProjectUtil isBlank:self.startPeriod]) {
+            [SVProgressHUD showInfoWithStatus:@"请选择入住时间"];
+            return ;
+        }
+        
         [SVProgressHUD showWithStatus:@"正在生成订单"];
         NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/Order.php"];
         NSMutableDictionary *para = [NSMutableDictionary dictionary];

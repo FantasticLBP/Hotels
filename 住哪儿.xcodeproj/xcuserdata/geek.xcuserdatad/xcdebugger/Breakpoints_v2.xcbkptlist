@@ -100,12 +100,12 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E9%85%92%E5%BA%97/Controller/PayOrderViewController.m"
-                  timestampString = "513432096.190959"
+                  timestampString = "514311551.584332"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
                   endingLineNumber = "75"
-                  offsetFromSymbolStart = "420">
+                  offsetFromSymbolStart = "359">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -115,12 +115,12 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E9%85%92%E5%BA%97/Controller/PayOrderViewController.m"
-                  timestampString = "513432096.193364"
+                  timestampString = "514311551.589387"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
                   endingLineNumber = "76"
-                  offsetFromSymbolStart = "72">
+                  offsetFromSymbolStart = "57">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelOrderFillVC.m"
-            timestampString = "513427219.335895"
+            timestampString = "514309665.342276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-orderFillFooterView:didClickPayButton:"
             landmarkType = "7">
             <Locations>
@@ -164,12 +164,12 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E9%85%92%E5%BA%97/Controller/HotelOrderFillVC.m"
-                  timestampString = "513432096.199096"
+                  timestampString = "514311551.604457"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "107"
-                  endingLineNumber = "107"
-                  offsetFromSymbolStart = "1524">
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "1735">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -179,12 +179,12 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E9%85%92%E5%BA%97/Controller/HotelOrderFillVC.m"
-                  timestampString = "513432096.200463"
+                  timestampString = "514311551.607019"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
-                  offsetFromSymbolStart = "72">
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "57">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelOrderFillVC.m"
-            timestampString = "513427234.781498"
+            timestampString = "514309665.342276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "-orderFillFooterView:didClickPayButton:"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelOrderFillVC.m"
-            timestampString = "513427541.225417"
+            timestampString = "514309665.342276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-orderFillFooterView:didClickPayButton:"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,6 +234,214 @@
             startingLineNumber = "30"
             endingLineNumber = "30"
             landmarkName = "-setupUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x6211;&#x7684;/ViewController/LoginViewController.m"
+            timestampString = "514294722.916758"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-clickRegisterButton:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/Controller/HotelDetailVC.m"
+            timestampString = "514308899.49966"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-preData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HotelDetailVC preData]"
+                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/Main/Controller/HotelDetailVC.m"
+                  timestampString = "514311551.632078"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "349">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__24-[HotelDetailVC preData]_block_invoke"
+                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/Main/Controller/HotelDetailVC.m"
+                  timestampString = "514311551.634734"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "91">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x53d1;&#x73b0;/ViewController/TopicHotelListVCViewController.m"
+            timestampString = "514309169.315678"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-preData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TopicHotelListVCViewController preData]"
+                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E5%8F%91%E7%8E%B0/ViewController/TopicHotelListVCViewController.m"
+                  timestampString = "514311551.641528"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "777">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[TopicHotelListVCViewController preData]_block_invoke"
+                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E5%8F%91%E7%8E%B0/ViewController/TopicHotelListVCViewController.m"
+                  timestampString = "514311551.643997"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "54">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x53d1;&#x73b0;/ViewController/TopicHotelListVCViewController.m"
+            timestampString = "514309234.460766"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-preData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x53d1;&#x73b0;/ViewController/TopicHotelListVCViewController.m"
+            timestampString = "514309264.086154"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-loadSuccessBlockWith:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/OrderItemVC.m"
+            timestampString = "514311474.745883"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-reloadData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OrderItemVC reloadData]"
+                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E8%AE%A2%E5%8D%95/ViewController/OrderItemVC.m"
+                  timestampString = "514311551.660603"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "881">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__25-[OrderItemVC reloadData]_block_invoke"
+                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geek/Desktop/%E4%BD%8F%E5%93%AA%E5%84%BF%E9%A1%B9%E7%9B%AE/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/%E8%AE%A2%E5%8D%95/ViewController/OrderItemVC.m"
+                  timestampString = "514311551.664013"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x8ba2;&#x5355;/ViewController/OrderItemVC.m"
+            timestampString = "514311526.098784"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-reloadData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -34,6 +34,8 @@
 #define Base_Url @"http://bxu2359670321.my3w.com"
 //#define Base_Url @"http://192.168.20.170:8888"
 //#define Base_Url @"http://192.168.0.103:8888"
+//#define Base_Url @"http://192.168.0.104:8888/Hotels_Server"
+
 
 /************************************App key******************************************/
 #define AppKey @"TheHotelReversationApplication"
