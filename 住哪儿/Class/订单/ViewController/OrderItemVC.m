@@ -60,7 +60,7 @@ static NSString *OrderCellId = @"OrderCell";
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderType"] = @(1);
+    par[@"orderType"] = @(0);
     
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
@@ -82,6 +82,10 @@ static NSString *OrderCellId = @"OrderCell";
 
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
+    par[@"size"] = @(10);
+    par[@"telephone"] = [UserManager getUserObject].telephone;
+    par[@"orderType"] = @(0);
+    
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
         [SVProgressHUD dismiss];
@@ -113,7 +117,7 @@ static NSString *OrderCellId = @"OrderCell";
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     }else{
-        [SVProgressHUD showErrorWithStatus:dic[@"msg"]];
+        [SVProgressHUD showErrorWithStatus:dic[@"message"]];
     }
 }
 
@@ -130,7 +134,7 @@ static NSString *OrderCellId = @"OrderCell";
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
         [SVProgressHUD dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        if ([dic[@"status"] integerValue] == 200) {
+        if ([dic[@"code"] integerValue] == 200) {
             for (OrderModel *model in self.orders) {
                 if([model.orderId isEqualToString:orderId]){
                     [self.orders removeObject:model];

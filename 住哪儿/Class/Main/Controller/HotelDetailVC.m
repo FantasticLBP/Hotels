@@ -42,7 +42,6 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *rooms;
 @property (nonatomic, strong) NSMutableArray *images;
-
 @end
 
 @implementation HotelDetailVC

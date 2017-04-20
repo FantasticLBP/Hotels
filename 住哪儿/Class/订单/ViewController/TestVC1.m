@@ -58,14 +58,13 @@ OrderCellDelegte>
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    //    par[@"orderType"] = @(index+1);
-    par[@"orderType"] = @(2);
+    par[@"orderType"] = @(1);
     
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
         [SVProgressHUD dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        if ([dic[@"status"] integerValue] == 200) {
+        if ([dic[@"code"] integerValue] == 200) {
             [self.orders removeAllObjects];
         }
         [self loadSuccessBlockWith:responseObject];
@@ -81,6 +80,9 @@ OrderCellDelegte>
     
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
+    par[@"size"] = @(10);
+    par[@"telephone"] = [UserManager getUserObject].telephone;
+    par[@"orderType"] = @(1);
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
         [SVProgressHUD dismiss];
@@ -112,7 +114,7 @@ OrderCellDelegte>
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     }else{
-        [SVProgressHUD showErrorWithStatus:dic[@"msg"]];
+        [SVProgressHUD showErrorWithStatus:dic[@"message"]];
     }
 }
 
@@ -189,6 +191,7 @@ OrderCellDelegte>
         [tb registerNib:[UINib nibWithNibName:@"OrderCell" bundle:nil] forCellReuseIdentifier:OrderCellId];
         __weak typeof(self) Weakself = self;
         tb.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            Weakself.page = 1;
             [Weakself reloadData];
         }];
         

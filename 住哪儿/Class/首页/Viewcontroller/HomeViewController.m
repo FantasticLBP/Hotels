@@ -95,6 +95,12 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     SearchResultVC *vc = [[SearchResultVC alloc] init];
     NSMutableDictionary *dic = self.conditionDic;
     NSString *pickedLevel = self.conditionDic[@"pickedLevel"];
+    if ([ProjectUtil isBlank:self.conditionDic[@"cityName"]]) {
+        [ProjectUtil saveCityName:[ProjectUtil isBlank:[ProjectUtil getCityName]]?@"北京":[ProjectUtil getCityName]];
+    }else{
+         [ProjectUtil saveCityName:self.conditionDic[@"cityName"]];
+    }
+    dic[@"cityName"] = [ProjectUtil getCityName];
     NSArray *array = [pickedLevel componentsSeparatedByString:@"，"];
     if (array.count > 1) {
         [dic setObject:array[0] forKey:@"pickedStar"];

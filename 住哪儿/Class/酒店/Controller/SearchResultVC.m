@@ -25,6 +25,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"搜索结果";
+    self.page = 1;
     [self.view addSubview:self.tableView];
     [self preData];
 }
@@ -43,14 +44,20 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
-    paras[@"cityName"] = self.searchConditions[@"cityName"];
-    paras[@"pickedHotelName"] = self.searchConditions[@"pickedHotelName"];
-    paras[@"pickedPrice"] = self.searchConditions[@"pickedPrice"];
-    paras[@"pickedStar"] = self.searchConditions[@"pickedStar"];
-    paras[@"request"] = @(5);
-    
-    paras[@"page"] = @(1);
-    paras[@"size"] = @(10);
+    if ([ProjectUtil isNotBlank:self.searchConditions[@"cityName"]] && [ProjectUtil isBlank:self.searchConditions[@"pickedPrice"]] && [ProjectUtil isBlank:self.searchConditions[@"pickedStar"]] && [ProjectUtil isBlank:self.searchConditions[@"pickedHotelName"]]  ){
+        paras[@"cityName"] = self.searchConditions[@"cityName"];
+        paras[@"page"] = @(self.page);
+        paras[@"size"] = @(10);
+        paras[@"request"] = @(2);
+    }else{
+        paras[@"cityName"] = self.searchConditions[@"cityName"];
+        paras[@"pickedHotelName"] = self.searchConditions[@"pickedHotelName"];
+        paras[@"pickedPrice"] = self.searchConditions[@"pickedPrice"];
+        paras[@"pickedStar"] = self.searchConditions[@"pickedStar"];
+        paras[@"page"] = @(self.page);
+        paras[@"size"] = @(10);
+        paras[@"request"] = @(5);
+    }
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
     
     [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
@@ -71,13 +78,21 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/hotelList.php"];
     NSMutableDictionary *paras = [NSMutableDictionary dictionary];
     paras[@"key"] = AppKey;
-    paras[@"cityName"] = self.searchConditions[@"cityName"];
-    paras[@"pickedHotelName"] = self.searchConditions[@"pickedHotelName"];
-    paras[@"pickedPrice"] = self.searchConditions[@"pickedPrice"];
-    paras[@"pickedStar"] = self.searchConditions[@"pickedStar"];
-    paras[@"page"] = @(self.page);
-    paras[@"size"] = @(10);
-    paras[@"request"] = @(5);
+    if ([ProjectUtil isNotBlank:self.searchConditions[@"cityName"]] && [ProjectUtil isBlank:self.searchConditions[@"pickedPrice"]] && [ProjectUtil isBlank:self.searchConditions[@"pickedStar"]] && [ProjectUtil isBlank:self.searchConditions[@"pickedHotelName"]]  ){
+        paras[@"cityName"] = self.searchConditions[@"cityName"];
+        paras[@"page"] = @(self.page);
+        paras[@"size"] = @(10);
+        paras[@"request"] = @(2);
+    }else{
+        paras[@"cityName"] = self.searchConditions[@"cityName"];
+        paras[@"pickedHotelName"] = self.searchConditions[@"pickedHotelName"];
+        paras[@"pickedPrice"] = self.searchConditions[@"pickedPrice"];
+        paras[@"pickedStar"] = self.searchConditions[@"pickedStar"];
+        paras[@"page"] = @(self.page);
+        paras[@"size"] = @(10);
+        paras[@"request"] = @(5);
+    }
+  
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
     
     [AFNetPackage getJSONWithUrl:url parameters:paras success:^(id responseObject) {
@@ -176,6 +191,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         
         __weak typeof(self) Weakself = self;
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            Weakself.page = 1;
             [Weakself preData];
         }];
         
