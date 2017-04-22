@@ -39,14 +39,12 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
 }
 
 -(void)watchOrders{
-    
-    
     NSMutableArray *vcs = [NSMutableArray array];
     [vcs addObject:[[HomeViewController alloc] init]];
-    [vcs addObject:[[OrderViewController alloc] init]];
+    self.navigationController.viewControllers = vcs;
+    
     MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
     vc.selectedIndex = 2;
-    self.navigationController.viewControllers = vcs;
 }
 
 #pragma mark - UITableViewDeegate
