@@ -45,6 +45,7 @@ OrderCellDelegte>
 -(void)reloadData{
     if ([ProjectUtil isBlank:[UserManager getUserObject].telephone]) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
+        [self.tableView.mj_header endRefreshing];
         return ;
     }
     

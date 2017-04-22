@@ -17,8 +17,10 @@
 #import "JFCityViewController.h"
 #import "SpecialHotelsCell.h"
 #import "SpecialHotelFlagCell.h"
-
 #import "HotelsModel.h"
+
+
+#import "LocationManager.h"
 
 #define HeaderImageHeight 200
 #define FindDownImageWIdth 16
@@ -30,7 +32,8 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 
 @interface FindViewController ()<UITableViewDataSource,UITableViewDelegate,
                                 SDCycleScrollViewDelegate,
-                                TopicHotelCellDelegate>
+                                TopicHotelCellDelegate,
+                                LocationManagerDelegate>
 @property (nonatomic, strong) SDCycleScrollView *advertiseView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIImageView *imageView;
@@ -40,6 +43,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 @property (nonatomic, strong) NSMutableArray *subjects;
 @property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) UIButton *topButton;
+@property (nonatomic, strong) LocationManager *locationManager;
 @end
 
 @implementation FindViewController
@@ -47,7 +51,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 #pragma mark - life cycle
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.cityName = [ProjectUtil getCityName];
+    [self autoLocate];
     [self loadSubjectImage];
     [self preData];
     [self loadSubject];
@@ -70,7 +74,6 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
         right;
     });
     self.page = 1;
-    [self updateLeftBarButtonItem];
     [self.view addSubview:self.tableView];
     [self.tableView addSubview:self.advertiseView];
 }
@@ -98,6 +101,12 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
         UIBarButtonItem *leftBarButtomItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftButton];
         leftBarButtomItem;
     });
+}
+
+-(void)autoLocate{
+    self.locationManager = [LocationManager sharedInstance];
+    self.locationManager.delegate =  self;
+    [self.locationManager autoLocate];
 }
 
 -(void)filterHotel{
@@ -239,6 +248,12 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
         [SVProgressHUD dismiss];
     }];
     
+}
+
+#pragma mark - LocationManagerDelegate
+-(void)locationManager:(LocationManager *)locationManager didGotLocation:(NSString *)location{
+    self.cityName = location;
+    [self updateLeftBarButtonItem];
 }
 
 #pragma mark - TopicHotelCellDelegate

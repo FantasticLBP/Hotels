@@ -152,6 +152,7 @@
 		936C7AE91E095F0B0065389F /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7AE81E095F0B0065389F /* ShareView.m */; };
 		936C7AED1E0980AD0065389F /* ShareCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936C7AEB1E0980AD0065389F /* ShareCollectionCell.m */; };
 		936C7AEE1E0980AD0065389F /* ShareCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936C7AEC1E0980AD0065389F /* ShareCollectionCell.xib */; };
+		936F081E1EAAF6F100954395 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 936F081D1EAAF6F100954395 /* LocationManager.m */; };
 		936F9A581E68790D00425819 /* SpecialHotelFlagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */; };
 		936F9A591E68790D00425819 /* SpecialHotelFlagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */; };
 		937168781E782DD500A2605D /* TestVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 937168771E782DD500A2605D /* TestVC1.m */; };
@@ -592,6 +593,8 @@
 		936C7AEA1E0980AD0065389F /* ShareCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCollectionCell.h; sourceTree = "<group>"; };
 		936C7AEB1E0980AD0065389F /* ShareCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCollectionCell.m; sourceTree = "<group>"; };
 		936C7AEC1E0980AD0065389F /* ShareCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareCollectionCell.xib; sourceTree = "<group>"; };
+		936F081C1EAAF6F100954395 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		936F081D1EAAF6F100954395 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		936F9A551E68790D00425819 /* SpecialHotelFlagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialHotelFlagCell.h; sourceTree = "<group>"; };
 		936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialHotelFlagCell.m; sourceTree = "<group>"; };
 		936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialHotelFlagCell.xib; sourceTree = "<group>"; };
@@ -1846,6 +1849,8 @@
 				93DA19271E2D1AA4002F2C5A /* UserManager.m */,
 				937168821E7842F800A2605D /* NSObject+NSLocalNotification.h */,
 				937168831E7842F800A2605D /* NSObject+NSLocalNotification.m */,
+				936F081C1EAAF6F100954395 /* LocationManager.h */,
+				936F081D1EAAF6F100954395 /* LocationManager.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -2435,6 +2440,14 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 3393ZFX46Q;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					93E02C641DDB58C8007EAE1E = {
 						CreatedOnToolsVersion = 8.1;
@@ -2647,6 +2660,7 @@
 				93E02E321DDB598D007EAE1E /* FindViewController.m in Sources */,
 				93E3BC861EA796B300668D22 /* TableViewCell.m in Sources */,
 				93DFD5C31E6DA32F0007CC18 /* RoomModel.m in Sources */,
+				936F081E1EAAF6F100954395 /* LocationManager.m in Sources */,
 				93D4940A1E1A89E10028232C /* OrderHeaderView.m in Sources */,
 				93FA9F411E10AB66001DCAA0 /* TADotView.m in Sources */,
 				9319738D1E1360A8009D896D /* FMResultSet.m in Sources */,
@@ -3039,7 +3053,7 @@
 					"$(PROJECT_DIR)/住哪儿/3dParty/Baidu-Maps-iOS-SDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.geek.retainCount.----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.geek.Hotels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -3068,7 +3082,7 @@
 					"$(PROJECT_DIR)/住哪儿/3dParty/Baidu-Maps-iOS-SDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.geek.retainCount.----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.geek.Hotels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};

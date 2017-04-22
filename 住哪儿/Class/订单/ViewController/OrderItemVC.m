@@ -50,9 +50,9 @@ static NSString *OrderCellId = @"OrderCell";
 -(void)reloadData{
     if ([ProjectUtil isBlank:[UserManager getUserObject].telephone]) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
+        [self.tableView.mj_header endRefreshing];
         return ;
     }
-    
     
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
     
@@ -228,7 +228,7 @@ static NSString *OrderCellId = @"OrderCell";
         tb.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [Weakself loadMoreData];
         }];
-        tb.mj_header.automaticallyChangeAlpha = YES;
+        //tb.mj_header.automaticallyChangeAlpha = YES;
         
         _tableView = tb;
     }

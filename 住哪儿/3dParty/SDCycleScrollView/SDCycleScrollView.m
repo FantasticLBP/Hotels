@@ -340,7 +340,6 @@ NSString * const ID = @"cycleCell";
 }
 
 #pragma mark - actions
-
 - (void)setupTimer
 {
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.autoScrollTimeInterval target:self selector:@selector(automaticScroll) userInfo:nil repeats:YES];
@@ -457,10 +456,8 @@ NSString * const ID = @"cycleCell";
 
 #pragma mark - life circles
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews{
     [super layoutSubviews];
-    
     _flowLayout.itemSize = self.frame.size;
     
     _mainView.frame = self.bounds;
@@ -505,7 +502,7 @@ NSString * const ID = @"cycleCell";
     }
     
     CGRect pageControlFrame = CGRectMake(x, y, size.width, size.height);
-    pageControlFrame.origin.y -= self.pageControlBottomOffset;
+     pageControlFrame.origin.y = self.frame.size.height - 30;
     pageControlFrame.origin.x -= self.pageControlRightOffset;
     self.pageControl.frame = pageControlFrame;
     self.pageControl.hidden = !_showPageControl;
@@ -513,7 +510,6 @@ NSString * const ID = @"cycleCell";
     if (self.backgroundImageView) {
         self.backgroundImageView.frame = self.bounds;
     }
-    
 }
 
 //解决当父View释放时，当前视图因为被Timer强引用而不能释放的问题

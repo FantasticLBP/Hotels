@@ -24,7 +24,9 @@
 #import "PriceAndStarLevelPickerView.h"
 #import "MainViewController.h"
 #import "SearchResultVC.h"
+
 #import "YYFPSLabel.h"
+#import "LocationManager.h"
 
 #define SalePromotionImageWidth 49
 #define SalePromotionImageHeight 54
@@ -37,19 +39,20 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
                                 UITableViewDelegate,UITableViewDataSource,SelectConditionCellDelegate,SalePromotionImageViewDelegate,
                                     ConditionPickerViewDelegate,
                                     PriceAndStarLevelPickerViewDelegate,
-                                    TimerPickerVCDelegate>
+                                    TimerPickerVCDelegate,LocationManagerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SDCycleScrollView *advertiseView;
-@property (nonatomic, strong) NSMutableArray *condtions;
 @property (nonatomic, strong) YYFPSLabel *fpsLabel;
-@property (nonatomic, strong) ConditionPickerView *conditionView;
-@property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) SalePromotionImageView *saleImageView;
 @property (nonatomic, strong) PriceAndStarLevelPickerView *starView;
+@property (nonatomic, strong) ConditionPickerView *conditionView;
+@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) LocationManager *locationManager;
+
+@property (nonatomic, strong) NSMutableArray *condtions;
 @property (nonatomic, strong) NSMutableDictionary *conditionDic;
 @property (nonatomic, strong) NSMutableArray *subjectImages;
-
 @property (nonatomic, strong) NSMutableArray *hotels;                   /**<酒店数据*/
 
 @end
@@ -70,6 +73,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [self testFPSLabel];
     [self loadSubjectImage];
     [self preData];
+    [self autoLocate];
     
 }
 
@@ -116,7 +120,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
     para[@"key"] = AppKey;
     para[@"size"] = @"10";
-    [SVProgressHUD showWithStatus:@"正在获取图片"];
     [AFNetPackage getJSONWithUrl:url parameters:para success:^(id responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
         if ([dic[@"code"] integerValue] == 200) {
@@ -169,6 +172,18 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     vc.selectedIndex = 1;
 }
 
+//自动定位
+-(void)autoLocate{
+    self.locationManager = [LocationManager sharedInstance];
+    self.locationManager.delegate = self;
+    [self.locationManager autoLocate];
+}
+
+#pragma mark - LocationManagerDelegate
+-(void)locationManager:(LocationManager *)locationManager didGotLocation:(NSString *)location{
+    self.conditionView.cityName = location;
+}
+
 #pragma mark - PriceAndStarLevelPickerViewDelegate
 -(void)priceAndStarLevelPickerView:(PriceAndStarLevelPickerView *)view didClickWithhButtonType:(PriceAndStarLevel_Operation)type withData:(NSMutableDictionary *)data{
     switch (type) {
@@ -218,7 +233,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
             break;
         }
         case Operation_Type_AutoLocate:{
-            NSLog(@"自动定位");
+            [self autoLocate];
             break;
         }
         case Operation_Type_SearchHotel:{

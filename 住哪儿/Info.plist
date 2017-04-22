@@ -2,22 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
 	<string>住哪儿</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>“住哪儿”需要访问您的位置信息</string>
-	<key>Privacy - Location When In Use Usage Description </key>
-	<string>“住哪儿”需要在后台访问您的位置信息</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>“住哪儿”需要访问您的相册信息</string>
-	<key>NSCameraUsageDescription</key>
-	<string>“住哪儿”需要访问您的相机权限</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>zh_CN</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -35,6 +27,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>“住哪儿”需要访问您的相机权限</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>“住哪儿”需要访问您的位置信息</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>“住哪儿”需要在后台访问您的位置信息</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>“住哪儿”需要访问您的相册信息</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
