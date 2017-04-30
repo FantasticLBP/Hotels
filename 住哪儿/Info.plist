@@ -27,6 +27,11 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>baidumap</string>
+		<string>iosamap</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>“住哪儿”需要访问您的相机权限</string>
 	<key>NSLocationAlwaysUsageDescription</key>

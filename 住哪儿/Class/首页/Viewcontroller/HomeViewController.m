@@ -54,7 +54,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 @property (nonatomic, strong) NSMutableDictionary *conditionDic;
 @property (nonatomic, strong) NSMutableArray *subjectImages;
 @property (nonatomic, strong) NSMutableArray *hotels;                   /**<酒店数据*/
-
+@property (nonatomic, strong) NSString *city;                           //定位城市
+@property (nonatomic, assign) BOOL isPickedCity;                        //是否是用户自己选择的城市
 @end
 
 @implementation HomeViewController
@@ -72,9 +73,13 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [self.view addSubview:self.saleImageView];
     [self testFPSLabel];
     [self loadSubjectImage];
-    [self preData];
-    [self autoLocate];
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (!self.isPickedCity) {
+        [self autoLocate];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -144,7 +149,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     paras[@"type"] = @(3);
     paras[@"page"] = @(1);
     paras[@"size"] = @(4);
-    paras[@"request"] = @(4);
+    paras[@"request"] = @(3);
+    paras[@"cityName"] = self.city;
 
     [SVProgressHUD showWithStatus:@"正在获取酒店数据"];
     
@@ -182,6 +188,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 #pragma mark - LocationManagerDelegate
 -(void)locationManager:(LocationManager *)locationManager didGotLocation:(NSString *)location{
     self.conditionView.cityName = location;
+    self.city = location;
+    [self preData];
 }
 
 #pragma mark - PriceAndStarLevelPickerViewDelegate
@@ -227,9 +235,13 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
             cityViewController.title = @"城市";
             [cityViewController choseCityBlock:^(NSString *cityName) {
                 self.conditionView.cityName = cityName;
+                self.city = cityName;
+                [self preData];
             }];
             LBPNavigationController *navigationController = [[LBPNavigationController alloc] initWithRootViewController:cityViewController];
-            [self presentViewController:navigationController animated:YES completion:nil];
+            [self presentViewController:navigationController animated:YES completion:^{
+                self.isPickedCity = YES;
+            }];
             break;
         }
         case Operation_Type_AutoLocate:{
@@ -345,6 +357,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row>=3) {
         HotelDetailVC *vc = [[HotelDetailVC alloc] init];
+        vc.startPeriod = [[NSDate date] todayString];
+        vc.leavePerios = [[NSDate date] GetTomorrowDayString];
         vc.model = self.hotels[indexPath.row-3];
         [self.navigationController pushViewController:vc animated:YES];
     }

@@ -28,6 +28,17 @@
     return today;
 }
 
+-(NSString *)GetTomorrowDay{
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
+    [components setDay:([components day]+1)];
+    
+    NSDate *beginningOfWeek = [gregorian dateFromComponents:components];
+    NSDateFormatter *dateday = [[NSDateFormatter alloc] init];
+    [dateday setDateFormat:@"MM月dd日"];
+    return [dateday stringFromDate:beginningOfWeek];
+}
+
 -(NSInteger)calcDaysFromBegin:(NSString *)beiginDate end:(NSString *)endDate{
     //开始时间
     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
@@ -42,21 +53,19 @@
         
     }else{
         currentDateStr = [currentDateStr stringByReplacingOccurrencesOfString:[currentDateStr substringWithRange:NSMakeRange(5, 5)] withString:[
-                          NSString stringWithFormat:@"%@-%@",[beiginDate substringToIndex:2],[beiginDate substringWithRange:NSMakeRange(3, 2)]]];
+                                                                                                                                                NSString stringWithFormat:@"%@-%@",[beiginDate substringToIndex:2],[beiginDate substringWithRange:NSMakeRange(3, 2)]]];
         startDay = [dateFormat dateFromString:currentDateStr];
         
     }
-
+    
     
     //结束时间
     if (endDate.length == 5) {
-          NSString *endDateStr = [currentDateStr stringByReplacingOccurrencesOfString:[currentDateStr substringWithRange:NSMakeRange(5, 5)] withString:[ProjectUtil isNotBlank:endDate]?endDate:[NSString stringWithFormat:@"%@-%@",[beiginDate substringWithRange:NSMakeRange(0, 2)],[beiginDate substringWithRange:NSMakeRange(3, 2)]]];
+        NSString *endDateStr = [currentDateStr stringByReplacingOccurrencesOfString:[currentDateStr substringWithRange:NSMakeRange(5, 5)] withString:[ProjectUtil isNotBlank:endDate]?endDate:[NSString stringWithFormat:@"%@-%@",[beiginDate substringWithRange:NSMakeRange(0, 2)],[beiginDate substringWithRange:NSMakeRange(3, 2)]]];
         endDay = [dateFormat dateFromString:endDateStr];
     }else{
         endDay = [dateFormat dateFromString:endDate];
     }
-  
-
     
     //取2个日期的时间间隔
     NSTimeInterval time = [endDay timeIntervalSinceDate:startDay];
@@ -64,16 +73,23 @@
     return days+1;
 }
 
--(NSString *)GetTomorrowDay{
+-(NSString *)todayString{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    NSString *today = [formatter stringFromDate:date];
+    return today;
+}
+
+-(NSString *)GetTomorrowDayString{
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorian components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[NSDate date]];
     [components setDay:([components day]+1)];
     
     NSDate *beginningOfWeek = [gregorian dateFromComponents:components];
     NSDateFormatter *dateday = [[NSDateFormatter alloc] init];
-    [dateday setDateFormat:@"MM月dd日"];
+    [dateday setDateFormat:@"yyyy-MM-dd"];
     return [dateday stringFromDate:beginningOfWeek];
 }
-
 
 @end

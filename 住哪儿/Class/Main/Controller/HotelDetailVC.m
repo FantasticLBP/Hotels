@@ -248,7 +248,7 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
         }
         case Watch_Hotel_Map:{
             HotelLocationMapVC *vc = [[HotelLocationMapVC alloc] init];
-            
+            vc.destination  = self.model.hotelName;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

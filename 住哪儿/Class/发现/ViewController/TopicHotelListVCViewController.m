@@ -155,8 +155,8 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HotelDetailVC *vc = [[HotelDetailVC alloc] init];
-    vc.startPeriod = @"2017-04-12";
-    vc.leavePerios = @"2017-05-01";
+    vc.startPeriod = [[NSDate date] todayString];
+    vc.leavePerios = [[NSDate date] GetTomorrowDayString];
     vc.model = self.hotels[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }

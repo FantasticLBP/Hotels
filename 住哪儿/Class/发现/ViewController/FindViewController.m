@@ -39,11 +39,12 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIButton *leftButton;
 @property (nonatomic, assign) NSInteger page;
-@property (nonatomic, strong) NSMutableArray *hotels;                   /**<酒店数据*/
+@property (nonatomic, strong) NSMutableArray *hotels;                   //酒店数据
 @property (nonatomic, strong) NSMutableArray *subjects;
 @property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) UIButton *topButton;
 @property (nonatomic, strong) LocationManager *locationManager;
+@property (nonatomic, assign) BOOL isPickedCity;                        //是否是用户自己选择的城市
 @end
 
 @implementation FindViewController
@@ -51,11 +52,17 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 #pragma mark - life cycle
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [self autoLocate];
     [self loadSubjectImage];
     [self preData];
     [self loadSubject];
     [self setupUI];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (!self.isPickedCity) {
+        [self autoLocate];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -134,7 +141,9 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
         [self preData];
     }];
     LBPNavigationController *navigationController = [[LBPNavigationController alloc] initWithRootViewController:cityViewController];
-    [self presentViewController:navigationController animated:YES completion:nil];
+    [self presentViewController:navigationController animated:YES completion:^{
+        self.isPickedCity = YES;
+    }];
 }
 
 -(void)backTop{
@@ -314,8 +323,8 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
         [SVProgressHUD showInfoWithStatus:@"此处要加入HTML5网页，等待程序员哥哥后续升级哦"];
     }else if (indexPath.row >1 && indexPath.row < self.hotels.count + 2){
         HotelDetailVC *vc = [[HotelDetailVC alloc] init];
-        vc.startPeriod = @"2017-04-12";
-        vc.leavePerios = @"2017-05-01";
+        vc.startPeriod = [[NSDate date] todayString];
+        vc.leavePerios = [[NSDate date] GetTomorrowDayString];
         vc.model = self.hotels[indexPath.row-2];
         [self.navigationController pushViewController:vc animated:YES];
     }

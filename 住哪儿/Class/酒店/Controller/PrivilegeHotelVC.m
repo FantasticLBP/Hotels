@@ -133,7 +133,8 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HotelDetailVC *vc = [[HotelDetailVC alloc] init];
-//    vc.images = self.images;
+    vc.startPeriod = [[NSDate date] todayString];
+    vc.leavePerios = [[NSDate date] GetTomorrowDayString];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

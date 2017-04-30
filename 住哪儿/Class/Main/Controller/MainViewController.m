@@ -7,20 +7,19 @@
 //
 
 #import "MainViewController.h"
-#import "HomeViewController.h"
 #import "LBPNavigationController.h"
+#import "HomeViewController.h"
+#import "ShakeViewController.h"
 #import "FindViewController.h"
 #import "SettingViewController.h"
 #import "OrderViewController.h"
 
-
 @interface MainViewController ()
 @property (nonatomic, strong) HomeViewController *homeVC;
 @property (nonatomic, strong) FindViewController *messageVC;
+@property (nonatomic, strong) ShakeViewController *shakeVC;
 @property (nonatomic, strong) SettingViewController *settingVC;
 @property (nonatomic, strong) OrderViewController *orderVC;
-
-
 @end
 
 @implementation MainViewController
@@ -33,19 +32,19 @@
     LBPNavigationController *messageVC=[[LBPNavigationController alloc]initWithRootViewController:self.messageVC];
     [self createVC:self.messageVC Title:@"发现" imageName:@"tabBar_discover"];
     
+    LBPNavigationController *shakeVC=[[LBPNavigationController alloc]initWithRootViewController:self.shakeVC];
+    [self createVC:self.shakeVC Title:@"摇一摇" imageName:@"tabBar_shake"];
+    
     LBPNavigationController *orderVC=[[LBPNavigationController alloc]initWithRootViewController:self.orderVC];
     [self createVC:self.orderVC Title:@"订单" imageName:@"tabBar_order"];
 
-    
     LBPNavigationController *settingVC=[[LBPNavigationController alloc]initWithRootViewController:self.settingVC];
     [self createVC:self.settingVC Title:@"我的" imageName:@"tabBar_owner"];
 
-
-    self.viewControllers = @[homeNav,messageVC,orderVC,settingVC];
+    self.viewControllers = @[homeNav,messageVC,shakeVC,orderVC,settingVC];
 }
 
-
-
+#pragma mark - private method
 -(void)createVC:(UIViewController *)vc Title:(NSString *)title imageName:(NSString *)imageName{
     vc.title = title;
     self.tabBar.tintColor = GlobalMainColor;
@@ -66,7 +65,6 @@
     return _homeVC;
 }
 
-
 -(FindViewController *)messageVC{
     if (!_messageVC) {
         _messageVC = [[FindViewController alloc] init];
@@ -74,6 +72,15 @@
         _messageVC.title = @"发现";
     }
     return _messageVC;
+}
+
+-(ShakeViewController *)shakeVC{
+    if (!_shakeVC) {
+        _shakeVC = [[ShakeViewController alloc] init];
+        _shakeVC.view.backgroundColor = [UIColor whiteColor];
+        _shakeVC.title = @"摇一摇";
+    }
+    return _shakeVC;
 }
 
 -(OrderViewController *)orderVC{

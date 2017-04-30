@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HotelLocationMapVC : UIViewController
-
+@property (nonatomic, strong) NSString *destination;            /**<目的地*/
 @end

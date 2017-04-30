@@ -8,12 +8,14 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
 //百度地图key
 //#define BMAPKEY @"LYHkYVQGWmQxKZw7O62P24Cj1aCovpuN";
 
 
-@interface AppDelegate ()
+@interface AppDelegate (){
+    BMKMapManager* _mapManager;
+}
 
 @end
 
@@ -22,7 +24,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-
+    // 要使用百度地图，请先启动BaiduMapManager
+    _mapManager = [[BMKMapManager alloc] init];
+    
+    BOOL ret = [_mapManager start:@"LYHkYVQGWmQxKZw7O62P24Cj1aCovpuN" generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
     return YES;
 }
 
@@ -39,8 +47,7 @@
  
  */
 
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
     notification.applicationIconBadgeNumber = 0;
     MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
     vc.selectedIndex = 2;
@@ -66,13 +73,8 @@
 }
 
 
-
-
-
-
 //监听通知操作行为的点击
-- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler
-{
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler{
     NSLog(@"监听通知操作行为的点击");
 }
 
