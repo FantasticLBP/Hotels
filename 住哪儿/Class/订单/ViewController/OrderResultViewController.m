@@ -44,7 +44,7 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
     self.navigationController.viewControllers = vcs;
     
     MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
-    vc.selectedIndex = 2;
+    vc.selectedIndex = 3;
 }
 
 #pragma mark - UITableViewDeegate
