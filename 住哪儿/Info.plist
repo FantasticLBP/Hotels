@@ -42,9 +42,27 @@
 	<string>“住哪儿”需要访问您的相册信息</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>LSApplicationCategoryType</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string></string>
+		</dict>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>zhunaer</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>com.Hotels.geek</string>
+		</dict>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
