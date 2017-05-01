@@ -8,11 +8,10 @@
 //
 
 #import "HotelLocationMapVC.h"
-#import <BaiduMapAPI_Map/BMKMapComponent.h>
-#import <BaiduMapAPI_Base/BMKBaseComponent.h>
-#import <BaiduMapAPI_Location/BMKLocationService.h>
-#import <BaiduMapAPI_Search/BMKPoiSearch.h>
-#import <MapKit/MapKit.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>         //百度地图基本头文件
+#import <BaiduMapAPI_Location/BMKLocationService.h> //百度地图定位头文件
+#import <BaiduMapAPI_Search/BMKPoiSearch.h>         //百度地图搜索头文件
+#import <MapKit/MapKit.h>                           //打开系统地图所需的头文件
 
 @interface HotelLocationMapVC ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKPoiSearchDelegate>
 @property (nonatomic, strong) UIButton *myLodactionButton;      //我的位置按钮
@@ -20,10 +19,10 @@
 @property (nonatomic, strong) UIButton *navigationButton;       //开始导航按钮
 @property (nonatomic, strong) BMKMapView *mapView;              //地图基本
 @property (nonatomic, strong) BMKLocationService *locService;   //定位服务
-@property (nonatomic, strong) BMKPoiSearch *poiSearch;           //搜索服务
+@property (nonatomic, strong) BMKPoiSearch *poiSearch;          //搜索服务
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) UIAlertController *alertController;
-@property (nonatomic,assign) CLLocationCoordinate2D coordinate;  //!< 要导航的坐标
+@property (nonatomic,assign) CLLocationCoordinate2D coordinate;  // 要导航的坐标
 @end
 
 @implementation HotelLocationMapVC
@@ -44,9 +43,9 @@
 -(void)setupUI{
     self.title = @"酒店位置";
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.view addSubview:self.mapView];
     [self.locService startUserLocationService];
-    
     
     [self.view addSubview:self.navigationButton];
     [self.view addSubview:self.myLodactionButton];
@@ -95,9 +94,8 @@
 #pragma mark - BMKPoiSearchDelegate
 - (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)poiResult errorCode:(BMKSearchErrorCode)errorCode{
     if (errorCode == BMK_SEARCH_NO_ERROR) {
-        //POI信息类
-        //poi列表
         
+        //只将搜索到的第一个点显示到界面上
         BMKPoiInfo *info = poiResult.poiInfoList.firstObject;
         //初始化一个点的注释
         BMKPointAnnotation *annotoation = [[BMKPointAnnotation alloc] init];
@@ -147,7 +145,6 @@
     //poi详情检索信息类
     BMKPoiDetailSearchOption *option = [[BMKPoiDetailSearchOption alloc] init];
     
-    
     BMKPoiInfo *info = self.dataArray.firstObject;
     
     //poi的uid，从poi检索返回的BMKPoiResult结构中获取
@@ -172,7 +169,6 @@
         _mapView.zoomLevel = 21;
         _mapView.rotateEnabled = NO;
         _mapView.delegate = self;
-        
     }
     return _mapView;
 }
@@ -184,6 +180,7 @@
     }
     return _locService;
 }
+
 -(BMKPoiSearch *)poiSearch{
     if (!_poiSearch) {
         _poiSearch = [[BMKPoiSearch alloc] init];
@@ -195,7 +192,6 @@
 - (NSMutableArray *)dataArray {
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];
-        
     }
     return _dataArray;
 }
@@ -283,4 +279,5 @@
     }
     return _alertController;
 }
+
 @end
