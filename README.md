@@ -9,14 +9,16 @@
 
 **实现了类似艺龙App的预定酒店功能，包括酒店搜索、特色酒店推荐、特惠酒店推荐等等功能，可以预定酒店、查看订单，唯独不能支付（支付功能必须由公司的名义注册，个人练手注册不了）。**
 <ul>包括iOS开发的常见功能：
-<li>自定义NavigationController实现全屏右滑返回上一控制器</li>
-<li>UICollecionView展现界面</li>
-<li>UITableview上拉加载、下面刷新功能</li>
+<li>自定义NavigationController实现全屏右滑返回上一控制器的LBPNavigationController</li>
+<li>自定义UIScrollView实现全屏滑动显示不同控制器的LBPScrollSegmentView</li>
+<li>封装网络访问类AFNetPackage，具备检查网络状态、JSON方式获取数据、xml方式获取数据、post、get、delete、文件下载、文件上传等功能</li>
+<li>UITableview上拉加载、下面刷新功能;UITableView潜逃UICollecionView展现界面，事件、数据等通过Delegate处理</li>
 <li>Masonry自动布局库的使用</li>
 <li>封装好的启动欢迎页</li>
-<li>YYModel字典转模型</li>
-<li>复杂界面的布局</li>
+<li>个人信息持久化保存</li>
+<li>复杂界面的布局纯代码实现</li>
 <li>cell的重用内存优化</li>
+<li>自定义URL Schemes便于其他App或者网页唤起；方便App或者网页传递参数</li>
 <li>工程结构一幕了然，便于拓展</li>
 <li>界面采用代码实现，部分界面采用xib实现。整个代码可读性比较好、代码规范、有注释说明，配合服务端是自己用php写的，Api也是php实现的。</li>
 <li>主要功能：根据不同主题查找酒店、摇一摇随机推荐酒店、根据城市定位推荐酒店、根据用户输入多条件模糊搜索查找酒店、酒店位置地图显示、路径规划及其导航（百度地图、高德地图、系统地图）、订单查看等、酒店分享等功能</li>
