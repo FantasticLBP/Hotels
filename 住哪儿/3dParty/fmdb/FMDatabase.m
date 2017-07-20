@@ -143,7 +143,7 @@
     
     int err = sqlite3_open([self sqlitePath], (sqlite3**)&_db );
     if(err != SQLITE_OK) {
-        NSLog(@"error opening!: %d", err);
+        LBPLog(@"error opening!: %d", err);
         return NO;
     }
     
@@ -167,7 +167,7 @@
     
     int err = sqlite3_open_v2([self sqlitePath], (sqlite3**)&_db, flags, [vfsName UTF8String]);
     if(err != SQLITE_OK) {
-        NSLog(@"error opening!: %d", err);
+        LBPLog(@"error opening!: %d", err);
         return NO;
     }
     
@@ -178,7 +178,7 @@
     
     return YES;
 #else
-    NSLog(@"openWithFlags requires SQLite 3.5");
+    LBPLog(@"openWithFlags requires SQLite 3.5");
     return NO;
 #endif
 }
@@ -205,14 +205,14 @@
                 triedFinalizingOpenStatements = YES;
                 sqlite3_stmt *pStmt;
                 while ((pStmt = sqlite3_next_stmt(_db, nil)) !=0) {
-                    NSLog(@"Closing leaked statement");
+                    LBPLog(@"Closing leaked statement");
                     sqlite3_finalize(pStmt);
                     retry = YES;
                 }
             }
         }
         else if (SQLITE_OK != rc) {
-            NSLog(@"error closing!: %d", rc);
+            LBPLog(@"error closing!: %d", rc);
         }
     }
     while (retry);
@@ -247,7 +247,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         int requestedSleepInMillseconds = (int) arc4random_uniform(50) + 50;
         int actualSleepInMilliseconds = sqlite3_sleep(requestedSleepInMillseconds);
         if (actualSleepInMilliseconds != requestedSleepInMillseconds) {
-            NSLog(@"WARNING: Requested sleep of %i milliseconds, but SQLite returned %i. Maybe SQLite wasn't built with HAVE_USLEEP=1?", requestedSleepInMillseconds, actualSleepInMilliseconds);
+            LBPLog(@"WARNING: Requested sleep of %i milliseconds, but SQLite returned %i. Maybe SQLite wasn't built with HAVE_USLEEP=1?", requestedSleepInMillseconds, actualSleepInMilliseconds);
         }
         return 1;
     }
@@ -281,15 +281,15 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 // but for folks who don't bother noticing that the interface to FMDatabase changed,
 // we'll still implement the method so they don't get suprise crashes
 - (int)busyRetryTimeout {
-    NSLog(@"%s:%d", __FUNCTION__, __LINE__);
-    NSLog(@"FMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval");
+    LBPLog(@"%s:%d", __FUNCTION__, __LINE__);
+    LBPLog(@"FMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval");
     return -1;
 }
 
 - (void)setBusyRetryTimeout:(int)i {
 #pragma unused(i)
-    NSLog(@"%s:%d", __FUNCTION__, __LINE__);
-    NSLog(@"FMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:");
+    LBPLog(@"%s:%d", __FUNCTION__, __LINE__);
+    LBPLog(@"FMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:");
 }
 
 #pragma mark Result set functions
@@ -378,8 +378,8 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     int rc = sqlite3_rekey(_db, [keyData bytes], (int)[keyData length]);
     
     if (rc != SQLITE_OK) {
-        NSLog(@"error on rekey: %d", rc);
-        NSLog(@"%@", [self lastErrorMessage]);
+        LBPLog(@"error on rekey: %d", rc);
+        LBPLog(@"%@", [self lastErrorMessage]);
     }
     
     return (rc == SQLITE_OK);
@@ -458,7 +458,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 - (void)warnInUse {
-    NSLog(@"The FMDatabase %@ is currently in use.", self);
+    LBPLog(@"The FMDatabase %@ is currently in use.", self);
     
 #ifndef NS_BLOCK_ASSERTIONS
     if (_crashOnErrors) {
@@ -472,7 +472,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     
     if (!_db) {
         
-        NSLog(@"The FMDatabase %@ is not open.", self);
+        LBPLog(@"The FMDatabase %@ is not open.", self);
         
 #ifndef NS_BLOCK_ASSERTIONS
         if (_crashOnErrors) {
@@ -769,7 +769,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     FMResultSet *rs         = 0x00;
     
     if (_traceExecution && sql) {
-        NSLog(@"%@ executeQuery: %@", self, sql);
+        LBPLog(@"%@ executeQuery: %@", self, sql);
     }
     
     if (_shouldCacheStatements) {
@@ -784,9 +784,9 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         
         if (SQLITE_OK != rc) {
             if (_logsErrors) {
-                NSLog(@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]);
-                NSLog(@"DB Query: %@", sql);
-                NSLog(@"DB Path: %@", _databasePath);
+                LBPLog(@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]);
+                LBPLog(@"DB Query: %@", sql);
+                LBPLog(@"DB Path: %@", _databasePath);
             }
             
             if (_crashOnErrors) {
@@ -813,7 +813,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
             NSString *parameterName = [[NSString alloc] initWithFormat:@":%@", dictionaryKey];
             
             if (_traceExecution) {
-                NSLog(@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]);
+                LBPLog(@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]);
             }
             
             // Get the index for the parameter name.
@@ -828,7 +828,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
                 idx++;
             }
             else {
-                NSLog(@"Could not find index for %@", dictionaryKey);
+                LBPLog(@"Could not find index for %@", dictionaryKey);
             }
         }
     }
@@ -849,10 +849,10 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
             
             if (_traceExecution) {
                 if ([obj isKindOfClass:[NSData class]]) {
-                    NSLog(@"data: %ld bytes", (unsigned long)[(NSData*)obj length]);
+                    LBPLog(@"data: %ld bytes", (unsigned long)[(NSData*)obj length]);
                 }
                 else {
-                    NSLog(@"obj: %@", obj);
+                    LBPLog(@"obj: %@", obj);
                 }
             }
             
@@ -863,7 +863,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     }
     
     if (idx != queryCount) {
-        NSLog(@"Error: the bind count is not correct for the # of variables (executeQuery)");
+        LBPLog(@"Error: the bind count is not correct for the # of variables (executeQuery)");
         sqlite3_finalize(pStmt);
         _isExecutingStatement = NO;
         return nil;
@@ -955,7 +955,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     FMStatement *cachedStmt  = 0x00;
     
     if (_traceExecution && sql) {
-        NSLog(@"%@ executeUpdate: %@", self, sql);
+        LBPLog(@"%@ executeUpdate: %@", self, sql);
     }
     
     if (_shouldCacheStatements) {
@@ -969,9 +969,9 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         
         if (SQLITE_OK != rc) {
             if (_logsErrors) {
-                NSLog(@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]);
-                NSLog(@"DB Query: %@", sql);
-                NSLog(@"DB Path: %@", _databasePath);
+                LBPLog(@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]);
+                LBPLog(@"DB Query: %@", sql);
+                LBPLog(@"DB Path: %@", _databasePath);
             }
             
             if (_crashOnErrors) {
@@ -1003,7 +1003,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
             NSString *parameterName = [[NSString alloc] initWithFormat:@":%@", dictionaryKey];
             
             if (_traceExecution) {
-                NSLog(@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]);
+                LBPLog(@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]);
             }
             // Get the index for the parameter name.
             int namedIdx = sqlite3_bind_parameter_index(pStmt, [parameterName UTF8String]);
@@ -1021,7 +1021,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
                 NSString *message = [NSString stringWithFormat:@"Could not find index for %@", dictionaryKey];
                 
                 if (_logsErrors) {
-                    NSLog(@"%@", message);
+                    LBPLog(@"%@", message);
                 }
                 if (outErr) {
                     *outErr = [self errorWithMessage:message];
@@ -1046,10 +1046,10 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
             
             if (_traceExecution) {
                 if ([obj isKindOfClass:[NSData class]]) {
-                    NSLog(@"data: %ld bytes", (unsigned long)[(NSData*)obj length]);
+                    LBPLog(@"data: %ld bytes", (unsigned long)[(NSData*)obj length]);
                 }
                 else {
-                    NSLog(@"obj: %@", obj);
+                    LBPLog(@"obj: %@", obj);
                 }
             }
             
@@ -1063,7 +1063,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     if (idx != queryCount) {
         NSString *message = [NSString stringWithFormat:@"Error: the bind count (%d) is not correct for the # of variables in the query (%d) (%@) (executeUpdate)", idx, queryCount, sql];
         if (_logsErrors) {
-            NSLog(@"%@", message);
+            LBPLog(@"%@", message);
         }
         if (outErr) {
             *outErr = [self errorWithMessage:message];
@@ -1085,15 +1085,15 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     }
     else if (SQLITE_INTERRUPT == rc) {
         if (_logsErrors) {
-            NSLog(@"Error calling sqlite3_step. Query was interrupted (%d: %s) SQLITE_INTERRUPT", rc, sqlite3_errmsg(_db));
-            NSLog(@"DB Query: %@", sql);
+            LBPLog(@"Error calling sqlite3_step. Query was interrupted (%d: %s) SQLITE_INTERRUPT", rc, sqlite3_errmsg(_db));
+            LBPLog(@"DB Query: %@", sql);
         }
     }
     else if (rc == SQLITE_ROW) {
         NSString *message = [NSString stringWithFormat:@"A executeUpdate is being called with a query string '%@'", sql];
         if (_logsErrors) {
-            NSLog(@"%@", message);
-            NSLog(@"DB Query: %@", sql);
+            LBPLog(@"%@", message);
+            LBPLog(@"DB Query: %@", sql);
         }
         if (outErr) {
             *outErr = [self errorWithMessage:message];
@@ -1106,22 +1106,22 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         
         if (SQLITE_ERROR == rc) {
             if (_logsErrors) {
-                NSLog(@"Error calling sqlite3_step (%d: %s) SQLITE_ERROR", rc, sqlite3_errmsg(_db));
-                NSLog(@"DB Query: %@", sql);
+                LBPLog(@"Error calling sqlite3_step (%d: %s) SQLITE_ERROR", rc, sqlite3_errmsg(_db));
+                LBPLog(@"DB Query: %@", sql);
             }
         }
         else if (SQLITE_MISUSE == rc) {
             // uh oh.
             if (_logsErrors) {
-                NSLog(@"Error calling sqlite3_step (%d: %s) SQLITE_MISUSE", rc, sqlite3_errmsg(_db));
-                NSLog(@"DB Query: %@", sql);
+                LBPLog(@"Error calling sqlite3_step (%d: %s) SQLITE_MISUSE", rc, sqlite3_errmsg(_db));
+                LBPLog(@"DB Query: %@", sql);
             }
         }
         else {
             // wtf?
             if (_logsErrors) {
-                NSLog(@"Unknown error calling sqlite3_step (%d: %s) eu", rc, sqlite3_errmsg(_db));
-                NSLog(@"DB Query: %@", sql);
+                LBPLog(@"Unknown error calling sqlite3_step (%d: %s) eu", rc, sqlite3_errmsg(_db));
+                LBPLog(@"DB Query: %@", sql);
             }
         }
     }
@@ -1151,8 +1151,8 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     
     if (closeErrorCode != SQLITE_OK) {
         if (_logsErrors) {
-            NSLog(@"Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(_db));
-            NSLog(@"DB Query: %@", sql);
+            LBPLog(@"Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(_db));
+            LBPLog(@"DB Query: %@", sql);
         }
     }
     
@@ -1234,7 +1234,7 @@ int FMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values,
     rc = sqlite3_exec([self sqliteHandle], [sql UTF8String], block ? FMDBExecuteBulkSQLCallback : nil, (__bridge void *)(block), &errmsg);
     
     if (errmsg && [self logsErrors]) {
-        NSLog(@"Error inserting batch: %s", errmsg);
+        LBPLog(@"Error inserting batch: %s", errmsg);
         sqlite3_free(errmsg);
     }
     
@@ -1335,7 +1335,7 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) LBPLog(@"%@", errorMessage);
     return NO;
 #endif
 }
@@ -1349,7 +1349,7 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) LBPLog(@"%@", errorMessage);
     return NO;
 #endif
 }
@@ -1363,7 +1363,7 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) LBPLog(@"%@", errorMessage);
     return NO;
 #endif
 }
@@ -1395,7 +1395,7 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return err;
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) LBPLog(@"%@", errorMessage);
     return [NSError errorWithDomain:@"FMDatabase" code:0 userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
 #endif
 }

@@ -2,7 +2,7 @@
 //  PayOrderViewController.m
 //  住哪儿
 //
-//  Created by geek on 2017/1/5.
+//  Created by 杭城小刘 on 2017/1/5.
 //  Copyright © 2017年 geek. All rights reserved.
 //
 
@@ -213,9 +213,9 @@
     
     if (indexPath.section == 1 ) {
         if (indexPath.row == 1) {
-            NSLog(@"支付宝支付");
+            LBPLog(@"支付宝支付");
         }else{
-            NSLog(@"微信支付");
+            LBPLog(@"微信支付");
         }
     }
 }

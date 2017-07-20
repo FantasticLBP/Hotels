@@ -786,8 +786,8 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
                              }
 #endif
                              // uncomment to make sure UIWindow is gone from app.windows
-                             //NSLog(@"%@", [UIApplication sharedApplication].windows);
-                             //NSLog(@"keyWindow = %@", [UIApplication sharedApplication].keyWindow);
+                             //LBPLog(@"%@", [UIApplication sharedApplication].windows);
+                             //LBPLog(@"keyWindow = %@", [UIApplication sharedApplication].keyWindow);
                          }
                      }];
 }

@@ -3,7 +3,7 @@
 //  SettingViewController.m
 //  KSGuidViewDemo
 //
-//  Created by geek on 2016/10/14.
+//  Created by 杭城小刘 on 2016/10/14.
 //  Copyright © 2016年 孔. All rights reserved.
 //
 
@@ -41,6 +41,7 @@
 -(void)logoutUser{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确认要退出吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:LogoutNotification object:nil];
         [UserManager logoOut];
         self.userInfo = [UserManager getUserObject];
         [self.tableView reloadData];
@@ -52,7 +53,7 @@
 }
 
 -(void)manifyImage{
-    NSLog(@"更换头像");
+    LBPLog(@"更换头像");
 }
 
 #pragma mark -- UITableViewDelegate
@@ -199,11 +200,11 @@
         }
     }else if (indexPath.section == 1){
         if (indexPath.row == 0 ) {
-            NSLog(@"点击了我的优惠券");
+            LBPLog(@"点击了我的优惠券");
         }
     }else if(indexPath.section == 2){
         if (indexPath.row == 0) {
-            NSLog(@"芝麻信用");
+            LBPLog(@"芝麻信用");
             ImageVC *vc = [[ImageVC alloc] init];
             vc.imageName = @"XZQ";
             [self.navigationController pushViewController:vc animated:YES];
@@ -217,7 +218,7 @@
             MyNotificationVC *vc = [[MyNotificationVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 4) {
-            NSLog(@"在线咨询与投诉");
+            LBPLog(@"在线咨询与投诉");
         }else if (indexPath.row == 5){
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"拨打客服电话" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -235,7 +236,7 @@
         }
     }else if (indexPath.section == 3){
         if (indexPath.row == 0) {
-            NSLog(@"1");
+            LBPLog(@"1");
         }else if (indexPath.row == 1) {
             FAQVC *vc = [[FAQVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];

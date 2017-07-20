@@ -3,7 +3,7 @@
 //  LBPScrollSegmentView.m
 //  heletalk-doctor
 //
-//  Created by geek on 16/8/4.
+//  Created by 杭城小刘 on 16/8/4.
 //  Copyright © 2016年 heletech. All rights reserved.
 //
 #import "LBPScrollSegmentView.h"
@@ -176,7 +176,6 @@
         _scrollView.contentSize = CGSizeMake(self.frame.size.width*self.controllers.count, 0.0f);
         _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
-        _scrollView.backgroundColor = [UIColor redColor];
         for (int i = 0; i < self.controllers.count; i++) {
             UIViewController *vc = [self.controllers objectAtIndex:i];
             vc.view.frame = CGRectMake(self.frame.size.width*i, 0, self.frame.size.width, _scrollView.bounds.size.height);

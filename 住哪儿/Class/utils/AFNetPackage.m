@@ -2,7 +2,7 @@
 //  AFNetPackage.m
 //  KSGuidViewDemo
 //
-//  Created by geek on 2016/10/21.
+//  Created by 杭城小刘 on 2016/10/21.
 //  Copyright © 2016年 孔. All rights reserved.
 //
 
@@ -28,7 +28,7 @@
     
     // 检测网络连接的单例,网络变化时的回调方法
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSLog(@"%ld", status);
+        LBPLog(@"%ld", status);
     }];
 }
 
@@ -48,7 +48,7 @@
             success(responseObject);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
+        LBPLog(@"%@", error);
         if (fail) {
             fail();
         }
@@ -76,7 +76,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
+        LBPLog(@"%@", error);
         if (fail) {
             fail();
         }
@@ -99,7 +99,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
+        LBPLog(@"%@", error);
         if (fail) {
             fail();
         }
@@ -132,7 +132,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
+        LBPLog(@"%@", error);
         if (fail) {
             fail();
         }
@@ -161,7 +161,7 @@
             success(responseObject);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
+        LBPLog(@"%@", error);
         if (fail) {
             fail();
         }
@@ -186,7 +186,7 @@
     
     NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         // 指定下载文件保存的路径
-        //        NSLog(@"%@ %@", targetPath, response.suggestedFilename);
+        //        LBPLog(@"%@ %@", targetPath, response.suggestedFilename);
         // 将下载文件保存在缓存路径中
         NSString *cacheDir = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
         NSString *path = [cacheDir stringByAppendingPathComponent:response.suggestedFilename];
@@ -195,14 +195,14 @@
         //        NSURL *fileURL1 = [NSURL URLWithString:path];
         NSURL *fileURL = [NSURL fileURLWithPath:path];
         
-        //        NSLog(@"== %@ |||| %@", fileURL1, fileURL);
+        //        LBPLog(@"== %@ |||| %@", fileURL1, fileURL);
         if (success) {
             success(fileURL);
         }
         
         return fileURL;
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        NSLog(@"%@ %@", filePath, error);
+        LBPLog(@"%@ %@", filePath, error);
         if (fail) {
             fail();
         }

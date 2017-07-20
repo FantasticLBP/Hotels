@@ -2,7 +2,7 @@
 //  OrderViewController.m
 //  住哪儿
 //
-//  Created by geek on 2016/10/10.
+//  Created by 杭城小刘 on 2016/10/10.
 //  Copyright © 2016年 Fantasticbaby. All rights reserved.
 //
 
@@ -60,7 +60,15 @@
 
 #pragma mark - LBPcrollSegmentViewDelegate
 -(void)lbpScrollSegmentView:(LBPScrollSegmentView *)lbpScrollSegmentView didScrolledWIthIndex:(int)index{
-    NSLog(@"index---%d",index);
+    if (index == 0) {
+        [self.willPayVC reloadData];
+    }else if(index == 1){
+        [self.unWalkVC reloadData];
+    }else if(index == 2){
+        [self.willEvaluateVC reloadData];
+    }else if(index == 3){
+        [self.historyVC reloadData];
+    }
 }
 
 #pragma mark - lazy load

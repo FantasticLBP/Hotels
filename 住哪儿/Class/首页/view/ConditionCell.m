@@ -2,7 +2,7 @@
 //  ConditionCell.m
 //  住哪儿
 //
-//  Created by geek on 2016/12/9.
+//  Created by 杭城小刘 on 2016/12/9.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
@@ -16,13 +16,13 @@
 @implementation ConditionCell
 
 -(void)setImageName:(NSString *)imageName{
-    NSLog(@"set-titileName:%@",self.titleName);
+    LBPLog(@"set-titileName:%@",self.titleName);
     _imageName = imageName;
     self.imageView.image = [UIImage imageNamed:self.imageName];
 }
 
 -(void)setTitleName:(NSString *)titleName{
-    NSLog(@"set-imageName:%@",self.imageName);
+    LBPLog(@"set-imageName:%@",self.imageName);
     _titleName = titleName;
     self.label.text = self.titleName;
 }

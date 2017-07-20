@@ -471,7 +471,7 @@
 
 #pragma mark --- JFLocationDelegate
 - (void)locating {
-    NSLog(@"定位中。。。");
+    LBPLog(@"定位中。。。");
 }
 
 //定位成功
@@ -500,12 +500,12 @@
 
 /// 拒绝定位
 - (void)refuseToUsePositioningSystem:(NSString *)message {
-    NSLog(@"%@",message);
+    LBPLog(@"%@",message);
 }
 
 /// 定位失败
 - (void)locateFailure:(NSString *)message {
-    NSLog(@"%@",message);
+    LBPLog(@"%@",message);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -3,7 +3,7 @@
 //  HotelLocationMapVC.m
 //  住哪儿
 //
-//  Created by geek on 2016/12/25.
+//  Created by 杭城小刘 on 2016/12/25.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
@@ -53,16 +53,16 @@
 }
 
 -(void)startNavigation{
-    NSLog(@"开始导航");
+    LBPLog(@"开始导航");
     [self presentViewController:self.alertController animated:YES completion:nil];
 }
 
 -(void)myPosition{
-    NSLog(@"我的位置");
+    LBPLog(@"我的位置");
 }
 
 -(void)hotelPosition{
-    NSLog(@"酒店位置");
+    LBPLog(@"酒店位置");
     
 }
 
@@ -83,10 +83,10 @@
     
     BOOL flag = [self.poiSearch poiSearchNearBy:option];
     if (flag) {
-        NSLog(@"搜索成功");
+        LBPLog(@"搜索成功");
         [self.locService stopUserLocationService];
     }else{
-        NSLog(@"搜索失败");
+        LBPLog(@"搜索失败");
     }
     
 }
@@ -126,7 +126,7 @@
 }
 
 - (void)onGetPoiDetailResult:(BMKPoiSearch*)searcher result:(BMKPoiDetailResult*)poiDetailResult errorCode:(BMKSearchErrorCode)errorCode{
-    NSLog(@"详情%@",poiDetailResult.name);
+    LBPLog(@"详情%@",poiDetailResult.name);
 }
 
 #pragma mark - BMKMapViewDelegate
@@ -153,10 +153,10 @@
     BOOL flag = [self.poiSearch poiDetailSearch:option];
     
     if (flag) {
-        NSLog(@"检索成功");
+        LBPLog(@"检索成功");
     }
     else {
-        NSLog(@"检索失败");
+        LBPLog(@"检索失败");
     }
 }
 

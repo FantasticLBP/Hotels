@@ -3,7 +3,7 @@
 //  OrderItemVC.m
 //  住哪儿
 //
-//  Created by geek on 2016/12/28.
+//  Created by 杭城小刘 on 2016/12/28.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
@@ -30,10 +30,11 @@ OrderCellDelegte>
     [self setupUI];
     self.page  = 1;
     [self reloadData];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearData) name:LogoutNotification object:nil];
 }
 
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [SVProgressHUD dismiss];
 }
@@ -45,8 +46,15 @@ OrderCellDelegte>
     [self.tableView reloadData];
 }
 
+-(void)clearData{
+    [self.orders removeAllObjects];
+    [self.tableView reloadData];
+    
+}
+
 
 -(void)reloadData{
+    self.page = 1;
     if ([ProjectUtil isBlank:[UserManager getUserObject].telephone]) {
         [SVProgressHUD showInfoWithStatus:@"请先登录"];
         [self.tableView.mj_header endRefreshing];
@@ -125,7 +133,7 @@ OrderCellDelegte>
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击了");
+    LBPLog(@"点击了");
 }
 
 #pragma mark -- UITableViewDataSource
@@ -150,19 +158,19 @@ OrderCellDelegte>
 -(void)orderCell:(OrderCell *)cell didClickButtonWithCellType:(OrderButtonOperationType)type withOrderModel:(OrderModel *)model{
     switch (type) {
         case OrderButtonOperationType_Pay:{
-            NSLog(@"继续支付");
+            LBPLog(@"继续支付");
             break;
         }
         case OrderButtonOperationType_Cancel:{
-            NSLog(@"删除订单");
+            LBPLog(@"删除订单");
             break;
         }
         case OrderButtonOperationType_Revoke:{
-            NSLog(@"取消订单");
+            LBPLog(@"取消订单");
             break;
         }
         case OrderButtonOperationType_Evaluate:{
-            NSLog(@"评价订单");
+            LBPLog(@"评价订单");
             break;
         }
         case OrderButtonOperationType_Remind:{

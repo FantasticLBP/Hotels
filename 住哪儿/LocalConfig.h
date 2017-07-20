@@ -3,7 +3,7 @@
 //  LocalConfig.h
 //  KSGuidViewDemo
 //
-//  Created by geek on 2016/10/13.
+//  Created by 杭城小刘 on 2016/10/13.
 //  Copyright © 2016年 . All rights reserved.
 //
 
@@ -13,6 +13,18 @@
 /************************************获取屏幕 宽度、高度******************************************/
 #define BoundWidth [UIScreen mainScreen].bounds.size.width
 #define BoundHeight [UIScreen mainScreen].bounds.size.height
+
+/************************************颜色******************************************/
+
+#ifdef DEBUG
+
+#define LBPLog(...) NSLog(__VA_ARGS__)
+
+#else
+
+#define LBPLog(...) 
+
+#endif
 
 /************************************颜色******************************************/
 #define GlobalMainColor [UIColor colorWithRed:93/255.0 green:70/255.0 blue:148/255.0 alpha:1]
@@ -42,7 +54,7 @@
 
 /************************************通知名称******************************************/
 #define LocalNitificationArray @"LocalNitificationArray"
-
+#define LogoutNotification @"LogoutNotification"
 /************************************用户信息******************************************/
 #define User_Info @"User_Info"
 #define User_Avator @"User_Avator"

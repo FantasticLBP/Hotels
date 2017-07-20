@@ -3,7 +3,7 @@
 //  ShakeViewController.m
 //  住哪儿
 //
-//  Created by geek on 2017/4/30.
+//  Created by 杭城小刘 on 2017/4/30.
 //  Copyright © 2017年 geek. All rights reserved.
 //
 
@@ -64,7 +64,13 @@
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
             self.model = [HotelsModel yy_modelWithJSON:dic[@"data"]];
             self.hotelLabel.text = self.model.hotelName;
-            [self.hotelLabel sizeToFit];
+            
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.hotelLabel.text];
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            [paragraphStyle setLineSpacing:5];
+            [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [self.hotelLabel.text length])];
+            self.hotelLabel.attributedText = attributedString;
+            
             [self.hotelImage sd_setImageWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@/%@",Base_Url,self.model.image1]] placeholderImage:[UIImage imageNamed:@"jpg-1"]];
         }
     } fail:^{
@@ -98,29 +104,21 @@
         self.label.text = @"您已经成功摇到一个酒店，不喜欢？换个姿势再来一次";
         [self.label sizeToFit];
         
-        self.hotelImage.contentMode =  UIViewContentModeScaleAspectFill;
-        self.hotelImage.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-        self.hotelImage.clipsToBounds  = YES;
-        
-        //动态设置uilabel的高度
-        self.hotelLabel.numberOfLines = 0;
-        self.hotelLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        
     } completion:^(BOOL finished) {
 
     }];
-    NSLog(@"摇一摇开始");
+    LBPLog(@"摇一摇开始");
     return ;
 }
 
 -(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    NSLog(@"取消摇一摇");
+    LBPLog(@"取消摇一摇");
     return ;
 }
 
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if (motion ==UIEventSubtypeMotionShake ){
-        NSLog(@"摇一摇结束");
+        LBPLog(@"摇一摇结束");
     }
     return ;
 }
@@ -166,15 +164,20 @@
     if (!_hotelImage) {
         _hotelImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
         _hotelImage.contentMode = UIViewContentModeScaleAspectFit;
+        _hotelImage.contentMode =  UIViewContentModeScaleAspectFill;
+        _hotelImage.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        _hotelImage.clipsToBounds  = YES;
     }
     return _hotelImage;
 }
 
 -(UILabel *)hotelLabel{
     if (!_hotelLabel) {
-        _hotelLabel = [[UILabel alloc] initWithFrame:CGRectMake(135, 40, BoundWidth - 30- 140, 40)];
+        _hotelLabel = [[UILabel alloc] initWithFrame:CGRectMake(135, 0, BoundWidth - 30- 140, 120)];
         _hotelLabel.textColor = [UIColor blackColor];
+        _hotelLabel.numberOfLines = 0;
         _hotelLabel.font = [UIFont systemFontOfSize:20];
+        _hotelLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _hotelLabel;
 }

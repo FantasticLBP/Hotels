@@ -4,7 +4,7 @@
 //  OrderResultViewControllrt.m
 //  住哪儿
 //
-//  Created by geek on 2017/1/6.
+//  Created by 杭城小刘 on 2017/1/6.
 //  Copyright © 2017年 geek. All rights reserved.
 //
 
@@ -57,7 +57,7 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击了");
+    LBPLog(@"点击了");
 }
 
 #pragma mark -- UITableViewDataSource

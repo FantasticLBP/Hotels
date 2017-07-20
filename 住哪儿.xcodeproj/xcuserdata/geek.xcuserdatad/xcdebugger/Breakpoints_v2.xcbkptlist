@@ -13,5 +13,53 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/utils/AFNetPackage.m"
+            timestampString = "521976414.755176"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "+postJSONWithUrl:parameters:success:fail:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[AFNetPackage postJSONWithUrl:parameters:success:fail:]"
+                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geek/Desktop/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/utils/AFNetPackage.m"
+                  timestampString = "522239407.750983"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "507">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__56+[AFNetPackage postJSONWithUrl:parameters:success:fail:]_block_invoke"
+                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/geek/Desktop/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/utils/AFNetPackage.m"
+                  timestampString = "522239407.753195"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

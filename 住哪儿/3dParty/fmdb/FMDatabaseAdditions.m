@@ -141,7 +141,7 @@ return ret;
     return r;
 #else
     NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) LBPLog(@"%@", errorMessage);
     return 0;
 #endif
 }
@@ -154,7 +154,7 @@ return ret;
     [rs close];
 #else
     NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) LBPLog(@"%@", errorMessage);
 #endif
 }
 
@@ -173,7 +173,7 @@ return ret;
     return s;
 #else
     NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) LBPLog(@"%@", errorMessage);
     return nil;
 #endif
 }
@@ -181,13 +181,13 @@ return ret;
 - (void)setApplicationIDString:(NSString*)s {
 #if SQLITE_VERSION_NUMBER >= 3007017
     if ([s length] != 4) {
-        NSLog(@"setApplicationIDString: string passed is not exactly 4 chars long. (was %ld)", [s length]);
+        LBPLog(@"setApplicationIDString: string passed is not exactly 4 chars long. (was %ld)", [s length]);
     }
     
     [self setApplicationID:NSHFSTypeCodeFromFileType([NSString stringWithFormat:@"'%@'", s])];
 #else
     NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) LBPLog(@"%@", errorMessage);
 #endif
 }
 

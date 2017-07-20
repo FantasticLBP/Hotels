@@ -2,7 +2,7 @@
 //  ImageVC.m
 //  住哪儿
 //
-//  Created by geek on 2016/12/2.
+//  Created by 杭城小刘 on 2016/12/2.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
@@ -18,30 +18,8 @@
     [super viewDidLoad];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight)];
     imageView.image = [UIImage imageNamed:self.imageName];
-//    [[[UIApplication sharedApplication] keyWindow] addSubview:imageView];
     [self.view addSubview:imageView];
-    
 }
-
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
-
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {   //设置样式
-    return UIStatusBarStyleLightContent;
-}
-- (BOOL)prefersStatusBarHidden { //设置隐藏显示
-    return YES;
-}
-
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

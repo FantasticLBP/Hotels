@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  住哪儿
 //
-//  Created by geek on 2016/11/15.
+//  Created by 杭城小刘 on 2016/11/15.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
@@ -29,7 +29,7 @@
     
     BOOL ret = [_mapManager start:@"LYHkYVQGWmQxKZw7O62P24Cj1aCovpuN" generalDelegate:nil];
     if (!ret) {
-        NSLog(@"manager start failed!");
+        LBPLog(@"manager start failed!");
     }
     return YES;
 }
@@ -55,33 +55,33 @@
     [alert show];
     
     // 查看当前的状态出于(前台: 0)/(后台: 2)/(从后台进入前台: 1)
-    NSLog(@"applicationState.rawValue: %zd", application.applicationState);
+    LBPLog(@"applicationState.rawValue: %zd", application.applicationState);
     
     // 执行响应操作
     // 如果当前App在前台,执行操作
     if (application.applicationState == UIApplicationStateActive) {
-        NSLog(@"执行前台对应的操作");
+        LBPLog(@"执行前台对应的操作");
     } else if (application.applicationState == UIApplicationStateInactive) {
         // 后台进入前台
-        NSLog(@"执行后台进入前台对应的操作");
-        NSLog(@"*****%@", notification.userInfo);
+        LBPLog(@"执行后台进入前台对应的操作");
+        LBPLog(@"*****%@", notification.userInfo);
     } else if (application.applicationState == UIApplicationStateBackground) {
         // 当前App在后台
         
-        NSLog(@"执行后台对应的操作");
+        LBPLog(@"执行后台对应的操作");
     }
 }
 
 
 //监听通知操作行为的点击
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler{
-    NSLog(@"监听通知操作行为的点击");
+    LBPLog(@"监听通知操作行为的点击");
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation{
-    NSLog(@"calling application bundle id: %@",sourceApplication);
-    NSLog(@"url shceme:%@",[url scheme]);
-    NSLog(@"参数:%@",[url query]);
+    LBPLog(@"calling application bundle id: %@",sourceApplication);
+    LBPLog(@"url shceme:%@",[url scheme]);
+    LBPLog(@"参数:%@",[url query]);
     if ([sourceApplication isEqualToString:@"com.geek.test1"]) {
         return YES;
     }

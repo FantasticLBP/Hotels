@@ -3,7 +3,7 @@
 //  PrivilegeHotelVC.m
 //  住哪儿
 //
-//  Created by geek on 2016/12/20.
+//  Created by 杭城小刘 on 2016/12/20.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
@@ -55,7 +55,7 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
 
 #pragma mark - TimerPickerVCDelegate
 -(void)timerPickerVC:(TimerPickerVC *)vc didPickedTime:(NSDate *)period{
-    NSLog(@"选择日期:%@",period);
+    LBPLog(@"选择日期:%@",period);
 }
 
 
@@ -78,18 +78,18 @@ static NSString *CheaperHotelCellID = @"CheaperHotelCell";
             JFCityViewController *cityViewController = [[JFCityViewController alloc] init];
             cityViewController.title = @"城市";
             [cityViewController choseCityBlock:^(NSString *cityName) {
-                NSLog(@"选择城市%@",cityName);
+                LBPLog(@"选择城市%@",cityName);
             }];
             LBPNavigationController *navigationController = [[LBPNavigationController alloc] initWithRootViewController:cityViewController];
             [self presentViewController:navigationController animated:YES completion:nil];
             break;
         }
         case Operation_Type_AutoLocate:{
-            NSLog(@"自动定位");
+            LBPLog(@"自动定位");
             break;
         }
         case Operation_Type_SearchHotel:{
-            NSLog(@"查找酒店");
+            LBPLog(@"查找酒店");
             break;
         }
         case Operation_Type_StarFilter:{

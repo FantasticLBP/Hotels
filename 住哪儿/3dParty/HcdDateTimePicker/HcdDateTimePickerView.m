@@ -530,7 +530,7 @@
     NSInteger minuteInt = minuteLabel.tag - 1;
     NSInteger secondInt = secondLabel.tag - 1;
     NSString *taskDateString = [NSString stringWithFormat:@"%ld%02ld%02ld%02ld%02ld%02ld",(long)yearInt,(long)monthInt,(long)dayInt,(long)hourInt,(long)minuteInt,(long)secondInt];
-    NSLog(@"Now----%@",taskDateString);
+    LBPLog(@"Now----%@",taskDateString);
 }
 //滚动时上下标签显示(当前时间和是否为有效时间)
 - (void)scrollviewDidChangeNumber
@@ -658,7 +658,7 @@
 -(void)dismiss:(UITapGestureRecognizer *)tap{
     
     if( CGRectContainsPoint(self.frame, [tap locationInView:timeBroadcastView])) {
-        NSLog(@"tap");
+        LBPLog(@"tap");
     } else{
         
         [self dismissBlock:^(BOOL Complete) {

@@ -46,21 +46,21 @@ static JFAreaDataManager *manager = nil;
     BOOL success = [db open];
     if (success) {
         // 数据库创建成功!
-        NSLog(@"数据库创建成功!");
+        LBPLog(@"数据库创建成功!");
         NSString *sqlStr = @"CREATE TABLE IF NOT EXISTS shop_area (area_number INTEGER ,area_name TEXT ,city_number INTEGER ,city_name TEXT ,province_number INTEGER ,province_name TEXT);";
         BOOL successT = [self.db executeUpdate:sqlStr];
         if (successT) {
         // 创建表成功!
             
-            NSLog(@"创建表成功!");
+            LBPLog(@"创建表成功!");
         }else{
             // 创建表失败!
-            NSLog(@"创建表失败!");
+            LBPLog(@"创建表失败!");
             [self.db close];
         }
     }else{
         // 数据库创建失败!
-        NSLog(@"数据库创建失败!");
+        LBPLog(@"数据库创建失败!");
         [self.db close];
     }
 }

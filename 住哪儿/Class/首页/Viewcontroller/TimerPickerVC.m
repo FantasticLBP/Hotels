@@ -3,7 +3,7 @@
 //  TimerPickerVC.m
 //  Example
 //
-//  Created by geek on 2017/2/5.
+//  Created by 杭城小刘 on 2017/2/5.
 //  Copyright © 2017年 Daniel. All rights reserved.
 //
 

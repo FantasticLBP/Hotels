@@ -2,7 +2,7 @@
 //  LBPScrollSegmentView.h
 //  heletalk-doctor
 //
-//  Created by geek on 16/8/4.
+//  Created by 杭城小刘 on 16/8/4.
 //  Copyright © 2016年 heletech. All rights reserved.
 //
 
@@ -10,7 +10,12 @@
 @class LBPScrollSegmentView;
 
 @protocol LBPScrollSegmentViewDelegate <NSObject>
+
+@optional;
 -(void)lbpScrollSegmentView:(LBPScrollSegmentView *)lbpScrollSegmentView didScrolledWIthIndex:(int)index;
+
+-(void)lbpScrollSegmentView:(LBPScrollSegmentView *)lbpScrollSegmentView viewWillAppear:(id)index;
+
 @end
 
 @interface LBPScrollSegmentView : UIView
