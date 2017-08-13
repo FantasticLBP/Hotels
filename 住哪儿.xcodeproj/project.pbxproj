@@ -226,13 +226,6 @@
 		93E02DBA1DDB598D007EAE1E /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02C951DDB598D007EAE1E /* AFURLRequestSerialization.m */; };
 		93E02DBB1DDB598D007EAE1E /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02C971DDB598D007EAE1E /* AFURLResponseSerialization.m */; };
 		93E02DBC1DDB598D007EAE1E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02C991DDB598D007EAE1E /* AFURLSessionManager.m */; };
-		93E02DE61DDB598D007EAE1E /* BLKDelegateSplitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02CF91DDB598D007EAE1E /* BLKDelegateSplitter.m */; };
-		93E02DE71DDB598D007EAE1E /* BLKFlexibleHeightBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02CFB1DDB598D007EAE1E /* BLKFlexibleHeightBar.m */; };
-		93E02DE81DDB598D007EAE1E /* BLKFlexibleHeightBarBehaviorDefiner.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02CFD1DDB598D007EAE1E /* BLKFlexibleHeightBarBehaviorDefiner.m */; };
-		93E02DE91DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02CFF1DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.m */; };
-		93E02DEA1DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D011DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.m */; };
-		93E02DEB1DDB598D007EAE1E /* SquareCashStyleBehaviorDefiner.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D031DDB598D007EAE1E /* SquareCashStyleBehaviorDefiner.m */; };
-		93E02DEC1DDB598D007EAE1E /* UIView+BLKFlexibleHeightBarSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D051DDB598D007EAE1E /* UIView+BLKFlexibleHeightBarSubview.m */; };
 		93E02DED1DDB598D007EAE1E /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D0B1DDB598D007EAE1E /* FUIAlertView.m */; };
 		93E02DEE1DDB598D007EAE1E /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D0D1DDB598D007EAE1E /* FUIButton.m */; };
 		93E02DEF1DDB598D007EAE1E /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D0F1DDB598D007EAE1E /* FUICellBackgroundView.m */; };
@@ -258,17 +251,6 @@
 		93E02E031DDB598D007EAE1E /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D351DDB598D007EAE1E /* Lato-Italic.ttf */; };
 		93E02E041DDB598D007EAE1E /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D361DDB598D007EAE1E /* Lato-Light.ttf */; };
 		93E02E051DDB598D007EAE1E /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D371DDB598D007EAE1E /* Lato-Regular.ttf */; };
-		93E02E061DDB598D007EAE1E /* INSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D3A1DDB598D007EAE1E /* INSSearchBar.m */; };
-		93E02E071DDB598D007EAE1E /* NavBarIconSearch_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D3B1DDB598D007EAE1E /* NavBarIconSearch_blue.png */; };
-		93E02E081DDB598D007EAE1E /* NavBarIconSearch_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D3C1DDB598D007EAE1E /* NavBarIconSearch_blue@2x.png */; };
-		93E02E091DDB598D007EAE1E /* NavBarIconSearch_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D3D1DDB598D007EAE1E /* NavBarIconSearch_white.png */; };
-		93E02E0A1DDB598D007EAE1E /* NavBarIconSearch_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D3E1DDB598D007EAE1E /* NavBarIconSearch_white@2x.png */; };
-		93E02E0B1DDB598D007EAE1E /* NavBarIconSearchBar2_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D3F1DDB598D007EAE1E /* NavBarIconSearchBar2_blue.png */; };
-		93E02E0C1DDB598D007EAE1E /* NavBarIconSearchBar2_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D401DDB598D007EAE1E /* NavBarIconSearchBar2_blue@2x.png */; };
-		93E02E0D1DDB598D007EAE1E /* NavBarIconSearchBar_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D411DDB598D007EAE1E /* NavBarIconSearchBar_blue.png */; };
-		93E02E0E1DDB598D007EAE1E /* NavBarIconSearchBar_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D421DDB598D007EAE1E /* NavBarIconSearchBar_blue@2x.png */; };
-		93E02E0F1DDB598D007EAE1E /* NavBarIconSearchCircle_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D431DDB598D007EAE1E /* NavBarIconSearchCircle_blue.png */; };
-		93E02E101DDB598D007EAE1E /* NavBarIconSearchCircle_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E02D441DDB598D007EAE1E /* NavBarIconSearchCircle_blue@2x.png */; };
 		93E02E111DDB598D007EAE1E /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D471DDB598D007EAE1E /* MBProgressHUD+Add.m */; };
 		93E02E121DDB598D007EAE1E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D491DDB598D007EAE1E /* MBProgressHUD.m */; };
 		93E02E131DDB598D007EAE1E /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E02D4D1DDB598D007EAE1E /* MJRefreshAutoFooter.m */; };
@@ -743,20 +725,6 @@
 		93E02C971DDB598D007EAE1E /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		93E02C981DDB598D007EAE1E /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		93E02C991DDB598D007EAE1E /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		93E02CF81DDB598D007EAE1E /* BLKDelegateSplitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKDelegateSplitter.h; sourceTree = "<group>"; };
-		93E02CF91DDB598D007EAE1E /* BLKDelegateSplitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKDelegateSplitter.m; sourceTree = "<group>"; };
-		93E02CFA1DDB598D007EAE1E /* BLKFlexibleHeightBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKFlexibleHeightBar.h; sourceTree = "<group>"; };
-		93E02CFB1DDB598D007EAE1E /* BLKFlexibleHeightBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKFlexibleHeightBar.m; sourceTree = "<group>"; };
-		93E02CFC1DDB598D007EAE1E /* BLKFlexibleHeightBarBehaviorDefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKFlexibleHeightBarBehaviorDefiner.h; sourceTree = "<group>"; };
-		93E02CFD1DDB598D007EAE1E /* BLKFlexibleHeightBarBehaviorDefiner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKFlexibleHeightBarBehaviorDefiner.m; sourceTree = "<group>"; };
-		93E02CFE1DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKFlexibleHeightBarSubviewLayoutAttributes.h; sourceTree = "<group>"; };
-		93E02CFF1DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKFlexibleHeightBarSubviewLayoutAttributes.m; sourceTree = "<group>"; };
-		93E02D001DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookStyleBarBehaviorDefiner.h; sourceTree = "<group>"; };
-		93E02D011DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookStyleBarBehaviorDefiner.m; sourceTree = "<group>"; };
-		93E02D021DDB598D007EAE1E /* SquareCashStyleBehaviorDefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareCashStyleBehaviorDefiner.h; sourceTree = "<group>"; };
-		93E02D031DDB598D007EAE1E /* SquareCashStyleBehaviorDefiner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareCashStyleBehaviorDefiner.m; sourceTree = "<group>"; };
-		93E02D041DDB598D007EAE1E /* UIView+BLKFlexibleHeightBarSubview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BLKFlexibleHeightBarSubview.h"; sourceTree = "<group>"; };
-		93E02D051DDB598D007EAE1E /* UIView+BLKFlexibleHeightBarSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BLKFlexibleHeightBarSubview.m"; sourceTree = "<group>"; };
 		93E02D091DDB598D007EAE1E /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
 		93E02D0A1DDB598D007EAE1E /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
 		93E02D0B1DDB598D007EAE1E /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
@@ -803,18 +771,6 @@
 		93E02D351DDB598D007EAE1E /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		93E02D361DDB598D007EAE1E /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		93E02D371DDB598D007EAE1E /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
-		93E02D391DDB598D007EAE1E /* INSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSSearchBar.h; sourceTree = "<group>"; };
-		93E02D3A1DDB598D007EAE1E /* INSSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSSearchBar.m; sourceTree = "<group>"; };
-		93E02D3B1DDB598D007EAE1E /* NavBarIconSearch_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBarIconSearch_blue.png; sourceTree = "<group>"; };
-		93E02D3C1DDB598D007EAE1E /* NavBarIconSearch_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBarIconSearch_blue@2x.png"; sourceTree = "<group>"; };
-		93E02D3D1DDB598D007EAE1E /* NavBarIconSearch_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBarIconSearch_white.png; sourceTree = "<group>"; };
-		93E02D3E1DDB598D007EAE1E /* NavBarIconSearch_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBarIconSearch_white@2x.png"; sourceTree = "<group>"; };
-		93E02D3F1DDB598D007EAE1E /* NavBarIconSearchBar2_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBarIconSearchBar2_blue.png; sourceTree = "<group>"; };
-		93E02D401DDB598D007EAE1E /* NavBarIconSearchBar2_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBarIconSearchBar2_blue@2x.png"; sourceTree = "<group>"; };
-		93E02D411DDB598D007EAE1E /* NavBarIconSearchBar_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBarIconSearchBar_blue.png; sourceTree = "<group>"; };
-		93E02D421DDB598D007EAE1E /* NavBarIconSearchBar_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBarIconSearchBar_blue@2x.png"; sourceTree = "<group>"; };
-		93E02D431DDB598D007EAE1E /* NavBarIconSearchCircle_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavBarIconSearchCircle_blue.png; sourceTree = "<group>"; };
-		93E02D441DDB598D007EAE1E /* NavBarIconSearchCircle_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBarIconSearchCircle_blue@2x.png"; sourceTree = "<group>"; };
 		93E02D461DDB598D007EAE1E /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		93E02D471DDB598D007EAE1E /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		93E02D481DDB598D007EAE1E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -1614,12 +1570,9 @@
 				93F572A11DE27C0E00966974 /* Masonry */,
 				93F6B3CF1DE1FDD20048F279 /* IQKeyboardManager */,
 				93E02C861DDB598D007EAE1E /* AFNetworking */,
-				93E02CF71DDB598D007EAE1E /* BLKFlexibleHeightBar */,
 				93E02D061DDB598D007EAE1E /* FlatUIKit */,
-				93E02D381DDB598D007EAE1E /* INSSearchBar */,
 				93E02D451DDB598D007EAE1E /* MBProgressHUD */,
 				93E02D4A1DDB598D007EAE1E /* MJRefresh */,
-				93E02D771DDB598D007EAE1E /* Regex */,
 				93E02D781DDB598D007EAE1E /* SVProgressHUD */,
 				93E02D7E1DDB598D007EAE1E /* YYModel */,
 			);
@@ -1650,27 +1603,6 @@
 				93E02C991DDB598D007EAE1E /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		93E02CF71DDB598D007EAE1E /* BLKFlexibleHeightBar */ = {
-			isa = PBXGroup;
-			children = (
-				93E02CF81DDB598D007EAE1E /* BLKDelegateSplitter.h */,
-				93E02CF91DDB598D007EAE1E /* BLKDelegateSplitter.m */,
-				93E02CFA1DDB598D007EAE1E /* BLKFlexibleHeightBar.h */,
-				93E02CFB1DDB598D007EAE1E /* BLKFlexibleHeightBar.m */,
-				93E02CFC1DDB598D007EAE1E /* BLKFlexibleHeightBarBehaviorDefiner.h */,
-				93E02CFD1DDB598D007EAE1E /* BLKFlexibleHeightBarBehaviorDefiner.m */,
-				93E02CFE1DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.h */,
-				93E02CFF1DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.m */,
-				93E02D001DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.h */,
-				93E02D011DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.m */,
-				93E02D021DDB598D007EAE1E /* SquareCashStyleBehaviorDefiner.h */,
-				93E02D031DDB598D007EAE1E /* SquareCashStyleBehaviorDefiner.m */,
-				93E02D041DDB598D007EAE1E /* UIView+BLKFlexibleHeightBarSubview.h */,
-				93E02D051DDB598D007EAE1E /* UIView+BLKFlexibleHeightBarSubview.m */,
-			);
-			path = BLKFlexibleHeightBar;
 			sourceTree = "<group>";
 		};
 		93E02D061DDB598D007EAE1E /* FlatUIKit */ = {
@@ -1748,25 +1680,6 @@
 				93E02D371DDB598D007EAE1E /* Lato-Regular.ttf */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		93E02D381DDB598D007EAE1E /* INSSearchBar */ = {
-			isa = PBXGroup;
-			children = (
-				93E02D391DDB598D007EAE1E /* INSSearchBar.h */,
-				93E02D3A1DDB598D007EAE1E /* INSSearchBar.m */,
-				93E02D3B1DDB598D007EAE1E /* NavBarIconSearch_blue.png */,
-				93E02D3C1DDB598D007EAE1E /* NavBarIconSearch_blue@2x.png */,
-				93E02D3D1DDB598D007EAE1E /* NavBarIconSearch_white.png */,
-				93E02D3E1DDB598D007EAE1E /* NavBarIconSearch_white@2x.png */,
-				93E02D3F1DDB598D007EAE1E /* NavBarIconSearchBar2_blue.png */,
-				93E02D401DDB598D007EAE1E /* NavBarIconSearchBar2_blue@2x.png */,
-				93E02D411DDB598D007EAE1E /* NavBarIconSearchBar_blue.png */,
-				93E02D421DDB598D007EAE1E /* NavBarIconSearchBar_blue@2x.png */,
-				93E02D431DDB598D007EAE1E /* NavBarIconSearchCircle_blue.png */,
-				93E02D441DDB598D007EAE1E /* NavBarIconSearchCircle_blue@2x.png */,
-			);
-			path = INSSearchBar;
 			sourceTree = "<group>";
 		};
 		93E02D451DDB598D007EAE1E /* MBProgressHUD */ = {
@@ -1871,13 +1784,6 @@
 				93E02D6C1DDB598D007EAE1E /* MJRefreshStateHeader.m */,
 			);
 			path = Header;
-			sourceTree = "<group>";
-		};
-		93E02D771DDB598D007EAE1E /* Regex */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Regex;
 			sourceTree = "<group>";
 		};
 		93E02D781DDB598D007EAE1E /* SVProgressHUD */ = {
@@ -2606,13 +2512,10 @@
 				93E02E031DDB598D007EAE1E /* Lato-Italic.ttf in Resources */,
 				93AD7DDC1DFEA2E40067C539 /* HotelDescriptionCell.xib in Resources */,
 				936B08E21E06E0F0009AD3D3 /* icon-list-time-huawei.png in Resources */,
-				93E02E091DDB598D007EAE1E /* NavBarIconSearch_white.png in Resources */,
 				936B08DB1E06E0F0009AD3D3 /* icon-list-filter-weixin.png in Resources */,
 				936B08F51E06E0F0009AD3D3 /* loading3.gif in Resources */,
 				936B08F31E06E0F0009AD3D3 /* insurance-youhui.png in Resources */,
 				936B08C01E06E0F0009AD3D3 /* cry.png in Resources */,
-				93E02E071DDB598D007EAE1E /* NavBarIconSearch_blue.png in Resources */,
-				93E02E0D1DDB598D007EAE1E /* NavBarIconSearchBar_blue.png in Resources */,
 				93FAA00A1E10AD5B001DCAA0 /* MWPhotoBrowser.bundle in Resources */,
 				93D493F81E1A331C0028232C /* RoomDetailInfoView.xib in Resources */,
 				936B08B31E06E0F0009AD3D3 /* elong.ttf in Resources */,
@@ -2631,7 +2534,6 @@
 				936B08D91E06E0F0009AD3D3 /* icon-list-filter-elong.png in Resources */,
 				936B08B81E06E0F0009AD3D3 /* ban-train-log.png in Resources */,
 				936B08F91E06E0F1009AD3D3 /* my-order.png in Resources */,
-				93E02E0E1DDB598D007EAE1E /* NavBarIconSearchBar_blue@2x.png in Resources */,
 				9319738E1E1360A8009D896D /* Info.plist in Resources */,
 				936B08C71E06E0F0009AD3D3 /* elong@2x.png in Resources */,
 				936B08DE1E06E0F0009AD3D3 /* icon-list-price-huawei.png in Resources */,
@@ -2644,11 +2546,9 @@
 				936B08B71E06E0F0009AD3D3 /* ban-bg-12306.png in Resources */,
 				93E02E271DDB598D007EAE1E /* SVProgressHUD.bundle in Resources */,
 				936B08F61E06E0F1009AD3D3 /* loadingpng.png in Resources */,
-				93E02E081DDB598D007EAE1E /* NavBarIconSearch_blue@2x.png in Resources */,
 				936B09081E06E0F1009AD3D3 /* package.json in Resources */,
 				936B08F71E06E0F1009AD3D3 /* my-order-gray.png in Resources */,
 				936B08B91E06E0F0009AD3D3 /* banner-img.jpg in Resources */,
-				93E02E0C1DDB598D007EAE1E /* NavBarIconSearchBar2_blue@2x.png in Resources */,
 				936B08D51E06E0F0009AD3D3 /* icon-list-during-elong.png in Resources */,
 				936B08C81E06E0F0009AD3D3 /* icon-account.png in Resources */,
 				93E788811DDCACD9004FF398 /* LoginViewController.storyboard in Resources */,
@@ -2671,7 +2571,6 @@
 				936B08F21E06E0F0009AD3D3 /* inAdjacent.png in Resources */,
 				936B08DD1E06E0F0009AD3D3 /* icon-list-price-elong.png in Resources */,
 				93E02E011DDB598D007EAE1E /* flat-ui-icons-regular.ttf in Resources */,
-				93E02E0A1DDB598D007EAE1E /* NavBarIconSearch_white@2x.png in Resources */,
 				936B08FD1E06E0F1009AD3D3 /* registerStep12306_3.png in Resources */,
 				93F1B7961E671C0600E2804E /* SpecialHotelsCell.xib in Resources */,
 				936B08D01E06E0F0009AD3D3 /* icon-doing.png in Resources */,
@@ -2682,7 +2581,6 @@
 				93B208811EB338B000D07B1C /* mapapi.bundle in Resources */,
 				936B08FA1E06E0F1009AD3D3 /* pro.jpg in Resources */,
 				93FAA0121E10BC47001DCAA0 /* HotelTimeCell.xib in Resources */,
-				93E02E0F1DDB598D007EAE1E /* NavBarIconSearchCircle_blue.png in Resources */,
 				936B08DC1E06E0F0009AD3D3 /* icon-list-filter.png in Resources */,
 				936B08B41E06E0F0009AD3D3 /* elong.woff in Resources */,
 				936B08C41E06E0F0009AD3D3 /* detail-elong.png in Resources */,
@@ -2710,7 +2608,6 @@
 				936B08C11E06E0F0009AD3D3 /* current-city-icon.png in Resources */,
 				936B08FE1E06E0F1009AD3D3 /* reload-pic-huawei.png in Resources */,
 				936B08D11E06E0F0009AD3D3 /* icon-doubt.png in Resources */,
-				93E02E0B1DDB598D007EAE1E /* NavBarIconSearchBar2_blue.png in Resources */,
 				936B08BF1E06E0F0009AD3D3 /* chosen-icon.png in Resources */,
 				93F1B7911E671BE600E2804E /* SpecialHotelCell.xib in Resources */,
 				93E02E041DDB598D007EAE1E /* Lato-Light.ttf in Resources */,
@@ -2722,7 +2619,6 @@
 				936B08D41E06E0F0009AD3D3 /* icon-explain.png in Resources */,
 				936B08E61E06E0F0009AD3D3 /* icon-minus-weixin.png in Resources */,
 				93E02E211DDB598D007EAE1E /* MJRefresh.bundle in Resources */,
-				93E02E101DDB598D007EAE1E /* NavBarIconSearchCircle_blue@2x.png in Resources */,
 				936B08DA1E06E0F0009AD3D3 /* icon-list-filter-huawei.png in Resources */,
 				936B08FC1E06E0F1009AD3D3 /* registerStep12306_2.png in Resources */,
 				936B08E41E06E0F0009AD3D3 /* icon-list-time.png in Resources */,
@@ -2792,7 +2688,6 @@
 				93FAA0111E10BC47001DCAA0 /* HotelTimeCell.m in Sources */,
 				93E02E301DDB598D007EAE1E /* SettingViewController.m in Sources */,
 				93D050E41E1FEF9E0006D6C6 /* OrderResultViewController.m in Sources */,
-				93E02DE71DDB598D007EAE1E /* BLKFlexibleHeightBar.m in Sources */,
 				931973661E135BAF009D896D /* JFLocation.m in Sources */,
 				93F6B3F61DE1FDD20048F279 /* IQUITextFieldView+Additions.m in Sources */,
 				93DBCE341E46F74700F528E1 /* LiuXSlider.m in Sources */,
@@ -2803,7 +2698,6 @@
 				93E02DF01DDB598D007EAE1E /* FUIPopoverBackgroundView.m in Sources */,
 				93DBCE261E46CF7F00F528E1 /* JTDateHelper.m in Sources */,
 				93E02E151DDB598D007EAE1E /* MJRefreshComponent.m in Sources */,
-				93E02DEC1DDB598D007EAE1E /* UIView+BLKFlexibleHeightBarSubview.m in Sources */,
 				931973651E135BAF009D896D /* JFSearchView.m in Sources */,
 				93E02DFC1DDB598D007EAE1E /* UISlider+FlatUI.m in Sources */,
 				93E02E241DDB598D007EAE1E /* UIScrollView+MJRefresh.m in Sources */,
@@ -2850,7 +2744,6 @@
 				93E02E2B1DDB598D007EAE1E /* LBPNavigationController.m in Sources */,
 				93E02E001DDB598D007EAE1E /* UIToolbar+FlatUI.m in Sources */,
 				93FA9FE31E10AD5B001DCAA0 /* DrugSearchViewController.m in Sources */,
-				93E02DEB1DDB598D007EAE1E /* SquareCashStyleBehaviorDefiner.m in Sources */,
 				93F572BB1DE27C0E00966974 /* MASConstraintMaker.m in Sources */,
 				93F1B7901E671BE600E2804E /* SpecialHotelCell.m in Sources */,
 				93E02E2C1DDB598D007EAE1E /* MainViewController.m in Sources */,
@@ -2864,7 +2757,6 @@
 				93FAA0051E10AD5B001DCAA0 /* PSTCollectionViewUpdateItem.m in Sources */,
 				93E02DB81DDB598D007EAE1E /* AFSecurityPolicy.m in Sources */,
 				93E02DEE1DDB598D007EAE1E /* FUIButton.m in Sources */,
-				93E02DE81DDB598D007EAE1E /* BLKFlexibleHeightBarBehaviorDefiner.m in Sources */,
 				93FA9FEC1E10AD5B001DCAA0 /* DACircularProgressView.m in Sources */,
 				93E02E141DDB598D007EAE1E /* MJRefreshBackFooter.m in Sources */,
 				93E02E261DDB598D007EAE1E /* SVIndefiniteAnimatedView.m in Sources */,
@@ -2873,7 +2765,6 @@
 				931973891E1360A8009D896D /* FMDatabase.m in Sources */,
 				93DBCE2B1E46CF7F00F528E1 /* ZYWeekView.m in Sources */,
 				93302CC01DFAA5040091F145 /* SelectConditionCell.m in Sources */,
-				93E02DEA1DDB598D007EAE1E /* FacebookStyleBarBehaviorDefiner.m in Sources */,
 				93E02DF31DDB598D007EAE1E /* FUITextField.m in Sources */,
 				9371687E1E782E6000A2605D /* TestVC3.m in Sources */,
 				933ED4931E31EAA1001E8A6B /* ChangePasswordViewController.m in Sources */,
@@ -2905,7 +2796,6 @@
 				934FC5EA1E6142D100395091 /* HotelsModel.m in Sources */,
 				9319738B1E1360A8009D896D /* FMDatabasePool.m in Sources */,
 				93DBCE2E1E46D16800F528E1 /* TimerPickerVC.m in Sources */,
-				93E02DE91DDB598D007EAE1E /* BLKFlexibleHeightBarSubviewLayoutAttributes.m in Sources */,
 				93DBCE311E46F5CE00F528E1 /* PriceAndStarLevelPickerView.m in Sources */,
 				93E02E1C1DDB598D007EAE1E /* MJRefreshBackNormalFooter.m in Sources */,
 				93F6B3FB1DE1FDD20048F279 /* IQKeyboardReturnKeyHandler.m in Sources */,
@@ -2944,7 +2834,6 @@
 				93FAA0081E10AD5B001DCAA0 /* PSTGridLayoutRow.m in Sources */,
 				93FA9FF21E10AD5B001DCAA0 /* EMSDWebImageManager.m in Sources */,
 				93FA9FFA1E10AD5B001DCAA0 /* UIImageView+EMHighlightedWebCache.m in Sources */,
-				93E02DE61DDB598D007EAE1E /* BLKDelegateSplitter.m in Sources */,
 				93FA9FF51E10AD5B001DCAA0 /* NSData+EMImageContentType.m in Sources */,
 				93F572C01DE27C0E00966974 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				93FAA0071E10AD5B001DCAA0 /* PSTGridLayoutItem.m in Sources */,
@@ -2991,7 +2880,6 @@
 				93F6B3C81DE1ED900048F279 /* MyNotificationVC.m in Sources */,
 				93E02E2A1DDB598D007EAE1E /* YYClassInfo.m in Sources */,
 				93E02DFD1DDB598D007EAE1E /* UIStepper+FlatUI.m in Sources */,
-				93E02E061DDB598D007EAE1E /* INSSearchBar.m in Sources */,
 				93FAA0031E10AD5B001DCAA0 /* PSTCollectionViewItemKey.m in Sources */,
 				93FAA0021E10AD5B001DCAA0 /* PSTCollectionViewFlowLayout.m in Sources */,
 				93E6F8751E101327004B0594 /* HotelLocationMapVC.m in Sources */,
