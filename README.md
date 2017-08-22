@@ -1,5 +1,4 @@
 # Hotels
-住哪儿App
 
 <p align="center">
 <a href="https://travis-ci.org/EyreFree/EFQRCode"><img src="http://img.shields.io/travis/EyreFree/EFQRCode.svg"></a>
@@ -18,6 +17,10 @@
 <a href="http://weibo.com/eyrefree777"><img src="https://img.shields.io/badge/weibo-@EyreFree-red.svg?style=flat"></a>
 <img src="https://img.shields.io/badge/made%20with-%3C3-orange.svg">
 </p>
+
+住哪儿App
+
+
 
 ![AppLogo](https://github.com/FantasticLBP/Hotels/blob/master/住哪儿/Assets.xcassets/AppIcon.appiconset/11.png?raw=true "这是App的Logo")
 
