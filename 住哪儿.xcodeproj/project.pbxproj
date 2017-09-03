@@ -3054,7 +3054,7 @@
 					"$(PROJECT_DIR)/住哪儿/3dParty/BaiduMap/thirdlibs",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LBP.hotel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.geek.Hotels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -3086,7 +3086,7 @@
 					"$(PROJECT_DIR)/住哪儿/3dParty/BaiduMap/thirdlibs",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LBP.hotel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.geek.Hotels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};

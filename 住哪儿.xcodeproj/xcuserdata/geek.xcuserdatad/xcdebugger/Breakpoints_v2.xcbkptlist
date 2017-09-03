@@ -36,12 +36,12 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/utils/AFNetPackage.m"
-                  timestampString = "524289170.587947"
+                  timestampString = "526139161.932262"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "158"
                   endingLineNumber = "158"
-                  offsetFromSymbolStart = "507">
+                  offsetFromSymbolStart = "516">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,14 +51,30 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/utils/AFNetPackage.m"
-                  timestampString = "524289170.590272"
+                  timestampString = "526139161.934324"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "158"
                   endingLineNumber = "158"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelLocationMapVC.m"
+            timestampString = "525937907.414986"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-didUpdateBMKUserLocation:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

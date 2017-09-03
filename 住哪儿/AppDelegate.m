@@ -10,8 +10,7 @@
 #import "MainViewController.h"
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
 //百度地图key
-//#define BMAPKEY @"LYHkYVQGWmQxKZw7O62P24Cj1aCovpuN";
-
+#define BMAPKEY @"LYHkYVQGWmQxKZw7O62P24Cj1aCovpuN"
 
 @interface AppDelegate (){
     BMKMapManager* _mapManager;
@@ -27,7 +26,7 @@
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc] init];
     
-    BOOL ret = [_mapManager start:@"LYHkYVQGWmQxKZw7O62P24Cj1aCovpuN" generalDelegate:nil];
+    BOOL ret = [_mapManager start:BMAPKEY generalDelegate:nil];
     if (!ret) {
         LBPLog(@"manager start failed!");
     }
