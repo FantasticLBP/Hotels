@@ -14,6 +14,7 @@
 #define BoundWidth [UIScreen mainScreen].bounds.size.width
 #define BoundHeight [UIScreen mainScreen].bounds.size.height
 
+#define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 /************************************颜色******************************************/
 
 #ifdef DEBUG

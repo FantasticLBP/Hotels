@@ -71,7 +71,7 @@
     self.mapView.showsUserLocation = YES;
     [self.mapView updateLocationData:userLocation];
     self.mapView.centerCoordinate = userLocation.location.coordinate;
-    self.mapView.zoomLevel = 21;
+    self.mapView.zoomLevel = 18;
     
     //周边云检索参数信息类
     BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc] init];;

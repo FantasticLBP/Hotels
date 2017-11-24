@@ -63,7 +63,9 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 #pragma mark -- life cycle
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+     if (!kDevice_Is_iPhoneX) {
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+     }
 }
 
 - (void)viewDidLoad {
@@ -84,18 +86,23 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    if (!kDevice_Is_iPhoneX) {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }
     [SVProgressHUD dismiss];
 }
 
 - (BOOL)prefersStatusBarHidden { //设置隐藏显示
+    if (kDevice_Is_iPhoneX) {
+        return NO;
+    }
     return YES;
 }
 
 #pragma mark - private method
 - (void)testFPSLabel {
     self.fpsLabel = [YYFPSLabel new];
-    self.fpsLabel.frame = CGRectMake(BoundWidth/2-25, 20, 50, 30);
+    self.fpsLabel.frame = CGRectMake(0, 50, 50, 30);
     [self.fpsLabel sizeToFit];
     [self.view addSubview:self.fpsLabel];
 }

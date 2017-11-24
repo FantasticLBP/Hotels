@@ -198,6 +198,7 @@
 		93D494041E1A441A0028232C /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D494031E1A441A0028232C /* UIViewController+BackButtonHandler.m */; };
 		93D494071E1A81330028232C /* OrderFillFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D494061E1A81330028232C /* OrderFillFooterView.m */; };
 		93D4940A1E1A89E10028232C /* OrderHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D494091E1A89E10028232C /* OrderHeaderView.m */; };
+		93D67D921F6BEEE700D3CB8B /* UITableView+NoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D67D911F6BEEE700D3CB8B /* UITableView+NoData.m */; };
 		93DA19281E2D1AA4002F2C5A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DA19271E2D1AA4002F2C5A /* UserManager.m */; };
 		93DACA791E08CA81003157BD /* SalePromotionImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DACA781E08CA81003157BD /* SalePromotionImageView.m */; };
 		93DACA7C1E0900A8003157BD /* ProjectUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DACA7B1E0900A8003157BD /* ProjectUtil.m */; };
@@ -665,6 +666,8 @@
 		93D494061E1A81330028232C /* OrderFillFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderFillFooterView.m; sourceTree = "<group>"; };
 		93D494081E1A89E10028232C /* OrderHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderHeaderView.h; sourceTree = "<group>"; };
 		93D494091E1A89E10028232C /* OrderHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderHeaderView.m; sourceTree = "<group>"; };
+		93D67D901F6BEEE700D3CB8B /* UITableView+NoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+NoData.h"; sourceTree = "<group>"; };
+		93D67D911F6BEEE700D3CB8B /* UITableView+NoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+NoData.m"; sourceTree = "<group>"; };
 		93DA19261E2D1AA4002F2C5A /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
 		93DA19271E2D1AA4002F2C5A /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		93DACA771E08CA80003157BD /* SalePromotionImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalePromotionImageView.h; sourceTree = "<group>"; };
@@ -1443,6 +1446,8 @@
 				93967B1F1E0825050003122A /* NSDate+Formatter.m */,
 				93967B211E0830D30003122A /* UILabel+Helper.h */,
 				93967B221E0830D30003122A /* UILabel+Helper.m */,
+				93D67D901F6BEEE700D3CB8B /* UITableView+NoData.h */,
+				93D67D911F6BEEE700D3CB8B /* UITableView+NoData.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2873,6 +2878,7 @@
 				93E02E121DDB598D007EAE1E /* MBProgressHUD.m in Sources */,
 				93D494041E1A441A0028232C /* UIViewController+BackButtonHandler.m in Sources */,
 				93D050F01E2151AF0006D6C6 /* OrderInfoCell.m in Sources */,
+				93D67D921F6BEEE700D3CB8B /* UITableView+NoData.m in Sources */,
 				93FA9F401E10AB66001DCAA0 /* TAAnimatedDotView.m in Sources */,
 				930FE61C1E0D699900CBA28B /* HotelImageCell.m in Sources */,
 				93967B291E083BA60003122A /* HotelDetailVC.m in Sources */,
@@ -3056,6 +3062,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.geek.Hotels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -3088,6 +3095,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.geek.Hotels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;

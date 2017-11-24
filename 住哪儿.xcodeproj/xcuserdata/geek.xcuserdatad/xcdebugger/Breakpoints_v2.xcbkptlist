@@ -36,12 +36,12 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/utils/AFNetPackage.m"
-                  timestampString = "526139161.932262"
+                  timestampString = "533209431.28151"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "158"
                   endingLineNumber = "158"
-                  offsetFromSymbolStart = "516">
+                  offsetFromSymbolStart = "507">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -51,12 +51,12 @@
                   moduleName = "&#x4f4f;&#x54ea;&#x513f;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/geek/Desktop/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/utils/AFNetPackage.m"
-                  timestampString = "526139161.934324"
+                  timestampString = "533209431.284621"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "158"
                   endingLineNumber = "158"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelLocationMapVC.m"
-            timestampString = "525937907.414986"
+            timestampString = "531156360.251126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"

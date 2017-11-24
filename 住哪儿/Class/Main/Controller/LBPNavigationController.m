@@ -69,22 +69,27 @@
 {
     //    if (viewController != 栈底控制器) {
     if (self.viewControllers.count > 0) {
+        
         // 当push这个子控制器时, 隐藏底部的工具条
         viewController.hidesBottomBarWhenPushed = YES;
         
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = CGRectMake(0, 0, 44, 44);
         [backButton setImage:[UIImage imageNamed:@"backArror"] forState:UIControlStateNormal];
-        
-        //        [backButton setTitle:@"返回" forState:UIControlStateNormal];
-        [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
         backButton.adjustsImageWhenHighlighted = NO;
+        backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
         backButton.titleLabel.font = [UIFont systemFontOfSize:16];
-        [backButton sizeToFit];
-        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        backButton.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        
+        [backButton addTarget:self action:@selector(back)
+             forControlEvents:UIControlEventTouchUpInside];
+        
+        [backButton setImageEdgeInsets:UIEdgeInsetsMake(0, 5 * BoundWidth/375, 0, 0)];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        
+        
     }
     
     // 将viewController压入栈中

@@ -139,6 +139,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    [tableView tableViewDisplayWithMsg:@"没有查询到相对应的酒店" ifNecessaryForCount:self.hotels.count];
     return self.hotels.count;
 }
 
