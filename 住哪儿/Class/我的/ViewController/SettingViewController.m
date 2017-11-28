@@ -278,11 +278,11 @@
 #pragma mark -- lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        UITableView *tb = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight - 64) style:UITableViewStyleGrouped];
         tb.delegate = self;
         tb.dataSource = self;
         tb.backgroundColor = TableViewBackgroundColor;
-        tb.contentInset = UIEdgeInsetsMake(0, 0, 50, 0);
+        tb.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
         _tableView = tb;
     }
     return _tableView;

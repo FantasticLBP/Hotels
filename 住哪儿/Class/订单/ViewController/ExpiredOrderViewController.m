@@ -1,29 +1,26 @@
 
 //
-//  OrderItemVC.m
+//  UnpayedOrderViewController.m
 //  住哪儿
 //
 //  Created by 杭城小刘 on 2016/12/28.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
-#import "OrderItemVC.h"
+#import "ExpiredOrderViewController.h"
 #import "OrderModel.h"
-#import "MainViewController.h"
-#import "PayOrderViewController.h"
-#import "AppDelegate.h"
-#import "OrderViewController.h"
+
 
 static NSString *OrderCellId = @"OrderCell";
-@interface OrderItemVC ()<UITableViewDelegate,UITableViewDataSource,
-                        OrderCellDelegte>
+@interface ExpiredOrderViewController ()<UITableViewDelegate,UITableViewDataSource,
+OrderCellDelegte>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;                          /**<页码*/
 @property (nonatomic, strong) NSMutableArray *orders;           /**<订单数据源*/
 
 @end
 
-@implementation OrderItemVC
+@implementation ExpiredOrderViewController
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +29,6 @@ static NSString *OrderCellId = @"OrderCell";
     [self reloadData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearData) name:LogoutNotification object:nil];
 }
-
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -49,7 +45,7 @@ static NSString *OrderCellId = @"OrderCell";
 -(void)clearData{
     [self.orders removeAllObjects];
     [self.tableView reloadData];
-    
+
 }
 
 -(void)reloadData{
@@ -59,14 +55,13 @@ static NSString *OrderCellId = @"OrderCell";
         [self.tableView.mj_header endRefreshing];
         return ;
     }
-    
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
     
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderType"] = @(0);
+    par[@"orderType"] = @(3);
     
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
@@ -85,13 +80,12 @@ static NSString *OrderCellId = @"OrderCell";
 
 -(void)loadMoreData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
-
+    
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderType"] = @(0);
-    
+    par[@"orderType"] = @(3);
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
         [SVProgressHUD dismiss];
@@ -112,7 +106,7 @@ static NSString *OrderCellId = @"OrderCell";
         for (NSDictionary *dic in datas) {
             [self.orders addObject:[OrderModel yy_modelWithJSON:dic]];
         }
-      
+        
         self.tableView.mj_footer.hidden = NO;
         if (datas.count == 0) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -125,33 +119,6 @@ static NSString *OrderCellId = @"OrderCell";
     }else{
         [SVProgressHUD showErrorWithStatus:dic[@"message"]];
     }
-}
-
-
--(void)revokeOrder:(NSString *)orderId{
-
-    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/RevokeOrder.php"];
-
-    NSMutableDictionary *par = [NSMutableDictionary dictionary];
-    par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderId"] = orderId;
-    
-    [SVProgressHUD showWithStatus:@"正在撤销订单"];
-    [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
-        [SVProgressHUD dismiss];
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        if ([dic[@"code"] integerValue] == 200) {
-            for (OrderModel *model in self.orders) {
-                if([model.orderId isEqualToString:orderId]){
-                    [self.orders removeObject:model];
-                }
-            }
-            [self.tableView reloadData];
-        }
-       
-    } fail:^{
-        [SVProgressHUD dismiss];
-    }];
 }
 
 #pragma mark - UITableViewDeegate
@@ -185,17 +152,15 @@ static NSString *OrderCellId = @"OrderCell";
 -(void)orderCell:(OrderCell *)cell didClickButtonWithCellType:(OrderButtonOperationType)type withOrderModel:(OrderModel *)model{
     switch (type) {
         case OrderButtonOperationType_Pay:{
-            LBPLog(@"继续支付");
+            LBPLog(@"支付订单");
             break;
         }
         case OrderButtonOperationType_Cancel:{
             LBPLog(@"删除订单");
-            [self revokeOrder:model.orderId];
             break;
         }
         case OrderButtonOperationType_Revoke:{
             LBPLog(@"取消订单");
-            [self revokeOrder:model.orderId];
             break;
         }
         case OrderButtonOperationType_Evaluate:{
@@ -203,24 +168,23 @@ static NSString *OrderCellId = @"OrderCell";
             break;
         }
         case OrderButtonOperationType_Remind:{
-            [AppDelegate registerLocalNotification:10 content:@"你有酒店需要按时入住哦！" key:@"live"];
+            LBPLog(@"添加提醒");
             break;
         }
         case OrderButtonOperationType_ReBook:{
-            MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
-            vc.selectedIndex = 1;
+            LBPLog(@"再次预定");
             break;
         }
-        
     }
 }
 
 #pragma mark - lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-50) style:UITableViewStylePlain];
+        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-49) style:UITableViewStylePlain];
         tb.delegate = self;
         tb.dataSource = self;
+        tb.contentInset = UIEdgeInsetsMake(0, 0, kDevice_Is_iPhoneX?49+41:49, 0);
         tb.backgroundColor = TableViewBackgroundColor;
         tb.tableFooterView = [[UIView alloc] init];
         tb.separatorStyle  = UITableViewCellSeparatorStyleNone;
@@ -234,7 +198,7 @@ static NSString *OrderCellId = @"OrderCell";
         tb.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [Weakself loadMoreData];
         }];
-        //tb.mj_header.automaticallyChangeAlpha = YES;
+        tb.mj_header.automaticallyChangeAlpha = YES;
         
         _tableView = tb;
     }

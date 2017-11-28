@@ -40,7 +40,15 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
 
 -(void)watchOrders{
     NSMutableArray *vcs = [NSMutableArray array];
-    [vcs addObject:[[HomeViewController alloc] init]];
+    HomeViewController *homeVC = [[HomeViewController alloc] init];
+    
+    homeVC.title = @"首页";
+    
+    homeVC.tabBarItem.image = [UIImage imageNamed:@"tabBar_home"];
+    NSString *imageSelect = [NSString stringWithFormat:@"%@_selected",@"tabBar_home"];
+    homeVC.tabBarItem.selectedImage = [[UIImage imageNamed:imageSelect] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    [vcs addObject:homeVC];
+    
     self.navigationController.viewControllers = vcs;
     
     MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;

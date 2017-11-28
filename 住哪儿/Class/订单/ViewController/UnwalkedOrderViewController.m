@@ -1,13 +1,13 @@
 
 //
-//  OrderItemVC.m
+//  UnpayedOrderViewController.m
 //  住哪儿
 //
 //  Created by 杭城小刘 on 2016/12/28.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
-#import "TestVC1.h"
+#import "UnwalkedOrderViewController.h"
 #import "OrderModel.h"
 
 #import "MainViewController.h"
@@ -15,7 +15,7 @@
 #import "AppDelegate.h"
 
 static NSString *OrderCellId = @"OrderCell";
-@interface TestVC1 ()<UITableViewDelegate,UITableViewDataSource,
+@interface UnwalkedOrderViewController ()<UITableViewDelegate,UITableViewDataSource,
 OrderCellDelegte>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;                          /**<页码*/
@@ -23,7 +23,7 @@ OrderCellDelegte>
 
 @end
 
-@implementation TestVC1
+@implementation UnwalkedOrderViewController
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -191,9 +191,10 @@ OrderCellDelegte>
 #pragma mark - lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-50) style:UITableViewStylePlain];
+        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-49-41) style:UITableViewStylePlain];
         tb.delegate = self;
         tb.dataSource = self;
+        tb.contentInset = UIEdgeInsetsMake(0, 0, kDevice_Is_iPhoneX?49+41:49, 0);
         tb.backgroundColor = TableViewBackgroundColor;
         tb.tableFooterView = [[UIView alloc] init];
         tb.separatorStyle  = UITableViewCellSeparatorStyleNone;

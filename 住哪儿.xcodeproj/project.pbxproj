@@ -42,7 +42,7 @@
 		9319738E1E1360A8009D896D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 931973881E1360A8009D896D /* Info.plist */; };
 		931973911E136197009D896D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 931973901E136197009D896D /* libsqlite3.0.tbd */; };
 		931973941E1373E8009D896D /* LBPScrollSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973931E1373E8009D896D /* LBPScrollSegmentView.m */; };
-		931973971E137487009D896D /* OrderItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973961E137487009D896D /* OrderItemVC.m */; };
+		931973971E137487009D896D /* UnpayedOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931973961E137487009D896D /* UnpayedOrderViewController.m */; };
 		9319739D1E1384CF009D896D /* HotelRoomPriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319739C1E1384CF009D896D /* HotelRoomPriceVC.m */; };
 		931973A01E1385BC009D896D /* RoomInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9319739F1E1385BC009D896D /* RoomInfoHeaderView.m */; };
 		93302CC01DFAA5040091F145 /* SelectConditionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93302CBF1DFAA5040091F145 /* SelectConditionCell.m */; };
@@ -55,8 +55,6 @@
 		9340E8301E6BB68500DBBF0B /* SearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9340E82F1E6BB68500DBBF0B /* SearchResultVC.m */; };
 		934FC5EA1E6142D100395091 /* HotelsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 934FC5E91E6142D100395091 /* HotelsModel.m */; };
 		936691DD1DF955D7009E121B /* ConditionPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936691DC1DF955D7009E121B /* ConditionPickerView.m */; };
-		936B084C1E06DDC3009AD3D3 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 936B08491E06DDC3009AD3D3 /* YYFPSLabel.m */; };
-		936B084D1E06DDC3009AD3D3 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 936B084B1E06DDC3009AD3D3 /* YYWeakProxy.m */; };
 		936B08AE1E06E0F0009AD3D3 /* blank.html in Resources */ = {isa = PBXBuildFile; fileRef = 936B08501E06E0F0009AD3D3 /* blank.html */; };
 		936B08AF1E06E0F0009AD3D3 /* bridge-2.0.0.js in Resources */ = {isa = PBXBuildFile; fileRef = 936B08511E06E0F0009AD3D3 /* bridge-2.0.0.js */; };
 		936B08B01E06E0F0009AD3D3 /* bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 936B08521E06E0F0009AD3D3 /* bridge.js */; };
@@ -156,9 +154,9 @@
 		936F081E1EAAF6F100954395 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 936F081D1EAAF6F100954395 /* LocationManager.m */; };
 		936F9A581E68790D00425819 /* SpecialHotelFlagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */; };
 		936F9A591E68790D00425819 /* SpecialHotelFlagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */; };
-		937168781E782DD500A2605D /* TestVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 937168771E782DD500A2605D /* TestVC1.m */; };
-		9371687B1E782E3200A2605D /* TestVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371687A1E782E3200A2605D /* TestVC2.m */; };
-		9371687E1E782E6000A2605D /* TestVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371687D1E782E6000A2605D /* TestVC3.m */; };
+		937168781E782DD500A2605D /* UnwalkedOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937168771E782DD500A2605D /* UnwalkedOrderViewController.m */; };
+		9371687B1E782E3200A2605D /* WillEvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371687A1E782E3200A2605D /* WillEvaluateViewController.m */; };
+		9371687E1E782E6000A2605D /* ExpiredOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371687D1E782E6000A2605D /* ExpiredOrderViewController.m */; };
 		937168841E7842F800A2605D /* NSObject+NSLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 937168831E7842F800A2605D /* NSObject+NSLocalNotification.m */; };
 		9393172C1E3051B200281A05 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393172B1E3051B200281A05 /* PersonInfoViewController.m */; };
 		9393172F1E30777500281A05 /* ChangeUserNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393172E1E30777500281A05 /* ChangeUserNameVC.m */; };
@@ -470,8 +468,8 @@
 		931973901E136197009D896D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		931973921E1373E8009D896D /* LBPScrollSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBPScrollSegmentView.h; sourceTree = "<group>"; };
 		931973931E1373E8009D896D /* LBPScrollSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBPScrollSegmentView.m; sourceTree = "<group>"; };
-		931973951E137487009D896D /* OrderItemVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItemVC.h; sourceTree = "<group>"; };
-		931973961E137487009D896D /* OrderItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItemVC.m; sourceTree = "<group>"; };
+		931973951E137487009D896D /* UnpayedOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnpayedOrderViewController.h; sourceTree = "<group>"; };
+		931973961E137487009D896D /* UnpayedOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnpayedOrderViewController.m; sourceTree = "<group>"; };
 		9319739B1E1384CF009D896D /* HotelRoomPriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelRoomPriceVC.h; sourceTree = "<group>"; };
 		9319739C1E1384CF009D896D /* HotelRoomPriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelRoomPriceVC.m; sourceTree = "<group>"; };
 		9319739E1E1385BC009D896D /* RoomInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfoHeaderView.h; sourceTree = "<group>"; };
@@ -494,10 +492,6 @@
 		934FC5E91E6142D100395091 /* HotelsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelsModel.m; sourceTree = "<group>"; };
 		936691DB1DF955D7009E121B /* ConditionPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionPickerView.h; sourceTree = "<group>"; };
 		936691DC1DF955D7009E121B /* ConditionPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionPickerView.m; sourceTree = "<group>"; };
-		936B08481E06DDC3009AD3D3 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
-		936B08491E06DDC3009AD3D3 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
-		936B084A1E06DDC3009AD3D3 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
-		936B084B1E06DDC3009AD3D3 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		936B08501E06E0F0009AD3D3 /* blank.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = blank.html; sourceTree = "<group>"; };
 		936B08511E06E0F0009AD3D3 /* bridge-2.0.0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "bridge-2.0.0.js"; sourceTree = "<group>"; };
 		936B08521E06E0F0009AD3D3 /* bridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bridge.js; sourceTree = "<group>"; };
@@ -602,12 +596,12 @@
 		936F9A551E68790D00425819 /* SpecialHotelFlagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialHotelFlagCell.h; sourceTree = "<group>"; };
 		936F9A561E68790D00425819 /* SpecialHotelFlagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialHotelFlagCell.m; sourceTree = "<group>"; };
 		936F9A571E68790D00425819 /* SpecialHotelFlagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialHotelFlagCell.xib; sourceTree = "<group>"; };
-		937168761E782DD500A2605D /* TestVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC1.h; sourceTree = "<group>"; };
-		937168771E782DD500A2605D /* TestVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC1.m; sourceTree = "<group>"; };
-		937168791E782E3200A2605D /* TestVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC2.h; sourceTree = "<group>"; };
-		9371687A1E782E3200A2605D /* TestVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC2.m; sourceTree = "<group>"; };
-		9371687C1E782E6000A2605D /* TestVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC3.h; sourceTree = "<group>"; };
-		9371687D1E782E6000A2605D /* TestVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC3.m; sourceTree = "<group>"; };
+		937168761E782DD500A2605D /* UnwalkedOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnwalkedOrderViewController.h; sourceTree = "<group>"; };
+		937168771E782DD500A2605D /* UnwalkedOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnwalkedOrderViewController.m; sourceTree = "<group>"; };
+		937168791E782E3200A2605D /* WillEvaluateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WillEvaluateViewController.h; sourceTree = "<group>"; };
+		9371687A1E782E3200A2605D /* WillEvaluateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WillEvaluateViewController.m; sourceTree = "<group>"; };
+		9371687C1E782E6000A2605D /* ExpiredOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpiredOrderViewController.h; sourceTree = "<group>"; };
+		9371687D1E782E6000A2605D /* ExpiredOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpiredOrderViewController.m; sourceTree = "<group>"; };
 		937168821E7842F800A2605D /* NSObject+NSLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSLocalNotification.h"; sourceTree = "<group>"; };
 		937168831E7842F800A2605D /* NSObject+NSLocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSLocalNotification.m"; sourceTree = "<group>"; };
 		9393172A1E3051B200281A05 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
@@ -1196,17 +1190,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		936B08471E06DDC3009AD3D3 /* YYFPSLabel */ = {
-			isa = PBXGroup;
-			children = (
-				936B08481E06DDC3009AD3D3 /* YYFPSLabel.h */,
-				936B08491E06DDC3009AD3D3 /* YYFPSLabel.m */,
-				936B084A1E06DDC3009AD3D3 /* YYWeakProxy.h */,
-				936B084B1E06DDC3009AD3D3 /* YYWeakProxy.m */,
-			);
-			path = YYFPSLabel;
-			sourceTree = "<group>";
-		};
 		936B084E1E06E0B8009AD3D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1571,7 +1554,6 @@
 				9319737C1E1360A8009D896D /* fmdb */,
 				93FA9F881E10AD5B001DCAA0 /* MWPhotoBrowser */,
 				93FA9F2F1E10AB66001DCAA0 /* SDCycleScrollView */,
-				936B08471E06DDC3009AD3D3 /* YYFPSLabel */,
 				93F572A11DE27C0E00966974 /* Masonry */,
 				93F6B3CF1DE1FDD20048F279 /* IQKeyboardManager */,
 				93E02C861DDB598D007EAE1E /* AFNetworking */,
@@ -2036,16 +2018,16 @@
 			children = (
 				93E02DA41DDB598D007EAE1E /* OrderViewController.h */,
 				93E02DA51DDB598D007EAE1E /* OrderViewController.m */,
-				931973951E137487009D896D /* OrderItemVC.h */,
-				931973961E137487009D896D /* OrderItemVC.m */,
+				931973951E137487009D896D /* UnpayedOrderViewController.h */,
+				931973961E137487009D896D /* UnpayedOrderViewController.m */,
 				93D050E21E1FEF9E0006D6C6 /* OrderResultViewController.h */,
 				93D050E31E1FEF9E0006D6C6 /* OrderResultViewController.m */,
-				937168761E782DD500A2605D /* TestVC1.h */,
-				937168771E782DD500A2605D /* TestVC1.m */,
-				937168791E782E3200A2605D /* TestVC2.h */,
-				9371687A1E782E3200A2605D /* TestVC2.m */,
-				9371687C1E782E6000A2605D /* TestVC3.h */,
-				9371687D1E782E6000A2605D /* TestVC3.m */,
+				937168761E782DD500A2605D /* UnwalkedOrderViewController.h */,
+				937168771E782DD500A2605D /* UnwalkedOrderViewController.m */,
+				937168791E782E3200A2605D /* WillEvaluateViewController.h */,
+				9371687A1E782E3200A2605D /* WillEvaluateViewController.m */,
+				9371687C1E782E6000A2605D /* ExpiredOrderViewController.h */,
+				9371687D1E782E6000A2605D /* ExpiredOrderViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2661,7 +2643,7 @@
 				93D050E71E1FFF5F0006D6C6 /* OrderCompletedFirstCell.m in Sources */,
 				93E02DF61DDB598D007EAE1E /* UIColor+FlatUI.m in Sources */,
 				93F6B4001DE1FDD20048F279 /* IQToolbar.m in Sources */,
-				9371687B1E782E3200A2605D /* TestVC2.m in Sources */,
+				9371687B1E782E3200A2605D /* WillEvaluateViewController.m in Sources */,
 				93E02DF41DDB598D007EAE1E /* NSString+Icons.m in Sources */,
 				93E02E2F1DDB598D007EAE1E /* LoginViewController.m in Sources */,
 				93F572BD1DE27C0E00966974 /* MASViewAttribute.m in Sources */,
@@ -2755,7 +2737,6 @@
 				93FA9F3F1E10AB66001DCAA0 /* TAAbstractDotView.m in Sources */,
 				93AD7DDB1DFEA2E40067C539 /* HotelDescriptionCell.m in Sources */,
 				936F9A581E68790D00425819 /* SpecialHotelFlagCell.m in Sources */,
-				936B084D1E06DDC3009AD3D3 /* YYWeakProxy.m in Sources */,
 				93E02E2D1DDB598D007EAE1E /* AFNetPackage.m in Sources */,
 				93E02E191DDB598D007EAE1E /* MJRefreshAutoNormalFooter.m in Sources */,
 				939317371E30792400281A05 /* HcdDateTimePickerView.m in Sources */,
@@ -2771,7 +2752,7 @@
 				93DBCE2B1E46CF7F00F528E1 /* ZYWeekView.m in Sources */,
 				93302CC01DFAA5040091F145 /* SelectConditionCell.m in Sources */,
 				93E02DF31DDB598D007EAE1E /* FUITextField.m in Sources */,
-				9371687E1E782E6000A2605D /* TestVC3.m in Sources */,
+				9371687E1E782E6000A2605D /* ExpiredOrderViewController.m in Sources */,
 				933ED4931E31EAA1001E8A6B /* ChangePasswordViewController.m in Sources */,
 				93E02DFA1DDB598D007EAE1E /* UIPopoverController+FlatUI.m in Sources */,
 				93089D5F1E12A0BA00C9C273 /* TopicHotelCell.m in Sources */,
@@ -2828,7 +2809,7 @@
 				93E02C541DDB58C7007EAE1E /* AppDelegate.m in Sources */,
 				93FAA0041E10AD5B001DCAA0 /* PSTCollectionViewLayout.m in Sources */,
 				93E02E311DDB598D007EAE1E /* UIViewController+KSGuid.m in Sources */,
-				937168781E782DD500A2605D /* TestVC1.m in Sources */,
+				937168781E782DD500A2605D /* UnwalkedOrderViewController.m in Sources */,
 				9319735F1E135BAF009D896D /* JFButton.m in Sources */,
 				93FAA0181E10DC75001DCAA0 /* HotelNoticeCell.m in Sources */,
 				93F6B3BF1DE1E9280048F279 /* MyCollectionVC.m in Sources */,
@@ -2844,9 +2825,8 @@
 				93FAA0071E10AD5B001DCAA0 /* PSTGridLayoutItem.m in Sources */,
 				93E02DFB1DDB598D007EAE1E /* UIProgressView+FlatUI.m in Sources */,
 				93E02C511DDB58C7007EAE1E /* main.m in Sources */,
-				936B084C1E06DDC3009AD3D3 /* YYFPSLabel.m in Sources */,
 				931973601E135BAF009D896D /* JFCityCollectionFlowLayout.m in Sources */,
-				931973971E137487009D896D /* OrderItemVC.m in Sources */,
+				931973971E137487009D896D /* UnpayedOrderViewController.m in Sources */,
 				93302CCF1DFAB3680091F145 /* HotPopularHotelCollectionCell.m in Sources */,
 				93FA9FF11E10AD5B001DCAA0 /* EMSDWebImageDownloaderOperation.m in Sources */,
 				9319738A1E1360A8009D896D /* FMDatabaseAdditions.m in Sources */,
@@ -3041,7 +3021,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3393ZFX46Q;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/住哪儿/3dParty/BaiduMapAPI",
@@ -3074,7 +3054,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3393ZFX46Q;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/住哪儿/3dParty/BaiduMapAPI",

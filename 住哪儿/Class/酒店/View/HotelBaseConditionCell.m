@@ -80,8 +80,8 @@
     }];
     
     [self.wifiLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.wifiImageView);
-        make.right.equalTo(self.wifiImageView);
+        make.left.equalTo(self.wifiImageView).offset(-5);
+        make.right.equalTo(self.wifiImageView).offset(5);
         make.top.equalTo(self.wifiImageView.mas_bottom).with.offset(5);
         make.height.mas_equalTo(20);
     }];
@@ -93,8 +93,8 @@
     }];
     
     [self.parkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.parkImageView);
-        make.right.equalTo(self.parkImageView);
+        make.left.equalTo(self.parkImageView).offset(-5);
+        make.right.equalTo(self.parkImageView).offset(5);
         make.top.equalTo(self.parkImageView.mas_bottom).with.offset(5);
         make.height.mas_equalTo(20);
     }];
@@ -106,8 +106,8 @@
         make.size.equalTo(self.parkImageView);
     }];
     [self.packageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.packageImageView);
-        make.right.equalTo(self.packageImageView);
+        make.left.equalTo(self.packageImageView).offset(-5);
+        make.right.equalTo(self.packageImageView).offset(5);
         make.top.equalTo(self.packageImageView.mas_bottom).with.offset(5);
         make.height.mas_equalTo(20);
     }];
@@ -118,8 +118,8 @@
         make.size.equalTo(self.packageImageView);
     }];
     [self.meetingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.meetingImageView);
-        make.right.equalTo(self.meetingImageView);
+        make.left.equalTo(self.meetingImageView).offset(-5);
+        make.right.equalTo(self.meetingImageView).offset(5);
         make.top.equalTo(self.meetingImageView.mas_bottom).with.offset(5);
         make.height.mas_equalTo(20);
     }];
@@ -136,8 +136,8 @@
 -(void)setModel:(HotelsModel *)model{
     _model = model;
     if (model) {
-        self.startLabel.text = [NSString stringWithFormat:@"开业时间：%@",model.startTime];
-        self.decorateLabel.text = [NSString stringWithFormat:@"开业时间：%@",model.decorateTime];
+        self.startLabel.text = [NSString stringWithFormat:@"开业：%@",model.startTime];
+        self.decorateLabel.text = [NSString stringWithFormat:@"装修：%@",model.decorateTime];
         if (!model.hasWifi) {
             _wifiImageView.image = [UIImage imageNamed:@"Hotel_wifiLess"];
         }

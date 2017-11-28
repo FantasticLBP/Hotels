@@ -24,8 +24,6 @@
 #import "PriceAndStarLevelPickerView.h"
 #import "MainViewController.h"
 #import "SearchResultVC.h"
-
-#import "YYFPSLabel.h"
 #import "LocationManager.h"
 
 #define SalePromotionImageWidth 49
@@ -43,7 +41,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) SDCycleScrollView *advertiseView;
-@property (nonatomic, strong) YYFPSLabel *fpsLabel;
 @property (nonatomic, strong) SalePromotionImageView *saleImageView;
 @property (nonatomic, strong) PriceAndStarLevelPickerView *starView;
 @property (nonatomic, strong) ConditionPickerView *conditionView;
@@ -73,7 +70,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     self.tableView.tableHeaderView = self.headerView;
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.saleImageView];
-    [self testFPSLabel];
     [self loadSubjectImage];
 }
 
@@ -100,12 +96,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 #pragma mark - private method
-- (void)testFPSLabel {
-    self.fpsLabel = [YYFPSLabel new];
-    self.fpsLabel.frame = CGRectMake(0, 50, 50, 30);
-    [self.fpsLabel sizeToFit];
-    [self.view addSubview:self.fpsLabel];
-}
 
 -(void)searchHotelWithCondition{
     SearchResultVC *vc = [[SearchResultVC alloc] init];
@@ -375,8 +365,10 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 #pragma mark --lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight) style:UITableViewStylePlain];
-        _tableView.dataSource=self;
+        _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight - 49) style:UITableViewStylePlain];
+        _tableView.backgroundColor = [UIColor brownColor];
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, kDevice_Is_iPhoneX?34:0, 0);
+        _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.scrollsToTop = YES;
         _tableView.backgroundColor = TableViewBackgroundColor;
@@ -388,7 +380,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
         
         _tableView.tableFooterView = ({
             UIView *view =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, 80)];
-            
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.frame = CGRectMake(BoundWidth/2-70, 20, 140, 40);
             button.layer.borderWidth = 1;

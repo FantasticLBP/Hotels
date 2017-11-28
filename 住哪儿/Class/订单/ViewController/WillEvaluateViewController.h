@@ -1,5 +1,5 @@
 //
-//  OrderItemVC.h
+//  UnpayedOrderViewController.h
 //  住哪儿
 //
 //  Created by 杭城小刘 on 2016/12/28.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OrderCell.h"
 
-@interface TestVC2 : UIViewController
+@interface WillEvaluateViewController : UIViewController
 
 @property (nonatomic, assign) OrderType type;
 

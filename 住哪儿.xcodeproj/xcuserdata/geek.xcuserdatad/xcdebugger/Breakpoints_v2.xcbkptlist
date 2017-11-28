@@ -4,76 +4,18 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/utils/AFNetPackage.m"
-            timestampString = "521976414.755176"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/Controller/MainViewController.m"
+            timestampString = "533547756.739651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "+postJSONWithUrl:parameters:success:fail:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[AFNetPackage postJSONWithUrl:parameters:success:fail:]"
-                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geek/Desktop/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/utils/AFNetPackage.m"
-                  timestampString = "533209431.28151"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "158"
-                  endingLineNumber = "158"
-                  offsetFromSymbolStart = "507">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__56+[AFNetPackage postJSONWithUrl:parameters:success:fail:]_block_invoke"
-                  moduleName = "&#x4f4f;&#x54ea;&#x513f;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/geek/Desktop/Hotels/%E4%BD%8F%E5%93%AA%E5%84%BF/Class/utils/AFNetPackage.m"
-                  timestampString = "533209431.284621"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "158"
-                  endingLineNumber = "158"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/&#x9152;&#x5e97;/Controller/HotelLocationMapVC.m"
-            timestampString = "531156360.251126"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-didUpdateBMKUserLocation:"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-createVC:Title:imageName:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

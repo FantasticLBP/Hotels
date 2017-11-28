@@ -65,9 +65,12 @@ static NSString *OrderCellID = @"OrderCell";
     [self.footerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(kDevice_Is_iPhoneX?-34:0);
         make.height.mas_equalTo(50);
     }];
+    
+    
+    
 }
 
 #pragma mark - 

@@ -33,6 +33,12 @@
     [self autoLocate];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+    
+}
+
 - (void)setupUI {
     [self.view addSubview:self.imageView];
     [self becomeFirstResponder];
@@ -134,7 +140,7 @@
 
 -(UILabel *)label{
     if (!_label) {
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth/2-200/2, BoundHeight - 60 -270, 200, 21)];
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(BoundWidth/2-200/2, BoundHeight - 60 -300, 200, 21)];
         _label.textColor = [UIColor whiteColor];
         _label.numberOfLines = 2;
         _label.font = [UIFont systemFontOfSize:15];
@@ -146,7 +152,7 @@
 
 -(UIView *)bgView{
     if (!_bgView) {
-        _bgView = [[UIView alloc] initWithFrame:CGRectMake(15, BoundHeight-260, BoundWidth-30, 120)];
+        _bgView = [[UIView alloc] initWithFrame:CGRectMake(15, BoundHeight-290, BoundWidth-30, 120)];
         _bgView.backgroundColor = [UIColor whiteColor];
         _bgView.layer.cornerRadius = 10;
         _bgView.clipsToBounds = YES;

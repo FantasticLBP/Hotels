@@ -47,7 +47,7 @@
  */
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-    notification.applicationIconBadgeNumber = 0;
+    application.applicationIconBadgeNumber = 0;
     MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
     vc.selectedIndex = 3;
     UIAlertView  *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:notification.alertBody delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];

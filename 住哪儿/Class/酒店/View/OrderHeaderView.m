@@ -121,10 +121,10 @@
     }];
     
     [self.totalNightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.checkoutTimeLabel.mas_right).with.offset(9);
+        make.width.mas_equalTo(100);
         make.top.equalTo(self.checkoutTimeLabel.mas_top);
         make.bottom.equalTo(self.checkoutTimeLabel.mas_bottom);
-        make.right.equalTo(self);
+        make.right.equalTo(self).offset(-10);
     }];
     
     [self.roomDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -267,7 +267,7 @@
         _totalNightLabel = [UILabel new];
         _totalNightLabel.font = [UIFont systemFontOfSize:16];
         _totalNightLabel.textColor = [UIColor blackColor];
-        _totalNightLabel.textAlignment = NSTextAlignmentLeft;
+        _totalNightLabel.textAlignment = NSTextAlignmentRight;
     }
     return _totalNightLabel;
 }

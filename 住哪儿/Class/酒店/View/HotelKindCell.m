@@ -52,7 +52,7 @@
     [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self);
         make.right.equalTo(self.arrowImageView.mas_left).with.offset(-3);
-        make.width.mas_equalTo(50);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(21);
     }];
     
@@ -73,7 +73,7 @@
         make.left.equalTo(self.hotelTypeLabel);
         make.top.equalTo(self.hotelTypeLabel.mas_bottom).with.offset(2);
         make.height.mas_equalTo(21);
-        make.right.equalTo(self.priceLabel.mas_left);
+        make.width.mas_equalTo(BoundWidth - 120);
     }];
 }
 
@@ -128,7 +128,7 @@
     if (!_priceLabel) {
         _priceLabel = [UILabel new];
         _priceLabel.textColor = [UIColor redColor];
-        _priceLabel.textAlignment = NSTextAlignmentLeft;
+        _priceLabel.textAlignment = NSTextAlignmentRight;
         _priceLabel.font = [UIFont boldSystemFontOfSize:18];
     }
     return _priceLabel;

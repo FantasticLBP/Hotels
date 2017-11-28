@@ -1,26 +1,29 @@
 
 //
-//  OrderItemVC.m
+//  UnpayedOrderViewController.m
 //  住哪儿
 //
 //  Created by 杭城小刘 on 2016/12/28.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
-#import "TestVC2.h"
+#import "UnpayedOrderViewController.h"
 #import "OrderModel.h"
-
+#import "MainViewController.h"
+#import "PayOrderViewController.h"
+#import "AppDelegate.h"
+#import "OrderViewController.h"
 
 static NSString *OrderCellId = @"OrderCell";
-@interface TestVC2 ()<UITableViewDelegate,UITableViewDataSource,
-OrderCellDelegte>
+@interface UnpayedOrderViewController ()<UITableViewDelegate,UITableViewDataSource,
+                        OrderCellDelegte>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;                          /**<页码*/
 @property (nonatomic, strong) NSMutableArray *orders;           /**<订单数据源*/
 
 @end
 
-@implementation TestVC2
+@implementation UnpayedOrderViewController
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -63,7 +66,7 @@ OrderCellDelegte>
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderType"] = @(2);
+    par[@"orderType"] = @(0);
     
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
@@ -82,12 +85,13 @@ OrderCellDelegte>
 
 -(void)loadMoreData{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
-    
+
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderType"] = @(2);
+    par[@"orderType"] = @(0);
+    
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
         [SVProgressHUD dismiss];
@@ -108,7 +112,7 @@ OrderCellDelegte>
         for (NSDictionary *dic in datas) {
             [self.orders addObject:[OrderModel yy_modelWithJSON:dic]];
         }
-        
+      
         self.tableView.mj_footer.hidden = NO;
         if (datas.count == 0) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -121,6 +125,33 @@ OrderCellDelegte>
     }else{
         [SVProgressHUD showErrorWithStatus:dic[@"message"]];
     }
+}
+
+
+-(void)revokeOrder:(NSString *)orderId{
+
+    NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/RevokeOrder.php"];
+
+    NSMutableDictionary *par = [NSMutableDictionary dictionary];
+    par[@"telephone"] = [UserManager getUserObject].telephone;
+    par[@"orderId"] = orderId;
+    
+    [SVProgressHUD showWithStatus:@"正在撤销订单"];
+    [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
+        [SVProgressHUD dismiss];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+        if ([dic[@"code"] integerValue] == 200) {
+            for (OrderModel *model in self.orders) {
+                if([model.orderId isEqualToString:orderId]){
+                    [self.orders removeObject:model];
+                }
+            }
+            [self.tableView reloadData];
+        }
+       
+    } fail:^{
+        [SVProgressHUD dismiss];
+    }];
 }
 
 #pragma mark - UITableViewDeegate
@@ -154,15 +185,17 @@ OrderCellDelegte>
 -(void)orderCell:(OrderCell *)cell didClickButtonWithCellType:(OrderButtonOperationType)type withOrderModel:(OrderModel *)model{
     switch (type) {
         case OrderButtonOperationType_Pay:{
-            LBPLog(@"支付订单");
+            LBPLog(@"继续支付");
             break;
         }
         case OrderButtonOperationType_Cancel:{
             LBPLog(@"删除订单");
+            [self revokeOrder:model.orderId];
             break;
         }
         case OrderButtonOperationType_Revoke:{
             LBPLog(@"取消订单");
+            [self revokeOrder:model.orderId];
             break;
         }
         case OrderButtonOperationType_Evaluate:{
@@ -170,23 +203,25 @@ OrderCellDelegte>
             break;
         }
         case OrderButtonOperationType_Remind:{
-            LBPLog(@"添加提醒");
+            [AppDelegate registerLocalNotification:10 content:@"你有酒店需要按时入住哦！" key:@"live"];
             break;
         }
         case OrderButtonOperationType_ReBook:{
-            LBPLog(@"再次预定");
+            MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
+            vc.selectedIndex = 1;
             break;
         }
-            
+        
     }
 }
 
 #pragma mark - lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-50) style:UITableViewStylePlain];
+        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-49) style:UITableViewStylePlain];
         tb.delegate = self;
         tb.dataSource = self;
+        tb.contentInset = UIEdgeInsetsMake(0, 0, kDevice_Is_iPhoneX?49+41:49, 0);
         tb.backgroundColor = TableViewBackgroundColor;
         tb.tableFooterView = [[UIView alloc] init];
         tb.separatorStyle  = UITableViewCellSeparatorStyleNone;
@@ -200,7 +235,6 @@ OrderCellDelegte>
         tb.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [Weakself loadMoreData];
         }];
-        tb.mj_header.automaticallyChangeAlpha = YES;
         
         _tableView = tb;
     }

@@ -1,18 +1,18 @@
 
 //
-//  OrderItemVC.m
+//  UnpayedOrderViewController.m
 //  住哪儿
 //
 //  Created by 杭城小刘 on 2016/12/28.
 //  Copyright © 2016年 geek. All rights reserved.
 //
 
-#import "TestVC3.h"
+#import "WillEvaluateViewController.h"
 #import "OrderModel.h"
 
 
 static NSString *OrderCellId = @"OrderCell";
-@interface TestVC3 ()<UITableViewDelegate,UITableViewDataSource,
+@interface WillEvaluateViewController ()<UITableViewDelegate,UITableViewDataSource,
 OrderCellDelegte>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) NSInteger page;                          /**<页码*/
@@ -20,7 +20,7 @@ OrderCellDelegte>
 
 @end
 
-@implementation TestVC3
+@implementation WillEvaluateViewController
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +29,7 @@ OrderCellDelegte>
     [self reloadData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearData) name:LogoutNotification object:nil];
 }
+
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -45,7 +46,7 @@ OrderCellDelegte>
 -(void)clearData{
     [self.orders removeAllObjects];
     [self.tableView reloadData];
-
+    
 }
 
 -(void)reloadData{
@@ -55,13 +56,14 @@ OrderCellDelegte>
         [self.tableView.mj_header endRefreshing];
         return ;
     }
+    
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
     
     NSMutableDictionary *par = [NSMutableDictionary dictionary];
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderType"] = @(3);
+    par[@"orderType"] = @(2);
     
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
@@ -85,7 +87,7 @@ OrderCellDelegte>
     par[@"page"] = @(self.page);
     par[@"size"] = @(10);
     par[@"telephone"] = [UserManager getUserObject].telephone;
-    par[@"orderType"] = @(3);
+    par[@"orderType"] = @(2);
     [SVProgressHUD showWithStatus:@"正在加载"];
     [AFNetPackage getJSONWithUrl:url parameters:par success:^(id responseObject) {
         [SVProgressHUD dismiss];
@@ -182,9 +184,10 @@ OrderCellDelegte>
 #pragma mark - lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-50) style:UITableViewStylePlain];
+        UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-49) style:UITableViewStylePlain];
         tb.delegate = self;
         tb.dataSource = self;
+        tb.contentInset = UIEdgeInsetsMake(0, 0, kDevice_Is_iPhoneX?49+41:49, 0);
         tb.backgroundColor = TableViewBackgroundColor;
         tb.tableFooterView = [[UIView alloc] init];
         tb.separatorStyle  = UITableViewCellSeparatorStyleNone;

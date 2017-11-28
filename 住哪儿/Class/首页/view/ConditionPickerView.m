@@ -128,7 +128,7 @@
         
         
         UIButton *locateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        locateBtn.frame = CGRectMake(LocateButtonMarginLeft, 0, LocateButtonOriginY, CellHeight);
+        locateBtn.frame = CGRectMake(BoundWidth - 100, 0, LocateButtonOriginY, CellHeight);
         [locateBtn setImage:[UIImage imageNamed:@"locate"] forState:UIControlStateNormal];
         [locateBtn setTitle:@"我的位置" forState:UIControlStateNormal];
         [locateBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

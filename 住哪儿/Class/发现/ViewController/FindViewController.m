@@ -280,7 +280,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.hotels.count + 6+2;
+    return self.hotels.count + 1 +2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -350,14 +350,14 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 #pragma mark - lazy load
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight - 64 - 49) style:UITableViewStylePlain];
         _tableView.backgroundColor = CollectionViewBackgroundColor;
         [_tableView registerNib:[UINib nibWithNibName:@"HotelDescriptionCell" bundle:nil] forCellReuseIdentifier:HotelDescriptionCellID];
         [_tableView registerNib:[UINib nibWithNibName:@"TopicHotelCell" bundle:nil] forCellReuseIdentifier:TopicHotelCellID];
          [_tableView registerNib:[UINib nibWithNibName:@"SpecialHotelsCell" bundle:nil] forCellReuseIdentifier:SpecialHotelsCellID];
         
         [_tableView registerNib:[UINib nibWithNibName:@"SpecialHotelFlagCell" bundle:nil] forCellReuseIdentifier:SpecialHotelFlagCellID];
-        _tableView.contentInset = UIEdgeInsetsMake(HeaderImageHeight, 0, 50, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(HeaderImageHeight, 0, 0, 0);
         _tableView.delegate = self;
         _tableView.dataSource = self;
         
