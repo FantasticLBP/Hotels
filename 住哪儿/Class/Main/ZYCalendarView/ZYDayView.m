@@ -20,9 +20,6 @@
         [self setTitleColor:defaultTextColor forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         [self setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-        [self setImage:[UIImage imageNamed:@"circle"] forState:UIControlStateSelected];
-        [self setImage:nil forState:UIControlStateNormal];
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeState) name:@"changeState" object:nil];
     }
     return self;
@@ -106,7 +103,7 @@
         
         // 当前时间
         if ([_manager.helper date:_date isTheSameDayThan:_manager.date] && self.enabled) {
-            [self setImage:[UIImage imageNamed:@"circle_cir"] forState:UIControlStateNormal];
+            [self setBackgroundImage:[UIImage imageNamed:@"Hotel_Time_today"] forState:UIControlStateNormal];
         }
         
         // 多选状态设置
@@ -155,7 +152,9 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    [self setBackgroundImage:nil forState:UIControlStateSelected];
+
+    
+    [self setBackgroundColor:GlobalMainColor];
     
     // 多选
     if (_manager.selectionType == ZYCalendarSelectionTypeMultiple) {

@@ -213,7 +213,7 @@
         starLevelLabel.userInteractionEnabled = YES;
         [starLevelLabel addGestureRecognizer:starFilter];
     }
-
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
