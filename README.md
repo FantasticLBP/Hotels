@@ -34,10 +34,10 @@
 
 ![首页](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1875.PNG "首页")
 ![发现](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1876.PNG "发现")
-![酒店详情](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1875.PNG "酒店详情")
-![摇一摇推荐酒店](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1875.PNG "摇一摇酒店推荐")
-![入住提醒](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1875.PNG "入住提醒")
-![酒店导航](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1875.PNG "酒店导航")
+![酒店详情](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1877.PNG "酒店详情")
+![摇一摇推荐酒店](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1878.PNG "摇一摇酒店推荐")
+![入住提醒](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1879.PNG "入住提醒")
+![酒店导航](https://github.com/FantasticLBP/Hotels/raw/master/images/IMG_1880.PNG "酒店导航")
 
 ![App效果图](https://raw.githubusercontent.com/FantasticLBP/Hotels/master/1.gif "这是App的效果图")
 
