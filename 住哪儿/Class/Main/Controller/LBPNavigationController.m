@@ -96,6 +96,15 @@
     [super pushViewController:viewController animated:animated];
 }
 
+
+-(UIViewController *)popViewControllerAnimated:(BOOL)animated{
+    [SVProgressHUD dismiss];
+    return [super popViewControllerAnimated:animated];
+    
+}
+
+
+
 - (void)back
 {
     [self popViewControllerAnimated:YES];
@@ -111,6 +120,8 @@
 {
     return self.viewControllers.count > 1;
 }
+
+
 
 
 @end

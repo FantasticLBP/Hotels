@@ -55,7 +55,6 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
     [UIView animateWithDuration:0.3 animations:^{
         [self.shareView setFrame:CGRectMake(0, BoundHeight, BoundWidth, ShareViewHeight)];
     } completion:^(BOOL finished) {

@@ -50,12 +50,13 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 @implementation FindViewController
 
 #pragma mark - life cycle
+
 -(void)viewDidLoad{
     [super viewDidLoad];
+    [self setupUI];
     [self loadSubjectImage];
     [self preData];
     [self loadSubject];
-    [self setupUI];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -63,11 +64,6 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
     if (!self.isPickedCity) {
         [self autoLocate];
     }
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
 }
 
 #pragma mark - private method
@@ -82,6 +78,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
     });
     self.page = 1;
     [self.view addSubview:self.tableView];
+    self.tableView.contentOffset = CGPointZero;
     [self.tableView addSubview:self.advertiseView];
 }
 
@@ -251,12 +248,10 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
                 [self.images addObject:[NSString stringWithFormat:@"%@%@%@",Base_Url,@"/",dic[@"image"]]];
             }
             self.advertiseView.imageURLStringsGroup = self.images;
-            [self.tableView reloadData];
         }
     } fail:^{
         [SVProgressHUD dismiss];
     }];
-    
 }
 
 #pragma mark - LocationManagerDelegate
@@ -358,6 +353,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
         
         [_tableView registerNib:[UINib nibWithNibName:@"SpecialHotelFlagCell" bundle:nil] forCellReuseIdentifier:SpecialHotelFlagCellID];
         _tableView.contentInset = UIEdgeInsetsMake(HeaderImageHeight, 0, 0, 0);
+        _tableView.contentOffset = CGPointZero;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         

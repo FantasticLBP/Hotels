@@ -30,11 +30,6 @@
     [self setupUI];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 #pragma mark - Private method
 -(void)setupUI{
     self.title = @"登录";

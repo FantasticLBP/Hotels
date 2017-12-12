@@ -28,11 +28,6 @@ static NSString *TopicConditionCellID = @"TopicConditionCell";
     [self getSubjects];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 #pragma mark - private method
 -(void)getSubjects{
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/subject.php"];

@@ -30,11 +30,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [self preData];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 #pragma mark - private method
 -(void)loadMoreHotel{
     [self.navigationController popViewControllerAnimated:YES];

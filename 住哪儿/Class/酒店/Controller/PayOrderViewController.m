@@ -26,11 +26,6 @@
     [self setupUI];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 #pragma mark - private method
 -(void)setupUI{
     self.view.backgroundColor = CollectionViewBackgroundColor;

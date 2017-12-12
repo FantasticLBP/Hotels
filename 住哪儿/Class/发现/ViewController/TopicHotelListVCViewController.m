@@ -36,11 +36,6 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     [self.tableView reloadData];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 #pragma mark - private method
 -(void)setupUI{
     self.view.backgroundColor = [UIColor whiteColor];

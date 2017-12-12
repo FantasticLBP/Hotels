@@ -30,12 +30,6 @@ OrderCellDelegte>
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearData) name:LogoutNotification object:nil];
 }
 
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 #pragma mark - private method
 -(void)setupUI{
     self.view.backgroundColor = [UIColor whiteColor];

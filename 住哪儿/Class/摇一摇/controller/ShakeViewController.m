@@ -33,12 +33,6 @@
     [self autoLocate];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-    
-}
-
 - (void)setupUI {
     [self.view addSubview:self.imageView];
     [self becomeFirstResponder];

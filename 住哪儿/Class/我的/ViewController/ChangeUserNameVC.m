@@ -27,10 +27,6 @@
     
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
-}
 
 -(void)clickRightButton{
     UserInfo *buddy = [UserManager getUserObject];
