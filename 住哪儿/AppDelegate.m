@@ -11,6 +11,7 @@
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
 //百度地图key
 #define BMAPKEY @"LYHkYVQGWmQxKZw7O62P24Cj1aCovpuN"
+#import "AppUpdater.h"
 
 @interface AppDelegate (){
     BMKMapManager* _mapManager;
@@ -25,7 +26,7 @@
     
     // 要使用百度地图，请先启动BaiduMapManager
     _mapManager = [[BMKMapManager alloc] init];
-    
+    [[AppUpdater sharedAppUpdater] checkUpdate];
     BOOL ret = [_mapManager start:BMAPKEY generalDelegate:nil];
     if (!ret) {
         LBPLog(@"manager start failed!");

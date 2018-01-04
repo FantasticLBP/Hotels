@@ -52,6 +52,7 @@
 		93302CCF1DFAB3680091F145 /* HotPopularHotelCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93302CCD1DFAB3680091F145 /* HotPopularHotelCollectionCell.m */; };
 		93302CD01DFAB3680091F145 /* HotPopularHotelCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93302CCE1DFAB3680091F145 /* HotPopularHotelCollectionCell.xib */; };
 		933ED4931E31EAA1001E8A6B /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933ED4921E31EAA1001E8A6B /* ChangePasswordViewController.m */; };
+		934010851FFDC99F00BD9E72 /* AppUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 934010841FFDC99F00BD9E72 /* AppUpdater.m */; };
 		9340E8301E6BB68500DBBF0B /* SearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9340E82F1E6BB68500DBBF0B /* SearchResultVC.m */; };
 		934FC5EA1E6142D100395091 /* HotelsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 934FC5E91E6142D100395091 /* HotelsModel.m */; };
 		936691DD1DF955D7009E121B /* ConditionPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936691DC1DF955D7009E121B /* ConditionPickerView.m */; };
@@ -486,6 +487,8 @@
 		93302CCE1DFAB3680091F145 /* HotPopularHotelCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotPopularHotelCollectionCell.xib; sourceTree = "<group>"; };
 		933ED4911E31EAA1001E8A6B /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		933ED4921E31EAA1001E8A6B /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		934010831FFDC99F00BD9E72 /* AppUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUpdater.h; sourceTree = "<group>"; };
+		934010841FFDC99F00BD9E72 /* AppUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUpdater.m; sourceTree = "<group>"; };
 		9340E82E1E6BB68500DBBF0B /* SearchResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultVC.h; sourceTree = "<group>"; };
 		9340E82F1E6BB68500DBBF0B /* SearchResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultVC.m; sourceTree = "<group>"; };
 		934FC5E81E6142D100395091 /* HotelsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelsModel.h; sourceTree = "<group>"; };
@@ -1840,6 +1843,8 @@
 		93E02D8B1DDB598D007EAE1E /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				934010831FFDC99F00BD9E72 /* AppUpdater.h */,
+				934010841FFDC99F00BD9E72 /* AppUpdater.m */,
 				93E02D8C1DDB598D007EAE1E /* AFNetPackage.h */,
 				93E02D8D1DDB598D007EAE1E /* AFNetPackage.m */,
 				93E02D8E1DDB598D007EAE1E /* UserInfo.h */,
@@ -2804,6 +2809,7 @@
 				93E02E171DDB598D007EAE1E /* MJRefreshHeader.m in Sources */,
 				93F6B4011DE1FDD20048F279 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				93E02DBA1DDB598D007EAE1E /* AFURLRequestSerialization.m in Sources */,
+				934010851FFDC99F00BD9E72 /* AppUpdater.m in Sources */,
 				93FA9FE81E10AD5B001DCAA0 /* MWPhotoBrowser.m in Sources */,
 				93E02DBC1DDB598D007EAE1E /* AFURLSessionManager.m in Sources */,
 				93E02C541DDB58C7007EAE1E /* AppDelegate.m in Sources */,
