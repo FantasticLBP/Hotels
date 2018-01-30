@@ -1,6 +1,6 @@
 
 //  PayOrderViewController.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2017/1/5.
 //  Copyright © 2017年 geek. All rights reserved.
@@ -48,7 +48,7 @@
     [self.footerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(kDevice_Is_iPhoneX?-34:0);
+        make.bottom.equalTo(self.view).offset([ProjectUtil isPhoneX]?-34:0);
         make.height.mas_equalTo(50);
     }];
     

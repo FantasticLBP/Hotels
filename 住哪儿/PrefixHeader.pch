@@ -26,4 +26,8 @@
 #import "UserManager.h"
 #import "NSObject+NSLocalNotification.h"
 #import "UITableView+NoData.h"
+#import "UIViewController+HUD.h"
+#import "UIViewController+currentViewController.h"
+#import "UIViewController+badNetwork.h"
+#import "DBUtil.h"
 #endif /* PrefixHeader_pch */

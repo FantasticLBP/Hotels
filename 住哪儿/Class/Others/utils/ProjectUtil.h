@@ -1,6 +1,6 @@
 //
 //  ProjectUtil.h
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/12/20.
 //  Copyright © 2016年 geek. All rights reserved.
@@ -64,5 +64,15 @@
  * 获得本地通知名
  */
 +(NSMutableArray *)getLocalNitifications;
+
+/**
+ * 判断当前设备是不是刘海平手机
+ */
++ (BOOL)isPhoneX;
+/**
+ * base64 解码
+ */
++ (NSDictionary *)base64decode:(NSDictionary *)enctyptedString;
+
 @end
 

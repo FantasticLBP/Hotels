@@ -1,6 +1,6 @@
 //
 //  ____UITests.m
-//  住哪儿UITests
+//  幸运计划助手UITests
 //
 //  Created by 杭城小刘 on 2016/11/15.
 //  Copyright © 2016年 geek. All rights reserved.

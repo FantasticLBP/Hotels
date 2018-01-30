@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -143,35 +142,6 @@
                                     <action selector="clickLoginButton:" destination="xgo-uw-Bso" eventType="touchUpInside" id="jcs-oD-Ge2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gH-RT-wHz">
-                                <rect key="frame" x="0.0" y="536" width="375" height="1"/>
-                                <color key="backgroundColor" red="0.72941176470588232" green="0.72941176470588232" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="A1Z-eE-0Uw"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他登录方式" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7S-r2-xBV">
-                                <rect key="frame" x="133" y="526" width="110" height="21"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="4iA-xG-dIp"/>
-                                    <constraint firstAttribute="height" constant="21" id="Fdj-xV-cjx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIl-LV-6xt">
-                                <rect key="frame" x="163" y="577" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="AWF-c4-uHE"/>
-                                    <constraint firstAttribute="width" constant="50" id="POE-zQ-8Ke"/>
-                                </constraints>
-                                <state key="normal" image="Login_icon_weixin"/>
-                                <connections>
-                                    <action selector="clickWechatButton:" destination="xgo-uw-Bso" eventType="touchUpInside" id="Zgz-pI-zkT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="忘记密码？" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2z-9E-Nk7">
                                 <rect key="frame" x="16" y="171" width="343" height="21"/>
                                 <constraints>
@@ -202,22 +172,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="oIl-LV-6xt" firstAttribute="centerX" secondItem="OCv-Qc-8yM" secondAttribute="centerX" id="1c2-Lq-NSj"/>
                             <constraint firstAttribute="trailing" secondItem="weG-Pi-K8m" secondAttribute="trailing" constant="10" id="3BP-fY-2dD"/>
                             <constraint firstItem="weG-Pi-K8m" firstAttribute="leading" secondItem="OCv-Qc-8yM" secondAttribute="leading" constant="10" id="3rG-Rs-yQN"/>
-                            <constraint firstItem="1gH-RT-wHz" firstAttribute="leading" secondItem="OCv-Qc-8yM" secondAttribute="leading" id="Bob-lj-sFF"/>
-                            <constraint firstItem="pm5-c3-ALt" firstAttribute="top" secondItem="v7S-r2-xBV" secondAttribute="bottom" constant="120" id="C4P-LB-pOS"/>
                             <constraint firstItem="Gai-fi-C5b" firstAttribute="top" secondItem="weG-Pi-K8m" secondAttribute="bottom" constant="60" id="QSX-3U-JpL"/>
                             <constraint firstItem="VPf-BI-od2" firstAttribute="trailing" secondItem="Gai-fi-C5b" secondAttribute="trailing" id="QnX-jh-EGq"/>
-                            <constraint firstAttribute="trailing" secondItem="1gH-RT-wHz" secondAttribute="trailing" id="Rc2-cV-Z1c"/>
                             <constraint firstItem="b2z-9E-Nk7" firstAttribute="leading" secondItem="OCv-Qc-8yM" secondAttribute="leadingMargin" id="TgQ-x1-ZKU"/>
                             <constraint firstItem="b2z-9E-Nk7" firstAttribute="trailing" secondItem="OCv-Qc-8yM" secondAttribute="trailingMargin" id="Xkh-uR-CoT"/>
                             <constraint firstItem="b2z-9E-Nk7" firstAttribute="top" secondItem="weG-Pi-K8m" secondAttribute="bottom" constant="20" id="Xwm-Uy-QDg"/>
-                            <constraint firstItem="v7S-r2-xBV" firstAttribute="centerX" secondItem="OCv-Qc-8yM" secondAttribute="centerX" id="cIq-8V-dg0"/>
-                            <constraint firstItem="pm5-c3-ALt" firstAttribute="top" secondItem="1gH-RT-wHz" secondAttribute="bottom" constant="130" id="dkq-7j-MyT"/>
                             <constraint firstItem="VPf-BI-od2" firstAttribute="leading" secondItem="Gai-fi-C5b" secondAttribute="leading" id="hvW-1R-tR7"/>
                             <constraint firstItem="Gai-fi-C5b" firstAttribute="leading" secondItem="OCv-Qc-8yM" secondAttribute="leading" constant="30" id="iCX-5f-msS"/>
-                            <constraint firstItem="oIl-LV-6xt" firstAttribute="top" secondItem="v7S-r2-xBV" secondAttribute="bottom" constant="30" id="mJx-1L-4IR"/>
                             <constraint firstAttribute="trailing" secondItem="Gai-fi-C5b" secondAttribute="trailing" constant="30" id="nCd-5b-f4d"/>
                             <constraint firstItem="weG-Pi-K8m" firstAttribute="top" secondItem="BNm-ma-du7" secondAttribute="bottom" constant="30" id="nVz-2w-UIq"/>
                             <constraint firstItem="VPf-BI-od2" firstAttribute="top" secondItem="Gai-fi-C5b" secondAttribute="bottom" constant="40" id="tzB-VA-3vi"/>
@@ -229,17 +192,140 @@
                         <outlet property="passwordTextField" destination="JOB-FM-dj2" id="Jhj-5I-lZR"/>
                         <outlet property="registerButton" destination="VPf-BI-od2" id="YC5-c2-CWP"/>
                         <outlet property="usernameTextField" destination="7HR-5T-sPu" id="OQj-ZT-0Bk"/>
-                        <outlet property="wechatButton" destination="oIl-LV-6xt" id="h6Q-Kw-UC2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kjs-c6-Vjf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96.799999999999997" y="-7.6461769115442282"/>
+            <point key="canvasLocation" x="-252" y="580"/>
+        </scene>
+        <!--Bad Network View Controller-->
+        <scene sceneID="ciz-cV-8pL">
+            <objects>
+                <viewController storyboardIdentifier="BadNetworkViewController" id="Ywg-4N-lhS" customClass="BadNetworkViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CIj-EA-ns8"/>
+                        <viewControllerLayoutGuide type="bottom" id="LKS-XD-2Dz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FIF-Fm-E5W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arx-f3-zqE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNj-gM-Cfi">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="711"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.检查本地网络" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzK-SX-f3r">
+                                                <rect key="frame" x="15" y="20" width="345" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请查看您本地的无线网络或手机信号情况，信号差的时候无法正常获取数据。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTM-jo-hB2">
+                                                <rect key="frame" x="15" y="53" width="345" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.检查网络权限是否打开" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ug-r5-bO9">
+                                                <rect key="frame" x="15" y="104" width="345" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS10系统，需要开启App使用网络的权限。如果您第一次打开幸运计划助手App弹出下面的对话框，请点击“允许”" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIK-Wn-iT7">
+                                                <rect key="frame" x="15" y="137" width="345" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badnwtwork" translatesAutoresizingMaskIntoConstraints="NO" id="yqH-n8-J6y">
+                                                <rect key="frame" x="52.5" y="201" width="270" height="252"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="270" id="OXf-L9-Zuo"/>
+                                                    <constraint firstAttribute="height" constant="252" id="tnU-Fb-apq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如果您未遇到上述对话框，或已经选择了“不允许”。解决方法： 打开【设置】- 【蜂窝移动网络】- 【使用无限局域网与蜂窝移动的应用】，找到【幸运计划助手】，勾选【无线局域网与蜂窝移动数据】即可。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfe-0t-lgh">
+                                                <rect key="frame" x="15" y="463" width="345" height="90"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如果在【使用无线局域网与蜂窝网移动的应用】中，未找到【幸运计划助手】，请重启手机幸运计划助手App后，再进入【设置】中尝试。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENS-PL-ngc">
+                                                <rect key="frame" x="15" y="563" width="345" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如果您的手机不是中国版，则：打开【设置】-【蜂窝移动网络】，找到【幸运计划助手】，启用开关即可。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpk-Jh-qq6">
+                                                <rect key="frame" x="15" y="627" width="345" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Cfe-0t-lgh" firstAttribute="leading" secondItem="NIK-Wn-iT7" secondAttribute="leading" id="0Yx-nA-NID"/>
+                                            <constraint firstItem="nTM-jo-hB2" firstAttribute="leading" secondItem="LzK-SX-f3r" secondAttribute="leading" id="3aG-qz-hVG"/>
+                                            <constraint firstAttribute="trailing" secondItem="LzK-SX-f3r" secondAttribute="trailing" constant="15" id="4JK-f2-AVL"/>
+                                            <constraint firstItem="ENS-PL-ngc" firstAttribute="top" secondItem="Cfe-0t-lgh" secondAttribute="bottom" constant="10" id="53U-6X-K4z"/>
+                                            <constraint firstItem="yqH-n8-J6y" firstAttribute="top" secondItem="NIK-Wn-iT7" secondAttribute="bottom" constant="10" id="5IN-pm-3gb"/>
+                                            <constraint firstItem="ENS-PL-ngc" firstAttribute="leading" secondItem="Cfe-0t-lgh" secondAttribute="leading" id="7qw-Rq-GRX"/>
+                                            <constraint firstItem="NIK-Wn-iT7" firstAttribute="leading" secondItem="4ug-r5-bO9" secondAttribute="leading" id="9DI-XY-rfI"/>
+                                            <constraint firstItem="yqH-n8-J6y" firstAttribute="centerX" secondItem="cNj-gM-Cfi" secondAttribute="centerX" id="DCH-8w-vnK"/>
+                                            <constraint firstItem="NIK-Wn-iT7" firstAttribute="top" secondItem="4ug-r5-bO9" secondAttribute="bottom" constant="15" id="EHI-ik-PSw"/>
+                                            <constraint firstItem="Cfe-0t-lgh" firstAttribute="top" secondItem="yqH-n8-J6y" secondAttribute="bottom" constant="10" id="I39-7o-ntC"/>
+                                            <constraint firstItem="LzK-SX-f3r" firstAttribute="leading" secondItem="cNj-gM-Cfi" secondAttribute="leading" constant="15" id="LjI-13-RvK"/>
+                                            <constraint firstItem="NIK-Wn-iT7" firstAttribute="trailing" secondItem="4ug-r5-bO9" secondAttribute="trailing" id="NVK-rZ-Esa"/>
+                                            <constraint firstItem="Cfe-0t-lgh" firstAttribute="trailing" secondItem="NIK-Wn-iT7" secondAttribute="trailing" id="O75-sY-Z71"/>
+                                            <constraint firstItem="ENS-PL-ngc" firstAttribute="trailing" secondItem="Cfe-0t-lgh" secondAttribute="trailing" id="XZ2-Aj-02G"/>
+                                            <constraint firstItem="4ug-r5-bO9" firstAttribute="top" secondItem="nTM-jo-hB2" secondAttribute="bottom" constant="15" id="YvJ-fG-Yqn"/>
+                                            <constraint firstItem="mpk-Jh-qq6" firstAttribute="top" secondItem="ENS-PL-ngc" secondAttribute="bottom" constant="10" id="axw-Tg-u3F"/>
+                                            <constraint firstItem="4ug-r5-bO9" firstAttribute="trailing" secondItem="nTM-jo-hB2" secondAttribute="trailing" id="bbz-rc-WZB"/>
+                                            <constraint firstItem="LzK-SX-f3r" firstAttribute="top" secondItem="cNj-gM-Cfi" secondAttribute="top" constant="20" id="cDX-ZS-RgA"/>
+                                            <constraint firstItem="4ug-r5-bO9" firstAttribute="leading" secondItem="nTM-jo-hB2" secondAttribute="leading" id="eRl-UU-SOn"/>
+                                            <constraint firstItem="mpk-Jh-qq6" firstAttribute="leading" secondItem="ENS-PL-ngc" secondAttribute="leading" id="hRR-Yl-hiS"/>
+                                            <constraint firstItem="nTM-jo-hB2" firstAttribute="top" secondItem="LzK-SX-f3r" secondAttribute="bottom" constant="15" id="lPi-XW-pNl"/>
+                                            <constraint firstItem="nTM-jo-hB2" firstAttribute="trailing" secondItem="LzK-SX-f3r" secondAttribute="trailing" id="umo-YC-nBr"/>
+                                            <constraint firstAttribute="bottom" secondItem="mpk-Jh-qq6" secondAttribute="bottom" constant="30" id="vuK-St-JE3"/>
+                                            <constraint firstItem="mpk-Jh-qq6" firstAttribute="trailing" secondItem="ENS-PL-ngc" secondAttribute="trailing" id="wvv-lT-8Dq"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cNj-gM-Cfi" secondAttribute="bottom" id="3n7-ho-y9g"/>
+                                    <constraint firstItem="cNj-gM-Cfi" firstAttribute="leading" secondItem="Arx-f3-zqE" secondAttribute="leading" id="6eb-tm-aha"/>
+                                    <constraint firstItem="LzK-SX-f3r" firstAttribute="centerX" secondItem="Arx-f3-zqE" secondAttribute="centerX" id="BbJ-J7-Qi0"/>
+                                    <constraint firstAttribute="trailing" secondItem="cNj-gM-Cfi" secondAttribute="trailing" id="Rfw-AV-K8I"/>
+                                    <constraint firstItem="cNj-gM-Cfi" firstAttribute="top" secondItem="Arx-f3-zqE" secondAttribute="top" id="gB5-pr-Md9"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Arx-f3-zqE" firstAttribute="leading" secondItem="FIF-Fm-E5W" secondAttribute="leading" id="V7o-9t-a7Z"/>
+                            <constraint firstItem="LKS-XD-2Dz" firstAttribute="top" secondItem="Arx-f3-zqE" secondAttribute="bottom" id="cMa-pn-Iiz"/>
+                            <constraint firstAttribute="trailing" secondItem="Arx-f3-zqE" secondAttribute="trailing" id="eaE-Zq-J89"/>
+                            <constraint firstItem="Arx-f3-zqE" firstAttribute="top" secondItem="FIF-Fm-E5W" secondAttribute="top" id="uAU-Kd-54w"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="firstTipLabel" destination="NIK-Wn-iT7" id="Od3-fY-2Lb"/>
+                        <outlet property="secondTipLabel" destination="Cfe-0t-lgh" id="JcO-Tw-GtW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mJh-XT-N9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="415" y="580"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Login_icon_weixin" width="50" height="50"/>
-        <image name="Login_password" width="8" height="8"/>
-        <image name="Login_username" width="8" height="8"/>
+        <image name="Login_password" width="16" height="16"/>
+        <image name="Login_username" width="16" height="16"/>
+        <image name="badnwtwork" width="270.66665649414062" height="252"/>
     </resources>
 </document>

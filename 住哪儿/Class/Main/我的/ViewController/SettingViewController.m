@@ -58,21 +58,21 @@
 
 #pragma mark -- UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section==0 || section == 1){
+    if (section == 0 ){
         return 1;
     }
-    if(section==2){
-        return 6;
+    if(section == 1){
+        return 2;
     }
-    return 5;
+    return 0;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return 2;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 || indexPath.section == 1) {
+    if (indexPath.section == 0) {
         return 75;
     }else{
         return 48;
@@ -81,7 +81,7 @@
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section==3) {
+    if (section == 1) {
         if ([UserManager isLogin]) {
             return 100;
         }
@@ -93,7 +93,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] init];
-    if (section==3 && [UserManager isLogin]) {
+    if (section == 1 && [UserManager isLogin]) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((BoundWidth-280)/2, 20, 280, 42)];
         [button setTitle:@"退出" forState:UIControlStateNormal];
         [button setBackgroundColor:GlobalMainColor];
@@ -148,37 +148,11 @@
         [cell.contentView addSubview:usernameLabel];
     }
     
-    if (indexPath.section ==1 && indexPath.row == 0) {
-        cell.textLabel.text = @"我的优惠券";
-    }
-    
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1 ) {
         if (indexPath.row == 0) {
-            cell.textLabel.text = @"芝麻信用";
-        }else if(indexPath.row == 1){
-            cell.textLabel.text = @"我的收藏";
-        }else if (indexPath.row == 2){
-            cell.textLabel.text = @"我的浏览记录";
-        }else if (indexPath.row == 3){
-            cell.textLabel.text = @"我的通知";
-        }else if (indexPath.row == 4){
-            cell.textLabel.text = @"在线咨询与投诉";
-        }else{
             cell.textLabel.text = @"拨打客服电话";
-        }
-    }
-    
-    if (indexPath.section == 3) {
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"给个好评行不行";
-        }else if (indexPath.row == 1){
-            cell.textLabel.text = @"常见问题解答";
-        }else if (indexPath.row == 2){
-            cell.textLabel.text = @"推荐住哪儿给朋友";
-        }else if (indexPath.row == 3){
-            cell.textLabel.text = @"意见反馈";
-        }else{
-            cell.textLabel.text = @"关于住哪儿";
+        }else if(indexPath.row == 1){
+            cell.textLabel.text = @"关于幸运计划助手";
         }
     }
     
@@ -199,27 +173,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }else if (indexPath.section == 1){
-        if (indexPath.row == 0 ) {
-            LBPLog(@"点击了我的优惠券");
-        }
-    }else if(indexPath.section == 2){
-        if (indexPath.row == 0) {
-            LBPLog(@"芝麻信用");
-            ImageVC *vc = [[ImageVC alloc] init];
-            vc.imageName = @"XZQ";
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 1) {
-            MyCollectionVC *vc = [[MyCollectionVC alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 2) {
-            MyScanHistoryListVC *vc = [[MyScanHistoryListVC alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 3) {
-            MyNotificationVC *vc = [[MyNotificationVC alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 4) {
-            LBPLog(@"在线咨询与投诉");
-        }else if (indexPath.row == 5){
+        if (indexPath.row == 0){
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"拨打客服电话" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
@@ -233,42 +187,7 @@
             [self presentViewController:alert animated:YES completion:^{
                 
             }];
-        }
-    }else if (indexPath.section == 3){
-        if (indexPath.row == 0) {
-            LBPLog(@"1");
-        }else if (indexPath.row == 1) {
-            FAQVC *vc = [[FAQVC alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 2){
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"推荐住哪儿给朋友" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-            UIAlertAction *wechat = [UIAlertAction actionWithTitle:@"微信好友" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [SVProgressHUD showInfoWithStatus:@"微信好友"];
-            }];
-            UIAlertAction *wechatFriendCircle = [UIAlertAction actionWithTitle:@"微信朋友圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [SVProgressHUD showInfoWithStatus:@"微信朋友圈"];
-            }];
-            UIAlertAction *QQFriend = [UIAlertAction actionWithTitle:@"QQ好友" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [SVProgressHUD showInfoWithStatus:@"QQ好友"];
-            }];
-            UIAlertAction *sinaWeibo = [UIAlertAction actionWithTitle:@"新浪微博" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [SVProgressHUD showInfoWithStatus:@"新浪微博"];
-            }];
-            
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
-            }];
-            [alert addAction:wechat];
-            [alert addAction:wechatFriendCircle];
-            [alert addAction:QQFriend];
-            [alert addAction:sinaWeibo];
-            [alert addAction:cancel];
-            [self presentViewController:alert animated:YES completion:nil];
-            
-        }else if (indexPath.row == 3) {
-            FeedBackVC *vc = [[FeedBackVC alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 4) {
+        } else {
             AboutVC *vc = [[AboutVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }

@@ -1,7 +1,7 @@
 
 //
 //  HotelRoomPriceVC.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/12/28.
 //  Copyright © 2016年 geek. All rights reserved.
@@ -139,10 +139,10 @@ static NSString *RoomItemCellID = @"RoomItemCell";
     }
     switch (indexPath.row) {
         case 0:
-            cell.priceType = @"住哪儿可取消价格";
+            cell.priceType = @"幸运计划助手可取消价格";
             break;
         case 1:
-            cell.priceType = @"住哪儿不可取消价格";
+            cell.priceType = @"幸运计划助手不可取消价格";
             break;
         case 2:
             cell.priceType = @"代理可取消价格";

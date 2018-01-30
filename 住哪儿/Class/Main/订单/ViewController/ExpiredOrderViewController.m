@@ -1,7 +1,7 @@
 
 //
 //  UnpayedOrderViewController.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/12/28.
 //  Copyright © 2016年 geek. All rights reserved.
@@ -25,9 +25,13 @@ OrderCellDelegte>
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearData) name:LogoutNotification object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.page  = 1;
     [self reloadData];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearData) name:LogoutNotification object:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -51,8 +55,8 @@ OrderCellDelegte>
 -(void)reloadData{
     self.page = 1;
     if ([ProjectUtil isBlank:[UserManager getUserObject].telephone]) {
-        [SVProgressHUD showInfoWithStatus:@"请先登录"];
         [self.tableView.mj_header endRefreshing];
+        [self showHint:@"请先登录"];
         return ;
     }
     NSString *url = [NSString stringWithFormat:@"%@%@",Base_Url,@"/controller/api/orderList.php"];
@@ -184,7 +188,7 @@ OrderCellDelegte>
         UITableView *tb = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight-64-49) style:UITableViewStylePlain];
         tb.delegate = self;
         tb.dataSource = self;
-        tb.contentInset = UIEdgeInsetsMake(0, 0, kDevice_Is_iPhoneX?49+41:49, 0);
+        tb.contentInset = UIEdgeInsetsMake(0, 0, [ProjectUtil isPhoneX]?49+41:49, 0);
         tb.backgroundColor = TableViewBackgroundColor;
         tb.tableFooterView = [[UIView alloc] init];
         tb.separatorStyle  = UITableViewCellSeparatorStyleNone;

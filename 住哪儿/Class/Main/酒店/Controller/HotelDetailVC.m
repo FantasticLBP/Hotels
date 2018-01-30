@@ -1,6 +1,6 @@
 
 //  HotelDetailVC.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/12/20.
 //  Copyright © 2016年 geek. All rights reserved.
@@ -16,8 +16,6 @@
 #import "HotelEvaluateCell.h"
 #import "ShareView.h"
 #import <MessageUI/MessageUI.h>
-
-#import "HotelLocationMapVC.h"
 #import "HotelAlbumsVC.h"
 #import "HotelEvaluateVC.h"
 #import "HotelRoomPriceVC.h"
@@ -246,9 +244,7 @@ static NSString *HotelEvaluateCellID = @"HotelEvaluateCell";
             break;
         }
         case Watch_Hotel_Map:{
-            HotelLocationMapVC *vc = [[HotelLocationMapVC alloc] init];
-            vc.destination  = self.model.hotelName;
-            [self.navigationController pushViewController:vc animated:YES];
+            [SVProgressHUD showInfoWithStatus:@"新功能敬请期待哦"];
             break;
         }
             

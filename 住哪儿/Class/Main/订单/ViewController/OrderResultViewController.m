@@ -2,7 +2,7 @@
 
 //
 //  OrderResultViewControllrt.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2017/1/6.
 //  Copyright © 2017年 geek. All rights reserved.
@@ -52,7 +52,7 @@ static NSString *OrderInfoCellID = @"OrderInfoCell";
     self.navigationController.viewControllers = vcs;
     
     MainViewController *vc = (MainViewController *)[UIApplication sharedApplication] .keyWindow.rootViewController;
-    vc.selectedIndex = 3;
+    vc.selectedIndex = 2;
 }
 
 #pragma mark - UITableViewDeegate

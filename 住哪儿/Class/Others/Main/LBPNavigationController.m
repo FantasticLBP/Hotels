@@ -1,7 +1,7 @@
 
 //
 //  LBPNavigationController.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/10/10.
 //  Copyright © 2016年 Fantasticbaby. All rights reserved.
@@ -46,18 +46,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[UINavigationBar appearance] setBarTintColor:GlobalMainColor];
-    // 设置pop手势的代理
-//    self.interactivePopGestureRecognizer.delegate = self;
-    
-    // 获取系统自带滑动手势的target对象
-    id target = self.interactivePopGestureRecognizer.delegate;
-    // 创建全屏滑动手势，调用系统自带滑动手势的target的action方法
-    UIScreenEdgePanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:target action:@selector(handleNavigationTransition:)];
-    // 设置手势代理，拦截手势触发
-    pan.delegate = self;
-    // 给导航控制器的view添加全屏滑动手势
-    [self.view addGestureRecognizer:pan];
-    self.interactivePopGestureRecognizer.enabled = YES;
+//    // 设置pop手势的代理
+////    self.interactivePopGestureRecognizer.delegate = self;
+//    
+//    // 获取系统自带滑动手势的target对象
+//    id target = self.interactivePopGestureRecognizer.delegate;
+//    // 创建全屏滑动手势，调用系统自带滑动手势的target的action方法
+//    UIScreenEdgePanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:target action:@selector(handleNavigationTransition:)];
+//    // 设置手势代理，拦截手势触发
+//    pan.delegate = self;
+//    // 给导航控制器的view添加全屏滑动手势
+//    [self.view addGestureRecognizer:pan];
+//    self.interactivePopGestureRecognizer.enabled = YES;
 }
 
 /**

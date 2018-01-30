@@ -1,6 +1,6 @@
 //
 //  ConditionPickerView.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/12/8.
 //  Copyright © 2016年 geek. All rights reserved.
@@ -73,11 +73,8 @@
         make.left.equalTo(self);
         make.right.equalTo(self);
         make.bottom.equalTo(self);
-        make.height.mas_equalTo(40);
+        make.height.equalTo(@40).priorityHigh();
     }];
-    
-    
-    
 }
 
 #pragma mark - UITextFieldDelegate

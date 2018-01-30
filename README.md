@@ -8,7 +8,7 @@
 
 [![platform](https://img.shields.io/badge/platform-iOS-red.svg)]()
 [![weibo](https://img.shields.io/badge/weibo-%40杭城小刘-green.svg)](http://weibo.com/3194053975/profile?rightmod=1&wvr=6&mod=personinfo&is_hot=1)
-[![Updated](https://img.shields.io/badge/Updated-2017--12--12-green.svg)]()
+[![Updated](https://img.shields.io/badge/Updated-2018--11--06-green.svg)]()
 
 
 
@@ -17,14 +17,17 @@
 <li>自定义NavigationController实现全屏右滑返回上一控制器的LBPNavigationController</li>
 <li>自定义UIScrollView实现全屏滑动显示不同控制器的LBPScrollSegmentView</li>
 <li>封装网络访问类AFNetPackage，具备检查网络状态、JSON方式获取数据、xml方式获取数据、post、get、delete、文件下载、文件上传等功能</li>
-<li>UITableview上拉加载、下面刷新功能;UITableView潜逃UICollecionView展现界面，事件、数据等通过Delegate处理</li>
+<li>UITableview上拉加载、下面刷新功能;UITableView潜逃UICollecionView展现界面，事件、数据等通过Delegate处理；cell的重用内存优化</li>
 <li>Masonry自动布局库的使用</li>
 <li>封装好的启动欢迎页</li>
 <li>个人信息持久化保存</li>
 <li>复杂界面的布局纯代码实现</li>
-<li>cell的重用内存优化</li>
+<li>加速度传感器的使用</li>
+<li>下拉拖拽放大特效、拖动吸附特效</li>
 <li>自定义URL Schemes便于其他App或者网页唤起；方便App或者网页传递参数</li>
-<li>工程结构一幕了然，便于拓展</li>
+<li>地图及其导航功能</li>
+<li>工程结构良好，便于拓展</li>
+<li>地图模块（高德、百度、系统自带地图检测及其导航）用 Swift 语言编写。使用很方便</li>
 <li>界面采用代码实现，部分界面采用xib实现。整个代码可读性比较好、代码规范、有注释说明，配合服务端是自己用php写的，Api也是php实现的。</li>
 <li>主要功能：根据不同主题查找酒店、摇一摇随机推荐酒店、根据城市定位推荐酒店、根据用户输入多条件模糊搜索查找酒店、酒店位置地图显示、路径规划及其导航（百度地图、高德地图、系统地图）、订单查看等、酒店分享等功能</li>
 </ul>
@@ -67,4 +70,4 @@
 各位同学觉得有帮助的欢迎给个star，我会继续优化代码。
 如果有不懂的地方可以加入QQ交流群讨论：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=c9dc4ab0b2062e0004b3b2ed556da1ce898631742e15780297feb3465ad08eda">**515066271**</a>。这个QQ群讨论技术范围包括：iOS、H5混合开发、前端开发、PHP开发，欢迎大家讨论技术。
 
-## 代码如需用于商业用途，请联系本人，否则追究法律责任
+## 本项目包含功能为精简版，如有需要功能更全、更完整的项目代码或者商业合作请联系本人（QQ/微信：704568245）

@@ -5,19 +5,17 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
-	<string>住哪儿</string>
+	<string>幸运计划助手</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.0</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -51,13 +49,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>“住哪儿”需要访问您的相机权限</string>
+	<string>“幸运计划助手”需要访问您的相机权限来更换头像</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>“住哪儿”需要访问您的位置信息</string>
+	<string>“幸运计划助手”需要访问您的位置信息来为你提供更好的酒店推荐服务</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>“住哪儿”需要在后台访问您的位置信息</string>
+	<string>“幸运计划助手”需要在后台访问您的位置信息来为你提供更好的酒店推荐服务</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>“住哪儿”需要访问您的相册信息</string>
+	<string>“幸运计划助手”需要访问您的相册信息来更换头像或使用保存到相册功能</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

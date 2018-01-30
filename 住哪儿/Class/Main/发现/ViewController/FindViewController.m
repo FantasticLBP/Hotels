@@ -1,6 +1,6 @@
 //
 //  FindViewController.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/10/10.
 //  Copyright © 2016年 Fantasticbaby. All rights reserved.
@@ -54,9 +54,6 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self setupUI];
-    [self loadSubjectImage];
-    [self preData];
-    [self loadSubject];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -64,6 +61,9 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
     if (!self.isPickedCity) {
         [self autoLocate];
     }
+    [self loadSubjectImage];
+    [self preData];
+    [self loadSubject];
 }
 
 #pragma mark - private method
@@ -307,6 +307,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
         return cell;
     }else{
         SpecialHotelsCell *cell = [tableView dequeueReusableCellWithIdentifier:SpecialHotelsCellID forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.name = @"烟雨千岛湖 私享避世小假日";
         return cell;
     }
@@ -315,7 +316,7 @@ static NSString *SpecialHotelFlagCellID = @"SpecialHotelFlagCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row>= 2 + self.hotels.count ) {
-        [SVProgressHUD showInfoWithStatus:@"此处要加入HTML5网页，等待程序员哥哥后续升级哦"];
+        [SVProgressHUD showInfoWithStatus:@"新功能，敬请期待"];
     }else if (indexPath.row >1 && indexPath.row < self.hotels.count + 2){
         HotelDetailVC *vc = [[HotelDetailVC alloc] init];
         vc.startPeriod = [[NSDate date] todayString];

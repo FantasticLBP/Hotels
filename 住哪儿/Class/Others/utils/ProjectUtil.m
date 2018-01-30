@@ -1,7 +1,7 @@
 
 //
 //  ProjectUtil.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/12/20.
 //  Copyright © 2016年 geek. All rights reserved.
@@ -127,6 +127,35 @@
     NSMutableArray *array = [NSMutableArray array];
     array = [[NSUserDefaults standardUserDefaults] objectForKey:LocalNitificationArray];
     return array;
+}
+
++ (BOOL)isPhoneX {
+    BOOL iPhoneX = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {//判断是否是手机
+        return iPhoneX;
+    }
+    if (@available(iOS 11.0, *)) {
+        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+        if (mainWindow.safeAreaInsets.bottom > 0.0) {
+            iPhoneX = YES;
+        }
+    }
+    return iPhoneX;
+}
+
+
++ (NSDictionary *)base64decode:(NSDictionary *)enctyptedString {
+    if (!enctyptedString) {
+        return nil;
+    }
+    NSData *decryptedData = [[NSData alloc] initWithBase64EncodedString:enctyptedString
+                                                                options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    NSDictionary *decryptedDictionary = [NSJSONSerialization JSONObjectWithData:decryptedData
+                                                                        options:NSJSONReadingAllowFragments
+                                                                          error:nil];
+
+    return decryptedDictionary;
+   
 }
 
 @end

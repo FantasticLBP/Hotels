@@ -1,7 +1,7 @@
 
 //
 //  HomeViewController.m
-//  住哪儿
+//  幸运计划助手
 //
 //  Created by 杭城小刘 on 2016/10/10.
 //  Copyright © 2016年 Fantasticbaby. All rights reserved.
@@ -25,6 +25,7 @@
 #import "MainViewController.h"
 #import "SearchResultVC.h"
 #import "LocationManager.h"
+#import "BadNetworkView.h"
 
 #define SalePromotionImageWidth 49
 #define SalePromotionImageHeight 54
@@ -60,36 +61,34 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 #pragma mark -- life cycle
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-     if (!kDevice_Is_iPhoneX) {
+    if (![ProjectUtil isPhoneX]) {
         [self.navigationController setNavigationBarHidden:YES animated:NO];
-     }
+    }
+    [self loadSubjectImage];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.tableHeaderView = self.headerView;
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.saleImageView];
-    [self loadSubjectImage];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
     if (!self.isPickedCity) {
         [self autoLocate];
     }
 }
 
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    if (!kDevice_Is_iPhoneX) {
+    if (![ProjectUtil isPhoneX]) {
         [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
     [SVProgressHUD dismiss];
 }
 
 - (BOOL)prefersStatusBarHidden { //设置隐藏显示
-    if (kDevice_Is_iPhoneX) {
+    if ([ProjectUtil isPhoneX]) {
         return NO;
     }
     return YES;
@@ -315,15 +314,13 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.hotels.count + 3;
+    return self.hotels.count + 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        return 181;
-    }else if(indexPath.row == 1){
+     if(indexPath.row == 0){
         return 106;
-    }else if (indexPath.row == 2){
+    }else if (indexPath.row == 1){
         return 81;
     }else{
         return 270;
@@ -331,32 +328,27 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        SelectConditionCell *cell = [tableView dequeueReusableCellWithIdentifier:SelectConditionCellID forIndexPath:indexPath];
-        cell.delegate = self;
-        cell.datas = self.condtions;
-        return cell;
-    }else if (indexPath.row == 1){
+    if (indexPath.row == 0){
         HotPopularHotelAdCell *cell = [tableView dequeueReusableCellWithIdentifier:HotPopularHotelAdCellID forIndexPath:indexPath];
         cell.datas = self.condtions;
         return cell;
-    }else if (indexPath.row == 2){
+    }else if (indexPath.row == 1){
         SpecialHotelCell *cell = [tableView dequeueReusableCellWithIdentifier:SpecialHotelCellID forIndexPath:indexPath];
         return cell;
     }else{
         HotelDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:HotelDescriptionCellID forIndexPath:indexPath];
-        cell.model = self.hotels[indexPath.row-3];
+        cell.model = self.hotels[indexPath.row-2]  ? self.hotels[indexPath.row-2]  : nil;
         return cell;
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row>=3) {
+    if (indexPath.row>=2) {
         HotelDetailVC *vc = [[HotelDetailVC alloc] init];
         vc.startPeriod = [[NSDate date] todayString];
         vc.leavePerios = [[NSDate date] GetTomorrowDayString];
-        vc.model = self.hotels[indexPath.row-3];
+        vc.model = self.hotels[indexPath.row-2];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -367,7 +359,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
     if (!_tableView) {
         _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, BoundHeight - 49) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor brownColor];
-        _tableView.contentInset = UIEdgeInsetsMake(0, 0, kDevice_Is_iPhoneX?34:0, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, [ProjectUtil isPhoneX]?34:0, 0);
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.scrollsToTop = YES;
@@ -398,7 +390,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 -(SDCycleScrollView *)advertiseView{
     if (!_advertiseView) {
-        SDCycleScrollView *adview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, BoundWidth, 394) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        SDCycleScrollView *adview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, BoundWidth, 400) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
         adview.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
         adview.currentPageDotColor = [UIColor whiteColor];
         adview.originY = 112;
@@ -417,7 +409,7 @@ static NSString *HotelDescriptionCellID = @"HotelDescriptionCell";
 
 -(UIView *)headerView{
     if (!_headerView) {
-        UIView *head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, 394)];
+        UIView *head = [[UIView alloc] initWithFrame:CGRectMake(0, 0, BoundWidth, 400)];
         head.backgroundColor = [UIColor whiteColor];
         [head addSubview:self.advertiseView];
         [head addSubview:self.conditionView];

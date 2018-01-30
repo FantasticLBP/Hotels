@@ -29,6 +29,7 @@
     // 检测网络连接的单例,网络变化时的回调方法
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         LBPLog(@"%ld", status);
+        [[NSNotificationCenter defaultCenter] postNotificationName:NetworkingStatus object:nil userInfo:@{@"NetWorkStatus":[NSString stringWithFormat:@"%@",@(status)]}];
     }];
 }
 
