@@ -4,58 +4,18 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/ZYCalendarView/ZYDayView.m"
-            timestampString = "534671225.015987"
+            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/Controller/HotelDetailVC.m"
+            timestampString = "541222886.3415641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "-setDate:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/ZYCalendarView/ZYDayView.m"
-            timestampString = "534671225.016592"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "-setDate:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x4f4f;&#x54ea;&#x513f;/Class/Main/ZYCalendarView/ZYDayView.m"
-            timestampString = "534671225.016804"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "-setDate:"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-shareView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
