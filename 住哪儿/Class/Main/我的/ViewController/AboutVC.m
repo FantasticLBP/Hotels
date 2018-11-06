@@ -1,6 +1,6 @@
 //
 //  AboutVC.m
-//  幸运计划助手
+//  住哪儿
 //
 //  Created by 杭城小刘 on 2016/11/21.
 //  Copyright © 2016年 geek. All rights reserved.
@@ -20,7 +20,7 @@ static NSString *AboutCellID = @"about";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"关于幸运计划助手";
+    self.title = @"关于住哪儿";
     self.view.backgroundColor = TableViewBackgroundColor;
     [self.view addSubview:self.tableView];
     [self.tableView addSubview:self.label];
@@ -54,7 +54,7 @@ static NSString *AboutCellID = @"about";
         label.textColor = [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
         label.font = [UIFont systemFontOfSize:14];
         label.textAlignment = NSTextAlignmentLeft;
-        label.text = @"幸运计划助手是国内领先的酒店在线预订平台";
+        label.text = @"住哪儿是国内领先的酒店在线预订平台";
         [cell.contentView addSubview:label];
     }
     

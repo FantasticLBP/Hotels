@@ -1,6 +1,6 @@
 //
 //  MainViewController.m
-//  幸运计划助手
+//  住哪儿
 //
 //  Created by 杭城小刘 on 2016/10/10.
 //  Copyright © 2016年 Fantasticbaby. All rights reserved.
@@ -21,8 +21,6 @@
 @property (nonatomic, strong) ShakeViewController *shakeVC;
 @property (nonatomic, strong) SettingViewController *settingVC;
 @property (nonatomic, strong) OrderViewController *orderVC;
-@property (nonatomic, strong) UIWebView *webview;
-@property (nonatomic, strong) NSString *jumpUrl;
 @end
 
 @implementation MainViewController
@@ -32,65 +30,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    LBPNavigationController *homeNav=[[LBPNavigationController alloc]initWithRootViewController:self.homeVC];
+    [self createVC:self.homeVC Title:@"首页" imageName:@"tabBar_home"];
+    
+    LBPNavigationController *messageVC=[[LBPNavigationController alloc]initWithRootViewController:self.messageVC];
+    [self createVC:self.messageVC Title:@"发现" imageName:@"tabBar_discover"];
+    
+    LBPNavigationController *orderVC=[[LBPNavigationController alloc]initWithRootViewController:self.orderVC];
+    [self createVC:self.orderVC Title:@"订单" imageName:@"tabBar_order"];
+    
+    LBPNavigationController *settingVC=[[LBPNavigationController alloc]initWithRootViewController:self.settingVC];
+    [self createVC:self.settingVC Title:@"我的" imageName:@"tabBar_owner"];
+    self.viewControllers = @[homeNav,messageVC,orderVC,settingVC];
+    [[UITabBar appearance] setTranslucent:NO];
 }
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self fetchFlagSuccess:^{
-        [self.view addSubview:self.webview];
-        [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.jumpUrl]]];
-    } fail:^{
-        LBPNavigationController *homeNav=[[LBPNavigationController alloc]initWithRootViewController:self.homeVC];
-        [self createVC:self.homeVC Title:@"首页" imageName:@"tabBar_home"];
-        
-        LBPNavigationController *messageVC=[[LBPNavigationController alloc]initWithRootViewController:self.messageVC];
-        [self createVC:self.messageVC Title:@"发现" imageName:@"tabBar_discover"];
-        
-        LBPNavigationController *orderVC=[[LBPNavigationController alloc]initWithRootViewController:self.orderVC];
-        [self createVC:self.orderVC Title:@"订单" imageName:@"tabBar_order"];
-        
-        LBPNavigationController *settingVC=[[LBPNavigationController alloc]initWithRootViewController:self.settingVC];
-        [self createVC:self.settingVC Title:@"我的" imageName:@"tabBar_owner"];
-        self.viewControllers = @[homeNav,messageVC,orderVC,settingVC];
-        [[UITabBar appearance] setTranslucent:NO];
-    }];
-}
-
 
 
 #pragma mark - private method
-
-- (void)fetchFlagSuccess:(void(^)())success fail:(void(^)())fail {
-    NSString *judgeUrl = @"http://vipapp.01appkkk.com/Lottery_server/get_init_data.php";
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"appid"] = @"com.luck.hotels";
-    params[@"type"] = @"ios";
-    [AFNetPackage getJSONWithUrl:judgeUrl parameters:params success:^(id responseObject) {
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        if ([json[@"rt_code"] integerValue] == 200) {
-            NSDictionary *judgeDict = [ProjectUtil base64decode:json[@"data"]];
-            self.jumpUrl = judgeDict[@"url"];
-            BOOL needJump = [judgeDict[@"show_url"] boolValue];
-            if (needJump) {
-                if (success) {
-                    success();
-                }
-            } else {
-                if (fail) {
-                    fail();
-                }
-            }
-        } else {
-            if (fail) {
-                fail();
-            }
-        }
-    } fail:^{
-        if (fail) {
-            fail();
-        }
-    }];
-}
 
 -(void)createVC:(UIViewController *)vc Title:(NSString *)title imageName:(NSString *)imageName{
     vc.title = title;
@@ -149,12 +105,5 @@
     return _settingVC;
 }
 
-- (UIWebView *)webview{
-    if (!_webview) {
-        _webview = [[UIWebView alloc] initWithFrame:CGRectMake(0,0, BoundWidth, BoundHeight)];
-        _webview.backgroundColor = [UIColor whiteColor];
-        _webview.scrollView.contentInset = UIEdgeInsetsMake([ProjectUtil isPhoneX] ? 44 : 20, 0, [ProjectUtil isPhoneX] ? 20 : 0, 0);
-    }
-    return _webview;
-}
+
 @end

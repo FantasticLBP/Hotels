@@ -152,7 +152,7 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = @"拨打客服电话";
         }else if(indexPath.row == 1){
-            cell.textLabel.text = @"关于幸运计划助手";
+            cell.textLabel.text = @"关于住哪儿";
         }
     }
     

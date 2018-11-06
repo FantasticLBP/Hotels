@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  幸运计划助手
+//  住哪儿
 //
 //  Created by geek on 2016/11/15.
 //  Copyright © 2016年 geek. All rights reserved.
