@@ -1,0 +1,33 @@
+//
+//  PrefixHeader.pch
+//  Hotels
+//
+//  Created by 杭城小刘 on 6/27/19.
+//  Copyright © 2019 @杭城小刘. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "LocalConfig.h"
+#import "AFNetPackage.h"
+#import "MJRefresh.h"
+#import "SVProgressHUD.h"
+#import "MWPhoto.h"
+#import "UIImageView+EMWebCache.h"
+#import "FlatUIKit.h"
+#import "Masonry.h"
+#import "NSDate+Formatter.h"
+#import "ProjectUtil.h"
+#import "UserManager.h"
+#import "NSObject+NSLocalNotification.h"
+#import "UITableView+NoData.h"
+#import "UIViewController+HUD.h"
+#import "UIViewController+currentViewController.h"
+#import "UIViewController+badNetwork.h"
+#import "DBUtil.h"
+
+#endif /* PrefixHeader_pch */
